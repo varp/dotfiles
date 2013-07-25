@@ -118,3 +118,7 @@ if [[ `whoami` == "root" ]]; then
 else
   PS1="\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
 fi
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Load RVM (Ruby version manager)
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

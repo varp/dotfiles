@@ -1,0 +1,12 @@
+*.pyc
+*.rbc
+*.swp
+*~
+.#*
+.DS_Store
+._*
+/.envrc
+/.bundle
+TAGS
+tags
+build/
