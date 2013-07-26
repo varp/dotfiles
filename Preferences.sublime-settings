@@ -33,6 +33,7 @@
 	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
+	"shift_tab_unindent": true,
 	"use_tab_stops": true,
-	"word_wrap": false
+	"word_wrap": true
 }
