@@ -1,12 +1,14 @@
 # Dotfiles
 
 Install dotfiles and binfiles:
-    rake install
-
+```
+rake install
+```
 Or separately:
-    rake dotfiles
-    rake binfiles
-
+```
+rake dotfiles
+rake binfiles
+```
 # Sublime Text 2
     rake sublime:settings # Install settings
     rake sublime:themes   # Install custom themes
