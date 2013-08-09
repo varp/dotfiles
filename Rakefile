@@ -51,14 +51,13 @@ end
 namespace :sublime do
     task :settings do
         source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-        target_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2')
-        target_path = File.join(target_dir, 'Preferences.sublime-settings')
+        sublime_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2')
+        target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
 
 
         # Check on the installed sublime_text2
-        if !File.exists?(target_dir)
-            FielUtils.mkdir_p(target_dir, 'Packages/User')
-            FileUtils.mkdit_p(target_dir, 'Packages/Custom Themes')
+        if !File.exists?(sublime_dir)
+            FielUtils.mkdir_p(sublime_dir, 'Packages/User')
         end
 
 
@@ -69,7 +68,7 @@ namespace :sublime do
         end
 
         # Install Soda Theme
-        Dir.chdir(File.join(target_dir, 'Packages')) do
+        Dir.chdir(File.join(sublime_dir, 'Packages')) do
             if !File.exists?("Theme - Soda")
                 system 'git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"'
             else
