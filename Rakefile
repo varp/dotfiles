@@ -49,6 +49,12 @@ end
 
 
 namespace :sublime do
+
+    task :packge_manager do
+        puts "TODO: implement this feature"
+    end
+
+
     task :settings do
         source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
         sublime_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2')
