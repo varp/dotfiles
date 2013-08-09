@@ -8,3 +8,6 @@ Or separately:
 # Sublime Text 2
     rake sublime:settings # Install settings
     rake sublime:themes   # Install custom themes
+
+## Credits 
+[Dan Sosedoff](https://github.com/sosedoff/dotfiles)
