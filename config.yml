@@ -1,0 +1,7 @@
+dotfiles:
+    - bashrc
+    - gitconfig
+    - gitignore
+
+binfiles:
+    - genpassword
