@@ -1,6 +1,8 @@
 # Dotfiles
+
 Install dotfiles and binfiles:
     rake install
+
 Or separately:
     rake dotfiles
     rake binfiles
