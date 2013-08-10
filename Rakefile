@@ -50,15 +50,15 @@ end
 namespace :sublime do
 
   task :package_manager do
-    target_dir = File.join(ENV['HOME'], '.config', 'sublime_text2', 'Installed Packages')
-    taget_path = File.join(target_dir, 'Package Control.sublime-package')
-    if !File.exists?(target_path)
+    target_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2', 'Installed Packages')
+    target_path = File.join(target_dir, 'Package Control.sublime-package')
+    if File.exists?(target_path)
       puts "Sublime Package Control already installed! :)"
-      return
+      exit
     end
 
     Dir.chdir(target_dir) do
-      system "wget https://sublime.wbond.net/Package%20Control.sublime-package -O Package Control.sublime-package"
+      system "wget https://sublime.wbond.net/Package%20Control.sublime-package -O 'Package Control.sublime-package'"
     end
   end
 
