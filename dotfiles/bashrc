@@ -122,3 +122,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+[[ -s /home/tuvak/.nvm/nvm.sh ]] && . /home/tuvak/.nvm/nvm.sh # This loads NVM
