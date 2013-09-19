@@ -111,16 +111,18 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+parse_node_version() {
+    [ $NAVEVERSION ] && echo $NAVEVERSION | sed -e 's/\(.*\)/(node \1)/'
+}
+
 # Terminal options
 #
 if [[ `whoami` == "root" ]]; then
   PS1="# "
 else
-  PS1="\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
+  PS1="\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\] \[\e[1;34m\]\$(parse_node_version)\[\e[0;0m\]$ "
 fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-[[ -s /home/tuvak/.nvm/nvm.sh ]] && . /home/tuvak/.nvm/nvm.sh # This loads NVM
