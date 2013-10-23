@@ -9,6 +9,8 @@
 
 [core]
   editor = vim
+  autocrlf = false
+  eol = lf
 
 [alias]
   co        = checkout
