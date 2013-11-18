@@ -40,6 +40,3 @@
 
 [gc]
   auto = 1
-
-[branch]
-  autosetuprebase = always
