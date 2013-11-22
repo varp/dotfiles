@@ -115,6 +115,10 @@ parse_node_version() {
     [ $NAVEVERSION ] && echo $NAVEVERSION | sed -e 's/\(.*\)/(node \1)/'
 }
 
+parse_node_version_nvm() {
+    [ $NVM_BIN ] && echo `nvm ls` | sed -e 's/.*current\:\s\(.*\)/(node \1)/iMg'
+}
+
 parse_ruby_version() {
     [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/\(.*\)/(\1)/'
 }
@@ -124,9 +128,12 @@ parse_ruby_version() {
 if [[ `whoami` == "root" ]]; then
   PS1="# "
 else
-  PS1="\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\]$ "
+  PS1="\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\]$ "
 fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM

@@ -9,6 +9,8 @@
 
 [core]
   editor = vim
+  autocrlf = false
+  eol = lf
 
 [alias]
   co        = checkout
@@ -27,9 +29,6 @@
 [apply]
   whitespace = nowarn
 
-[branch]
-  autosetupmerge = true
-
 [color]
   ui     = true
   branch = auto
@@ -41,6 +40,3 @@
 
 [gc]
   auto = 1
-
-[branch]
-  autosetuprebase = always

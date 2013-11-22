@@ -1,3 +1,4 @@
+require 'yaml'
 require 'fileutils'
 require 'pp'
 
@@ -47,10 +48,9 @@ task :binfiles do
 end
 
 
-namespace :sublime do
-
-  task :package_manager do
-    target_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2', 'Installed Packages')
+# helpers
+def package_manager_task(version)
+    target_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version.to_s}", 'Installed Packages')
     target_path = File.join(target_dir, 'Package Control.sublime-package')
     if File.exists?(target_path)
       puts "Sublime Package Control already installed! :)"
@@ -60,12 +60,12 @@ namespace :sublime do
     Dir.chdir(target_dir) do
       system "wget https://sublime.wbond.net/Package%20Control.sublime-package -O 'Package Control.sublime-package'"
     end
-  end
+end
 
 
-  task :settings do
+def settings_task(version)
     source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-    sublime_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2')
+    sublime_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version.to_s}")
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
 
 
@@ -89,11 +89,11 @@ namespace :sublime do
         puts "Soda theme is already installed. Skipping."
       end
     end
-  end
+end
 
-  task :themes do
+def themes_task(version)
     repo = 'git://github.com/daylerees/colour-schemes.git'
-    target_dir = File.join(ENV['HOME'], '.config', 'sublime-text-2')
+    target_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version}")
     target_path = File.join(target_dir, 'Packages', 'Custom Themes')
 
     if !File.exists?(target_path)
@@ -101,8 +101,42 @@ namespace :sublime do
     end
 
     system %[cd '#{target_path}' && git clone #{repo}]
-             system %[cd '#{target_path}'/colour-schemes && git pull]
-    end
+    system %[cd '#{target_path}'/colour-schemes && git pull]
+end
+
+
+
+namespace :sublime do
+
+  task :package_manager do
+    package_manager_task 2
+  end
+
+
+  task :settings do
+    settings_task 2
+  end
+
+  task :themes do
+    themes_task 2
+  end
+
+end
+
+namespace :sublime3 do
+
+  task :package_manager do
+    package_manager_task 3
+  end
+
+  task :settings do
+    settings_task 3
+  end
+
+  task :themes do
+    themes_task 3
+  end
+
 end
 
 task :install do
