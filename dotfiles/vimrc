@@ -1,0 +1,29 @@
+set nu
+set autoindent
+set sts=4
+set ts=4
+set sw=4
+set expandtab
+set term=builtin_ansi
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set wrapscan
+
+set ch=2
+
+set vb
+
+set hidden
+
+set laststatus=2
+
+set history=300
+
+set hlsearch
+
+set incsearch
+
+set autoread

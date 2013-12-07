@@ -1,6 +1,7 @@
 [user]
 	name = Vardan Pogosyan
 	email = vardan.pogosyan@gmail.com
+
 [github]
   user = varp
 
@@ -40,3 +41,6 @@
 
 [gc]
   auto = 1
+
+[difftool]
+  prompt = no
