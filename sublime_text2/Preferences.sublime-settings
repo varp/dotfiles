@@ -13,7 +13,7 @@
 	"fallback_encoding": "Cyrillic (Windows-1251)",
 	"fold_buttons": true,
 	"font_face": "Ubuntu Mono",
-	"font_size": 10.0,
+	"font_size": 11.0,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
