@@ -41,7 +41,8 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"BracketHighlighter"
 	],
 	"indent_subsequent_lines": true,
 	"line_numbers": true,
