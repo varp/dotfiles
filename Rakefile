@@ -39,7 +39,7 @@ task :binfiles do
   FileUtils.mkdir_p("#{DOTFILES_HOME}/bin")
 
   files.each do |name|
-    path = File.join(DOTFILES_HOME, 'bin', name)
+    path = File.join(DOTFILES_ROOT, 'bin', name)
     link_path = "#{DOTFILES_HOME}/bin/#{File.basename(name)}"
 
     system "unlink #{link_path}" if File.exists?(link_path)
