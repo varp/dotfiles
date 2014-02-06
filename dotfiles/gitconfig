@@ -24,7 +24,7 @@
   up        = pull --rebase
   track     = !git-track
   prune-all = !git-prune-all
-  pulsh     = !git pull && git push
+  sync      = !git pull && git push
   r         = remote -v
   b         = branch -v
   rh        = reset --hard
