@@ -59,7 +59,7 @@
 	],
 	"scroll_speed": 0,
 	"shift_tab_unindent": true,
-	"tab_size": 4,
+	"tab_size": 2,
 	"theme": "Soda Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
