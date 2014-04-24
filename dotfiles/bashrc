@@ -116,7 +116,7 @@ parse_node_version() {
 }
 
 parse_node_version_nvm() {
-    [ $NVM_BIN ] && echo `nvm ls` | sed -e 's/.*current\:\s\(.*\)/(node \1)/iMg'
+    [ $NVM_BIN ] && echo `nvm ls` | tail -n 1 | sed -e 's/.*\s\(v.*\)/(node \1)/iMg'
 }
 
 parse_ruby_version() {
