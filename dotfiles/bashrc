@@ -111,12 +111,8 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-parse_node_version() {
-    [ $NAVEVERSION ] && echo $NAVEVERSION | sed -e 's/\(.*\)/(node \1)/'
-}
-
 parse_node_version_nvm() {
-    [ $NVM_BIN ] && echo `nvm ls` | tail -n 1 | sed -e 's/.*\s\(v.*\)/(node \1)/iMg'
+    [ $NVM_BIN ] && echo $NVM_BIN | sed -e 's/.*\(v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\).*/(node \1)/ig'
 }
 
 parse_ruby_version() {
