@@ -6,7 +6,7 @@
 	],
 	"auto_indent": true,
 	"caret_style": "smooth",
-	"color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": false,
 	"fade_fold_buttons": false,
@@ -35,14 +35,14 @@
 	],
 	"fold_buttons": true,
 	"font_face": "Ubuntu Mono",
-	"font_size": 12,
+	"font_size": 10,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"BracketHighlighter"
+		"BracketHighlighter",
+		"Vintage"
 	],
 	"indent_subsequent_lines": true,
 	"line_numbers": true,
