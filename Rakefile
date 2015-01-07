@@ -22,9 +22,12 @@ task :dotfiles do
   files = CONFIG['dotfiles']
   files_dir = File.join(DOTFILES_ROOT, 'dotfiles')
 
-  files.each do |name|
+  files.each do |name|    
     path = File.join(DOTFILES_ROOT, 'dotfiles', name)
     link_path = File.join(DOTFILES_HOME, ".#{name}")
+
+    # check for directory and remove it
+    system "rm -rvf #{link_path}" if File.directory?(link_path)
 
     system "unlink #{link_path}" if File.exists?(link_path)
     system "ln -vsf #{path} #{link_path}"

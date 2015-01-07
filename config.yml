@@ -3,6 +3,7 @@ dotfiles:
     - gitconfig
     - gitignore
     - vimrc
+    - bazaar
 
 binfiles:
     - genpassword

@@ -44,5 +44,9 @@
 [gc]
   auto = 1
 
+[diff]
+  tool = meld
+  guitool = meld
+
 [difftool]
   prompt = no
