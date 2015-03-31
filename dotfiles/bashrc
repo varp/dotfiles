@@ -183,3 +183,5 @@ export DEBEMAIL="vardan.pogosyan@gmail.com"
 
 alias mvbsf='mount_vbox_share'
 alias umvbsf='umount_vbox_share'
+
+alias nst='netstat -lntp'
