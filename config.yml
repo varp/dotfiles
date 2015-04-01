@@ -4,6 +4,7 @@ dotfiles:
     - gitignore
     - vimrc
     - bazaar
+    - tmux.conf
 
 binfiles:
     - genpassword
