@@ -19,3 +19,5 @@ set history=300
 set hlsearch
 set incsearch
 set autoread
+
+au FileType ruby setl sw=2 sts=2 et
