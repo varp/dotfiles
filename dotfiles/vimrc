@@ -6,10 +6,6 @@ set sw=4
 set expandtab
 set noswapfile
 
-filetype on
-filetype plugin on
-filetype indent on
-
 set wrapscan
 set ch=2
 set vb
@@ -19,3 +15,19 @@ set history=300
 set hlsearch
 set incsearch
 set autoread
+
+
+au FileType ruby set ts=2 sts=2 sw=2 expandtab
+au FileType python set ts=4 sts=4 sw=4 expandtab
+au FileType php set ts=4 sts=4 sw=4 noexpandtab
+
+
+" tab navigation like firefox 
+" not work in terminal
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>
+inoremap <C-tab>   <Esc>:tabnext<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+
