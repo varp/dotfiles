@@ -34,8 +34,8 @@
 		"*.sublime-workspace"
 	],
 	"fold_buttons": true,
-	"font_face": "Ubuntu Mono",
-	"font_size": 11,
+	"font_face": "DejaVu Sans Mono",
+	"font_size": 10,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
