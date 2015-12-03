@@ -85,7 +85,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias upgrade='sudo apt-get update && sudo apt-get upgrade -y'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -186,3 +185,9 @@ alias umvbsf='umount_vbox_share'
 
 alias nst='sudo netstat -lntp'
 alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`\".replace(\"password: \", \"\"); print(\"Plain password \t=>\t\", plain_pass, \"\nPassword MD5 \t=>\t\", hashlib.md5(plain_pass.encode()).hexdigest());"'
+
+# Aliases for apt
+
+alias apt-upgrade='sudo apt-get update && sudo apt-get upgrade -y'
+alias apt-update='sudo apt-get update'
+alias apt-install='sudo apt-get install'
