@@ -24,10 +24,10 @@ au FileType php setl ts=4 sts=4 sw=4 noexpandtab
 
 " tab navigation like firefox 
 " not work in terminal
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>
-inoremap <C-tab>   <Esc>:tabnext<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <C-p>      :tabprevious<CR>
+nnoremap <C-n>      :tabnext<CR>
+nnoremap <C-t>      :tabnew<CR>
+inoremap <C-p>      <Esc>:tabprevious<CR>
+inoremap <C-n>      <Esc>:tabnext<CR>
+inoremap <C-t>      <Esc>:tabnew<CR>
 
