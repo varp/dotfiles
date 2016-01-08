@@ -1,5 +1,6 @@
 dotfiles:
     - bashrc
+    - aliases_completions
     - gitconfig
     - gitignore
     - vimrc

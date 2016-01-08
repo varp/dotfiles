@@ -27,7 +27,12 @@ au FileType php setl ts=4 sts=4 sw=4 noexpandtab
 nnoremap <C-p>      :tabprevious<CR>
 nnoremap <C-n>      :tabnext<CR>
 nnoremap <C-t>      :tabnew<CR>
+nnoremap <C-w>      :tabclose<CR>
 inoremap <C-p>      <Esc>:tabprevious<CR>
 inoremap <C-n>      <Esc>:tabnext<CR>
 inoremap <C-t>      <Esc>:tabnew<CR>
+inoremap <C-w>      <Esc>:tabclose<CR>
+
+" always open in tabs
+nmap <leader>e :tabedit<CR>
 
