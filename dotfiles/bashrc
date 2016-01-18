@@ -198,7 +198,7 @@ alias nsu='sudo netstat -lnup'
 alias grepi='grep -i'
 
 
-alias vim='vim -p'
+#alias vim='vim -p'
 
 # create tmux seession or connect to existing one when is connected by SSH
 [[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
