@@ -207,3 +207,7 @@ alias grepi='grep -i'
 ## Bash completions for aliases
 
 source ~/.aliases_completions
+export IBUS_ENABLE_SYNC_MODE=1
+
+## PhpStorm Alias
+alias pstorm='pstorm > /dev/null 2>&1 &'

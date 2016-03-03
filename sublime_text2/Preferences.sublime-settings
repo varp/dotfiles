@@ -6,7 +6,7 @@
 	],
 	"auto_indent": true,
 	"caret_style": "smooth",
-	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Mac Classic (SL).tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": false,
 	"fade_fold_buttons": false,
@@ -35,13 +35,12 @@
 	],
 	"fold_buttons": true,
 	"font_face": "DejaVu Sans Mono",
-	"font_size": 10,
+	"font_size": 9,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"BracketHighlighter",
 		"Vintage"
 	],
 	"indent_subsequent_lines": true,
@@ -55,11 +54,11 @@
 	"match_tags": true,
 	"rulers":
 	[
-		80
+		120
 	],
 	"scroll_speed": 0,
 	"shift_tab_unindent": true,
-	"tab_size": 2,
+	"tab_size": 4,
 	"theme": "Soda Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
