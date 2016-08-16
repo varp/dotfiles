@@ -160,13 +160,23 @@ umount_vbox_share() {
 }
 
 # Terminal options
-#
+
+## truncate PWD
+_pwd_short() {
+    echo ${PWD/#$HOME/\~} | sed -E 's!([^/.|^/])[^/]+/!\1/!g'
+}
+
+export PROMPT_COMMAND='ShortenedPwd=$(_pwd_short)'
+
+## prompt
 if [[ `whoami` == "root" ]]; then
-  PS1="\h # "
+  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u\[\e[0m\]@\h:\$ShortenedPwd \[\e[41m\]#\[\e[0m\] "
 else
-  PS1="\h:\w\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\]$ "
+  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \h:\$ShortenedPwd\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\] $ "
 fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -211,3 +221,6 @@ export IBUS_ENABLE_SYNC_MODE=1
 
 ## PhpStorm Alias
 alias pstorm='pstorm > /dev/null 2>&1 &'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
