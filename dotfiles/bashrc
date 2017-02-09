@@ -197,7 +197,7 @@ alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`
 
 # Aliases for apt
 
-alias apt-upgrade='sudo apt-get update && sudo apt-get upgrade -y'
+alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias apt-update='sudo apt-get update'
 alias apt-install='sudo apt-get install'
 alias apt-autoremove='sudo apt-get autoremove'
