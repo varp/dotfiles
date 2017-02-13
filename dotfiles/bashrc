@@ -69,26 +69,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+# library functions
+if [ -f ~/.bash_functions ]; then
+   .  ~/.bash_functions
 fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -107,60 +91,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-parse_node_version_nvm() {
-    [ $NVM_BIN ] && echo $NVM_BIN | sed -e 's/.*\(v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\).*/(node \1)/ig'
-}
-
-parse_ruby_version() {
-    [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/\(.*\)/(\1)/'
-}
-
-mount_vbox_share() {
-  [ -z $# ] && echo "You have to supply mount point"
-
-  local VBOX_SHARE=$1
-  if [ -z $2 ]
-  then
-    local MOUNT_POINT=$VBOX_SHARE
-  else
-    local MOUNT_POINT=$2
-  fi
-
-  local WHOAMI=$(whoami)
-  local WUID=$(id -u $WHOAMI)
-  local WGID=$(id -g $WHOAMI)
-
-  [ ! -d $MOUNT_POINT ] && mkdir $MOUNT_POINT
-
-  VBOX_SHARE_MOUNT_POINT="`pwd`/$MOUNT_POINT"
-  export VBOX_SHARE_MOUNT_POINT
-
-  sudo mount -t vboxsf -o rw,uid=$WUID,gid=$WGID $VBOX_SHARE $VBOX_SHARE_MOUNT_POINT && echo "$VBOX_SHARE share succesfully mounted!" && return 0
-  echo "Something goes wrong!" && return 1
-}
-
-umount_vbox_share() {
-  [ -z $# ] && echo "You have to supply VirtualBox shared folder name"
-
-  local VBOX_SHARE=$1
-
-  sudo umount $VBOX_SHARE && echo "$VBOX_SHARE shared folder successfully unmounted"
-
-  if [ ! -z $VBOX_SHARE_MOUNT_POINT -a -d $VBOX_SHARE_MOUNT_POINT ]
-  then
-    rmdir $VBOX_SHARE_MOUNT_POINT
-    unset VBOX_SHARE_MOUNT_POINT
-    return 0
-  fi
-  echo "Something goes wrong!" && return 1
-}
 
 # Terminal options
-
 ## truncate PWD
 _pwd_short() {
     echo ${PWD/#$HOME/\~} | sed -E 's!([^/.|^/])[^/]+/!\1/!g'
@@ -174,9 +106,10 @@ if [[ `whoami` == "root" ]]; then
 else
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \h:\$ShortenedPwd\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\] $ "
 fi
+
+
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -190,37 +123,15 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export DEBFULLNAME="Vardan Pogosyan"
 export DEBEMAIL="vardan.pogosyan@gmail.com"
 
-alias mvbsf='mount_vbox_share'
-alias umvbsf='umount_vbox_share'
-
-alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`\".replace(\"password: \", \"\"); print(\"Plain password \t=>\t\", plain_pass, \"\nPassword MD5 \t=>\t\", hashlib.md5(plain_pass.encode()).hexdigest());"'
-
-# Aliases for apt
-
-alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
-alias apt-update='sudo apt-get update'
-alias apt-install='sudo apt-get install'
-alias apt-autoremove='sudo apt-get autoremove'
-
-alias nst='sudo netstat -lntp'
-alias nsu='sudo netstat -lnup'
-
-alias grepi='grep -i'
-
-
-#alias vim='vim -p'
 
 # create tmux seession or connect to existing one when is connected by SSH
 [[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
 
 
 ## Bash completions for aliases
-
 source ~/.aliases_completions
 export IBUS_ENABLE_SYNC_MODE=1
 
-## PhpStorm Alias
-alias pstorm='pstorm > /dev/null 2>&1 &'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

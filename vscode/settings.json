@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.editor.showIcons": true,
+    
+    "telemetry.enableTelemetry": false,
+
+    "window.zoomLevel": 1,
+
+    "editor.fontFamily": "'Liberation Mono', 'DejaVu Sans Mono'",
+    "editor.fonrSize": 14,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.wordWrap": true,
+    "editor.insertSpaces": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.wrappingColumn": 120,
+
+    "files.encoding": "utf8",
+
+    "git.confirmSync": true,
+
+    "extensions.autoUpdate": true,
+
+    "debug.inlineValues": true
+}

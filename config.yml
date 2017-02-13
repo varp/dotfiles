@@ -1,4 +1,6 @@
 dotfiles:
+    - bash_functions
+    - bash_aliases
     - bashrc
     - aliases_completions
     - gitconfig

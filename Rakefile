@@ -108,6 +108,21 @@ def themes_task(version)
 end
 
 
+def vscode_settings_task
+    source_path = File.join(DOTFILES_ROOT, 'vscode', 'settings.json')
+    vscode_dir = File.join(ENV['HOME'], '.config', 'Code/')
+    target_path = File.join(vscode_dir, 'User/', 'settings.json')
+
+
+    # Check on the installed sublime_text2
+    FileUtils.mkdir_p(vscode_dir) unless File.exists?(vscode_dir)
+
+    if File.exists?(target_path)
+      system "unlink #{target_path}"
+    else
+      system "ln -vsf #{source_path} #{target_path}"
+    end  
+end
 
 namespace :sublime do
 
@@ -140,6 +155,12 @@ namespace :sublime3 do
     themes_task 3
   end
 
+end
+
+namespace :vscode do
+  task :settings do
+    vscode_settings_task
+  end
 end
 
 task :install do

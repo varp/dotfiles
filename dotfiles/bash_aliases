@@ -1,0 +1,46 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
+# VirtualBox related stuff which is defined in ./functions
+alias mvbsf='mount_vbox_share'
+alias umvbsf='umount_vbox_share'
+
+alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`\".replace(\"password: \", \"\"); print(\"Plain password \t=>\t\", plain_pass, \"\nPassword MD5 \t=>\t\", hashlib.md5(plain_pass.encode()).hexdigest());"'
+
+
+# Aliases for apt
+alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
+alias apt-update='sudo apt-get update'
+alias apt-install='sudo apt-get install'
+alias apt-autoremove='sudo apt-get autoremove'
+alias apt-search='sudo apt-get search'
+
+# netstat
+alias nst='sudo netstat -lntp'
+alias nsu='sudo netstat -lnup'
+
+alias grepi='grep -i'
+#alias vim='vim -p'
+
+
+## PhpStorm Alias
+alias pstorm='pstorm > /dev/null 2>&1 &'

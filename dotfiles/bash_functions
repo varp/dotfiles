@@ -1,0 +1,53 @@
+#
+# prompt
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+parse_node_version_nvm() {
+    [ $NVM_BIN ] && echo $NVM_BIN | sed -e 's/.*\(v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\).*/(node \1)/ig'
+}
+
+parse_ruby_version() {
+    [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/\(.*\)/(\1)/'
+}
+
+mount_vbox_share() {
+  [ -z $# ] && echo "You have to supply mount point"
+
+  local VBOX_SHARE=$1
+  if [ -z $2 ]
+  then
+    local MOUNT_POINT=$VBOX_SHARE
+  else
+    local MOUNT_POINT=$2
+  fi
+
+  local WHOAMI=$(whoami)
+  local WUID=$(id -u $WHOAMI)
+  local WGID=$(id -g $WHOAMI)
+
+  [ ! -d $MOUNT_POINT ] && mkdir $MOUNT_POINT
+
+  VBOX_SHARE_MOUNT_POINT="`pwd`/$MOUNT_POINT"
+  export VBOX_SHARE_MOUNT_POINT
+
+  sudo mount -t vboxsf -o rw,uid=$WUID,gid=$WGID $VBOX_SHARE $VBOX_SHARE_MOUNT_POINT && echo "$VBOX_SHARE share succesfully mounted!" && return 0
+  echo "Something goes wrong!" && return 1
+}
+
+umount_vbox_share() {
+  [ -z $# ] && echo "You have to supply VirtualBox shared folder name"
+
+  local VBOX_SHARE=$1
+
+  sudo umount $VBOX_SHARE && echo "$VBOX_SHARE shared folder successfully unmounted"
+
+  if [ ! -z $VBOX_SHARE_MOUNT_POINT -a -d $VBOX_SHARE_MOUNT_POINT ]
+  then
+    rmdir $VBOX_SHARE_MOUNT_POINT
+    unset VBOX_SHARE_MOUNT_POINT
+    return 0
+  fi
+  echo "Something goes wrong!" && return 1
+}
