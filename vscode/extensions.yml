@@ -1,0 +1,14 @@
+extensions:
+- code-sql.code-sql
+- codezombiech.gitignore
+- donjayamanne.githistory
+- doublefint.pgsql
+- felipecaputo.git-project-manager
+- miguel-savignano.ruby-symbols
+- ms-mssql.mssql
+- ms-vscode.sublime-keybindings
+- rebornix.Ruby
+- robert.ruby-snippet
+- robertohuertasm.vscode-icons
+- vortizhe.simple-ruby-erb
+- waderyan.gitblame
