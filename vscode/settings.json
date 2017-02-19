@@ -6,7 +6,10 @@
     "telemetry.enableTelemetry": false,
 
     "window.zoomLevel": 1,
-
+    
+    "editor.rulers": [
+        80, 120
+    ],
     "editor.fontFamily": "'Liberation Mono', 'DejaVu Sans Mono'",
     "editor.fontSize": 14,
     "editor.formatOnPaste": true,
@@ -16,6 +19,13 @@
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "boundary",
     "editor.wrappingColumn": 120,
+
+    "editor.mouseWheelScrollSensitivity": 2,
+    "editor.tabCompletion": true,
+    "workbench.welcome.enabled": false,
+    "window.showFullPath": true,
+    "explorer.openEditors.visible": 0,
+    "search.quickOpen.includeSymbols": true,
 
     "files.encoding": "utf8",
 
