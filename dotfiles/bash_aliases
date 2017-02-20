@@ -33,6 +33,7 @@ alias apt-update='sudo apt-get update'
 alias apt-install='sudo apt-get install'
 alias apt-autoremove='sudo apt-get autoremove'
 alias apt-search='sudo apt-get search'
+alias is_deb_installed='sudo dpkg --get-selections | grep -i'
 
 # netstat
 alias nst='sudo netstat -lntp'
