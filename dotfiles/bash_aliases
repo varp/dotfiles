@@ -37,10 +37,13 @@ alias apt-search='sudo apt-get search'
 # netstat
 alias nst='sudo netstat -lntp'
 alias nsu='sudo netstat -lnup'
+alias nsx='sudo netstat -lnxp'
 
 alias grepi='grep -i'
 #alias vim='vim -p'
 
+## docker
+alias docker='sudo docker'
 
 ## PhpStorm Alias
 alias pstorm='pstorm > /dev/null 2>&1 &'

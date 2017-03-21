@@ -18,12 +18,11 @@
     "editor.wordWrap": true,
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "boundary",
-    "editor.wrappingColumn": 120,
+    "editor.wordWrapColumn": 120,
 
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": true,
     "workbench.welcome.enabled": false,
-    "window.showFullPath": true,
     "explorer.openEditors.visible": 0,
     "search.quickOpen.includeSymbols": true,
 
@@ -33,5 +32,7 @@
 
     "extensions.autoUpdate": true,
 
-    "debug.inlineValues": true
-}
+    "debug.inlineValues": true,
+    "workbench.iconTheme": "vscode-icons",
+    "explorer.autoReveal": false
+  }
