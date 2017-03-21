@@ -7,6 +7,7 @@ DOTFILES_HOME = ENV['HOME']
 DOTFILES_ROOT = File.dirname(__FILE__)
 CONFIG_PATH = File.join(DOTFILES_ROOT, 'config.yml')
 CONFIG = YAML.load_file(CONFIG_PATH)
+VSCODE_EXT = YAML.load_file(File.join(DOTFILES_ROOT, 'vscode', 'extensions.yml'))
 
 
 task :config do
@@ -124,6 +125,14 @@ def vscode_settings_task
     end  
 end
 
+def vscode_install_extensions_task
+  extensions = VSCODE_EXT['extensions']
+  extensions.each do |ext|
+    system "code --install-extension #{ext}"
+  end
+end
+
+
 namespace :sublime do
 
   task :package_manager do
@@ -160,6 +169,10 @@ end
 namespace :vscode do
   task :settings do
     vscode_settings_task
+  end
+  
+  task :extensions do
+    vscode_install_extensions_task
   end
 end
 
