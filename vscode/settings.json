@@ -5,7 +5,7 @@
     
     "telemetry.enableTelemetry": false,
 
-    "window.zoomLevel": 3,
+    "window.zoomLevel": 1,
     
     "editor.rulers": [
         80, 120
@@ -15,15 +15,14 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "editor.wordWrap": true,
+    "editor.wordWrap": "on",
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "boundary",
-    "editor.wrappingColumn": 120,
+    "editor.wordWrapColumn": 120,
 
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": true,
     "workbench.welcome.enabled": false,
-    "window.showFullPath": true,
     "explorer.openEditors.visible": 0,
     "search.quickOpen.includeSymbols": true,
 
@@ -33,5 +32,8 @@
 
     "extensions.autoUpdate": true,
 
-    "debug.inlineValues": true
-}
+    "debug.inlineValues": true,
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.projectDetection.autoReload": true,
+    "vsicons.dontShowNewVersionMessage": true
+  }
