@@ -36,4 +36,5 @@
     "workbench.iconTheme": "vscode-icons",
     "vsicons.projectDetection.autoReload": true,
     "vsicons.dontShowNewVersionMessage": true
+    "explorer.autoReveal": false
   }
