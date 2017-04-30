@@ -69,7 +69,8 @@ end
 
 def settings_task(version)
     source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-    sublime_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version.to_s}")
+    sublime_dir = File.join(ENV['HOME'], 'Library', "Application Support",
+                          "Sublime Text #{version.to_s}")
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
 
 
@@ -80,9 +81,9 @@ def settings_task(version)
 
 
     if File.exists?(target_path)
-      system "unlink #{target_path}"
+      system "unlink \"#{target_path}\""
     else
-      system "ln -vsf #{source_path} #{target_path}"
+      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
     end
 
     # Install Soda Theme
