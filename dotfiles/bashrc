@@ -104,7 +104,7 @@ export PROMPT_COMMAND='ShortenedPwd=$(_pwd_short)'
 if [[ `whoami` == "root" ]]; then
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u\[\e[0m\] \$ShortenedPwd \[\e[41m\]#\[\e[0m\] "
 else
-  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \$ShortenedPwd\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\] $ "
+  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \$ShortenedPwd\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34m\]\$(parse_node_version_nvm)\[\e[1;34m\]\$(parse_ruby_version)\[\e[0;0m\]\[\e[1;34m\]\$(parse_python_version)\[\e[0;0m\] $ "
 fi
 
 
@@ -127,8 +127,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Load NVM (Node Version Manager)
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+
 # Load Python virtualenv
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && . /usr/local/bin/virtualenvwrapper.sh
+
+# Load Python Version Manager
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Load RVM (Ruby version manager)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
