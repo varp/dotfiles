@@ -8,5 +8,6 @@ dotfiles:
     - vimrc
     - bazaar
     - tmux.conf
+    - profile
 binfiles:
     - genpassword
