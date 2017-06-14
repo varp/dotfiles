@@ -54,7 +54,8 @@ end
 
 # helpers
 def package_manager_task(version)
-    target_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version.to_s}", 'Installed Packages')
+    target_dir = File.join(ENV['HOME'], 'Library', "Application Support",
+                          "Sublime Text #{version.to_s}")
     target_path = File.join(target_dir, 'Package Control.sublime-package')
     if File.exists?(target_path)
       puts "Sublime Package Control already installed! :)"
@@ -68,10 +69,14 @@ end
 
 
 def settings_task(version)
-    source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
     sublime_dir = File.join(ENV['HOME'], 'Library', "Application Support",
                           "Sublime Text #{version.to_s}")
+
+    source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
+    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Material-Theme.sublime-theme')
+
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
+    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'Material-Theme.sublime-theme')
 
 
     # Check on the installed sublime_text2
@@ -86,19 +91,27 @@ def settings_task(version)
       system "ln -vsf \"#{source_path}\" \"#{target_path}\""
     end
 
-    # Install Soda Theme
+    # Install Material Theme
     Dir.chdir(File.join(sublime_dir, 'Packages')) do
       if !File.exists?("Theme - Soda")
-        system 'git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"'
+        system 'git clone https://github.com/equinusocio/material-theme.git "Material Theme"'
       else
-        puts "Soda theme is already installed. Skipping."
+        puts "Material theme is already installed. Skipping."
       end
+    end
+
+    # Install sidebar config
+    if File.exists?(target_sidebar_path)
+      system "unlink \"#{target_sidebar_path}\""
+    else
+      system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
     end
 end
 
 def themes_task(version)
     repo = 'git://github.com/daylerees/colour-schemes.git'
-    target_dir = File.join(ENV['HOME'], '.config', "sublime-text-#{version}")
+    target_dir = File.join(ENV['HOME'], 'Library', "Application Support",
+                          "Sublime Text #{version.to_s}")
     target_path = File.join(target_dir, 'Packages', 'Custom Themes')
 
     if !File.exists?(target_path)
@@ -133,23 +146,6 @@ def vscode_install_extensions_task
   end
 end
 
-
-namespace :sublime do
-
-  task :package_manager do
-    package_manager_task 2
-  end
-
-
-  task :settings do
-    settings_task 2
-  end
-
-  task :themes do
-    themes_task 2
-  end
-
-end
 
 namespace :sublime3 do
 
