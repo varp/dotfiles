@@ -10,7 +10,7 @@
     "editor.rulers": [
         80, 120
     ],
-    "editor.fontFamily": "'Liberation Mono', 'DejaVu Sans Mono'",
+    "editor.fontFamily": "'Menlo', 'Liberation Mono', 'DejaVu Sans Mono'",
     "editor.fontSize": 14,
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
@@ -35,6 +35,6 @@
     "debug.inlineValues": true,
     "workbench.iconTheme": "vscode-icons",
     "vsicons.projectDetection.autoReload": true,
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
     "explorer.autoReveal": false
   }
