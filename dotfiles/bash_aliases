@@ -14,6 +14,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lh='ls -lh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -40,6 +41,9 @@ alias nst='sudo netstat -lntp'
 alias nsu='sudo netstat -lnup'
 alias nsx='sudo netstat -lnxp'
 
+alias mnst='sudo netstat -lnvp tcp'
+alias mnsu='sudo netstat -lnvp udp'
+
 alias grepi='grep -i'
 #alias vim='vim -p'
 
@@ -49,3 +53,6 @@ alias docker-compose='sudo docker-compose'
 
 ## PhpStorm Alias
 alias pstorm='pstorm > /dev/null 2>&1 &'
+
+## systemd
+alias ssctl='sudo systemctl'
