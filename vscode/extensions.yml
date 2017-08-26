@@ -12,3 +12,6 @@ extensions:
 - robertohuertasm.vscode-icons
 - vortizhe.simple-ruby-erb
 - waderyan.gitblame
+- msjsdiag.debugger-for-chrome
+- felixfbecker.php-intellisense
+- felixfbecker.php-debug
