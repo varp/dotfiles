@@ -2,7 +2,7 @@
     {
         "class": "sidebar_label",
         "font.bold": false,
-        "font.size": 16,
-        "font.face": "Menlo"
+        "font.size": 12,
+        "font.face": "Liberation Mono"
     },
 ]
