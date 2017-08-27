@@ -34,6 +34,7 @@
 	"match_tags": true,
 	"rulers":
 	[
+		80,
 		120
 	],
 	"scroll_speed": 0,
