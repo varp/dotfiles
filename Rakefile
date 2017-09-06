@@ -73,10 +73,10 @@ def settings_task(version)
                           "Sublime Text #{version.to_s}")
 
     source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Material-Theme.sublime-theme')
+    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'SoDaReloaded Dark.sublime-theme')
 
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
-    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'Material-Theme.sublime-theme')
+    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'SoDaReloaded Dark.sublime-theme')
 
 
     # Check on the installed sublime_text2
@@ -94,9 +94,9 @@ def settings_task(version)
     # Install Material Theme
     Dir.chdir(File.join(sublime_dir, 'Packages')) do
       if !File.exists?("Theme - Soda")
-        system 'git clone https://github.com/equinusocio/material-theme.git "Material Theme"'
+        system 'git clone https://github.com/Miw0/SoDaReloaded-Theme.git "Theme - SoDaReloaded"'
       else
-        puts "Material theme is already installed. Skipping."
+        puts "SoDaReloaded theme is already installed. Skipping."
       end
     end
 
