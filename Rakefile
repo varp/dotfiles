@@ -85,11 +85,9 @@ def settings_task(version)
     end
 
 
-    if File.exists?(target_path)
-      system "unlink \"#{target_path}\""
-    else
-      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-    end
+    system "unlink \"#{target_path}\"" if File.exists?(target_path)
+    system "ln -vsf \"#{source_path}\" \"#{target_path}\""
+
 
     # Install Material Theme
     Dir.chdir(File.join(sublime_dir, 'Packages')) do
@@ -101,11 +99,8 @@ def settings_task(version)
     end
 
     # Install sidebar config
-    if File.exists?(target_sidebar_path)
-      system "unlink \"#{target_sidebar_path}\""
-    else
-      system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
-    end
+    system "unlink \"#{target_sidebar_path}\"" if File.exists?(target_sidebar_path)
+    system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
 end
 
 def themes_task(version)
