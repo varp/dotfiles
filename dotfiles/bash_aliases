@@ -41,8 +41,8 @@ alias nst='sudo netstat -lntp'
 alias nsu='sudo netstat -lnup'
 alias nsx='sudo netstat -lnxp'
 
-alias mnst='sudo netstat -lnvp tcp'
-alias mnsu='sudo netstat -lnvp udp'
+alias mnst='sudo lsof -PiTCP -sTCP:LISTEN'
+alias mnsu='sudo lsof -PiUDP'
 
 alias grepi='grep -i'
 #alias vim='vim -p'
@@ -56,3 +56,7 @@ alias pstorm='pstorm > /dev/null 2>&1 &'
 
 ## systemd
 alias ssctl='sudo systemctl'
+
+
+## code aliases
+alias code-pgweb="cd ~/code/go/src/github.com/sosedoff/pgweb"
