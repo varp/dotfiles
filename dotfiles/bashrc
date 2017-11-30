@@ -137,6 +137,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Load NVM (Node Version Manager)
+export NVM_SYMLINK_CURRENT=true
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 # Load Python virtualenv

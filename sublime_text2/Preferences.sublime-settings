@@ -45,5 +45,7 @@
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
 	"use_tab_stops": true,
-	"word_wrap": true
+	"word_wrap": true,
+
+	"spell_check": true
 }
