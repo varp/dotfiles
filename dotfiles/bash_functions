@@ -1,19 +1,19 @@
 #
 # prompt
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 parse_node_version_nvm() {
-  [ $NVM_BIN ] && echo $NVM_BIN | sed -e 's/.*\(v[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\).*/[js-\1]/ig'
+  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*(v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@ js-\1 @g'
 }
 
 parse_ruby_version() {
-  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/[rb-\1]/'
+  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/ rb-\1 /'
 }
 
 parse_python_version() {
-  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/[py-\1]/'
+  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/ py-\1 /'
 }
 
 

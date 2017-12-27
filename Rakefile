@@ -73,10 +73,10 @@ def settings_task(version)
                           "Sublime Text #{version.to_s}")
 
     source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Material-Theme.sublime-theme')
+    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'SoDaReloaded Dark.sublime-theme')
 
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
-    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'Material-Theme.sublime-theme')
+    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'SoDaReloaded Dark.sublime-theme')
 
 
     # Check on the installed sublime_text2
@@ -85,27 +85,22 @@ def settings_task(version)
     end
 
 
-    if File.exists?(target_path)
-      system "unlink \"#{target_path}\""
-    else
-      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-    end
+    system "unlink \"#{target_path}\"" if File.exists?(target_path)
+    system "ln -vsf \"#{source_path}\" \"#{target_path}\""
+
 
     # Install Material Theme
     Dir.chdir(File.join(sublime_dir, 'Packages')) do
       if !File.exists?("Theme - Soda")
-        system 'git clone https://github.com/equinusocio/material-theme.git "Material Theme"'
+        system 'git clone https://github.com/Miw0/SoDaReloaded-Theme.git "Theme - SoDaReloaded"'
       else
-        puts "Material theme is already installed. Skipping."
+        puts "SoDaReloaded theme is already installed. Skipping."
       end
     end
 
     # Install sidebar config
-    if File.exists?(target_sidebar_path)
-      system "unlink \"#{target_sidebar_path}\""
-    else
-      system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
-    end
+    system "unlink \"#{target_sidebar_path}\"" if File.exists?(target_sidebar_path)
+    system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
 end
 
 def themes_task(version)
@@ -125,17 +120,16 @@ end
 
 def vscode_settings_task
     source_path = File.join(DOTFILES_ROOT, 'vscode', 'settings.json')
-    vscode_dir = File.join(ENV['HOME'], '.config', 'Code/')
-    target_path = File.join(vscode_dir, 'User/', 'settings.json')
-
+    vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code')
+    target_path = File.join(vscode_dir, 'User', 'settings.json')
 
     # Check on the installed sublime_text2
     FileUtils.mkdir_p(vscode_dir) unless File.exists?(vscode_dir)
 
     if File.exists?(target_path)
-      system "unlink #{target_path}"
+      system "unlink \"#{target_path}\""
     else
-      system "ln -vsf #{source_path} #{target_path}"
+      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
     end  
 end
 

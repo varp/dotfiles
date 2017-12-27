@@ -5,12 +5,12 @@
     
     "telemetry.enableTelemetry": false,
 
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0.2,
     
     "editor.rulers": [
         80, 120
     ],
-    "editor.fontFamily": "'Menlo', 'Liberation Mono', 'DejaVu Sans Mono'",
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace",
     "editor.fontSize": 14,
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
@@ -22,7 +22,6 @@
 
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": true,
-    "workbench.welcome.enabled": false,
     "explorer.openEditors.visible": 0,
     "search.quickOpen.includeSymbols": true,
 
