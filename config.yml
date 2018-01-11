@@ -9,5 +9,6 @@ dotfiles:
     - bazaar
     - tmux.conf
     - profile
+    - muttrc
 binfiles:
     - genpassword
