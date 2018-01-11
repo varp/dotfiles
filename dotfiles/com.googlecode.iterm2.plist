@@ -22,6 +22,8 @@
 	<integer>32</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 1</string>
 	<key>NSFontPanelSizeList</key>
 	<array>
 		<string>9</string>
@@ -84,17 +86,19 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>476 136 445 77 0 0 1680 1027 </string>
-	<key>NSWindow Frame SUStatusFrame</key>
-	<string>0 748 400 129 0 0 1440 877 </string>
+	<string>904 168 729 147 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 485 620 392 0 0 1680 1027 </string>
+	<string>630 498 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1440 877 </string>
+	<string>269 139 606 469 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>412 564 918 394 0 0 1680 1027 </string>
+	<string>830 431 796 473 0 0 1920 1057 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>102 119 1280 644 0 0 1680 1027 </string>
+	<string>76 105 1638 905 0 0 1920 1057 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>175 107 1310 578 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -728,18 +732,20 @@
 	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
-	<key>NoSyncInstallationId</key>
-	<string>BEFD2979-5E17-47C3-B421-2D981C0739B5</string>
-	<key>NoSyncLastTipTime</key>
-	<real>529675108.242697</real>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<key>NoSyncInstallUtilitiesPackage_selection</key>
 	<integer>0</integer>
+	<key>NoSyncInstallationId</key>
+	<string>2BCDDEFE-2079-4095-B270-C0705B9E246F</string>
+	<key>NoSyncLastTipTime</key>
+	<real>531933449.03630602</real>
+	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
+	<true/>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>515700669.16582</real>
+	<real>520151436.72596401</real>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>000</string>
@@ -765,6 +771,7 @@
 		<string>0019</string>
 		<string>0020</string>
 		<string>0021</string>
+		<string>0021</string>
 		<string>0022</string>
 		<string>0023</string>
 		<string>0024</string>
@@ -788,7 +795,6 @@
 		<string>0042</string>
 		<string>0043</string>
 		<string>0044</string>
-		<string>0045</string>
 		<string>0045</string>
 		<string>0046</string>
 		<string>0047</string>
@@ -819,6 +825,8 @@
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -859,11 +867,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=62</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=22</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-07T13:48:30Z</date>
+	<date>2018-01-09T07:55:50Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -876,6 +884,8 @@
 	<true/>
 	<key>TabStyle</key>
 	<integer>0</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1498461440</real>
 	<key>UseBorder</key>
 	<false/>
 	<key>WordCharacters</key>
