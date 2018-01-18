@@ -57,3 +57,22 @@ umount_vbox_share() {
   fi
   echo "Something goes wrong!" && return 1
 }
+
+
+to_timestamp() {
+  if [[ $# -eq 0 || $# -lt 6 ]]; then
+    echo "usage: to_timestamp <year> <month> <day> <hour> <minute> <sec>"
+    return
+  fi
+
+  python -c "import datetime; print(datetime.datetime($1, $2, $3, $4, $5, $6).timestamp())"
+}
+
+from_timestamp() {
+  if [[ $# -eq 0 ]]; then
+    echo "usage: from_timestamp <timestamp>"
+    return
+  fi
+
+  python -c "import datetime; print(datetime.datetime.fromtimestamp($1))"
+}
