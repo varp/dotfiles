@@ -123,14 +123,13 @@ def vscode_settings_task
     vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code')
     target_path = File.join(vscode_dir, 'User', 'settings.json')
 
-    # Check on the installed sublime_text2
     FileUtils.mkdir_p(vscode_dir) unless File.exists?(vscode_dir)
 
     if File.exists?(target_path)
       system "unlink \"#{target_path}\""
-    else
-      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-    end  
+    end
+
+    system "ln -vsf \"#{source_path}\" \"#{target_path}\""
 end
 
 def vscode_install_extensions_task
