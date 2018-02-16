@@ -1,4 +1,10 @@
 {
+	"added_words":
+	[
+		"plugin",
+		"refactored",
+		"Nodejs"
+	],
 	"alignment_chars":
 	[
 		"=",
@@ -40,12 +46,11 @@
 	],
 	"scroll_speed": 0,
 	"shift_tab_unindent": true,
+	"spell_check": true,
 	"tab_size": 4,
 	"theme": "SoDaReloaded Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
 	"use_tab_stops": true,
-	"word_wrap": true,
-
-	"spell_check": true
+	"word_wrap": true
 }

@@ -60,3 +60,6 @@ alias ssctl='sudo systemctl'
 
 ## code aliases
 alias code-pgweb="cd ~/code/go/src/github.com/sosedoff/pgweb"
+
+alias docker='sudo docker'
+alias docker-compose='sudo docker-compose'

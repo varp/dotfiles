@@ -16,6 +16,7 @@ set hlsearch
 set incsearch
 set autoread
 
+syntax on
 
 au FileType ruby setl ts=2 sts=2 sw=2 expandtab
 au FileType python setl ts=4 sts=4 sw=4 expandtab
