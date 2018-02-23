@@ -27,9 +27,13 @@ task :dotfiles do
     path = File.join(DOTFILES_ROOT, 'dotfiles', name)
     link_path = File.join(DOTFILES_HOME, ".#{name}")
 
-    # check for directory and remove it
-    system "rm -rvf #{link_path}" if File.directory?(link_path)
+    if name == "lfm"
+      link_path = File.join(DOTFILES_HOME, ".config/", name)
+      system "mkdir #{DOTFILES_HOME}/.config" unless File.directory? "#{DOTFILES_HOME}/.config"
+    end
 
+    # check for directory and remove it
+    system "rm -rf #{link_path}" if File.directory?(link_path)
     system "unlink #{link_path}" if File.exists?(link_path)
     system "ln -vsf #{path} #{link_path}"
   end
@@ -123,14 +127,13 @@ def vscode_settings_task
     vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code')
     target_path = File.join(vscode_dir, 'User', 'settings.json')
 
-    # Check on the installed sublime_text2
     FileUtils.mkdir_p(vscode_dir) unless File.exists?(vscode_dir)
 
     if File.exists?(target_path)
       system "unlink \"#{target_path}\""
-    else
-      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-    end  
+    end
+
+    system "ln -vsf \"#{source_path}\" \"#{target_path}\""
 end
 
 def vscode_install_extensions_task

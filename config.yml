@@ -10,5 +10,6 @@ dotfiles:
     - tmux.conf
     - profile
     - muttrc
+    - lfm
 binfiles:
     - genpassword
