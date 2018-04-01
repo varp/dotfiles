@@ -157,8 +157,13 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # iTerm2 Shell Integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/vardanpro/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/vardanpro/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/vardanpro/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/vardanpro/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '~/code/google-cloud-sdk/completion.bash.inc' ]; then source '~/code/google-cloud-sdk/completion.bash.inc'; fi
+
+
+# fix docker terminal size
+# See: https://stackoverflow.com/questions/38786615/docker-number-of-lines-in-terminal-changing-inside-docker/49281526#49281526
+goinside(){
+    docker exec -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
+}
+export -f goinside
