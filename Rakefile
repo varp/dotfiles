@@ -27,9 +27,13 @@ task :dotfiles do
     path = File.join(DOTFILES_ROOT, 'dotfiles', name)
     link_path = File.join(DOTFILES_HOME, ".#{name}")
 
-    # check for directory and remove it
-    system "rm -rvf #{link_path}" if File.directory?(link_path)
+    if name == "lfm"
+      link_path = File.join(DOTFILES_HOME, ".config/", name)
+      system "mkdir #{DOTFILES_HOME}/.config" unless File.directory? "#{DOTFILES_HOME}/.config"
+    end
 
+    # check for directory and remove it
+    system "rm -rf #{link_path}" if File.directory?(link_path)
     system "unlink #{link_path}" if File.exists?(link_path)
     system "ln -vsf #{path} #{link_path}"
   end

@@ -1,0 +1,16 @@
+2018-02-16 10:29:55  root(         lfm: 102)  I  Start lfm
+2018-02-16 10:29:55  lfm(          ui: 707)  I  Support wide chars: False
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item uncompress_dir_other_pane
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item diff_file_with_backup
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item change_perms
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item move_file
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item change_owner
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item show_filesystems_info
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item compress_dir
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item uncompress_dir
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item compress_uncompress_file
+2018-02-16 10:29:55  lfm( preferences: 317)  W  KEYS: Missing Action item backup_file
+2018-02-16 10:29:55  lfm( preferences: 325)  W  KEYS: Can't use key "spc" in action "cursor_pagedown", alredy used in "select"
+2018-02-16 10:29:55  lfm( preferences: 385)  I  Load history file from "/home/user/.config/lfm/lfm.history"
+2018-02-16 10:30:44  lfm( preferences: 390)  I  Save history file to "/home/user/.config/lfm/lfm.history"
+2018-02-16 10:30:44  root(         lfm: 118)  I  End lfm, returns: "/home/user/code/dotfiles"

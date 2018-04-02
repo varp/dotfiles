@@ -76,3 +76,8 @@ from_timestamp() {
 
   python -c "import datetime; print(datetime.datetime.fromtimestamp($1))"
 }
+
+sshmount() {
+  mkdir -p "~/Volumes/$1"
+  sshfs user@$1:/ "~/Volumes/$1" -ovolname=$1 -onoappledouble -onoapplexattr && open "~/Volumes/$1"
+}
