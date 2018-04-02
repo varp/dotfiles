@@ -15,6 +15,7 @@
   editor = vim
 	autocrlf = input
   eol = lf
+	excludesfile = /Users/vardanpro/.gitignore_global
 
 [alias]
   co        = checkout
@@ -55,3 +56,11 @@
   prompt = no
 [url "ssh://git@heroku.com/"]
 	insteadOf = https://git.heroku.com/
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/vardanpro/.stCommitMsg
