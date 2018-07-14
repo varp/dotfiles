@@ -3,7 +3,9 @@
 	[
 		"plugin",
 		"refactored",
-		"Nodejs"
+		"Nodejs",
+		"st3",
+		"mkdir"
 	],
 	"alignment_chars":
 	[
@@ -15,15 +17,14 @@
 	"bold_folder_labels": false,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-    "theme": "Afterglow.sublime-theme",
-    "color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": false,
 	"fade_fold_buttons": false,
 	"fallback_encoding": "Cyrillic (Windows-1251)",
 	"fold_buttons": true,
 	"font_face": "Liberation Mono",
-	"font_size": 13,
+	"font_size": 16,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -49,6 +50,7 @@
 	"shift_tab_unindent": true,
 	"spell_check": true,
 	"tab_size": 4,
+	"theme": "Afterglow.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
 	"use_tab_stops": true,

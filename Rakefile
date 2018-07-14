@@ -76,11 +76,13 @@ def settings_task(version)
     sublime_dir = File.join(ENV['HOME'], 'Library', "Application Support",
                           "Sublime Text #{version.to_s}")
 
-    source_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'Preferences.sublime-settings')
-    source_sidebar_path = File.join(DOTFILES_ROOT, 'sublime_text2', 'SoDaReloaded Dark.sublime-theme')
+    source_path = File.join(DOTFILES_ROOT, 'st3', 'Preferences.sublime-settings')
+    source_path_theme = File.join(DOTFILES_ROOT, 'st3', 'Afterglow.sublime-theme')
+    source_path_package_control = File.join(DOTFILES_ROOT, 'st3', 'Package Control.sublime-settings')
 
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
-    target_sidebar_path = File.join(sublime_dir, 'Packages', 'User', 'SoDaReloaded Dark.sublime-theme')
+    target_path_theme = File.join(sublime_dir, 'Packages', 'User', 'Theme - Afterglow', 'Afterglow.sublime-theme')
+    target_path_package_control = File.join(sublime_dir, 'Packages', 'User', 'Package Control.sublime-settings')
 
 
     # Check on the installed sublime_text2
@@ -91,20 +93,18 @@ def settings_task(version)
 
     system "unlink \"#{target_path}\"" if File.exists?(target_path)
     system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-
-
-    # Install Material Theme
-    Dir.chdir(File.join(sublime_dir, 'Packages')) do
-      if !File.exists?("Theme - Soda")
-        system 'git clone https://github.com/Miw0/SoDaReloaded-Theme.git "Theme - SoDaReloaded"'
-      else
-        puts "SoDaReloaded theme is already installed. Skipping."
-      end
+   
+    # Install sidebar config
+    if File.exists?(target_path_theme)
+      system "unlink \"#{target_path_theme}\"" 
+    else
+      system "mkdir -p \"#{target_path_theme}\""
     end
 
-    # Install sidebar config
-    system "unlink \"#{target_sidebar_path}\"" if File.exists?(target_sidebar_path)
-    system "ln -vsf \"#{source_sidebar_path}\" \"#{target_sidebar_path}\""
+    system "ln -vsf \"#{source_path_theme}\" \"#{target_path_theme}\""
+
+    system "unlink \"#{target_path_package_control}\"" if File.exists?(target_path_package_control)
+    system "ln -vsf \"#{source_path_package_control}\" \"#{target_path_package_control}\""
 end
 
 def themes_task(version)
@@ -144,11 +144,7 @@ def vscode_install_extensions_task
 end
 
 
-namespace :sublime3 do
-
-  task :package_manager do
-    package_manager_task 3
-  end
+namespace :st3 do
 
   task :settings do
     settings_task 3

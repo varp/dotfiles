@@ -2,7 +2,7 @@
     {
         "class": "sidebar_label",
         "font.bold": false,
-        "font.size": 14,
+        "font.size": 16,
         "font.face": "Liberation Mono"
     },
 ]
