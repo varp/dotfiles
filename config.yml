@@ -10,6 +10,8 @@ dotfiles:
     - tmux.conf
     - profile
     - muttrc
-    - lfm
+    - config/lfm/lfm.ini
+    - config/lfm/lfm.keys
+    - config/lfm/lfm.theme
 binfiles:
     - genpassword
