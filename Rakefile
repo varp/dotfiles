@@ -60,11 +60,13 @@ end
 # helpers
 def package_manager_task(version)
     target_dir = File.join(ENV['HOME'], 'Library', "Application Support",
-                          "Sublime Text #{version.to_s}")
+                          "Sublime Text #{version.to_s}", 'Installed Packages')
     target_path = File.join(target_dir, 'Package Control.sublime-package')
     if File.exists?(target_path)
       puts "Sublime Package Control already installed! :)"
       exit
+    else
+      FileUtils.mkdir_p(target_dir)
     end
 
     Dir.chdir(target_dir) do
@@ -88,7 +90,7 @@ def settings_task(version)
 
     # Check on the installed sublime_text2
     if !File.exists?(sublime_dir)
-      FielUtils.mkdir_p(sublime_dir, 'Packages/User')
+      FileUtils.mkdir_p(File.join(sublime_dir, 'Packages/User'))
     end
 
 
@@ -108,20 +110,36 @@ def settings_task(version)
     system "ln -vsf \"#{source_path_package_control}\" \"#{target_path_package_control}\""
 end
 
-def themes_task(version)
-    repo = 'git://github.com/daylerees/colour-schemes.git'
+
+def install_by_git(st_version, repo_url, dest_package_folder)
     target_dir = File.join(ENV['HOME'], 'Library', "Application Support",
-                          "Sublime Text #{version.to_s}")
-    target_path = File.join(target_dir, 'Packages', 'Custom Themes')
+                          "Sublime Text #{st_version.to_s}")
+    target_path = File.join(target_dir, 'Packages', dest_package_folder)
 
     if !File.exists?(target_path)
       FileUtils.mkdir_p(target_path)
+      system %[cd '#{target_path}' && git clone #{repo_url} . ] 
+    else
+      system %[cd '#{target_path}' && git pull]
     end
 
-    system %[cd '#{target_path}' && git clone #{repo}]
-    system %[cd '#{target_path}'/colour-schemes && git pull]
 end
 
+
+def color_schemas_task(version)
+    repo = 'git://github.com/daylerees/colour-schemes.git'
+    dest_package_folder = 'Colour Schemas'
+
+
+    install_by_git(3, repo, dest_package_folder)
+end
+
+def theme_task(version)
+    repo = 'https://github.com/Yabatadesign/afterglow-theme/'
+    dest_package_folder = 'Theme - Afterglow'
+
+    install_by_git(3, repo, dest_package_folder)
+end
 
 def vscode_settings_task
     source_path = File.join(DOTFILES_ROOT, 'vscode', 'settings.json')
@@ -151,10 +169,17 @@ namespace :st3 do
     settings_task 3
   end
 
-  task :themes do
-    themes_task 3
+  task :color_schemas do
+    color_schemas_task 3
   end
 
+  task :package_control do
+    package_manager_task 3
+  end
+
+  task :theme do
+    theme_task 3
+  end
 end
 
 namespace :vscode do
