@@ -176,4 +176,9 @@ if [ -f "${HOME}/code/google-cloud-sdk/completion.bash.inc" ]; then source "${HO
 goinside(){
     docker exec -e SHELL=bash -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
 }
-export -f goinside
+_goinside(){
+    COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
+}
+complete -F _goinside goinside;
+export -f goinside;
+
