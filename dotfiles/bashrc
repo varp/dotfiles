@@ -107,4 +107,4 @@ else
 fi
 
 ## load bash env
-source "${HOME}/.bash_env"
+source ~/.bash_env
