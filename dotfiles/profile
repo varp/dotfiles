@@ -1,5 +1,6 @@
-if [[ -f ~/.bashrc ]]; then
-    . ~/.bashrc
-fi
+. "${HOME}/.bashrc" 
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+[[ -f "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
+
+[[ "$(uname -s)" == "Darwin" ]] && export PATH="$(brew --prefix php@7.1)/bin":$PATH
+[[ "$(uname -s)" == "Darwin" ]] && export PATH="$(brew --prefix php@7.1)/sbin":$PATH
