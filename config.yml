@@ -1,14 +1,15 @@
 dotfiles:
     - bash_functions
-    - bash_aliases
-    - bashrc
     - aliases_completions
+    - bash_aliases
+    - bash_env
+    - bash_profile
+    - bashrc
     - gitconfig
     - gitignore
     - vimrc
     - bazaar
     - tmux.conf
-    - profile
     - muttrc
     - config/lfm/lfm.ini
     - config/lfm/lfm.keys

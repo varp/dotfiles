@@ -1,0 +1,13 @@
+source "${HOME}/.bashrc" 
+
+[[ -f "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
+
+
+## OSX
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  
+  [[ -f $(brew --prefix)/etc/bash_completion ]] && source $(brew --prefix)/etc/bash_completion
+  export PATH="$(brew --prefix php@7.1)/bin":$PATH
+  export PATH="$(brew --prefix php@7.1)/sbin":$PATH
+
+fi

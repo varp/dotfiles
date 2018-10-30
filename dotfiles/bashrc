@@ -91,13 +91,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-## OSX
-if [[ "$(uname -s)" == "Darwin" ]] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
-
-
 # Terminal options
 ## truncate PWD
 _pwd_short() {
@@ -114,4 +107,4 @@ else
 fi
 
 ## load bash env
-[[ -f ~/.bash_env ]] && source ~/.bash_env
+source "${HOME}/.bash_env"
