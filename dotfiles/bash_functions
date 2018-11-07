@@ -2,8 +2,8 @@
 # prompt
 
 parse_git_uncommited_changes() {
-  uncommited=$(git status --porcelain 2>&1 | grep -v ^?? | wc -l)
-  unstaged=$(git status --porcelain 2>&1 | grep ^?? | wc -l)
+  uncommited=$(git status --porcelain 2>&1 | grep -v ^fatal | grep -v ^?? | wc -l)
+  unstaged=$(git status --porcelain 2>&1 | grep -v ^fatal | grep ^?? | wc -l)
 
   res=""
   [[ $uncommited -gt 0 ]] && res="$res*"
@@ -14,7 +14,7 @@ parse_git_uncommited_changes() {
 
 parse_git_branch() {
   branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-  echo "($branch$(parse_git_uncommited_changes))"
+  [[ ! -z "$branch" ]] && echo "($branch$(parse_git_uncommited_changes))"
 }
 
 parse_node_version_nvm() {
