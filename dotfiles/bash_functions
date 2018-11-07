@@ -9,7 +9,7 @@ parse_git_uncommited_changes() {
   [[ $uncommited -gt 0 ]] && res="$res*"
   [[ $unstaged -gt 0 ]] && res="$res*"
 
-  echo " $res"
+  [[ ! -z "$res" ]] && echo " $res"
 }
 
 parse_git_branch() {
