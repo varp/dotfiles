@@ -132,7 +132,7 @@ macchanger() {
 # fix docker terminal size
 # See: https://stackoverflow.com/questions/38786615/docker-number-of-lines-in-terminal-changing-inside-docker/49281526#49281526
 goinside(){
-    docker exec -e SHELL=bash -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
+    docker exec -e SHELL=bash -e LC_ALL=${LANG} -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
 }
 _goinside(){
     COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
