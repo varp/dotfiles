@@ -8,17 +8,16 @@
 		"Alignment",
 		"AutomaticPackageReloader",
 		"ChannelRepositoryTools",
+		"Dayle Rees Color Schemes",
+		"Dockerfile Syntax Highlighting",
 		"Git",
 		"Javascript Beautify",
 		"Package Control",
-		"PackageDev",
-		"ProjectManager",
 		"Python 3",
 		"Python PEP8 Autoformat",
 		"SideBarTools",
 		"SublimeLinter",
 		"SublimeLinter-flake8",
-		"Theme - Afterglow",
 		"UnitTesting"
 	]
 }
