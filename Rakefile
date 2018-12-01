@@ -23,7 +23,7 @@ task :dotfiles do
   files = CONFIG['dotfiles']
   files_dir = File.join(DOTFILES_ROOT, 'dotfiles')
 
-  files.each do |name|    
+  files.each do |name|
     path = File.join(DOTFILES_ROOT, 'dotfiles', name)
     link_path = File.join(DOTFILES_HOME, ".#{name}")
 
@@ -80,11 +80,11 @@ def settings_task(version)
                           "Sublime Text #{version.to_s}")
 
     source_path = File.join(DOTFILES_ROOT, 'st3', 'Preferences.sublime-settings')
-    source_path_theme = File.join(DOTFILES_ROOT, 'st3', 'Afterglow.sublime-theme')
+    source_path_keymap = File.join(DOTFILES_ROOT, 'st3', 'Default (OSX).sublime-keymap')
     source_path_package_control = File.join(DOTFILES_ROOT, 'st3', 'Package Control.sublime-settings')
 
     target_path = File.join(sublime_dir, 'Packages', 'User', 'Preferences.sublime-settings')
-    target_path_theme = File.join(sublime_dir, 'Packages', 'User', 'Theme - Afterglow', 'Afterglow.sublime-theme')
+    target_path_keymap = File.join(sublime_dir, 'Packages', 'User', 'Default (OSX).sublime-keymap')
     target_path_package_control = File.join(sublime_dir, 'Packages', 'User', 'Package Control.sublime-settings')
 
 
@@ -96,15 +96,15 @@ def settings_task(version)
 
     system "unlink \"#{target_path}\"" if File.exists?(target_path)
     system "ln -vsf \"#{source_path}\" \"#{target_path}\""
-   
+
     # Install sidebar config
-    if File.exists?(target_path_theme)
-      system "unlink \"#{target_path_theme}\"" 
+    if File.exists?(target_path_keymap)
+      system "unlink \"#{target_path_keymap}\""
     else
-      system "mkdir -p \"#{target_path_theme}\""
+      system "mkdir -p \"#{target_path_keymap}\""
     end
 
-    system "ln -vsf \"#{source_path_theme}\" \"#{target_path_theme}\""
+    system "ln -vsf \"#{source_path_keymap}\" \"#{target_path_keymap}\""
 
     system "unlink \"#{target_path_package_control}\"" if File.exists?(target_path_package_control)
     system "ln -vsf \"#{source_path_package_control}\" \"#{target_path_package_control}\""
@@ -118,7 +118,7 @@ def install_by_git(st_version, repo_url, dest_package_folder)
 
     if !File.exists?(target_path)
       FileUtils.mkdir_p(target_path)
-      system %[cd '#{target_path}' && git clone #{repo_url} . ] 
+      system %[cd '#{target_path}' && git clone #{repo_url} . ]
     else
       system %[cd '#{target_path}' && git pull]
     end
@@ -129,7 +129,6 @@ end
 def color_schemas_task(version)
     repo = 'git://github.com/daylerees/colour-schemes.git'
     dest_package_folder = 'Colour Schemas'
-
 
     install_by_git(3, repo, dest_package_folder)
 end
@@ -186,7 +185,7 @@ namespace :vscode do
   task :settings do
     vscode_settings_task
   end
-  
+
   task :extensions do
     vscode_install_extensions_task
   end
