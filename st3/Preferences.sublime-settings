@@ -17,7 +17,7 @@
 	"bold_folder_labels": false,
 	"caret_style": "smooth",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Dayle Rees Color Schemes/legacy/Slime.tmTheme",
+	"color_scheme": "Packages/Dayle Rees Color Schemes/sublime/slime.tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
@@ -32,6 +32,8 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"A File Icon",
+		"ProjectManager",
 		"Vintage"
 	],
 	"indent_subsequent_lines": true,
