@@ -57,6 +57,8 @@ touch_file:                    t
 link_create:                   l
 link_edit:                     L
 show_file_info:                i
+change_perms:                  p
+change_owner:                  o
 
 # general
 find_grep:                     /
