@@ -104,7 +104,7 @@ export PROMPT_DIRTRIM=1
 if [[ `whoami` == "root" ]]; then
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u@\H\[\e[0m\] @ \w \n\[\e[41m\]#\[\e[0m\] "
 else
-  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\]\w\[\e[0m\]\[\e[47m\]\[\e[0;33;47m\] $(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\] $(parse_languages) \[\e[0;0m\]\n\$ "
+  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\]\w\[\e[0m\]\[\e[47m\]\[\e[0;33;47m\] `parse_git_branch`\[\e[0;0m\]\[\e[1;34;47m\] `parse_languages` \[\e[0;0m\]\n\$ "
 fi
 
 ## load bash env
