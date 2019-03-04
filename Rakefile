@@ -140,6 +140,21 @@ def theme_task(version)
     install_by_git(3, repo, dest_package_folder)
 end
 
+def vim_install_vundle
+  vundle_repo = "https://github.com/VundleVim/Vundle.vim.git"
+  vim_dir = File.join(ENV['HOME'], '.vim')
+  dest_dir = File.join(vim_dir, 'bundle', 'Vundle.vim')
+
+  if File.exists?(vim_dir)
+    system "unlink \"#{vim_dir}\"" || FileUtils.rmdir(vim_dir)
+  end
+
+  FileUtils.mkdir_p(vim_dir) unless File.exists?(vim_dir)
+  
+  system "git clone #{vundle_repo} #{dest_dir}"
+
+end
+
 def vscode_settings_task
     source_path = File.join(DOTFILES_ROOT, 'vscode', 'settings.json')
     vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code')
@@ -161,6 +176,11 @@ def vscode_install_extensions_task
   end
 end
 
+namespace :vim do
+  task :vundle do
+    vim_install_vundle
+  end
+end
 
 namespace :st3 do
 
