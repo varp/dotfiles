@@ -1,9 +1,11 @@
 dotfiles:
     - bash_functions
     - aliases_completions
+    - zshrc
     - bash_aliases
     - bash_env
     - bash_profile
+    - zprofile
     - bashrc
     - gitconfig
     - gitignore
