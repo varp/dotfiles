@@ -11,6 +11,53 @@ if [ -f "${HOME}/code/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/co
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/code/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/code/google-cloud-sdk/completion.bash.inc"; fi
 
+_ssctl()
+{
+
+
+	cur="${COMP_WORDS[COMP_CWORD]}"
+
+	
+	if [[ ${COMP_CWORD} == 2 ]]; then
+		words="$(sudo systemctl -t service --no-pager --no-legend | cut -f1 -d$' ' | xargs)"
+		COMPREPLY=( $(compgen -o bashdefault -W "${words}" -- ""${cur}"") )
+		return 0
+	fi
+
+
+
+	return 0
+
+}
+
+
+vssctl()
+{
+	action=$1
+	service=$2
+
+	[[ -z $action ]] && return 0
+	[[ -z $service ]] && return 0
+
+	case $action in
+		s)
+			action="start"
+			;;
+		p)
+			action="stop"
+			;;
+		
+		r)
+			action="restart"
+			;;
+	esac
+
+	sudo systemctl $action $service && sudo systemctl --no-pager status $service
+}
+
+complete -F _ssctl vssctl;
+export -f vssctl;
+
 
 ## OSX
 if [[ "$(uname -s)" == "Darwin" ]]; then
