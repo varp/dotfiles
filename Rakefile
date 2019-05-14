@@ -143,13 +143,14 @@ end
 def vim_install_vundle
   vundle_repo = "https://github.com/VundleVim/Vundle.vim.git"
   vim_dir = File.join(ENV['HOME'], '.vim')
+  vundle_dir = File.join(vim_dir, 'bundle')
   dest_dir = File.join(vim_dir, 'bundle', 'Vundle.vim')
 
   if File.exists?(vim_dir)
-    system "unlink \"#{vim_dir}\"" || FileUtils.rmdir(vim_dir)
+    system "unlink \"#{vundle_dir}\"" || FileUtils.rmdir(vundle_dir)
   end
 
-  FileUtils.mkdir_p(vim_dir) unless File.exists?(vim_dir)
+  FileUtils.mkdir_p(vundle_dir) unless File.exists?(vundle_dir)
   
   system "git clone #{vundle_repo} #{dest_dir}"
 

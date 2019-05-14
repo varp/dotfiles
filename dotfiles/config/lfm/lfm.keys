@@ -5,7 +5,7 @@
 cursor_up:                     up k
 cursor_down:                   down j
 cursor_pageup:                 pageup backspace C-p
-cursor_pagedown:               pagedown spc C-n
+cursor_pagedown:               pagedown C-n
 cursor_up10:                   C-up
 cursor_down10:                 C-down
 cursor_home:                   home C-a
