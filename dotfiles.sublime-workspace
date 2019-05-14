@@ -8,19 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "sublime_text2/Preferences.sublime-settings",
+			"file": "dotfiles/gitconfig",
 			"settings":
 			{
-				"buffer_size": 1178,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sublime_text2/Package Control.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 332,
+				"buffer_size": 1980,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -37,6 +28,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
 			[
 				"open",
 				"Git: Open..."
@@ -82,6 +77,8 @@
 	],
 	"file_history":
 	[
+		"/Users/vardanpro/code/dotfiles/sublime_text2/Package Control.sublime-settings",
+		"/Users/vardanpro/code/dotfiles/sublime_text2/Preferences.sublime-settings"
 	],
 	"find":
 	{
@@ -121,60 +118,35 @@
 			[
 				{
 					"buffer": 0,
-					"file": "sublime_text2/Preferences.sublime-settings",
+					"file": "dotfiles/gitconfig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1178,
+						"buffer_size": 1980,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								301,
-								301
+								98,
+								98
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PackageDev/Package/Sublime Text Settings/Sublime Text Settings.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 121.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "sublime_text2/Package Control.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 332,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"SL.38.region_keys":
 							[
-								332,
-								332
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PackageDev/Package/Sublime Text Settings/Sublime Text Settings.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							],
+							"syntax": "Packages/Git Formats/Git Config.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -232,6 +204,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"gi",
+				"dotfiles/gitconfig"
+			]
 		],
 		"width": 0.0
 	},
@@ -261,7 +237,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 308.0,
+	"side_bar_width": 262.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
