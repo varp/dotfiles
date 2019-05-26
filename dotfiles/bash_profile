@@ -20,4 +20,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   export PATH="$(brew --prefix php@7.2)/bin:$PATH"
   export PATH="$(brew --prefix php@7.2)/sbin:$PATH"
+ 
+  export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 fi

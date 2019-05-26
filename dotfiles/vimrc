@@ -1,8 +1,8 @@
 set nu
 set autoindent
-set sts=2
+set sts=4
 set ts=4
-set sw=2
+set sw=4
 set noexpandtab
 set noswapfile
 
@@ -12,7 +12,7 @@ set vb
 set hidden
 set laststatus=2
 set history=300
-set hlsearch
+set nohlsearch
 set incsearch
 set autoread
 
@@ -21,17 +21,18 @@ syntax on
 au FileType ruby setl ts=2 sts=2 sw=2 expandtab
 au FileType python setl ts=4 sts=4 sw=4 expandtab
 au FileType php setl ts=4 sts=4 sw=4 noexpandtab
+au BufRead,BufNewFile *.load setl ts=4 sts=4 sw=4 noexpandtab
 
 
 " tab navigation like firefox 
 " not work in terminal
 " nnoremap <C-p>      :tabprevious<CR>
 " nnoremap <C-n>      :tabnext<CR>
-" nnoremap <C-t>      :tabnew<CR>
+nnoremap <C-t>      :set noet<CR>:set ts=2<CR>:retab!<CR>:%retab!<CR>:set ts=1<CR>:retab!<CR>:%retab!<CR>
 " nnoremap <C-w>      :tabclose<CR>
 " inoremap <C-p>      <Esc>:tabprevious<CR>
 " inoremap <C-n>      <Esc>:tabnext<CR>
-" inoremap <C-t>      <Esc>:tabnew<CR>
+inoremap <C-t>      <Esc>:set noet<CR>:set ts=2<CR>:retab!<CR>:%retab!<CR>:set ts=1<CR>:retab!<CR>:%retab!<CR>
 " inoremap <C-w>      <Esc>:tabclose<CR>
 
 " always open in tabs
