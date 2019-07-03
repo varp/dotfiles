@@ -1,5 +1,8 @@
 source ~/.bashrc 
 
+if [ -n "$SSH_CONNECTION" ]; then
+  [[ -f ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
+fi  
 
 ## OSX
 if [[ "$(uname -s)" == "Darwin" ]]; then
