@@ -5,20 +5,25 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
+		"Agila Theme",
 		"Alignment",
 		"AutomaticPackageReloader",
 		"ChannelRepositoryTools",
-		"Git",
+		"Dayle Rees Color Schemes",
+		"Dockerfile Syntax Highlighting",
+		"HTMLBeautify",
+		"Indent XML",
 		"Javascript Beautify",
+		"Keymaps",
 		"Package Control",
-		"PackageDev",
-		"ProjectManager",
 		"Python 3",
 		"Python PEP8 Autoformat",
 		"SideBarTools",
 		"SublimeLinter",
 		"SublimeLinter-flake8",
 		"Theme - Afterglow",
+		"Theme - Spacegray",
 		"UnitTesting"
 	]
 }

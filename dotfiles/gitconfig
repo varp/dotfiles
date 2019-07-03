@@ -49,31 +49,28 @@
 [gc]
   auto = 1
 
-[diff]
-  tool = meld
-  guitool = meld
 
-[difftool]
-  prompt = no
 [url "ssh://git@heroku.com/"]
 	insteadOf = https://git.heroku.com/
 
 [diff]
 	tool = phpstorm
-
-[difftool]
-; This setting is optional, but prevents an annoying prompt between diffing files.
-	prompt = false
-
+	guitool = phpstorm
 
 [difftool "phpstorm"]
-; Putting this path here doesn't work. I would love to know why.
-	cmd = /usr/local/bin/phpstorm diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
-	trustExitCode = true
+	cmd = phpstorm -n -W --args diff "$LOCAL" $(realpath "$REMOTE")
+	trustExitCode = false
+
+[difftool]
+	prompt = false
+
+[merge]
+	tool = phpstorm
+	guitool = phpstorm
 
 [mergetool "phpstorm"]
-	cmd = /usr/local/bin/phpstorm merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-	trustExitCode = true
+	cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
+	trustExitCode = false
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

@@ -1,19 +1,52 @@
 #
 # prompt
+
+parse_git_uncommited_changes() {
+  uncommited=$(git status --porcelain 2>&1 | grep -v ^fatal | grep -v ^?? | wc -l)
+  unstaged=$(git status --porcelain 2>&1 | grep -v ^fatal | grep ^?? | wc -l)
+
+  res=""
+  [[ $uncommited -gt 0 ]] && res="$res*"
+  [[ $unstaged -gt 0 ]] && res="$res*"
+
+  [[ ! -z "$res" ]] && echo " $res"
+}
+
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  [[ ! -z "$branch" ]] && echo "($branch$(parse_git_uncommited_changes))"
 }
 
 parse_node_version_nvm() {
-  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*(v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@ js-\1 @g'
+  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@js\1@g'
 }
 
 parse_ruby_version() {
-  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/ rb-\1 /'
+  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/rb\1/'
 }
 
 parse_python_version() {
-  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/ py-\1 /'
+  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/py\1/'
+}
+
+parse_languages() {
+  langs=""
+
+  node_ver=$(parse_node_version_nvm)
+  ruby_ver=$(parse_ruby_version)
+  python_ver=$(parse_python_version)
+
+  [[ ! -z "$node_ver" ]] && {
+    [[ -z "$langs" ]] && langs="$langs$node_ver" || langs="$langs $node_ver"
+  }
+  [[ ! -z "$ruby_ver" ]] && {
+    [[ -z "$langs" ]] &&  langs="$langs$ruby_ver" || langs="$langs $ruby_ver"
+  }
+  [[ ! -z "$python_ver" ]] && {
+    [[ -z "$langs" ]] &&  langs="$langs$python_ver" || langs="$langs $python_ver"
+  }
+
+  echo "[$langs]"
 }
 
 
@@ -89,7 +122,7 @@ macchanger() {
   else
     IFACE="$1"
   fi
-  
+
   sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport --disassociate
   sudo ifconfig $IFACE ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/./0/2; s/.$//')
   networksetup -detectnewhardware
@@ -98,11 +131,31 @@ macchanger() {
 
 # fix docker terminal size
 # See: https://stackoverflow.com/questions/38786615/docker-number-of-lines-in-terminal-changing-inside-docker/49281526#49281526
-goinside(){
-    docker exec -e SHELL=bash -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
-}
-_goinside(){
-    COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
-}
-complete -F _goinside goinside;
-export -f goinside;
+if [[ "$(basename $SHELL)" == "zsh" ]]; then
+  autoload bashcompinit;
+  bashcompinit;
+
+  goinside() {
+      docker exec -e SHELL=bash -e LC_ALL=${LANG} -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
+  }
+
+  _goinside() {
+      COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
+  }
+  # TODO: fix error on load
+  # bashcompinit && complete -F _goinside goinside;
+  export goinside;
+
+fi
+
+
+if [[ "$(basename $SHELL)" == "bash" ]]; then
+  goinside() {
+      docker exec -e SHELL=bash -e LC_ALL=${LANG} -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
+  }
+  _goinside() {
+      COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
+  }
+  complete -F _goinside goinside;
+  export -f goinside;
+fi
