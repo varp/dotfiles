@@ -69,8 +69,8 @@
 	guitool = phpstorm
 
 [mergetool "phpstorm"]
-	cmd = phpstorm -n -W --args merge "$LOCAL" $(realpath "$REMOTE") $(realpath "$MERGED")
-	trustExitCode = true
+	cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
+	trustExitCode = false
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
