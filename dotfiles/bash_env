@@ -47,3 +47,8 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 ## CDPATH
 
 export CDPATH=~:~/code:~/code/go
+
+# Locales
+export LANG="en_US:en" LC_CTYPE="C.UTF-8" LC_COLLATE="ru_RU.UTF-8" LC_TIME="ru_RU.UTF-8" LC_MONETARY="ru_RU.UTF-8" LC_ALL="en_US.UTF-8"
+
+
