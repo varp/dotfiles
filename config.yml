@@ -16,5 +16,7 @@ dotfiles:
     - config/lfm/lfm.ini
     - config/lfm/lfm.keys
     - config/lfm/lfm.theme
+    - ssh/config
+    - ssh/sftp-init
 binfiles:
     - genpassword
