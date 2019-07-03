@@ -129,33 +129,25 @@ macchanger() {
 }
 
 
-# fix docker terminal size
-# See: https://stackoverflow.com/questions/38786615/docker-number-of-lines-in-terminal-changing-inside-docker/49281526#49281526
-if [[ "$(basename $SHELL)" == "zsh" ]]; then
-  autoload bashcompinit;
-  bashcompinit;
+goinside(){
+    docker exec -e SHELL=bash -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
+}
+_goinside(){
+    COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
+}
+complete -F _goinside goinside;
+export -f goinside;
 
-  goinside() {
-      docker exec -e SHELL=bash -e LC_ALL=${LANG} -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
-  }
+download()
+{
+  cat <<END
 
-  _goinside() {
-      COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
-  }
-  # TODO: fix error on load
-  # bashcompinit && complete -F _goinside goinside;
-  export goinside;
+~C
+-R 8821:localhost:22
 
-fi
+END
 
+  set -x
 
-if [[ "$(basename $SHELL)" == "bash" ]]; then
-  goinside() {
-      docker exec -e SHELL=bash -e LC_ALL=${LANG} -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
-  }
-  _goinside() {
-      COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
-  }
-  complete -F _goinside goinside;
-  export -f goinside;
-fi
+  scp -P 8821 "$@" localhost:~/Downloads/
+}
