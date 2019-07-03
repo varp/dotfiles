@@ -1,75 +1,167 @@
-set nu
-set autoindent
-set sts=4
-set ts=4
-set sw=4
-set noexpandtab
+set encoding=utf-8
+set binary
 set noswapfile
 
-set wrapscan
-set ch=2
-set vb
-set hidden
-set laststatus=2
-set history=300
-set nohlsearch
-set incsearch
-set autoread
-
-syntax on
 
 au FileType ruby setl ts=2 sts=2 sw=2 expandtab
 au FileType python setl ts=4 sts=4 sw=4 expandtab
-au FileType php setl ts=4 sts=4 sw=4 noexpandtab
+au FileType php setl ts=4 sts=4 sw=4 expandtab
 au BufRead,BufNewFile *.load setl ts=4 sts=4 sw=4 noexpandtab
 
 
 " tab navigation like firefox 
-" not work in terminal
-" nnoremap <C-p>      :tabprevious<CR>
-" nnoremap <C-n>      :tabnext<CR>
 nnoremap <C-t>      :set noet<CR>:set ts=2<CR>:retab!<CR>:%retab!<CR>:set ts=1<CR>:retab!<CR>:%retab!<CR>
-" nnoremap <C-w>      :tabclose<CR>
-" inoremap <C-p>      <Esc>:tabprevious<CR>
-" inoremap <C-n>      <Esc>:tabnext<CR>
 inoremap <C-t>      <Esc>:set noet<CR>:set ts=2<CR>:retab!<CR>:%retab!<CR>:set ts=1<CR>:retab!<CR>:%retab!<CR>
-" inoremap <C-w>      <Esc>:tabclose<CR>
-
-" always open in tabs
-nmap <leader>e :tabedit<CR>
 
 
-" ++++++++++++++++++++ Vundle staff +++++++++++++++++++++
-set nocompatible
-filetype off
+" Setting up Vundle - the vim plugin bundler
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" Add your bundles here
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'chr4/nginx.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
+Plugin 'whiteinge/diffconflicts'
+Plugin 'tpope/vim-surround'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'corntrace/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/sessionman.vim'
+Plugin 'matchit.zip'
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'
+
+"...All your other bundles...
+if iCanHazVundle == 0
+    echo "Installing Vundles, please ignore key map error messages"
+    echo ""
+    :PluginInstall
+endif
+"
+call vundle#end() 
+"
+" "load filetype plugins/indent settings
+filetype plugin indent on
+"
+syntax on                      " enable syntax
+"
+autocmd BufNewFile,BufRead *.git/modules/*/COMMIT_EDITMSG setf gitcommit
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+
+let g:ctrlp_prompt_mappings = {
+            \ 'AcceptSelection("e")': ['<c-t>'],
+            \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+            \ }
+
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:25'
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+" Directories to ignore
+set wildignore+=*/smarty_c/**
+set wildignore+=*/vendor/**
+set wildignore+=*/bower_components/**
+
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_follow_symlinks = 1
+
+
+
+" Fugitive
+if exists("g:fugitive_loaded")
+    " ,e for Ggrep
+    nmap <leader>g :silent Ggrep
+    " ,f for global git search for word under the cursor (with
+    " highlight)
+    nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+
+    " same in visual mode
+    :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+endif
+
+
+
+set number              " precede each line with its line number
+set numberwidth=3       " number of culumns for line numbers
+set textwidth=0         " Do not wrap words (insert)
+set nowrap              " Do not wrap words (view)
+set showcmd             " Show (partial) command in status line.
+set showmatch           " Show matching brackets.
+set ruler               " line and column number of the cursor position
+set wildmenu            " enhanced command completion
+set visualbell          " use visual bell instead of beeping
+set laststatus=2        " always show the status lines
+set list listchars=tab:→\ ,trail:▸
+set cursorline
+
+" highlight spell errors
+hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
+" toggle spell check with F7
+map <F7> :setlocal spell! spell?<CR>
+
+" behavior
+" ignore these files when completing names and in explorer
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
+set shell=$SHELL        " use current shell for shell commands
+set hidden              " enable multiple modified buffers
+set history=1000
+set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
+set backspace=indent,eol,start
+set guioptions-=T       " disable toolbar"
+set completeopt=menuone,preview
+set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
+set modelines=5         " number of lines to check for vim: directives at the start/end of file
+set autoindent          " automatically indent new line
+
+set ts=4                " number of spaces in a tab
+set sw=4                " number of spaces for indent
+set et                  " expand tabs into spaces
+
+
+" search settings
+set incsearch           " Incremental search
+set hlsearch            " Highlight search match
+set ignorecase          " Do case insensitive matching
+set smartcase           " do not ignore if search pattern has CAPS
+
+
+
+let base16colorspace=256  " Access colors present in 256 colorspace
+" colorscheme desert
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1

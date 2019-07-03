@@ -7,7 +7,6 @@
 
 [merge]
   branchdesc = true
-  tool = phpstorm
 
 [apply]
   whitespace = nowarn
@@ -54,19 +53,25 @@
 	insteadOf = https://git.heroku.com/
 
 [diff]
-	tool = phpstorm
+	tool = vimdiff
 	guitool = phpstorm
 
 [difftool "phpstorm"]
 	cmd = phpstorm -n -W --args diff "$LOCAL" $(realpath "$REMOTE")
 	trustExitCode = false
 
+
 [difftool]
 	prompt = false
 
 [merge]
-	tool = phpstorm
+	tool = diffconflicts
 	guitool = phpstorm
+    conflictstyle = diff3
+
+[mergetool]
+    prompt = false
+	keepBackup = false
 
 [mergetool "phpstorm"]
 	cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
@@ -77,3 +82,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
