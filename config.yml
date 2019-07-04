@@ -26,5 +26,7 @@ dotfiles:
     - config/powerline/themes/shell/default.json
     - config/powerline/themes/shell/default_leftonly.json
     - config/powerline/themes/shell/select.json
+
+    - ansible.cfg
 binfiles:
     - genpassword
