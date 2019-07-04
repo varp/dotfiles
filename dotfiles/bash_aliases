@@ -63,3 +63,5 @@ alias code-pgweb="cd ~/code/go/src/github.com/sosedoff/pgweb"
 
 alias dckr='sudo docker'
 alias dcc='sudo docker-compose'
+
+alias reload-shell='source ~/.bash_profile'

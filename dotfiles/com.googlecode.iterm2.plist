@@ -117,13 +117,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>346 122 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>322 297 796 486 0 0 1440 877 </string>
+	<string>322 310 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame com.apple.typography_panel_Hack-Regular</key>
 	<string>296 394 260 298 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>40 23 1400 854 0 0 1440 877 </string>
+	<string>41 0 1399 877 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -690,7 +690,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>InconsolataForPowerline-dz 16</string>
+			<string>RobotoMonoForPowerline-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -762,7 +762,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.4388130647590363</real>
+			<real>1.1331372364457832</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1546,11 +1546,11 @@
 	<key>PasteSpecialChunkSize</key>
 	<integer>1024</integer>
 	<key>PasteSpecialRegex</key>
-	<string>\R</string>
+	<string>#</string>
 	<key>PasteSpecialSubstitution</key>
-	<string> &amp;&amp; </string>
+	<string></string>
 	<key>PasteSpecialUseRegexSubstitution</key>
-	<false/>
+	<true/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -1631,6 +1631,8 @@
 	</dict>
 	<key>UseBorder</key>
 	<false/>
+	<key>UseLionStyleFullscreen</key>
+	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>

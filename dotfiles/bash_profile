@@ -26,3 +26,16 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 fi
+
+## Powerline
+
+powerline_root=$(pip show powerline-status | sed -e '/Location:*/ !d ' -e 's/Location: //g')
+if [[ -n "$powerline_root" ]]; then
+
+    powerline-daemon -q
+
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+
+    . "$powerline_root/powerline/bindings/bash/powerline.sh"
+fi
