@@ -1,0 +1,28 @@
+## CUSTOM ##
+
+
+
+## OSX
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export PATH="$(brew --prefix php@7.2)/bin:$PATH"
+  export PATH="$(brew --prefix php@7.2)/sbin:$PATH"
+fi
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+. $HOME/.bash_env
+. $HOME/.bash_aliases
+. $HOME/.bash_functions
+
+
+## Powerline
+
+powerline_root=$(pip show powerline-status | sed -e '/Location:*/ !d ' -e 's/Location: //g')
+if [[ -n "$powerline_root" ]]; then
+
+    POWERLINE_COMMAND_ARGS="-cext.shell.theme=default"
+
+    . "${powerline_root}/powerline/bindings/zsh/powerline.zsh"
+fi
+
