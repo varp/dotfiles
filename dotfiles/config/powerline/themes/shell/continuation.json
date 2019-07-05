@@ -8,7 +8,21 @@
 		],
 		"right": [
 			{
-				"function": "continuation",
+				"function": "powerline.segments.common.vcs.stash",
+				"priority": 40
+			},
+			{
+				"function": "powerline.segments.common.vcs.branch",
+				"name": "branch"
+			},
+			{
+				"function": "powerline.segments.shell.last_pipe_status",
+				"name": "pipe_status",
+				"align": "r"
+			},
+			{
+				"function": "powerline.segments.shell.jobnum",
+				"priority": 20
 			}
 		]
 	}

@@ -47,21 +47,12 @@ alias mnsu='sudo lsof -PiUDP'
 alias grepi='grep -i'
 #alias vim='vim -p'
 
-## docker
-alias docker='sudo docker'
-alias docker-compose='sudo docker-compose'
-
-## PhpStorm Alias
-alias pstorm='pstorm > /dev/null 2>&1 &'
 
 ## systemd
 alias ssctl='sudo systemctl'
 
 
 ## code aliases
-alias code-pgweb="cd ~/code/go/src/github.com/sosedoff/pgweb"
-
 alias dckr='sudo docker'
 alias dcc='sudo docker-compose'
 
-alias reload-shell='source ~/.bash_profile'

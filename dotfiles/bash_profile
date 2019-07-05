@@ -32,10 +32,5 @@ fi
 powerline_root=$(pip show powerline-status | sed -e '/Location:*/ !d ' -e 's/Location: //g')
 if [[ -n "$powerline_root" ]]; then
 
-    powerline-daemon -q
-
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-
     . "$powerline_root/powerline/bindings/bash/powerline.sh"
 fi

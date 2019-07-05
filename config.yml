@@ -1,21 +1,27 @@
 dotfiles:
     - bash_functions
     - aliases_completions
-    - zshrc
     - bash_aliases
     - bash_env
     - bash_profile
-    - zprofile
     - bashrc
+
+    - zshrc
+    - zlogin
+
     - gitconfig
     - gitignore
+
     - vimrc
     - bazaar
+
     - tmux.conf
     - muttrc
+
     - config/lfm/lfm.ini
     - config/lfm/lfm.keys
     - config/lfm/lfm.theme
+
     - ssh/config
     - ssh/sftp-init
 

@@ -129,25 +129,14 @@ macchanger() {
 }
 
 
-goinside(){
-    docker exec -e SHELL=bash -it $1 bash -c "stty cols $COLUMNS rows $LINES && bash";
-}
-_goinside(){
-    COMPREPLY=( $(docker ps --format "{{.Names}}" -f name=$2) );
-}
-complete -F _goinside goinside;
-export -f goinside;
-
-download()
+goinside()
 {
-  cat <<END
-
-~C
--R 8821:localhost:22
-
-END
-
-  set -x
-
-  scp -P 8821 "$@" localhost:~/Downloads/
+    docker-compose exec -e SHELL=bash $1 bash -c "stty cols $COLUMNS rows $LINES && bash"
 }
+_goinside()
+{
+    COMPREPLY=( $(docker-compose ps --services) )
+}
+complete -F _goinside goinside
+
+[[ "$SHELL" == "BASH" ]] && export -f goinside
