@@ -7,7 +7,7 @@ export DEBEMAIL="vardan.pogosyan@gmail.com"
 
 
 # create tmux seession or connect to existing one when is connected by SSH
-[[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
+# [[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
 
 ## Bash completions for aliases
 export IBUS_ENABLE_SYNC_MODE=1

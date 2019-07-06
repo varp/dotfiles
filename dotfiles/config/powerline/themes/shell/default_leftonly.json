@@ -26,7 +26,8 @@
 			},
 			{
 				"function": "powerline.segments.common.vcs.branch",
-				"name": "branch"
+				"name": "branch",
+				"priority": 50
 			},
 			{
 				"function": "powerline.segments.shell.last_pipe_status",
@@ -35,7 +36,8 @@
 			},
 			{
 				"function": "powerline.segments.shell.jobnum",
-				"priority": 20
+				"priority": 20,
+				"align": "r"
 			}
 		]
 	}
