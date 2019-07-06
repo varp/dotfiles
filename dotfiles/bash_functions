@@ -32,9 +32,17 @@ parse_python_version() {
 parse_languages() {
   langs=""
 
+
   node_ver=$(parse_node_version_nvm)
   ruby_ver=$(parse_ruby_version)
   python_ver=$(parse_python_version)
+
+  export _LANG_ENV_NODE=$node_ver
+  export _LANG_ENV_PYTHON=$python_ver
+  export _LANG_ENV_RUBY=$ruby_ver
+
+
+
 
   [[ ! -z "$node_ver" ]] && {
     [[ -z "$langs" ]] && langs="$langs$node_ver" || langs="$langs $node_ver"
@@ -45,6 +53,7 @@ parse_languages() {
   [[ ! -z "$python_ver" ]] && {
     [[ -z "$langs" ]] &&  langs="$langs$python_ver" || langs="$langs $python_ver"
   }
+
 
   echo "[$langs]"
 }

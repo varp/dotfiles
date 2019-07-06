@@ -27,10 +27,20 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 fi
 
-## Powerline
+## Powerline GO
 
-powerline_root=$(pip show powerline-status | sed -e '/Location:*/ !d ' -e 's/Location: //g')
-if [[ -n "$powerline_root" ]]; then
+dowload_latest_pgo() {
+    plat="$(uname -s | tr [:upper:] [:lower:])"
+    platAsset="powerline-go-${plat}-amd64"
+    url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
+    wget -q "${url}" -O /usr/local/bin/powerline-go || { echo "ERROR"; return; }
+    chmod a+x /usr/local/bin/powerline-go
+}
 
-    . "$powerline_root/powerline/bindings/bash/powerline.sh"
+function _update_ps1() {
+    PS1="$(/usr/local/bin/powerline-go -modules 'time,root,ssh,cwd,dotenv,perms,git,jobs,exit' -error $?)"
+}
+
+if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi

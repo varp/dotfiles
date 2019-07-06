@@ -12,7 +12,7 @@
 		},
 		"cwd": {
 			"args": {
-				"dir_limit_depth": 2
+				"dir_limit_depth": 1
 			}
 		},
 		"time": {
@@ -24,6 +24,11 @@
 		"branch": {
 			"args": {
 				"status_colors": true
+			}
+		},
+		"langs": {
+			"args": {
+
 			}
 		}
 	}
