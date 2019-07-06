@@ -37,7 +37,7 @@ download_latest_pgo() {
     platAsset="powerline-go-${plat}-amd64"
     url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
     wget -q "${url}" -O ${downFolder} || { echo "ERROR"; return; }
-    chmod a+x /usr/local/bin/powerline-go
+    chmod a+x "${downFolder}/powerline-go" && echo -e "Done! ${downFolder}/powerline-go\n"
 }
 
 function _update_ps1() {
