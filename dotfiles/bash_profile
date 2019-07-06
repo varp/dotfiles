@@ -30,10 +30,13 @@ fi
 ## Powerline GO
 
 download_latest_pgo() {
+
+    downFolder="${1:-HOME}"
+
     plat="$(uname -s | tr [:upper:] [:lower:])"
     platAsset="powerline-go-${plat}-amd64"
     url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
-    wget -q "${url}" -O /usr/local/bin/powerline-go || { echo "ERROR"; return; }
+    wget -q "${url}" -O ${downFolder} || { echo "ERROR"; return; }
     chmod a+x /usr/local/bin/powerline-go
 }
 
