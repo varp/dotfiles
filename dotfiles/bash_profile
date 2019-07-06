@@ -38,7 +38,7 @@ dowload_latest_pgo() {
 }
 
 function _update_ps1() {
-    PS1="$(/usr/local/bin/powerline-go -modules 'time,root,ssh,cwd,dotenv,perms,git,jobs,exit' -error $?)"
+    PS1="$(/usr/local/bin/powerline-go -modules 'time,ssh,cwd,dotenv,perms,gitlite,jobs,exit,root' -error $?)"
 }
 
 if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
