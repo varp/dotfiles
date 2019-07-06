@@ -41,12 +41,12 @@ download_latest_pgo() {
 }
 
 function _update_ps1() {
-    PS1="$(/usr/local/bin/powerline-go -modules 'time,cwd,dotenv,perms,gitlite,shell-var,ssh,jobs,exit,root' -shell-var '_for_ssh_session' -error $?)"
+    eval "$(/usr/local/bin/powerline-go -error $? -cwd-max-depth 3 -modules time,cwd,dotenv,perms,gitlite,ssh,jobs,exit -shell bash -eval -modules $__for_ssh_session)"
 }
 
 if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
-    export _for_ssh_session=""
-    [[ -z "$SSH_CONNECTION" ]] || export _for_ssh_session="@${USER}"
+    export __for_ssh_session='time,cwd,dotenv,perms,gitlite,ssh,jobs,exit,root'
+    [[ -z "$SSH_CONNECTION" ]] || export __for_ssh_session="time,cwd,dotenv,perms,gitlite,jobs,exit,user,ssh -cwd-max-depth 1"
 
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
