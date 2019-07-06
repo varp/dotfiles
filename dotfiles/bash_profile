@@ -31,19 +31,22 @@ fi
 
 download_latest_pgo() {
 
-    downFolder="${1:-HOME}"
+    downFolder="${1:-$HOME}"
 
     plat="$(uname -s | tr [:upper:] [:lower:])"
     platAsset="powerline-go-${plat}-amd64"
     url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
-    wget -q "${url}" -O ${downFolder} || { echo "ERROR"; return; }
+    wget -q "${url}" -O "${downFolder}/powerline-go" || { echo "ERROR"; return; }
     chmod a+x "${downFolder}/powerline-go" && echo -e "Done! ${downFolder}/powerline-go\n"
 }
 
 function _update_ps1() {
-    PS1="$(/usr/local/bin/powerline-go -modules 'time,ssh,cwd,dotenv,perms,gitlite,jobs,exit,root' -error $?)"
+    PS1="$(/usr/local/bin/powerline-go -modules 'time,cwd,dotenv,perms,gitlite,shell-var,ssh,jobs,exit,root' -shell-var '_for_ssh_session' -error $?)"
 }
 
 if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
+    export _for_ssh_session=""
+    [[ -z "$SSH_CONNECTION" ]] || export _for_ssh_session="@${USER}"
+
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
