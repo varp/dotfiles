@@ -104,13 +104,13 @@ _pwd_short() {
 }
 
 
+export _LANGS_ENV=$(parse_languages)
+
+
 ## prompt
 if [[ `whoami` == "root" ]]; then
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u@\H\[\e[0m\] @ \w \n\[\e[41m\]#\[\e[0m\] "
 else
-
-  export _LANGS_ENV=$(parse_languages)
-
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\[\e[47m\]\[\e[0;33;47m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\]$_LANGS_ENV\[\e[0;0m\]\$ "
 fi
 
@@ -118,11 +118,17 @@ fi
 function _update_ps1() {
 
     mods="time,cwd,dotenv,perms,gitlite,ssh,jobs,exit,root"
-    args="-cwd-max-depth 3"
+    args=""
 
-    [ -n "$_LANGS_ENV" ] && mods="time,cwd,dotenv,perms,gitlite,shell-var,jobs,exit,ssh,root -shell-var _LANGS_ENV"
+    if [ -n "$_LANGS_ENV" ]; then
+        mods="time,cwd,dotenv,perms,gitlite,shell-var,jobs,exit,root"
+        args="-cwd-max-depth 3 -shell-var _LANGS_ENV"
+    fi
 
-    if [ -n "$SSH_CONNECTION" ]; then args="-cwd-max-depth 1"; fi
+    if [ -n "$SSH_CONNECTION" ]; then
+        args="-cwd-max-depth 1 -shell-var _LANGS_ENV"
+        mods="time,termtitle,cwd,perms,load,shell-var,dotenv,host,user,jobs,exit,ssh"
+    fi
 
 
     eval "$(/usr/local/bin/powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
