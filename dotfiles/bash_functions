@@ -18,86 +18,43 @@ parse_git_branch() {
 }
 
 parse_node_version_nvm() {
-  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@js\1@g'
+  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@\1@g'
 }
 
 parse_ruby_version() {
-  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/rb\1/'
+ [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/rb\1/'
 }
 
 parse_python_version() {
-  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/py\1/'
+  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/\1/'
+}
+
+parse_php_version(){
+  [ -n "$(which php)" ] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/\1/p'
 }
 
 parse_languages() {
-  langs=""
+
+  ruby_symbol='💎'
+  node_symbol='⬢'
+  pyenv_symbol='🐍'
+  php_symbol='🐘'
 
 
   node_ver=$(parse_node_version_nvm)
   ruby_ver=$(parse_ruby_version)
   python_ver=$(parse_python_version)
+  php_ver=$(parse_php_version)
 
-  export _LANG_ENV_NODE=$node_ver
-  export _LANG_ENV_PYTHON=$python_ver
-  export _LANG_ENV_RUBY=$ruby_ver
+  langs=( )
 
+  [ -n "$node_ver" ] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver" )
+  [ -n "$python_ver" ] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver" )
+  [ -n "$ruby_ver" ] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver" )
+  [ -n "$php_ver" ] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver" )
 
+  echo "[${langs[@]}]"
 
-
-  [[ ! -z "$node_ver" ]] && {
-    [[ -z "$langs" ]] && langs="$langs$node_ver" || langs="$langs $node_ver"
-  }
-  [[ ! -z "$ruby_ver" ]] && {
-    [[ -z "$langs" ]] &&  langs="$langs$ruby_ver" || langs="$langs $ruby_ver"
-  }
-  [[ ! -z "$python_ver" ]] && {
-    [[ -z "$langs" ]] &&  langs="$langs$python_ver" || langs="$langs $python_ver"
-  }
-
-
-  echo "[$langs]"
-}
-
-
-
-mount_vbox_share() {
-  [ -z $# ] && echo "You have to supply mount point"
-
-  local VBOX_SHARE=$1
-  if [ -z $2 ]
-  then
-    local MOUNT_POINT=$VBOX_SHARE
-  else
-    local MOUNT_POINT=$2
-  fi
-
-  local WHOAMI=$(whoami)
-  local WUID=$(id -u $WHOAMI)
-  local WGID=$(id -g $WHOAMI)
-
-  [ ! -d $MOUNT_POINT ] && mkdir $MOUNT_POINT
-
-  VBOX_SHARE_MOUNT_POINT="`pwd`/$MOUNT_POINT"
-  export VBOX_SHARE_MOUNT_POINT
-
-  sudo mount -t vboxsf -o rw,uid=$WUID,gid=$WGID $VBOX_SHARE $VBOX_SHARE_MOUNT_POINT && echo "$VBOX_SHARE share succesfully mounted!" && return 0
-  echo "Something goes wrong!" && return 1
-}
-
-umount_vbox_share() {
-  [ -z $# ] && echo "You have to supply VirtualBox shared folder name"
-
-  local VBOX_SHARE=$1
-
-  sudo umount $VBOX_SHARE && echo "$VBOX_SHARE shared folder successfully unmounted"
-
-  if [ ! -z $VBOX_SHARE_MOUNT_POINT -a -d $VBOX_SHARE_MOUNT_POINT ]
-  then
-    rmdir $VBOX_SHARE_MOUNT_POINT
-    unset VBOX_SHARE_MOUNT_POINT
-    return 0
-  fi
-  echo "Something goes wrong!" && return 1
 }
 
 
@@ -124,6 +81,18 @@ sshmount() {
   sshfs user@$1:/ "~/Volumes/$1" -ovolname=$1 -onoappledouble -onoapplexattr && open "~/Volumes/$1"
 }
 
+## Powerline GO
+
+download_latest_pgo() {
+
+    downFolder="${1:-$HOME}"
+
+    plat="$(uname -s | tr [:upper:] [:lower:])"
+    platAsset="powerline-go-${plat}-amd64"
+    url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
+    wget -q "${url}" -O "${downFolder}/powerline-go" || { echo "ERROR"; return; }
+    chmod a+x "${downFolder}/powerline-go" && echo -e "Done! ${downFolder}/powerline-go\n"
+}
 
 macchanger() {
   if [[ $# -eq 0 ]]; then
@@ -148,4 +117,4 @@ _goinside()
 }
 complete -F _goinside goinside
 
-[[ "$SHELL" == "BASH" ]] && export -f goinside
+[[ "$_SHELL_NAME" == "bash" ]] && export -f goinside

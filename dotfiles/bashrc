@@ -1,6 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -13,8 +10,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=500
+HISTFILESIZE=200
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -69,6 +66,14 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+
+## load bash env
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
+fi
+
+
 # library functions
 if [ -f ~/.bash_functions ]; then
    .  ~/.bash_functions
@@ -91,24 +96,48 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+
 # Terminal options
 ## truncate PWD
 _pwd_short() {
     echo ${PWD/#$HOME/\~} | sed -E 's!([^/.|^/])[^/]+/!\1/!g'
 }
 
-export PROMPT_DIRTRIM=1
 
 ## prompt
 if [[ `whoami` == "root" ]]; then
   PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u@\H\[\e[0m\] @ \w \n\[\e[41m\]#\[\e[0m\] "
 else
-  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\[\e[47m\]\[\e[0;33;47m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\]\$(parse_languages)\[\e[0;0m\]\n\$ "
+
+  export _LANGS_ENV=$(parse_languages)
+
+  PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\[\e[47m\]\[\e[0;33;47m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\]$_LANGS_ENV\[\e[0;0m\]\$ "
 fi
 
-## load bash env
-. ~/.bash_env
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+function _update_ps1() {
+
+    mods="time,cwd,dotenv,perms,gitlite,ssh,jobs,exit,root"
+    args="-cwd-max-depth 3"
+
+    [ -n "$_LANGS_ENV" ] && mods="time,cwd,dotenv,perms,gitlite,shell-var,jobs,exit,ssh,root -shell-var _LANGS_ENV"
+
+    if [ -n "$SSH_CONNECTION" ]; then args="-cwd-max-depth 1"; fi
+
+
+    eval "$(/usr/local/bin/powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
+}
+
+if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/code/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/code/google-cloud-sdk/path.bash.inc"; fi
+
+
+
+if [ -n "$SSH_CONNECTION" ] && [ -f ~/.iterm2_shell_integration.bash ]; then
+   . ~/.iterm2_shell_integration.bash
+fi
