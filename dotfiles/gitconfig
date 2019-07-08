@@ -15,7 +15,7 @@
   editor = vim
 	autocrlf = input
   eol = lf
-	excludesfile = /Users/vardanpro/.gitignore_global
+	excludesfile = ~/.gitignore
 
 [alias]
   co        = checkout
