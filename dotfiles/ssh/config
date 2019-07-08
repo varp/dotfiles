@@ -3,7 +3,8 @@ Host *
     ControlMaster auto
     ControlPath ~/.ssh/control_%r@%h:%p
     ControlPersist 10m
-
+    ServerAliveInterval 60
+    ServerAliveCountMax  120
 
     # RemoteCommand [[ -d ~/SshShared ]] || mkdir ~/SshShared
 
