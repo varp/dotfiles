@@ -5,7 +5,3 @@ Host *
     ControlPersist 10m
     ServerAliveInterval 60
     ServerAliveCountMax  120
-
-    # RemoteCommand [[ -d ~/SshShared ]] || mkdir ~/SshShared
-
-    # LocalCommand sftp -S ~/SshShared -b ~/.ssh/sftp-init %r@%h:~/SshShared
