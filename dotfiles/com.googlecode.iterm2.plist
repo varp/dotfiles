@@ -39,7 +39,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
+	<string>1, 7</string>
 	<key>NSFontPanelPreviewHeight</key>
 	<real>100</real>
 	<key>NSFontPanelSizeList</key>
@@ -109,15 +109,15 @@
 		<string>@~p</string>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>428 109 883 457 0 0 1680 1027 </string>
+	<string>299 88 883 323 0 0 1440 877 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>664 673 400 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>553 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>346 122 606 469 0 0 1680 1027 </string>
+	<string>269 89 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>322 410 916 423 0 0 1440 877 </string>
+	<string>374 387 770 429 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame com.apple.typography_panel_Hack-Regular</key>
@@ -690,7 +690,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MesloLGMDZForPowerline-Regular 14</string>
+			<string>MesloLGMNerdFontCompleteM-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -2005,7 +2005,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RobotoMonoForPowerline-Regular 16</string>
+			<string>MesloLGMNerdFontCompleteM-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -2239,9 +2239,9 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
-	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -2253,7 +2253,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-07-05T22:43:58Z</date>
+	<date>2019-07-08T23:44:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
