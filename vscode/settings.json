@@ -10,14 +10,12 @@
     "editor.rulers": [
         80, 120
     ],
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', 'Liberation Mono', 'DejaVu Sans Mono', monospace",
-    "editor.fontSize": 14,
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.insertSpaces": true,
-    "editor.renderWhitespace": "boundary",
+    "editor.renderWhitespace": "none",
     "editor.wordWrapColumn": 120,
 
     "editor.mouseWheelScrollSensitivity": 2,
@@ -33,10 +31,7 @@
 
     "debug.inlineValues": true,
     "workbench.iconTheme": "vscode-icons",
-    "vsicons.projectDetection.autoReload": true,
-    "vsicons.dontShowNewVersionMessage": true,
     "explorer.autoReveal": false,
-    "sublimeTextKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "gitlens.advanced.messages": {
@@ -49,5 +44,16 @@
         "suppressResultsExplorerNotice": false,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
-    }
+    },
+    "gitlens.views.repositories.location": "gitlens",
+    "gitlens.views.fileHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showTabs": false,
+    "font-switcher.enableLivePreview": true,
+    "font-switcher.fontFamily": "Andale Mono, Anonymous Pro for Powerline, Apple Color Emoji, Courier New, Cousine for Powerline, DejaVu Sans Mono, DejaVu Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Fira Mono for Powerline, GB18030 Bitmap, Go Mono for Powerline, Hack, IBM 3270, IBM 3270 Narrow, IBM 3270 Semi\\-Narrow, Inconsolata for Powerline, Inconsolata\\-dz for Powerline, Inconsolata\\-g for Powerline, Liberation Mono, Liberation Mono for Powerline, Menlo, Meslo LG L DZ for Powerline, Meslo LG L for Powerline, Meslo LG M DZ for Powerline, Meslo LG M for Powerline, Meslo LG S DZ for Powerline, Meslo LG S for Powerline, Noto Mono for Powerline, NovaMono for Powerline, PT Mono, ProFont for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Variable, Space Mono, Space Mono for Powerline, Ubuntu Mono derivative Powerline, monofur for Powerline"
 }
