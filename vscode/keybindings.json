@@ -1,0 +1,49 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "shift+alt+=",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "shift+alt+-",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+q a",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "ctrl+q v",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+q h",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "alt+escape",
+    "command": "revealInExplorer"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "editor.action.showContextMenu",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+f12",
+    "command": "-editor.action.showContextMenu",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+=",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "-workbench.action.showCommands"
+  }
+]
