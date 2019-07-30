@@ -5,7 +5,6 @@
     
     "telemetry.enableTelemetry": false,
 
-    "window.zoomLevel": 0.2,
     
     "editor.rulers": [
         80, 120
@@ -13,6 +12,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
+    "editor.fontSize": 12,
     "editor.wordWrap": "on",
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "none",
@@ -55,6 +55,6 @@
     "workbench.activityBar.visible": true,
     "workbench.editor.showTabs": false,
     "font-switcher.enableLivePreview": true,
-    "font-switcher.fontFamily": "Andale Mono, Anonymous Pro for Powerline, Apple Color Emoji, Courier New, Cousine for Powerline, DejaVu Sans Mono, DejaVu Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Fira Mono for Powerline, GB18030 Bitmap, Go Mono for Powerline, Hack, IBM 3270, IBM 3270 Narrow, IBM 3270 Semi\\-Narrow, Inconsolata for Powerline, Inconsolata\\-dz for Powerline, Inconsolata\\-g for Powerline, Liberation Mono, Liberation Mono for Powerline, Menlo, Meslo LG L DZ for Powerline, Meslo LG L for Powerline, Meslo LG M DZ for Powerline, Meslo LG M for Powerline, Meslo LG S DZ for Powerline, Meslo LG S for Powerline, Noto Mono for Powerline, NovaMono for Powerline, PT Mono, ProFont for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Pro for Powerline, Source Code Variable, Space Mono, Space Mono for Powerline, Ubuntu Mono derivative Powerline, monofur for Powerline",
-    "editor.fontFamily": "Noto Mono for Powerline"
+    "font-switcher.fontFamily": "UbuntuMono Nerd Font Mono, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, SauceCodePro Nerd Font Mono, RobotoMono Nerd Font Mono, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PT Mono, ProFont for Powerline, Prestige Elite Std, Orator Std, OCR A Std, NovaMono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, MesloLGSDZ Nerd Font Mono, MesloLGS Nerd Font Mono, MesloLGMDZ Nerd Font Mono, MesloLGM Nerd Font Mono, MesloLGLDZ Nerd Font Mono, MesloLGL Nerd Font Mono, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, LiterationMono Nerd Font Mono, Liberation Mono for Powerline, Liberation Mono, Letter Gothic Std, InconsolataLGC Nerd Font Mono, InconsolataGo Nerd Font Mono, Inconsolata-g for Powerline, Inconsolata-dz for Powerline, Inconsolata Nerd Font Mono, Inconsolata for Powerline, IBM 3270 Semi-Narrow, IBM 3270 Narrow, IBM 3270, Hack, Go Mono for Powerline, FuraMono Nerd Font Mono, FuraCode Nerd Font Mono, Fira Mono for Powerline, DroidSansMono Nerd Font Mono, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVuSansMono Nerd Font Mono, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Cousine for Powerline, Courier New, Courier, Anonymous Pro for Powerline, Andale Mono",
+    "editor.fontFamily": "Menlo"
 }
