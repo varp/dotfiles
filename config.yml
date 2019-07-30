@@ -1,38 +1,38 @@
 dotfiles:
-    - bash_functions
-    - aliases_completions
-    - bash_aliases
-    - bash_env
-    - bash_profile
-    - bashrc
+  - bash_functions
+  - aliases_completions
+  - bash_aliases
+  - bash_env
+  - bash_profile
+  - bashrc
 
-    - zshrc
-    - zlogin
+  - zshrc
+  - zlogin
 
-    - gitconfig
-    - gitignore
+  - gitconfig
+  - gitignore
 
-    - vimrc
-    - bazaar
+  - vimrc
+  - bazaar
 
-    - tmux.conf
-    - muttrc
+  - tmux.conf
+  - muttrc
 
-    - config/lfm/lfm.ini
-    - config/lfm/lfm.keys
-    - config/lfm/lfm.theme
+  - config/lfm/lfm.ini
+  - config/lfm/lfm.keys
+  - config/lfm/lfm.theme
 
-    - ssh/config
-    - ssh/sftp-init
+  - ssh/config
+  - ssh/sftp-init
 
-    - config/powerline/config.json
+  - config/powerline/config.json
 
-    - config/powerline/themes/shell/__main__.json
-    - config/powerline/themes/shell/continuation.json
-    - config/powerline/themes/shell/default.json
-    - config/powerline/themes/shell/default_leftonly.json
-    - config/powerline/themes/shell/select.json
+  - config/powerline/themes/shell/__main__.json
+  - config/powerline/themes/shell/continuation.json
+  - config/powerline/themes/shell/default.json
+  - config/powerline/themes/shell/default_leftonly.json
+  - config/powerline/themes/shell/select.json
 
-    - ansible.cfg
+  - ansible.cfg
 binfiles:
-    - genpassword
+  - genpassword
