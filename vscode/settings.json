@@ -5,10 +5,10 @@
     
     "telemetry.enableTelemetry": false,
 
-    "window.zoomLevel": 0.2,
+    // "window.zoomLevel": 1,
     
     "editor.rulers": [
-        80, 120
+        120
     ],
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,

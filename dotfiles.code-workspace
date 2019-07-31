@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "/Users/vardanpro/code/dotfiles"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"bash*": "shellscript",
+			"gitignore": "gitignore"
+		}
+	}
+}
