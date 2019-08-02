@@ -157,17 +157,23 @@ def vim_install_vundle
 end
 
 def vscode_settings_task
-    source_path = File.join(DOTFILES_ROOT, 'vscode', 'settings.json')
-    vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code')
-    target_path = File.join(vscode_dir, 'User', 'settings.json')
+    source_dir = File.join(DOTFILES_ROOT, 'vscode')
+    vscode_dir = File.join(ENV['HOME'], 'Library', 'Application Support', 'Code', 'User')
 
     FileUtils.mkdir_p(vscode_dir) unless File.exists?(vscode_dir)
 
-    if File.exists?(target_path)
-      system "unlink \"#{target_path}\""
+    ['settings.json', 'keybindings.json'].each do |f|
+
+      source_path = File.join(source_dir, f)
+      target_path = File.join(vscode_dir, f)
+
+      if File.exists?(target_path)
+        system "unlink \"#{target_path}\""
+      end
+  
+      system "ln -vsf \"#{source_path}\" \"#{target_path}\""
     end
 
-    system "ln -vsf \"#{source_path}\" \"#{target_path}\""
 end
 
 def vscode_install_extensions_task
