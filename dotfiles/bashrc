@@ -127,8 +127,13 @@ function _update_ps1() {
     fi
 
     if [ -n "$SSH_CONNECTION" ]; then
-        args="-cwd-max-depth 1 -shell-var _LANGS_ENV"
-        mods="time,cwd,perms,load,shell-var,dotenv,host,user,jobs,exit,ssh,termtitle"
+        if [ -n "$_langs" ]; then
+            args="-cwd-max-depth 1 -shell-var _LANGS_ENV"
+            mods="termtitle,time,cwd,perms,load,shell-var,dotenv,host,user,jobs,exit,ssh,root"
+        else
+            args="-cwd-max-depth 1"
+            mods="termtitle,time,cwd,perms,load,dotenv,host,user,jobs,exit,ssh,root"
+        fi
     fi
 
 
