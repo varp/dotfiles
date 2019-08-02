@@ -68,7 +68,7 @@ parse_languages() {
   [ -n "$go_ver" ] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver" )
   
 
-  echo "[${langs[@]}]"
+  [[ ! -z "${langs[*]}" ]] && echo "[${langs[@]}]"
 
 }
 

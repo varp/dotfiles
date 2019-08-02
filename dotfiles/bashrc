@@ -120,6 +120,8 @@ function _update_ps1() {
     mods="time,cwd,dotenv,perms,gitlite,ssh,jobs,exit,root"
     args=""
 
+    export _LANGS_ENV=$(parse_languages)
+
     if [ -n "$_LANGS_ENV" ]; then
         mods="time,cwd,dotenv,perms,gitlite,shell-var,jobs,exit,root"
         args="-cwd-max-depth 3 -shell-var _LANGS_ENV"
@@ -147,7 +149,3 @@ if [ -f "${HOME}/code/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/code/go
 if [ -n "$SSH_CONNECTION" ] && [ -f ~/.iterm2_shell_integration.bash ]; then
    . ~/.iterm2_shell_integration.bash
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
