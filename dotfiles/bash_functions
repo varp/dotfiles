@@ -19,12 +19,12 @@ parse_git_branch() {
 
 parse_node_version_nvm() {
   [[ -n "$NVM_BIN" || -f package.json || -d node_modules || -f *.js ]] || return
-  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@\1@g'
+  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@v\1@g'
 }
 
 parse_ruby_version() {
   [[ -f Gemfile || -f Rakefile || -f *.rb ]] || return
-  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/rb\1/'
+  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/v\1/'
 }
 
 parse_python_version() {
@@ -34,7 +34,7 @@ parse_python_version() {
 
 parse_php_version(){
   [[ -f *.php || -f composer.json ]] || return
-  [ -n "$(which php)" ] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/\1/p'
+  [ -n "$(which php)" ] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/v\1/p'
 }
 
 parse_go_version() {
@@ -47,7 +47,7 @@ parse_go_version() {
 parse_languages() {
 
   ruby_symbol='💎'
-  node_symbol='⬢'
+  node_symbol='🔶'
   pyenv_symbol='🐍'
   php_symbol='🐘'
   go_symbol='🐼'
