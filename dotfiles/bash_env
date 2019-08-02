@@ -35,7 +35,6 @@ export PATH="/usr/local/heroku/bin":$PATH
 
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
-export NVM_SYMLINK_CURRENT=true
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -47,7 +46,8 @@ export PATH="$PYENV_ROOT/bin":$PATH
 [ -d "$PYENV_ROOT" ] && eval "$(pyenv init -)"
 export PATH="$HOME/.local/bin":$PATH
 
-
+# Go Version Manager
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 ## CDPATH
 export CDPATH="$HOME":"$HOME/code":"$HOME/code/go"
