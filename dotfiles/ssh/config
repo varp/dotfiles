@@ -1,7 +1,7 @@
 Host *
     HostName %h
-    ControlMaster auto
-    ControlPath ~/.ssh/control_%r@%h:%p
-    ControlPersist 10m
+#    ControlMaster auto
+#    ControlPath ~/.ssh/control_%r@%h:%p
+#    ControlPersist 10m
     ServerAliveInterval 60
     ServerAliveCountMax  120
