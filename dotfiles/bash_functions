@@ -39,7 +39,13 @@ parse_php_version(){
 
 parse_go_version() {
   # see: https://github.com/denysdovhan/spaceship-prompt/blob/master/sections/golang.zsh
-  [[ -n "$gvm_go_name" || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock \
+  [[ -n "$gvm_go_name" || -f .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock \
+  || ( $GOPATH && "$PWD/" =~ "$GOPATH/" ) ]] || return
+  go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }'
+}
+
+parse_go_version_goenv() {
+  [[ -n "$GOENV_VERSION" || -f .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock \
   || ( $GOPATH && "$PWD/" =~ "$GOPATH/" ) ]] || return
   go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }'
 }
