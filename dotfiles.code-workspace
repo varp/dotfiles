@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "/Users/vardanpro/code/dotfiles"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"bash_*": "shellscript",
+			"bashrc": "shellscript",
+			"aliases_completions": "shellscript",
+			"zlogin": "shellscript",
+			"zshrc": "shellscript",
+			"gitignore": "gitignore",
+		}
+	}
+}
