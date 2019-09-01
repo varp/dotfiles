@@ -1,15 +1,1 @@
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
-
-
-[[ "$_SHELL_NAME" == "bash" ]] && . ~/.aliases_completions
-
-# The next line enables shell command completion for gcloud.
-if [ -f "${HOME}/code/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/code/google-cloud-sdk/completion.bash.inc"; fi
-
-
-## OSX
-if [[ "$_OS_NAME" == "Darwin" ]]; then
-
-   [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-fi

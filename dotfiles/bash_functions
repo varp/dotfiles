@@ -63,7 +63,7 @@ parse_languages() {
   ruby_ver=$(parse_ruby_version)
   python_ver=$(parse_python_version)
   php_ver=$(parse_php_version)
-  go_ver=$(parse_go_version)
+  go_ver=$(parse_go_version_goenv)
 
   langs=( )
 
@@ -139,3 +139,26 @@ _goinside()
 complete -F _goinside goinside
 
 [[ "$_SHELL_NAME" == "bash" ]] && export -f goinside
+
+
+
+_fix_jetbrains_cli_launcher() {
+  [ -z  "$1" ] && {
+    echo "Usage: _fix_jetbrains_cli_launcher <IDE cli name>"
+    return 1
+  }
+
+  local _cli_path="$(which ${1})"
+  [ -z "$_cli_path" ] && {
+    echo "ERROR: specified tool is not on the system PATH"
+    return 2
+  }
+
+  local _wrapper_path="$HOME/bin/$1"
+  cat $_cli_path | sed -E -e 's@#!/bin/sh.*@#!/usr/bin/env bash@g' > "${_wrapper_path}"
+
+  chmod +x "$_wrapper_path"
+
+  echo "jetbrains cli wrapper was "${_wrapper_path@Q}" created"
+  return
+}

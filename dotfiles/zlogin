@@ -4,8 +4,8 @@
 
 ## OSX
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PATH="$(brew --prefix php@7.2)/bin:$PATH"
-  export PATH="$(brew --prefix php@7.2)/sbin:$PATH"
+  export PATH; PATH="$(brew --prefix php@7.2)/bin:$PATH"
+  export PATH; PATH="$(brew --prefix php@7.2)/sbin:$PATH"
 fi
 
 autoload -U +X compinit && compinit

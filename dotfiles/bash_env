@@ -18,40 +18,12 @@ export DEBEMAIL="vardan.pogosyan@gmail.com"
 export IBUS_ENABLE_SYNC_MODE=1
 
 ### Add bin folder to PATH
-export PATH="$HOME/bin":$PATH
-export PATH="/usr/local/bin":$PATH
+export PATH; PATH="$HOME/bin:$PATH"
+export PATH; PATH="/usr/local/bin:$PATH"
 
-### Set GOPATH
-export GOPATH="$HOME/code/go"
-
-### Add GOPATH bin folder
-export PATH="$GOPATH/bin":$PATH
-
-# Add Visual Studio Code (code)
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin":$PATH
-
-# Load NVM (Node Version Manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-
-# Load Python Version Manager
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin":$PATH
-[ -d "$PYENV_ROOT" ] && eval "$(pyenv init -)"
-export PATH="$HOME/.local/bin":$PATH
-
-# Go Version Manager
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
-[[ -s "$HOME/.gvm/scripts/completion" ]] && . "$HOME/.gvm/scripts/completion"
 
 ## CDPATH
-export CDPATH="$HOME":"$HOME/code"
+export CDPATH="$HOME:$HOME/code"
 
 # Locales
 export LANG=en_US:en
@@ -64,5 +36,5 @@ export LC_ALL=en_US.UTF-8
 export PROMPT_DIRTRIM=1
 
 if [ "$_OS_NAME" == "Darwin" ] && [ -f /usr/local/bin/brew ]; then
-     eval $(brew shellenv)
+     eval "$(brew shellenv)"
 fi
