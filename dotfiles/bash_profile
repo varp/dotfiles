@@ -1,1 +1,2 @@
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+[[ -s "/Users/vardanpro/.gvm/scripts/gvm" ]] && source "/Users/vardanpro/.gvm/scripts/gvm"

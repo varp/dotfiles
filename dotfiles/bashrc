@@ -175,16 +175,21 @@ export PATH; PATH="$PYENV_ROOT/bin:$PATH"
 [ -d "$PYENV_ROOT" ] && eval "$(pyenv init -)"
 export PATH; PATH="$HOME/.local/bin:$PATH"
 
+USE_GOENV=false
 
-# Goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH; PATH="$GOENV_ROOT/bin:$PATH"
-[[ -s "$GOENV_ROOT/bin/goenv" ]] && eval "$(goenv init -)"
+if $USE_GOENV; then
+    # Goenv
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH; PATH="$GOENV_ROOT/bin:$PATH"
+    [[ -s "$GOENV_ROOT/bin/goenv" ]] && eval "$(goenv init -)"
 
-export GOROOT="$(go env GOROOT)"
-export GOPATH="$(go env GOPATH)"
+    export GOROOT="$(go env GOROOT)"
+    export GOPATH="$(go env GOPATH)"
 
-export PATH; PATH="$GOROOT/bin:$PATH"
-export PATH; PATH="$GOPATH/bin:$PATH"
-
-
+    export PATH; PATH="$GOROOT/bin:$PATH"
+    export PATH; PATH="$GOPATH/bin:$PATH"
+else
+    # Go Version Manager
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
+    [[ -s "$HOME/.gvm/scripts/completion" ]] && . "$HOME/.gvm/scripts/completion"
+fi
