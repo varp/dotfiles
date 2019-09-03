@@ -45,5 +45,13 @@
   {
     "key": "shift+cmd+a",
     "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+q s",
+    "command": "workbench.action.editorLayoutSingle"
+  },
+  {
+    "key": "ctrl+q d",
+    "command": "workbench.action.editorLayoutTwoColumns"
   }
 ]
