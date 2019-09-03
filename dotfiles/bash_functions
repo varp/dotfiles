@@ -18,8 +18,9 @@ parse_git_branch() {
 }
 
 parse_node_version_nvm() {
-  [[ -n "$NVM_BIN" || -f package.json || -d node_modules || -f *.js ]] || return
-  [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@v\1@g'
+  [[ -f package.json || -d node_modules || -f *.js ]] || return
+  # [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@v\1@g'
+  node --version | tr -d '\n' 
 }
 
 parse_ruby_version() {
