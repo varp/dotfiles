@@ -33,7 +33,7 @@ alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias apt-update='sudo apt-get update'
 alias apt-install='sudo apt-get install'
 alias apt-autoremove='sudo apt-get autoremove'
-alias apt-search='sudo apt-get search'
+alias apt-search='sudo apt-get searcTh'
 alias is_deb_installed='sudo dpkg --get-selections | grep -i'
 
 # netstat
@@ -41,8 +41,11 @@ alias nst='sudo netstat -lntp'
 alias nsu='sudo netstat -lnup'
 alias nsx='sudo netstat -lnxp'
 
-alias mnst='sudo lsof -PiTCP -sTCP:LISTEN'
-alias mnsu='sudo lsof -PiUDP'
+if [[ "$_OS_NAME" == "Darwin" ]]; then
+    alias nst='sudo netstat -ln -v -p tcp'
+    alias nsu='sudo netstat -ln -v -p udp'
+    alias nsx='sudo netstat -ln -v -f unix'
+fi
 
 alias grepi='grep -i'
 #alias vim='vim -p'
