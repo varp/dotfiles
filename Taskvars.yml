@@ -1,4 +1,4 @@
-DOTFILES: |-
+DOTFILES: >
   bash_functions
   aliases_completions
   bash_aliases
@@ -25,5 +25,5 @@ DOTFILES: |-
   config/powerline/themes/shell/default_leftonly.json
   config/powerline/themes/shell/select.json
   ansible.cfg
-BINFILES: |-
+BINFILES: >
   genpassword

@@ -2,6 +2,8 @@ version: '2'
 
 env:
   DOTFILES_ROOT: ./dotfiles
+  BINFILES_ROOT: ./bin
+  DOTFILES_HOME: ~
 
 tasks:
   default:
@@ -9,14 +11,33 @@ tasks:
       - echo "$DOTFILES_ROOT"
 
   dotfiles:
-    desc: Installs dotfiles
+    desc: Installs dot files
     cmds:
       - cmd: |
-          {{range $f := .DOTFILES | splitLines}}
-          srcPath="$DOTFILES_ROOT/{{$f}}"
-          dstPath="$HOME/{{$f}}"
-          echo $(realpath $srcPath)
-          echo $(realpath $dstPath)
-          {{end}}
+          dotfiles=({{.DOTFILES}})
+          for f in "${dotfiles[@]}"; do
+            s=$(realpath "$DOTFILES_ROOT/$f")
+            d="${HOME}/${DOTFILES_HOME#"~"}.$f"
+            if [[ "$f" =~ / ]]; then
+              mkdir -p "$(dirname $d)"
+            fi
+            [[ -d "$d" ]] && rm -rf "$d"
+            [[ -f "$d" || -h "$d" ]] && unlink "$d"
+            ln -vsf "$s" "$d"
+          done
         silent: true
 
+  binfiles:
+    desc: Installs bin files
+    cmds:
+      - cmd: |
+          mkdir -p "${HOME}/${DOTFILES_HOME#"~"}bin"
+          binfiles=({{.BINFILES}})
+          for f in "${binfiles[@]}"; do
+            s=$(realpath "$BINFILES_ROOT/$f")
+            d="${HOME}/${DOTFILES_HOME#"~"}bin/$f"
+            [[ -f "$d" || -h "$d" ]] && unlink "$d"
+            ln -vsf "$s" "$d"
+            chmod a+x "$d"
+          done
+        silent: true
