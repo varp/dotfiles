@@ -1,0 +1,22 @@
+version: '2'
+
+env:
+  DOTFILES_ROOT: ./dotfiles
+
+tasks:
+  default:
+    cmds:
+      - echo "$DOTFILES_ROOT"
+
+  dotfiles:
+    desc: Installs dotfiles
+    cmds:
+      - cmd: |
+          {{range $f := .DOTFILES | splitLines}}
+          srcPath="$DOTFILES_ROOT/{{$f}}"
+          dstPath="$HOME/{{$f}}"
+          echo $(realpath $srcPath)
+          echo $(realpath $dstPath)
+          {{end}}
+        silent: true
+
