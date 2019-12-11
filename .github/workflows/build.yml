@@ -5,17 +5,17 @@ on: repository_dispatch
 jobs:
   build:
     if: github.events.action == "build"
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v1
-        with:
-          ref: 
-      - name: Make stub for ./bin/task
-        run: cd ./bin; ln -vsf taskfile-install task; cd -
-      - name: Commit back
-        run: |
-          git add --all
-          cp -v ./dotfiles/gitconfig ~/.gitconfig
-          git commit -a -m "Replace ./bin/task with installer"
-          git push -u origin ${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.ref }}
+    - name: Make stub for ./bin/task
+      run: cd ./bin; ln -vsf taskfile-install task; cd -
+    - name: Commit back
+      run: |
+        git add --all
+        cp -v ./dotfiles/gitconfig ~/.gitconfig
+        git commit -a -m "Replace ./bin/task with installer"
+        git push -u origin ${{ github.ref }}
       
