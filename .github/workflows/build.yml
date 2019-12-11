@@ -23,7 +23,8 @@ jobs:
         run: |
           ./bin/task
           ./bin/task
-          ./bin/task install
+          ./bin/task binfiles
+          ./bin/task dotfiles
 
 
   macosx:
@@ -43,5 +44,6 @@ jobs:
         run: |
           ./bin/task
           ./bin/task
-          ./bin/task install
+          ./bin/task binfiles
+          ./bin/task dotfiles
 
