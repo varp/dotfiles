@@ -54,5 +54,6 @@
     "editor.fontFamily": "Roboto Mono for Powerline",
     "files.autoSave": "onWindowChange",
 
-    "vim.disableExtension": true
+    "vim.disableExtension": true,
+    "git.enableSmartCommit": true
 }

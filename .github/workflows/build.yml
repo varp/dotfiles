@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-      with:
-        ref: ${{ github.ref }}
     - name: Make stub for ./bin/task
       run: cd ./bin; ln -vsf taskfile-install task; cd -
     - name: Commit back
