@@ -28,6 +28,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2-beta
+      - name: update $PATH
+        run: export PATH="/usr/local/bin/:$PATH"
       - name: Test
         run: |
           ./bin/task
