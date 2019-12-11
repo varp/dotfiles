@@ -154,10 +154,10 @@ function _update_ps1() {
     fi
 
 
-    eval "$(powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
+    eval "$(~/bin/powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
 }
 
-if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
+if [ "$TERM" != "linux" ] && [ -f ~/bin/powerline-go ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
