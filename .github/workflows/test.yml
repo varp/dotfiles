@@ -29,7 +29,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2-beta
       - name: update $PATH
-        run: export PATH="/usr/local/bin/:$PATH"
+        run: |
+          brew install coreutils
+          export PATH="/usr/local/bin/:$PATH"
       - name: Test
         run: |
           ./bin/task
