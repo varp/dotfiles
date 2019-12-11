@@ -1,22 +1,31 @@
 # Dotfiles
+## Prequisties
+    bash ./bin/taskfile-install # To install https://taskfile.dev/
+
+
+## Installation
+
+To see list of all tasks:
+
+    ./bin/task
+
 
 Install dotfiles and binfiles:
-```
-rake install
-```
+    
+    ./bin/task install
+
 Or separately:
-```
-rake dotfiles
-rake binfiles
-```
-# Sublime Text 3
-    rake sublime3:package_manager # Install package manager
-    rake sublime3:settings # Install settings
-    rake sublime3:themes   # Install custom themes    
 
-# Visual Studio Code
-    rake vscode:settings    # Install vscode settings
-    rake vscode:extensions  # Install vscode extensions #NOTICE: Not implemented yet
+    ./bin/task dotfiles
+    ./bin/task binfiles
 
-## Credits 
-[Dan Sosedoff](https://github.com/sosedoff/dotfiles)
+### Sublime Text 3
+    ./bin/task sublime:settings # Install settings
+    ./bin/task sublime:packagecontrol # Install package manager
+
+### Visual Studio Code
+    ./bin/task vscode:settings    # Installs vscode settings
+    ./bin/task vscode:extensions  # Install vscode extensions 
+
+### VIM
+    ./bin/task vim:vundle # Install VIM's Vundle

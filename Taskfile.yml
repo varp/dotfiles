@@ -3,12 +3,28 @@ version: '2'
 env:
   DOTFILES_ROOT: ./dotfiles
   BINFILES_ROOT: ./bin
+  VSCODEFILES_ROOT: ./vscode
+  ST3FILES_ROOT: ./st3
   DOTFILES_HOME: ~
 
 tasks:
   default:
     cmds:
-      - echo "$DOTFILES_ROOT"
+      - ./bin/task -l
+    silent: true
+
+  install:
+    desc: "Runs tasks: binfiles, dotfiles"
+    cmds:
+      - cmd: |
+          echo -n -e "Tasks to be run:\n- dotfiles\n- binfiles\n\n Do you want continue? [Y/n] " 
+          read answer
+          [[ "$answer" == "Y" || "$answer" == "y" ]] || { echo "Canceled by user"; exit 1; }
+          exit 0
+        silent: true
+      - task: binfiles
+      - task: dotfiles
+
 
   dotfiles:
     desc: Installs dot files
@@ -40,4 +56,68 @@ tasks:
             ln -vsf "$s" "$d"
             chmod a+x "$d"
           done
+        silent: true
+
+  vscode:settings:
+    desc: Installs VS Code settings
+    cmds:
+      - cmd: |
+          f="settings.json"
+          s=$(realpath "$VSCODEFILES_ROOT/$f")
+          d="${HOME}/${DOTFILES_HOME#"~"}Library/Application Support/Code/User/$f"
+          mkdir -p "$(dirname "$d")"
+          unlink "$d"
+          ln -vsf "$s" "$d"
+        silent: true
+
+  vscode:extenstions:
+    desc: Installs VS code extenstions
+    cmds:
+      - cmd: |
+          exts=({{.VSCODEEXTENSIONS}})
+          vsbin=$(command -v code)
+          [[ -z "$vsbin" ]] && { echo "VS Code binary not found!"; exit 1; }
+          for e in "${exts[@]}"; do
+            "$vsbin" --install-extension $e
+          done
+        silent: true
+
+  vim:vundle:
+    desc: Installs VIM's Vundle package mamager
+    cmds:
+      - cmd: |
+          vimDir="${HOME}/${DOTFILES_HOME#"~"}.vim"
+          vundleDir="${vimDir}/bundle"
+          [[ -h "$vundleDir" ]] && unlink "$vundleDir"
+          [[ -d "$vundleDir" ]] && rm -rf "$vundleDir"
+          mkdir -p "$vundleDir"
+          git clone {{.VIM_VUNDLE_REPO}} "${vundleDir}/Vundle.vim"
+        silent: true
+
+  sublime:settings:
+    desc: Installs SublimeText settings
+    cmds:
+      - cmd: |
+          stDir="${HOME}/${DOTFILES_HOME#"~"}/Library/Application Support/Sublime Text 3/Packages/User"
+          stFiles=({{.SUBLIME_FILES}})
+          mkdir -p "$stDir"
+          for f in "${stFiles[@]}"; do
+            s=$(realpath "$ST3FILES_ROOT/$f")
+            d="$stDir/$f"
+            [[ -h "$d" || -f "$d" ]] && unlink "$d" 
+            ln -vsf "$s" "$d"
+          done
+        silent: true
+
+  sublime:packagecontrol:
+    desc: Installs ST3 package control
+    cmds:
+      - cmd: |
+          stDir="${HOME}/${DOTFILES_HOME#"~"}/Library/Application Support/Sublime Text 3/Installed Packages"
+          stPmPath="$stDir/Package Control.sublime-package"
+          [[ -f "$stPmPath" ]] && { echo "Sublime Package Control already installed! :)"; exit 0; }
+          mkdir -p "$stDir"
+          cd "$stDir"
+          wget https://sublime.wbond.net/Package%20Control.sublime-package -O 'Package Control.sublime-package'
+          cd "${OLD_PWD#"-"}"
         silent: true

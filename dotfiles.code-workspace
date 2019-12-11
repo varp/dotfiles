@@ -12,6 +12,7 @@
 			"zlogin": "shellscript",
 			"zshrc": "shellscript",
 			"gitignore": "gitignore",
+			"vimrc": "vimrc"
 		}
 	}
 }
