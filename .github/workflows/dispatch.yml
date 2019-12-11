@@ -1,6 +1,14 @@
 name: dispatch
 
-on: repository_dispatch
+on: 
+  pull_request:
+    branches:
+    - master
+  push:
+    branches:
+      - master
+    tags:
+      - v*
 
 jobs:
   dispatch-build:
@@ -11,9 +19,10 @@ jobs:
         # GITHUB_TOKEN doesn't have the permission to trigger repository_dispatch
         # we are using our own PAT via secrets.GITHUB_PAT
         run: |
-          echo "dispatching build"
-          curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_PAT }}' \
-            -H 'Accept: application/vnd.github.everest-preview+json' \
-            -d '{"event_type": "build", "client_payload": {}}' \
-            -X POST https://api.github.com/repos/${{ github.repository }}/dispatches
-        
+          if [ ! -h ./bin/task ]; then
+            echo "dispatching build"
+            curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_PAT }}' \
+              -H 'Accept: application/vnd.github.everest-preview+json' \
+              -d '{"event_type": "build", "client_payload": {}}' \
+              -X POST https://api.github.com/repos/${{ github.repository }}/dispatches
+          fi

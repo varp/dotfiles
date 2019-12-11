@@ -1,0 +1,36 @@
+name: test
+
+on: 
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+      
+      - name: Test
+        run: |
+          ./bin/task
+          ./bin/task
+          ./bin/task binfiles
+          ./bin/task dotfiles
+
+
+  macosx:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+      
+      - name: Test
+        run: |
+          ./bin/task
+          ./bin/task
+          ./bin/task binfiles
+          ./bin/task dotfiles
+
