@@ -1,6 +1,6 @@
 version: '2'
 
-expansions: 2
+expansions: 6
 
 env:
   DOTFILES_ROOT: ./dotfiles
@@ -128,14 +128,13 @@ tasks:
   env:load:dotenv:
     cmds:
       - cmd: |
-          DOTENV="{{.DIR}}/.emv"
+          DOTENV="${ENVFILES_ROOT}/${DIR}/.env"
           DOTENV_SHELL_LOADER_SAVED_OPTS=$(set +o)
           set -o allexport
           test -f "${DOTENV}" && source "${DOTENV}"
           set +o allexport
           eval "$DOTENV_SHELL_LOADER_SAVED_OPTS"
           unset DOTENV_SHELL_LOADER_SAVED_OPTS
-        silent: true
         
   env:python:
     desc: Installs pyenv and version 3 of Python
@@ -149,32 +148,45 @@ tasks:
           pyenv local {{.PYTHON_VER}}
           python --version
 
-  env:php:
-    desc: Installs PHP env
+  repo:ppa:php:
+    desc: Enables PPA for php
+    cmds:
+      - sudo add-apt-repository -y ppa:ondrej/php
+      - sudo apt-get update -y
+    silent: true
+
+  repo:rpm:php:
+    desc: Enables RPM repos for PHP
+    cmds:
+      - yum -y update; yum -y install epel-release; yum repolist
+      - rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+      - yum repolist; yum -y update
+    silent: true
+
+  env:php:composer:
+    desc: Install PHP composer
     cmds:
       - cmd: |
-          curl https://getcomposer.org/composer.phar
-          mv -v composer.phar ~/bin/composer
+          curl https://getcomposer.org/composer.phar --create-dirs -o ~/bin/composer
+          chmod a+x ~/bin/composer
           composer --version
         silent: true
-    
       - cmd: composer global require hirak/prestissimo -n -o
         silent: true
 
+  env:php:
+    desc: Installs PHP env
+    cmds:
+      - task: env:php:composer
 
       - task: env:load:dotenv
-        vars: {DIR: "{{.ENVFILES_ROOT}}/{{.PHP_ENV}}"}
-        silent: true
-
-      - cmd: |
+        env: 
+          DIR: {{.PHP_ENV_DIR}}
+      - |
           set -u
-          composer config -g --auth github-oauth.github.com $GITHUB_TOKEN
-          composer config -g --auth bitbucket-oauth.bitbucket.org.consumer-key $BITBUCKET_CONSUMER_KEY
-          composer config -g --auth bitbucket-oauth.bitbucket.org.consumer-secret $BITBUCKET_CONSUMER_SECRET
-          # composer config -g --auth bitbucket-oauth.bitbucket.org.access-token $BITBUCKET_ACCESS_TOKEN
-          # composer config -g --auth bitbucket-oauth.bitbucket.org.access-token-expiration $BITBUCKET_ACCESS_TOKEN_EXPIRATION
+          composer config -g --auth github-oauth.github.com ${GITHUB_TOKEN}
+          composer config -g --auth bitbucket-oauth.bitbucket.org ${BITBUCKET_CONSUMER_KEY} ${BITBUCKET_CONSUMER_SECRET}
           set +u
-        silent: true
 
   env:node:
     desc: Install NODEJS env
