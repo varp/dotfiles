@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+curl -sL https://taskfile.dev/install.sh | bash
+
+[[ "task" == "$(basename "$0")" ]] && echo "./bin/task was installed! Run again."
