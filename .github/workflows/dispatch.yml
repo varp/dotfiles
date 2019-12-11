@@ -21,8 +21,10 @@ jobs:
         run: |
           if [ ! -h ./bin/task ]; then
             echo "dispatching build"
-            curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN}}' \
+            curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_PAT }}' \
               -H 'Accept: application/vnd.github.everest-preview+json' \
+              -H 'Content-Type: application/json' \
               -d '{"event_type": "build", "client_payload": {}}' \
               -X POST https://api.github.com/repos/${{ github.repository }}/dispatches
           fi
+          
