@@ -100,17 +100,6 @@ sshmount() {
 
 ## Powerline GO
 
-download_latest_pgo() {
-
-    downFolder="${1:-$HOME}"
-
-    plat="$(uname -s | tr [:upper:] [:lower:])"
-    platAsset="powerline-go-${plat}-amd64"
-    url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
-    wget -q "${url}" -O "${downFolder}/powerline-go" || { echo "ERROR"; return; }
-    chmod a+x "${downFolder}/powerline-go" && echo -e "Done! ${downFolder}/powerline-go\n"
-}
-
 macchanger() {
   if [[ $# -eq 0 ]]; then
     local IFACE="$(networksetup -listallhardwareports | grep -A 2 'Wi-Fi' | sed -E '1d; $d; s/.*Device: ([0-9a-z]+).*/\1/;')"
