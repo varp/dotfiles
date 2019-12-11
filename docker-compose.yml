@@ -7,12 +7,12 @@ services:
     user: root
     command: ["-c", "while true; do sleep 1; done"]
     volumes: 
-      - .:/root
+      - .:/dotfiles
 
   centos:
     image: vardan/centos:basecli
     volumes: 
-      - .:/root
+      - .:/dotfiles
     entrypoint: "/bin/bash"
     command: ["-c", "while true; do sleep 1; done"]
     user: root
