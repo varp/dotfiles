@@ -20,7 +20,7 @@
 
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": true,
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 1,
     "search.quickOpen.includeSymbols": true,
 
     "files.encoding": "utf8",

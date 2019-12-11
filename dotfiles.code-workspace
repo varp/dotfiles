@@ -13,6 +13,13 @@
 			"zshrc": "shellscript",
 			"gitignore": "gitignore",
 			"vimrc": "vimrc"
+		},
+		"rest-client.environmentVariables": {
+			"$shared": {},
+			"github.com": {
+				"host": "api.github.com",
+				"username": "varp"
+			}
 		}
 	}
 }

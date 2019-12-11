@@ -16,4 +16,6 @@ jobs:
         cp -v ./dotfiles/gitconfig ~/.gitconfig
         git commit -a -m "Replace ./bin/task with installer"
         git push -u origin ${{ github.ref }}
-      
+
+    
+

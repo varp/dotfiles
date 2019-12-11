@@ -1,0 +1,25 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "GitHub Actions: Dipatches - build",
+      "isBackground": true,
+      "command": "code",
+      "problemMatcher": [],
+      "args": [
+        "-r",
+        "${workspaceFolder}/.vscode/github.dispatches.http"
+      ],
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    }
+  ]
+}
