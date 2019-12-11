@@ -1,0 +1,24 @@
+name: dispatch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  dispatch-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Dispatch build if build.yml is edited
+        # GITHUB_TOKEN doesn't have the permission to trigger repository_dispatch
+        # we are using our own PAT via secrets.GITHUB_PAT
+        run: |
+          LINE=$(git log --format="" --name-only ${{ github.before }}..${{ github.ref }} | grep .github/workflows/build.yml | wc -l)
+          if [ "${LINE// /}" -ge 1  ]; then
+            echo "dispatching build"
+            curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_PAT }}' \
+              -H 'Accept: application/vnd.github.everest-preview+json' \
+              -d '{"event_type": "build", "client_payload": {}}' \
+              -X POST https://api.github.com/repos/${{ github.repository }}/dispatches
+          fi
