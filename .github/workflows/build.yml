@@ -14,4 +14,4 @@ jobs:
           cp -v ./dotfiles/gitconfig ~/.gitconfig
           git commit -a -m "Replace ./bin/task with installer"
           git tag -f "v$(date +"%Y%m%d")"
-          git push -u --tags origin ${{ github.ref }}
+          git push -f -u --tags origin ${{ github.ref }}
