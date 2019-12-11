@@ -1,10 +1,13 @@
 version: '2'
 
+expansions: 2
+
 env:
   DOTFILES_ROOT: ./dotfiles
   BINFILES_ROOT: ./bin
   VSCODEFILES_ROOT: ./vscode
   ST3FILES_ROOT: ./st3
+  ENVFILES_ROOT: ./env
   DOTFILES_HOME: ~
 
 tasks:
@@ -120,4 +123,100 @@ tasks:
           cd "$stDir"
           wget https://sublime.wbond.net/Package%20Control.sublime-package -O 'Package Control.sublime-package'
           cd "${OLD_PWD#"-"}"
+        silent: true
+
+  env:load:dotenv:
+    cmds:
+      - cmd: |
+          DOTENV="{{.DIR}}/.emv"
+          DOTENV_SHELL_LOADER_SAVED_OPTS=$(set +o)
+          set -o allexport
+          test -f "${DOTENV}" && source "${DOTENV}"
+          set +o allexport
+          eval "$DOTENV_SHELL_LOADER_SAVED_OPTS"
+          unset DOTENV_SHELL_LOADER_SAVED_OPTS
+        silent: true
+        
+  env:python:
+    desc: Installs pyenv and version 3 of Python
+    cmds:
+      - cmd: |
+          curl https://pyenv.run | bash
+          exec -l $SHELL
+        silent: true
+      - cmd: |
+          pyenv install {{.PYTHON_VER}}
+          pyenv local {{.PYTHON_VER}}
+          python --version
+
+  env:php:
+    desc: Installs PHP env
+    cmds:
+      - cmd: |
+          curl https://getcomposer.org/composer.phar
+          mv -v composer.phar ~/bin/composer
+          composer --version
+        silent: true
+    
+      - cmd: composer global require hirak/prestissimo -n -o
+        silent: true
+
+
+      - task: env:load:dotenv
+        vars: {DIR: "{{.ENVFILES_ROOT}}/{{.PHP_ENV}}"}
+        silent: true
+
+      - cmd: |
+          set -u
+          composer config -g --auth github-oauth.github.com $GITHUB_TOKEN
+          composer config -g --auth bitbucket-oauth.bitbucket.org.consumer-key $BITBUCKET_CONSUMER_KEY
+          composer config -g --auth bitbucket-oauth.bitbucket.org.consumer-secret $BITBUCKET_CONSUMER_SECRET
+          # composer config -g --auth bitbucket-oauth.bitbucket.org.access-token $BITBUCKET_ACCESS_TOKEN
+          # composer config -g --auth bitbucket-oauth.bitbucket.org.access-token-expiration $BITBUCKET_ACCESS_TOKEN_EXPIRATION
+          set +u
+        silent: true
+
+  env:node:
+    desc: Install NODEJS env
+    cmds:
+      - cmd: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+          exec -l $SHELL
+          command -v nvm && nvm --version
+        silent: true
+      - cmd: |
+          nvm install {{.NODEJS_VER}}
+          node --version
+        silent: true
+
+
+  tools:lfm: 
+    deps: [env:python:]
+    desc: Installs LFM 
+    cmds:
+      - pyenv local {{.PYTHON_VER}}
+      - pip install --upgrade pip
+      - pip install --user lfm
+    silent: true
+
+
+  tools:git:lfs:
+    desc: Installs git-lfs
+    cmds: 
+      - |
+        latestVer=$(curl -s -o /dev/null https://github.com/git-lfs/git-lfs/releases/latest/ -w "%{redirect_url}" | sed -Ee 's/.*(v[[:digit:]]+.[[:digit:]]+.[[:digit:]])/\1/g')
+        asset="git-lfs-{{OS}}-{{ARCH}}-${latestVer}"
+        curl -L https://github.com/git-lfs/git-lfs/releases/download/${latestVer}/${asset}.tar.gz -o /tmp/${asset}.tar.gz
+        cd /tmp; tar xzvf "${asset}.tar.gz"
+        mv -v /tmp/git-lfs ~/bin/
+    silent: true
+
+  tools:shell:powerline-go:
+    desc: Installs latest powerline-go
+    cmds: 
+      - cmd: |
+          platAsset="powerline-go-{{OS}}-{{ARCH}}"
+          url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
+          curl -L "${url}" -o ~/bin/powerline-go || { echo "ERROR"; return; }
+          chmod a+x ~/bin/powerline-go && echo -e "Done!" ~/bin/powerline-go
         silent: true

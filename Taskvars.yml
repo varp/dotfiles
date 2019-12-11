@@ -33,4 +33,7 @@ VIM_VUNDLE_REPO: https://github.com/VundleVim/Vundle.vim.git
 SUBLIME_FILES: >-
   Preferences.sublime-settings
   "Package Control.sublime-settings"
+PYTHON_VER: "3.8.0"
+PHP_ENV_DIR: php
+NODEJS_VER: "--lts=Erbium"
 
