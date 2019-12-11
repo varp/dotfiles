@@ -9,7 +9,6 @@ To see list of all tasks:
 
     ./bin/task
 
-
 Install dotfiles and binfiles:
     
     ./bin/task install
