@@ -1,0 +1,22 @@
+version: "3"
+
+services: 
+  ubuntu:
+    image: vardan/ubuntu:basecli
+    entrypoint: /bin/bash
+    user: root
+    command: ["-c", "while true; do sleep 1; done"]
+    volumes: 
+      - .:/root
+
+  centos:
+    image: vardan/centos:basecli
+    volumes: 
+      - .:/root
+    entrypoint: "/bin/bash"
+    command: ["-c", "while true; do sleep 1; done"]
+    user: root
+
+
+networks: 
+  default:
