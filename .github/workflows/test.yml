@@ -7,13 +7,14 @@ on:
   push:
     branches:
       - master
+  
 
 jobs:
   linux:
+    if: github.event.action != 'build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
-      
       - name: Test
         run: |
           ./bin/task
@@ -23,10 +24,10 @@ jobs:
 
 
   macosx:
+    if: github.event.action != 'build'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2-beta
-      
       - name: Test
         run: |
           ./bin/task
