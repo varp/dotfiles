@@ -4,12 +4,12 @@ on: repository_dispatch
 
 jobs:
   build-on-linux:
-    if: github.event.action == 'build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
       - name: Make stub for ./bin/task
         run: |
+          echo ${{ github.event }}
           cd ./bin; ln -vsf taskfile-install task; cd -
           git add --all
           cp -v ./dotfiles/gitconfig ~/.gitconfig
