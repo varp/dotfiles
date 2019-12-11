@@ -154,7 +154,7 @@ function _update_ps1() {
     fi
 
 
-    eval "$(/usr/local/bin/powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
+    eval "$(powerline-go -error $? -shell bash -eval -modules ${mods} ${args})"
 }
 
 if [ "$TERM" != "linux" ] && [ -f /usr/local/bin/powerline-go ]; then
