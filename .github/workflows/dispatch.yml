@@ -9,7 +9,7 @@ jobs:
   dispatch-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2-beta
       - name: Dispatch build if build.yml is edited
         # GITHUB_TOKEN doesn't have the permission to trigger repository_dispatch
         # we are using our own PAT via secrets.GITHUB_PAT

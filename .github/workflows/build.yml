@@ -7,7 +7,7 @@ jobs:
     if: github.events.action == 'build'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2-beta
     - name: Make stub for ./bin/task
       run: cd ./bin; ln -vsf taskfile-install task; cd -
     - name: Commit back

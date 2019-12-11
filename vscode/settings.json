@@ -52,7 +52,7 @@
     "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
     "sync.forceUpload": true,
     "editor.fontFamily": "Roboto Mono for Powerline",
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "afterDelay",
 
     "vim.disableExtension": true,
     "git.enableSmartCommit": true
