@@ -12,7 +12,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.wordWrap": "on",
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "none",
@@ -20,7 +20,7 @@
 
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": true,
-    "explorer.openEditors.visible": 1,
+    "explorer.openEditors.visible": 0,
     "search.quickOpen.includeSymbols": true,
 
     "files.encoding": "utf8",
@@ -51,9 +51,11 @@
     "font-switcher.fontFamily": "UbuntuMono Nerd Font Mono, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, SauceCodePro Nerd Font Mono, RobotoMono Nerd Font Mono, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PT Mono, ProFont for Powerline, Prestige Elite Std, Orator Std, OCR A Std, NovaMono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, MesloLGSDZ Nerd Font Mono, MesloLGS Nerd Font Mono, MesloLGMDZ Nerd Font Mono, MesloLGM Nerd Font Mono, MesloLGLDZ Nerd Font Mono, MesloLGL Nerd Font Mono, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, LiterationMono Nerd Font Mono, Liberation Mono for Powerline, Liberation Mono, Letter Gothic Std, InconsolataLGC Nerd Font Mono, InconsolataGo Nerd Font Mono, Inconsolata-g for Powerline, Inconsolata-dz for Powerline, Inconsolata Nerd Font Mono, Inconsolata for Powerline, IBM 3270 Semi-Narrow, IBM 3270 Narrow, IBM 3270, Hack, Go Mono for Powerline, FuraMono Nerd Font Mono, FuraCode Nerd Font Mono, Fira Mono for Powerline, DroidSansMono Nerd Font Mono, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVuSansMono Nerd Font Mono, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Cousine for Powerline, Courier New, Courier, Anonymous Pro for Powerline, Andale Mono",
     "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
     "sync.forceUpload": true,
-    "editor.fontFamily": "Roboto Mono for Powerline",
-    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "Fira Mono for Powerline",
+    "files.autoSave": "onWindowChange",
 
     "vim.disableExtension": true,
-    "git.enableSmartCommit": true
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-path": "/Users/vardanpro/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    }
 }
