@@ -3,22 +3,18 @@ name: test
 on: 
   pull_request:
     paths-ignore:
-      - "bin/task"
+      - 'bin/task'
     branches:
       - master
   push:
     paths-ignore:
-      - "bin/task"
+      - 'bin/task'
     branches:
       - master
-  release:
-    types: [created, published, edited]
-
   
-
 jobs:
   linux:
-    if: github.event.action != 'build'
+    if: github.event.action != 'on-build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
@@ -31,7 +27,7 @@ jobs:
 
 
   macosx:
-    if: github.event.action != 'build'
+    if: github.event.action != 'on-build'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2-beta
