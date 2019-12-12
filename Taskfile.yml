@@ -1,7 +1,5 @@
 version: '2'
 
-expansions: 6
-
 env:
   DOTFILES_ROOT: ./dotfiles
   BINFILES_ROOT: ./bin
@@ -127,26 +125,36 @@ tasks:
 
   env:load:dotenv:
     cmds:
-      - cmd: |
-          DOTENV="${ENVFILES_ROOT}/${DIR}/.env"
-          DOTENV_SHELL_LOADER_SAVED_OPTS=$(set +o)
-          set -o allexport
-          test -f "${DOTENV}" && source "${DOTENV}"
-          set +o allexport
-          eval "$DOTENV_SHELL_LOADER_SAVED_OPTS"
-          unset DOTENV_SHELL_LOADER_SAVED_OPTS
+      - |
+        DOTENV="${ENVFILES_ROOT}/{{.DIR}}/.env"
+        DOTENV_SHELL_LOADER_SAVED_OPTS=$(set +o)
+        set -o allexport
+        test -f "${DOTENV}" && source "${DOTENV}"
+        set +o allexport
+        eval "$DOTENV_SHELL_LOADER_SAVED_OPTS"
+        unset DOTENV_SHELL_LOADER_SAVED_OPTS
+        {{.EVAL}}
+    silent: true
         
   env:python:
-    desc: Installs pyenv and version 3 of Python
+    desc: Installs pyenv
+    status:
+      - test -d ~/.pyenv
     cmds:
-      - cmd: |
-          curl https://pyenv.run | bash
-          exec -l $SHELL
-        silent: true
-      - cmd: |
-          pyenv install {{.PYTHON_VER}}
-          pyenv local {{.PYTHON_VER}}
-          python --version
+      - curl https://pyenv.run | bash
+      - source ~/.bashrc
+    silent: true
+
+  env:python:install:
+    desc: Installs Python 3
+    env:
+      PYVER: '{{.PYVER | default .PYTHON_VER}}'
+    cmds:
+      - pyenv install $PYVER
+      - pyenv local $PYVER
+      - source ~/.bashrc
+      - python --version
+    silent: true
 
   repo:ppa:php:
     desc: Enables PPA for php
@@ -165,6 +173,9 @@ tasks:
 
   env:php:composer:
     desc: Install PHP composer
+    status:
+      - test -f ~/bin/composer
+      - test -d ~/.composer/vendor/hirak
     cmds:
       - cmd: |
           curl https://getcomposer.org/composer.phar --create-dirs -o ~/bin/composer
@@ -180,30 +191,37 @@ tasks:
       - task: env:php:composer
 
       - task: env:load:dotenv
-        env: 
-          DIR: {{.PHP_ENV_DIR}}
-      - |
-          set -u
-          composer config -g --auth github-oauth.github.com ${GITHUB_TOKEN}
-          composer config -g --auth bitbucket-oauth.bitbucket.org ${BITBUCKET_CONSUMER_KEY} ${BITBUCKET_CONSUMER_SECRET}
-          set +u
+        vars: 
+          DIR: "{{.PHP_ENV_DIR}}"
+          EVAL: |
+              set -u
+              composer config -g --auth github-oauth.github.com ${GITHUB_TOKEN}
+              composer config -g --auth bitbucket-oauth.bitbucket.org ${BITBUCKET_CONSUMER_KEY} ${BITBUCKET_CONSUMER_SECRET}
+              set +u
 
   env:node:
     desc: Install NODEJS env
+    status:
+      - test -d ~/.nvm
+    cmds:
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+    silent: true
+  
+  
+  env:node:install:
+    desc: Installs Node version
+    env:
+      NODEJSVER: '{{.NODEJSVER | default .NODEJS_VER}}'
     cmds:
       - cmd: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-          exec -l $SHELL
-          command -v nvm && nvm --version
-        silent: true
-      - cmd: |
-          nvm install {{.NODEJS_VER}}
+          nvm --version
+          nvm install $NODEJSVER
           node --version
         silent: true
 
 
   tools:lfm: 
-    deps: [env:python:]
+    deps: [env:python]
     desc: Installs LFM 
     cmds:
       - pyenv local {{.PYTHON_VER}}
