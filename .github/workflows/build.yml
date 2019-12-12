@@ -4,7 +4,7 @@ on: repository_dispatch
 
 jobs:
   build-on-linux:
-    if: github.event.action == 'build'
+    if: github.event.action == 'on-build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
@@ -16,3 +16,34 @@ jobs:
           git commit -a -m "Replace ./bin/task with installer"
           git tag -f "v$(date +"%Y%m%d")"
           git push -f -u --tags origin ${{ github.ref }}
+  
+  linux:
+    needs: build-on-linux
+    if: github.event.action != 'on-build'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+      - name: Test
+        run: |
+          ./bin/task
+          ./bin/task
+          ./bin/task binfiles
+          ./bin/task dotfiles
+
+
+  macosx:
+    needs: build-on-linux
+    if: github.event.action != 'on-build'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+      - name: update $PATH
+        run: |
+          brew install coreutils
+          export PATH="/usr/local/bin/:$PATH"
+      - name: Test
+        run: |
+          ./bin/task
+          ./bin/task
+          ./bin/task binfiles
+          ./bin/task dotfiles
