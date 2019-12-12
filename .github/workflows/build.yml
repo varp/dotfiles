@@ -19,7 +19,6 @@ jobs:
   
   linux:
     needs: build-on-linux
-    if: github.event.action != 'on-build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
@@ -33,7 +32,6 @@ jobs:
 
   macosx:
     needs: build-on-linux
-    if: github.event.action != 'on-build'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2-beta
