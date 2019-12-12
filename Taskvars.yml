@@ -18,12 +18,6 @@ DOTFILES: >-
   config/lfm/lfm.theme
   ssh/config
   ssh/sftpnit
-  config/powerline/config.json
-  config/powerline/themes/shell/__main__.json
-  config/powerline/themes/shell/continuation.json
-  config/powerline/themes/shell/default.json
-  config/powerline/themes/shell/default_leftonly.json
-  config/powerline/themes/shell/select.json
   ansible.cfg
 BINFILES: >-
   genpassword
