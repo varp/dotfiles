@@ -1,4 +1,4 @@
-version: '2'
+version: '2.6'
 
 env:
   DOTFILES_ROOT: ./dotfiles
@@ -214,6 +214,9 @@ tasks:
       NODEJSVER: '{{.NODEJSVER | default .NODEJS_VER}}'
     cmds:
       - cmd: |
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
           nvm --version
           nvm install $NODEJSVER
           node --version
