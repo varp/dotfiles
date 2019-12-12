@@ -2,11 +2,18 @@ name: test
 
 on: 
   pull_request:
+    paths-ignore:
+      - "bin/task"
     branches:
       - master
   push:
+    paths-ignore:
+      - "bin/task"
     branches:
       - master
+  release:
+    types: [created, published, edited]
+
   
 
 jobs:

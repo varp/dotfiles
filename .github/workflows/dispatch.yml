@@ -7,8 +7,7 @@ on:
   push:
     branches:
       - master
-    tags:
-      - v*
+      
 
 jobs:
   dispatch-build:

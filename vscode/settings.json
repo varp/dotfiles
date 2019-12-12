@@ -57,5 +57,6 @@
     "vim.disableExtension": true,
     "vs-kubernetes": {
         "vs-kubernetes.minikube-path": "/Users/vardanpro/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    }
+    },
+    "git.enableSmartCommit": true
 }
