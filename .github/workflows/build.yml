@@ -1,13 +1,13 @@
 name: build
 
-on: repository_dispatch
+on: [push, pull_request]
 
 jobs:
   build-on-linux:
-    if: github.event.action == 'on-build'
+    if: github.event.action == 'build' || github.event.action == 'test'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v1
       - name: Make stub for ./bin/task
         run: |
           cd ./bin; ln -vsf taskfile-install task; cd -
@@ -18,10 +18,10 @@ jobs:
           git push -f -u --tags origin ${{ github.ref }}
   
   linux:
-    needs: build-on-linux
+    if: github.event.action == 'test'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v1
       - name: Test
         run: |
           ./bin/task
@@ -31,10 +31,10 @@ jobs:
 
 
   macosx:
-    needs: build-on-linux
+    if: github.event.action == 'test'
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v1
       - name: update $PATH
         run: |
           brew install coreutils
