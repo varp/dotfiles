@@ -20,6 +20,7 @@ jobs:
   
   linux:
     if: github.event.action == 'test' || github.event.action == 'build'
+    needs: build-on-linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,6 +34,7 @@ jobs:
 
   macosx:
     if: github.event.action == 'test' || github.event.action == 'build'
+    needs: build-on-linux
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
