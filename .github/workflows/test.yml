@@ -6,9 +6,8 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-      - name: fetching all the repo metadata
-        uses: checkout@v2
-      - name: Test
+      - uses: actions/checkout@v2
+      - name: Tests
         run: |
           ./bin/taskfile-install
           ./bin/task
@@ -18,13 +17,12 @@ jobs:
   macosx:
     runs-on: macos-latest
     steps:
-      - name: fetching all the repo metadata
-        uses: checkout@v2
-      - name: update $PATH
+      - uses: actions/checkout@v2
+      - name: installing coreutils and updating $PATH
         run: |
           brew install coreutils
           export PATH="/usr/local/bin/:$PATH"
-      - name: Test
+      - name: Tests
         run: |
           ./bin/taskfile-install
           ./bin/task
