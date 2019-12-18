@@ -1,28 +1,10 @@
-name: build
+name: test
 
 on: repository_dispatch
 
-
 jobs:
-  build-on-linux:
-    if: github.event.action == 'build'
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
-      - name: Make stub for ./bin/task
-        run: |
-          cd ./bin; ln -vsf taskfile-install task; cd -
-          git add --all
-          cp -v ./dotfiles/gitconfig ~/.gitconfig
-          release_name="v$(date +"%Y%m%d")"
-          git commit -a -m "Release $release_name"
-          git tag -f "$release_name"
-          git push -f -u --tags origin ${{ github.ref }}
-  
   linux:
-    if: github.event.action == 'build'
-    needs: build-on-linux
+    if: github.event.action == 'test'
     runs-on: ubuntu-latest
     steps:
       - name: fetching all the repo metadata
@@ -37,8 +19,7 @@ jobs:
           ./bin/task dotfiles
 
   macosx:
-    if: github.event.action == 'build'
-    needs: build-on-linux
+    if: github.event.action == 'test'
     runs-on: macos-latest
     steps:
       - name: fetching all the repo metadata
