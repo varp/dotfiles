@@ -1,13 +1,13 @@
 ###
 
-POST https://{{host}}/repos/{{username}}/{{$dotenv repo}}/dispatches HTTP/1.1
+POST https://api.github.com/repos/varp/dotfiles/dispatches HTTP/1.1
 Accept: application/vnd.github.everest-preview+json
 Content-Type: application/json
 Authorization: Bearer {{$dotenv token}}
 
 
 {
-  "event_type": "build",
+  "event_type": "test",
   "client_payload": {}
 }
 
