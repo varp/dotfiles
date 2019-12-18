@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: fetching all the repo metadata
-        run: |
-          git clone https://github.com/${{ github.repository }} .
-          git checkout ${{ github.ref }}
+        uses: checkout@v2
       - name: Test
         run: |
           ./bin/taskfile-install
@@ -21,9 +19,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: fetching all the repo metadata
-        run: |
-          git clone https://github.com/${{ github.repository }} .
-          git checkout ${{ github.ref }}
+        uses: checkout@v2
       - name: update $PATH
         run: |
           brew install coreutils
