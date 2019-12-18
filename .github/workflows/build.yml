@@ -8,10 +8,11 @@ jobs:
     if: github.event.action == 'build'
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
+      - name: fetching all the repo metadata
         run: |
           git fetch --prune --unshallow
+      - name: checkout the code
+        uses: actions/checkout@v2
       - name: Make stub for ./bin/task
         run: |
           cd ./bin; ln -vsf taskfile-install task; cd -
