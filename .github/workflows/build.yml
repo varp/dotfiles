@@ -19,20 +19,17 @@ jobs:
           git commit -a -m "Release $release_name"
           git tag -f "$release_name"
           git push -f -u --tags origin ${{ github.ref }}
-          sleep 5
   
   linux:
     if: github.event.action == 'test' || github.event.action == 'build'
     needs: build-on-linux
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
       - name: fetching all the repo metadata
         run: |
+          git clone https://github.com/${{ github.repository }} .
           git fetch --prune --unshallow
-      - name: checkout the code after fetch
-        uses: actions/checkout@v2      
+          git checkout ${{ github.ref }}
       - name: Test
         run: |
           ./bin/task
@@ -45,13 +42,11 @@ jobs:
     needs: build-on-linux
     runs-on: macos-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
       - name: fetching all the repo metadata
         run: |
+          git clone https://github.com/${{ github.repository }} .
           git fetch --prune --unshallow
-      - name: checkout the code after fetch
-        uses: actions/checkout@v2   
+          git checkout ${{ github.ref }}
       - name: update $PATH
         run: |
           brew install coreutils
