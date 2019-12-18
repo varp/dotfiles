@@ -157,7 +157,7 @@ tasks:
     silent: true
 
   repo:ppa:php:
-    desc: Enables PPA for php
+    desc: Enables PPA for PHP
     cmds:
       - sudo add-apt-repository -y ppa:ondrej/php
       - sudo apt-get update -y
@@ -200,7 +200,7 @@ tasks:
               set +u
 
   env:node:
-    desc: Install NODEJS env
+    desc: Install NodeJs env
     status:
       - test -d ~/.nvm
     cmds:
@@ -209,7 +209,7 @@ tasks:
   
   
   env:node:install:
-    desc: Installs Node version
+    desc: Installs a Node version
     env:
       NODEJSVER: '{{.NODEJSVER | default .NODEJS_VER}}'
     cmds:
