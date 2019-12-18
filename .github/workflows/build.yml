@@ -8,22 +8,26 @@ jobs:
     if: github.event.action == 'build'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout the code
+        uses: actions/checkout@v2
       - name: Make stub for ./bin/task
         run: |
           cd ./bin; ln -vsf taskfile-install task; cd -
           git add --all
           cp -v ./dotfiles/gitconfig ~/.gitconfig
-          git commit -a -m "Replace ./bin/task with installer"
-          git tag -f "v$(date +"%Y%m%d")"
+          release_name="v$(date +"%Y%m%d")"
+          git commit -a -m "Release $release_name"
+          git tag -f "$release_name"
           git push -f -u --tags origin ${{ github.ref }}
+          sleep 5
   
   linux:
     if: github.event.action == 'test' || github.event.action == 'build'
     needs: build-on-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout the code
+        uses: actions/checkout@v2
       - name: Test
         run: |
           ./bin/task
@@ -31,13 +35,13 @@ jobs:
           ./bin/task binfiles
           ./bin/task dotfiles
 
-
   macosx:
     if: github.event.action == 'test' || github.event.action == 'build'
     needs: build-on-linux
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout the code
+        uses: actions/checkout@v2
       - name: update $PATH
         run: |
           brew install coreutils
