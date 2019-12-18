@@ -28,10 +28,11 @@ jobs:
     needs: build-on-linux
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
+      - name: fetching all the repo metadata
         run: |
           git fetch --prune --unshallow
+      - name: checkout the code
+        uses: actions/checkout@v2
       - name: Test
         run: |
           ./bin/task
@@ -44,10 +45,11 @@ jobs:
     needs: build-on-linux
     runs-on: macos-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v2
+      - name: fetching all the repo metadata
         run: |
-          git fetch --prune --unshallow        
+          git fetch --prune --unshallow
+      - name: checkout the code
+        uses: actions/checkout@v2 
       - name: update $PATH
         run: |
           brew install coreutils
