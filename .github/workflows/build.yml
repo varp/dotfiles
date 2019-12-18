@@ -28,7 +28,7 @@ jobs:
       - name: fetching all the repo metadata
         run: |
           git clone https://github.com/${{ github.repository }} .
-          git fetch --prune --unshallow
+          git fetch --prune
           git checkout ${{ github.ref }}
       - name: Test
         run: |
@@ -45,7 +45,7 @@ jobs:
       - name: fetching all the repo metadata
         run: |
           git clone https://github.com/${{ github.repository }} .
-          git fetch --prune --unshallow
+          git fetch --prune
           git checkout ${{ github.ref }}
       - name: update $PATH
         run: |
