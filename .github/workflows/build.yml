@@ -12,46 +12,24 @@ jobs:
         uses: actions/checkout@v2
       - name: Make stub for ./bin/task
         run: |
-          cd ./bin; ln -vsf taskfile-install task; cd -
+          cd ./bin
+          if [ ! -h ./bin/task ] || [ ! -f ./bin/task ]; then 
+            unline ./bin/task
+          fi
+          ln -vsf taskfile-install task
+          cd -
           git add --all
           cp -v ./dotfiles/gitconfig ~/.gitconfig
           release_name="v$(date +"%Y%m%d")"
           git commit -a -m "Release $release_name"
           git tag -f "$release_name"
           git push -f -u --tags origin ${{ github.ref }}
-  
-  linux:
-    if: github.event.action == 'build'
-    needs: build-on-linux
-    runs-on: ubuntu-latest
-    steps:
-      - name: fetching all the repo metadata
+      - name: running tests
         run: |
-          git clone https://github.com/${{ github.repository }} .
-          git checkout ${{ github.ref }}
-      - name: Test
-        run: |
-          ./bin/task
-          ./bin/task
-          ./bin/task binfiles
-          ./bin/task dotfiles
+          echo "dispatching tests"
+          curl -i -H 'authorization: Bearer ${{ secrets.GITHUB_PAT }}' \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -H 'Content-Type: application/json' \
+            -d '{"event_type": "test", "client_payload": {}}' \
+            -X POST https://api.github.com/repos/${{ github.repository }}/dispatches
 
-  macosx:
-    if: github.event.action == 'build'
-    needs: build-on-linux
-    runs-on: macos-latest
-    steps:
-      - name: fetching all the repo metadata
-        run: |
-          git clone https://github.com/${{ github.repository }} .
-          git checkout ${{ github.ref }}
-      - name: update $PATH
-        run: |
-          brew install coreutils
-          export PATH="/usr/local/bin/:$PATH"
-      - name: Test
-        run: |
-          ./bin/task
-          ./bin/task
-          ./bin/task binfiles
-          ./bin/task dotfiles

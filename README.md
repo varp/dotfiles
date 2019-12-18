@@ -1,4 +1,4 @@
-# Dotfiles
+# Dotfiles ![](https://github.com/varp/dotfiles/workflows/test/badge.svg) ![](https://github.com/varp/dotfiles/workflows/build/badge.svg)
 ## Prequisties
     bash ./bin/taskfile-install # To install https://taskfile.dev/
 
