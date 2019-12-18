@@ -1,10 +1,9 @@
 name: test
 
-on: repository_dispatch
+on: [push, pull_request]
 
 jobs:
   linux:
-    if: github.event.action == 'test'
     runs-on: ubuntu-latest
     steps:
       - name: fetching all the repo metadata
@@ -13,13 +12,12 @@ jobs:
           git checkout ${{ github.ref }}
       - name: Test
         run: |
-          ./bin/task
+          ./bin/taskfile-install
           ./bin/task
           ./bin/task binfiles
           ./bin/task dotfiles
 
   macosx:
-    if: github.event.action == 'test'
     runs-on: macos-latest
     steps:
       - name: fetching all the repo metadata
@@ -32,7 +30,7 @@ jobs:
           export PATH="/usr/local/bin/:$PATH"
       - name: Test
         run: |
-          ./bin/task
+          ./bin/taskfile-install
           ./bin/task
           ./bin/task binfiles
           ./bin/task dotfiles
