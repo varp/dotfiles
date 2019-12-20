@@ -178,7 +178,7 @@ tasks:
       - test -d ~/.composer/vendor/hirak
     cmds:
       - cmd: |
-          curl https://getcomposer.org/composer.phar --create-dirs -o ~/bin/composer
+          curl https://getcomposer.org/composer-stable.phar --create-dirs -o ~/bin/composer
           chmod a+x ~/bin/composer
           composer --version
         silent: true
