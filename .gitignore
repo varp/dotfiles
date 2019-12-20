@@ -2,3 +2,4 @@
 .DS_Store
 .env
 .python-version
+bin/task
