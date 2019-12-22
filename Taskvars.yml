@@ -17,7 +17,7 @@ DOTFILES: >-
   config/lfm/lfm.keys
   config/lfm/lfm.theme
   ssh/config
-  ssh/sftpnit
+  ssh/sftp_init
   ansible.cfg
 BINFILES: >-
   genpassword

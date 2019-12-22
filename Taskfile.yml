@@ -157,7 +157,7 @@ tasks:
     silent: true
 
   repo:ppa:php:
-    desc: Enables PPA for php
+    desc: Enables PPA for PHP
     cmds:
       - sudo add-apt-repository -y ppa:ondrej/php
       - sudo apt-get update -y
@@ -173,12 +173,14 @@ tasks:
 
   env:php:composer:
     desc: Install PHP composer
+    preconditions:
+      - test -f ./env/php/.env
     status:
       - test -f ~/bin/composer
       - test -d ~/.composer/vendor/hirak
     cmds:
       - cmd: |
-          curl https://getcomposer.org/composer.phar --create-dirs -o ~/bin/composer
+          curl https://getcomposer.org/composer-stable.phar --create-dirs -o ~/bin/composer
           chmod a+x ~/bin/composer
           composer --version
         silent: true
@@ -194,13 +196,13 @@ tasks:
         vars: 
           DIR: "{{.PHP_ENV_DIR}}"
           EVAL: |
-              set -u
-              composer config -g --auth github-oauth.github.com ${GITHUB_TOKEN}
-              composer config -g --auth bitbucket-oauth.bitbucket.org ${BITBUCKET_CONSUMER_KEY} ${BITBUCKET_CONSUMER_SECRET}
-              set +u
+            set -u
+            composer config -g --auth github-oauth.github.com ${GITHUB_TOKEN}
+            composer config -g --auth bitbucket-oauth.bitbucket.org ${BITBUCKET_CONSUMER_KEY} ${BITBUCKET_CONSUMER_SECRET}
+            set +u
 
   env:node:
-    desc: Install NODEJS env
+    desc: Install NodeJs env
     status:
       - test -d ~/.nvm
     cmds:
@@ -209,7 +211,7 @@ tasks:
   
   
   env:node:install:
-    desc: Installs Node version
+    desc: Installs a Node version
     env:
       NODEJSVER: '{{.NODEJSVER | default .NODEJS_VER}}'
     cmds:
@@ -224,10 +226,10 @@ tasks:
 
 
   tools:lfm: 
-    deps: [env:python]
-    desc: Installs LFM 
+    desc: Installs LFM (https://inigo.katxi.org/devel/lfm/)
+    status:
+      - which lfm
     cmds:
-      - pyenv local {{.PYTHON_VER}}
       - pip install --upgrade pip
       - pip install --user lfm
     silent: true
@@ -235,6 +237,8 @@ tasks:
 
   tools:git:lfs:
     desc: Installs git-lfs
+    status:
+      - which git-lfs
     cmds: 
       - |
         latestVer=$(curl -s -o /dev/null https://github.com/git-lfs/git-lfs/releases/latest/ -w "%{redirect_url}" | sed -Ee 's/.*(v[[:digit:]]+.[[:digit:]]+.[[:digit:]])/\1/g')
@@ -246,6 +250,8 @@ tasks:
 
   tools:shell:powerline-go:
     desc: Installs latest powerline-go
+    status:
+      - which powerline-go
     cmds: 
       - cmd: |
           platAsset="powerline-go-{{OS}}-{{ARCH}}"

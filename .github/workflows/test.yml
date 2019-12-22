@@ -1,48 +1,30 @@
 name: test
 
-on: 
-  pull_request:
-    paths-ignore:
-      - "bin/task"
-    branches:
-      - master
-  push:
-    paths-ignore:
-      - "bin/task"
-    branches:
-      - master
-  release:
-    types: [created, published, edited]
-
-  
+on: [push, pull_request]
 
 jobs:
   linux:
-    if: github.event.action != 'build'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2-beta
-      - name: Test
+      - uses: actions/checkout@v2
+      - name: Tests
         run: |
-          ./bin/task
+          ./bin/taskfile-install
           ./bin/task
           ./bin/task binfiles
           ./bin/task dotfiles
 
-
   macosx:
-    if: github.event.action != 'build'
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2-beta
-      - name: update $PATH
+      - uses: actions/checkout@v2
+      - name: installing coreutils and updating $PATH
         run: |
           brew install coreutils
           export PATH="/usr/local/bin/:$PATH"
-      - name: Test
+      - name: Tests
         run: |
-          ./bin/task
+          ./bin/taskfile-install
           ./bin/task
           ./bin/task binfiles
           ./bin/task dotfiles
-
