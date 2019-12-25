@@ -30,17 +30,14 @@
     "extensions.autoUpdate": true,
 
     "debug.inlineValues": true,
-    "workbench.iconTheme": "vscode-icons",
-    "explorer.autoReveal": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true,
         "suppressWelcomeNotice": true
     },
-    "gitlens.views.repositories.location": "gitlens",
     "gitlens.views.fileHistory.location": "gitlens",
-    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "scm",
     "gitlens.views.compare.location": "gitlens",
     "gitlens.views.search.location": "gitlens",
     "editor.fontLigatures": true,
@@ -58,5 +55,22 @@
     "vs-kubernetes": {
         "vs-kubernetes.minikube-path": "/Users/vardanpro/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
-    "git.enableSmartCommit": true
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 1,
+    "docker.containers.description": [
+        "ContainerName",
+        "Networks",
+        "Ports",
+        "Registry",
+        "RepositoryNameAndTag",
+        "State",
+        "Status"
+    ],
+    "workbench.sideBar.location": "right",
+    "gitlens.views.repositories.location": "gitlens",
+    "gitlens.views.repositories.branches.layout": "list",
+    "workbench.fontAliasing": "auto",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.statusBar.visible": true,
+    "workbench.view.alwaysShowHeaderActions": true
 }
