@@ -154,3 +154,29 @@ _fix_jetbrains_cli_launcher() {
   echo "jetbrains cli wrapper was "${_wrapper_path@Q}" created"
   return
 }
+
+
+_bashrc_reload()
+{
+  suurce ${HOME}/.bashrc
+}
+
+_bashprofile_reload()
+{
+  test -f ${HOME}/.bash_profile && source ${HOME}/.bash_profile
+}
+
+_bashfunctions_reload()
+{
+  source ${HOME}/.bash_functions
+}
+
+_bashenv_reload()
+{
+  source ${HOME}/.bash_env
+}
+
+_bashaliases_reload()
+{
+  source ${HOME}/.bash_aliases
+}

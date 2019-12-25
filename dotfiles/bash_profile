@@ -1,2 +1,4 @@
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 [[ -s "/Users/vardanpro/.gvm/scripts/gvm" ]] && source "/Users/vardanpro/.gvm/scripts/gvm"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
