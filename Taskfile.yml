@@ -176,7 +176,7 @@ tasks:
     preconditions:
       - test -f ./env/php/.env
     status:
-      - test -f ~/bin/composer
+      - test -f ~/bin/composer  
       - test -d ~/.composer/vendor/hirak
     cmds:
       - cmd: |
