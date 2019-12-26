@@ -75,28 +75,28 @@ parse_languages() {
 }
 
 
-to_timestamp() {
-  if [[ $# -eq 0 || $# -lt 6 ]]; then
-    echo "usage: to_timestamp <year> <month> <day> <hour> <minute> <sec>"
-    return
-  fi
+# to_timestamp() {
+#   if [[ $# -eq 0 || $# -lt 6 ]]; then
+#     echo "usage: to_timestamp <year> <month> <day> <hour> <minute> <sec>"
+#     return
+#   fi
 
-  python -c "import datetime; print(datetime.datetime($1, $2, $3, $4, $5, $6).timestamp())"
-}
+#   python -c "import datetime; print(datetime.datetime($1, $2, $3, $4, $5, $6).timestamp())"
+# }
 
-from_timestamp() {
-  if [[ $# -eq 0 ]]; then
-    echo "usage: from_timestamp <timestamp>"
-    return
-  fi
+# from_timestamp() {
+#   if [[ $# -eq 0 ]]; then
+#     echo "usage: from_timestamp <timestamp>"
+#     return
+#   fi
 
-  python -c "import datetime; print(datetime.datetime.fromtimestamp($1))"
-}
+#   python -c "import datetime; print(datetime.datetime.fromtimestamp($1))"
+# }
 
-sshmount() {
-  mkdir -p "~/Volumes/$1"
-  sshfs user@$1:/ "~/Volumes/$1" -ovolname=$1 -onoappledouble -onoapplexattr && open "~/Volumes/$1"
-}
+# sshmount() {
+#   mkdir -p "~/Volumes/$1"
+#   sshfs user@$1:/ "~/Volumes/$1" -ovolname=$1 -onoappledouble -onoapplexattr && open "~/Volumes/$1"
+# }
 
 ## Powerline GO
 
@@ -120,18 +120,9 @@ macchanger() {
 }
 
 
-goinside()
-{
+goinside() {
     docker-compose exec -e SHELL=bash $1 bash -c "stty cols $COLUMNS rows $LINES && bash"
 }
-_goinside()
-{
-    COMPREPLY=( $(docker-compose ps --services) )
-}
-complete -F _goinside goinside
-
-[[ "$_SHELL_NAME" == "bash" ]] && export -f goinside
-
 
 
 _fix_jetbrains_cli_launcher() {
@@ -158,25 +149,25 @@ _fix_jetbrains_cli_launcher() {
 
 _bashrc_reload()
 {
-  suurce ${HOME}/.bashrc
+  . ${HOME}/.bashrc
 }
 
 _bashprofile_reload()
 {
-  test -f ${HOME}/.bash_profile && source ${HOME}/.bash_profile
+  test -f ${HOME}/.bash_profile && . ${HOME}/.bash_profile
 }
 
 _bashfunctions_reload()
 {
-  source ${HOME}/.bash_functions
+  . ${HOME}/.bash_functions
 }
 
 _bashenv_reload()
 {
-  source ${HOME}/.bash_env
+  . ${HOME}/.bash_env
 }
 
 _bashaliases_reload()
 {
-  source ${HOME}/.bash_aliases
+  . ${HOME}/.bash_aliases
 }

@@ -96,24 +96,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-[[ "$_SHELL_NAME" == "bash" && -s ~/.aliases_completions ]] && source ~/.aliases_completions
-
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/code/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/code/google-cloud-sdk/completion.bash.inc"; fi
-
-
-## OSX
-if [[ "$_OS_NAME" == "Darwin" ]]; then
-   [[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
-fi
-
-## iTerm integration
-if [ -n "$SSH_CONNECTION" ] && [ -f ~/.iterm2_shell_integration.bash ]; then
-   . ~/.iterm2_shell_integration.bash
-fi
-
-
 # Terminal options
 ## truncate PWD
 _pwd_short() {
@@ -130,7 +112,7 @@ else
 fi
 
 
-function _update_ps1() {
+_update_ps1() {
 
     mods="time,cwd,dotenv,perms,gitlite,ssh,jobs,exit,root"
     args=""
@@ -158,7 +140,7 @@ function _update_ps1() {
 }
 
 if [ "$TERM" != "linux" ] && [ -f ~/bin/powerline-go ]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 
@@ -193,3 +175,26 @@ else
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
     [[ -s "$HOME/.gvm/scripts/completion" ]] && . "$HOME/.gvm/scripts/completion"
 fi
+
+
+## OSX
+
+if [[ "$_OS_NAME" == "Darwin" ]]; then
+
+    export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+    
+    [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+
+    # The next line enables shell command completion for gcloud.
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+fi
+
+
+
+test -f ~/.bash_completion && . ~/.bash_completion
+
+
+## iTerm integration
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true

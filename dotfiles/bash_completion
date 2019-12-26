@@ -68,3 +68,11 @@ function alias_completion {
     done < <(alias -p | sed -Ene "s/$alias_regex/\1 '\2' '\3'/p")
     source "$tmp_file" && rm -f "$tmp_file"
 }; alias_completion   
+
+
+_goinside() {
+    __goinside_services=${__goinside_services:-$(docker-compose ps --services --filter status=running)}
+
+    COMPREPLY=( $(compgen -W "${__goinside_services}" -- "${2}") )
+}
+complete -F _goinside goinside
