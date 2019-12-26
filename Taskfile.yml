@@ -259,3 +259,23 @@ tasks:
           curl -L "${url}" -o ~/bin/powerline-go || { echo "ERROR"; return; }
           chmod a+x ~/bin/powerline-go && echo -e "Done!" ~/bin/powerline-go
         silent: true
+
+
+  # tools:shell:completions:
+  #   desc: Installs various completions files
+  #   summary: |
+  #     https://github.com/cykerway/complete-alias
+  #   status:
+  #     - test -f ~/.bash_completion
+  #   cmds:
+  #     - curl https://raw.githubusercontent.com/cykerway/complete-alias/master/bash_completion.sh -o ~/.bash_completion
+
+  tools:shell:colr-sh:
+    desc: Installs colr.sh lib
+    summary: |
+      https://github.com/welbornprod/colr.sh
+    status:
+      - test -f ~/bin/colr.sh
+    cmds:
+      - curl https://raw.githubusercontent.com/welbornprod/colr.sh/dev/colr.sh -o ~/bin/colr
+      - chmod a+x ~/bin/colr

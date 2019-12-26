@@ -1,6 +1,6 @@
 DOTFILES: >-
   bash_functions
-  aliases_completions
+  bash_completion
   bash_aliases
   bash_env
   bash_profile
