@@ -71,7 +71,7 @@ function alias_completion {
 
 
 _goinside() {
-    __goinside_services=${__goinside_services:-$(docker-compose ps --services --filter status=running)}
+    __goinside_services=$(docker-compose ps --services --filter status=running)
 
     COMPREPLY=( $(compgen -W "${__goinside_services}" -- "${2}") )
 }
