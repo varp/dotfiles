@@ -261,21 +261,22 @@ tasks:
         silent: true
 
 
-  # tools:shell:completions:
-  #   desc: Installs various completions files
-  #   summary: |
-  #     https://github.com/cykerway/complete-alias
-  #   status:
-  #     - test -f ~/.bash_completion
-  #   cmds:
-  #     - curl https://raw.githubusercontent.com/cykerway/complete-alias/master/bash_completion.sh -o ~/.bash_completion
+  shell:completions:
+    desc: Installs various completions files
+    summary: |
+      Docker's one on MAC OS X from Docker.app
+    cmds: 
+      - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
+      - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
+      - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
+      
 
   tools:shell:colr-sh:
     desc: Installs colr.sh lib
     summary: |
       https://github.com/welbornprod/colr.sh
     status:
-      - test -f ~/bin/colr.sh
+      - test -f ~/bin/colr.shm
     cmds:
       - curl https://raw.githubusercontent.com/welbornprod/colr.sh/dev/colr.sh -o ~/bin/colr
       - chmod a+x ~/bin/colr
