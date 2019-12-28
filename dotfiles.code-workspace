@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "/Users/vardanpro/code/dotfiles"
+			"path": "."
 		}
 	],
 	"settings": {
@@ -20,6 +20,7 @@
 				"host": "api.github.com",
 				"username": "varp"
 			}
-		}
+		},
+		"cSpell.enabled": true
 	}
 }
