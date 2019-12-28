@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "/Users/vardanpro/code/dotfiles"
+			"path": "."
 		}
 	],
 	"settings": {
@@ -14,12 +14,14 @@
 			"gitignore": "gitignore",
 			"vimrc": "vimrc"
 		},
+		"git.pullTags": true,
 		"rest-client.environmentVariables": {
 			"$shared": {},
 			"github.com": {
 				"host": "api.github.com",
 				"username": "varp"
 			}
-		}
+		},
+		"cSpell.enabled": true
 	}
 }
