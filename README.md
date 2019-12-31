@@ -54,3 +54,6 @@ To get list of all tasks, just run: `./bin/task`
     * vim:vundle:                   Installs VIM's Vundle package mamager
     * vscode:extenstions:           Installs VS code extenstions
     * vscode:settings:              Installs VS Code settings
+
+# Links
+- [A lot tweaks for MacOS GUI and not!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
