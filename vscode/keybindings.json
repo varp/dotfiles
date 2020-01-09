@@ -1,11 +1,11 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "shift+alt+=",
+    "key": "shift+alt+[",
     "command": "workbench.action.increaseViewSize"
   },
   {
-    "key": "shift+alt+-",
+    "key": "shift+alt+]",
     "command": "workbench.action.decreaseViewSize"
   },
   {
@@ -30,13 +30,12 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "alt+f12",
-    "command": "-editor.action.showContextMenu",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+shift+=",
     "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "editor.action.fontZoomOut"
   },
   {
     "key": "cmd+escape",
@@ -57,5 +56,40 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.closePanel"
-  }
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "editor.action.revealDefinitionAside",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.navigateForward"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward"
+  },
+  {
+    "key": "cmd+]",
+    "command": "-editor.action.indentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "editor.action.openDeclarationToTheSide"
+  },
+  {
+    "key": "cmd+down",
+    "command": "git.openFile",
+    "when": "isInDiffEditor"
+  },
 ]
