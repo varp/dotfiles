@@ -21,7 +21,6 @@
     "git.confirmSync": true,
     "extensions.autoUpdate": true,
     "debug.inlineValues": true,
-    "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true,
@@ -76,5 +75,8 @@
     "terminal.integrated.copyOnSelection": true,
     "problems.showCurrentInStatus": true,
     "workbench.list.horizontalScrolling": false,
-    "gitlens.views.repositories.files.layout": "tree"
+    "gitlens.views.repositories.files.layout": "tree",
+    "cSpell.userWords": [
+        "Trello"
+    ]
 }

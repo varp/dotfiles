@@ -56,4 +56,4 @@ To get list of all tasks, just run: `./bin/task`
     * vscode:settings:              Installs VS Code settings
 
 # Links
-- [A lot tweaks for MacOS GUI and not!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
+- [A lot of tweaks for MacOS GUI and many more!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
