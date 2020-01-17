@@ -39,7 +39,7 @@
     "editor.fontFamily": "Droid Sans Mono Dotted for Powerline",
     "files.autoSave": "onWindowChange",
     "git.enableSmartCommit": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "workbench.sideBar.location": "right",
     "gitlens.views.repositories.location": "scm",
     "gitlens.views.repositories.branches.layout": "list",
@@ -76,7 +76,5 @@
     "problems.showCurrentInStatus": true,
     "workbench.list.horizontalScrolling": false,
     "gitlens.views.repositories.files.layout": "tree",
-    "cSpell.userWords": [
-        "Trello"
-    ]
+    "git.showPushSuccessNotification": true
 }
