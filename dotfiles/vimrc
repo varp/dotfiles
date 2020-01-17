@@ -84,6 +84,10 @@ let g:ctrlp_prompt_mappings = {
 
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:25'
 
+" NERDTree
+inoremap <leader>1 <Esc>:NERDTreeToggle<CR>
+nnoremap <leader>1 :NERDTreeToggle<CR>
+
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
@@ -158,10 +162,17 @@ set smartcase           " do not ignore if search pattern has CAPS
 
 
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-" colorscheme desert
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+else
+  colorscheme desert
+endif
+
+
+
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1

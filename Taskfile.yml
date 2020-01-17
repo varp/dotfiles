@@ -135,7 +135,7 @@ tasks:
         unset DOTENV_SHELL_LOADER_SAVED_OPTS
         {{.EVAL}}
     silent: true
-        
+
   env:python:
     desc: Installs pyenv
     status:
@@ -208,8 +208,7 @@ tasks:
     cmds:
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
     silent: true
-  
-  
+
   env:node:install:
     desc: Installs a Node version
     env:
@@ -265,18 +264,29 @@ tasks:
     desc: Installs various completions files
     summary: |
       Docker's one on MAC OS X from Docker.app
-    cmds: 
+    cmds:
       - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
       - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
       - ln -sf /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ${BASH_COMPLETION_COMPAT_DIR}/
-      
 
   tools:shell:colr-sh:
     desc: Installs colr.sh lib
     summary: |
       https://github.com/welbornprod/colr.sh
     status:
-      - test -f ~/bin/colr.shm
+      - test -f ~/bin/colr
     cmds:
       - curl https://raw.githubusercontent.com/welbornprod/colr.sh/dev/colr.sh -o ~/bin/colr
       - chmod a+x ~/bin/colr
+
+  tools:shell:base16-shell:
+    desc: Installs base16-shell themes
+    summary: |
+      https://github.com/chriskempson/base16-shell
+    status:
+      - test -d ~/.config/base16-shell
+    cmds:
+      - test -d ~/.config/base16-shell && rm -rf ~/.config/base16-shell
+      - git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+    silent: true
+

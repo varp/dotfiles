@@ -19,6 +19,8 @@ DOTFILES: >-
   ssh/config
   ssh/sftp_init
   ansible.cfg
+  base16_theme
+  vimrc_background
 BINFILES: >-
   genpassword
 VSCODEEXTENSIONS: >-
