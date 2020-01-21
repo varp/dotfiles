@@ -5,6 +5,7 @@ DOTFILES: >-
   bash_env
   bash_profile
   bashrc
+  inputrc
   zshrc
   zlogin
   gitconfig
@@ -32,4 +33,3 @@ SUBLIME_FILES: >-
 PYTHON_VER: "3.8.0"
 PHP_ENV_DIR: php
 NODEJS_VER: "--lts=Erbium"
-
