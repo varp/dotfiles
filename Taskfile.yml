@@ -1,4 +1,4 @@
-version: '2.6'
+version: "2.6"
 
 env:
   DOTFILES_ROOT: ./dotfiles
@@ -25,7 +25,6 @@ tasks:
         silent: true
       - task: binfiles
       - task: dotfiles
-
 
   dotfiles:
     desc: Installs dot files
@@ -148,7 +147,7 @@ tasks:
   env:python:install:
     desc: Installs Python 3
     env:
-      PYVER: '{{.PYVER | default .PYTHON_VER}}'
+      PYVER: "{{.PYVER | default .PYTHON_VER}}"
     cmds:
       - pyenv install $PYVER
       - pyenv local $PYVER
@@ -176,7 +175,7 @@ tasks:
     preconditions:
       - test -f ./env/php/.env
     status:
-      - test -f ~/bin/composer  
+      - test -f ~/bin/composer
       - test -d ~/.composer/vendor/hirak
     cmds:
       - cmd: |
@@ -193,7 +192,7 @@ tasks:
       - task: env:php:composer
 
       - task: env:load:dotenv
-        vars: 
+        vars:
           DIR: "{{.PHP_ENV_DIR}}"
           EVAL: |
             set -u
@@ -212,7 +211,7 @@ tasks:
   env:node:install:
     desc: Installs a Node version
     env:
-      NODEJSVER: '{{.NODEJSVER | default .NODEJS_VER}}'
+      NODEJSVER: "{{.NODEJSVER | default .NODEJS_VER}}"
     cmds:
       - cmd: |
           export NVM_DIR="$HOME/.nvm"
@@ -223,8 +222,7 @@ tasks:
           node --version
         silent: true
 
-
-  tools:lfm: 
+  tools:lfm:
     desc: Installs LFM (https://inigo.katxi.org/devel/lfm/)
     status:
       - which lfm
@@ -233,12 +231,11 @@ tasks:
       - pip install --user lfm
     silent: true
 
-
   tools:git:lfs:
     desc: Installs git-lfs
     status:
       - which git-lfs
-    cmds: 
+    cmds:
       - |
         latestVer=$(curl -s -o /dev/null https://github.com/git-lfs/git-lfs/releases/latest/ -w "%{redirect_url}" | sed -Ee 's/.*(v[[:digit:]]+.[[:digit:]]+.[[:digit:]])/\1/g')
         asset="git-lfs-{{OS}}-{{ARCH}}-${latestVer}"
@@ -251,14 +248,13 @@ tasks:
     desc: Installs latest powerline-go
     status:
       - which powerline-go
-    cmds: 
+    cmds:
       - cmd: |
           platAsset="powerline-go-{{OS}}-{{ARCH}}"
           url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
           curl -L "${url}" -o ~/bin/powerline-go || { echo "ERROR"; return; }
           chmod a+x ~/bin/powerline-go && echo -e "Done!" ~/bin/powerline-go
         silent: true
-
 
   shell:completions:
     desc: Installs various completions files
@@ -286,7 +282,7 @@ tasks:
     status:
       - test -d ~/.config/base16-shell
     cmds:
-      - test -d ~/.config/base16-shell && rm -rf ~/.config/base16-shell
-      - git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+      - cmd: |
+          [[ -d ~/.config/base16-shell ]] && rm -rf ~/.config/base16-shell
+          git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
     silent: true
-
