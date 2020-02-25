@@ -1,12 +1,14 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "shift+alt+[",
-    "command": "workbench.action.increaseViewSize"
+    "key": "ctrl+up",
+    "command": "workbench.action.increaseViewSize",
+    "when": "editorTextFocus"
   },
   {
-    "key": "shift+alt+]",
-    "command": "workbench.action.decreaseViewSize"
+    "key": "ctrl+down",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "editorTextFocus"
   },
   {
     "key": "ctrl+q a",
@@ -58,14 +60,6 @@
     "command": "workbench.action.closePanel"
   },
   {
-    "key": "ctrl+escape",
-    "command": "workbench.action.quickOpen"
-  },
-  {
-    "key": "ctrl+q",
-    "command": "-workbench.action.quickOpenView"
-  },
-  {
     "key": "ctrl+'",
     "command": "editor.action.revealDefinitionAside",
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
@@ -92,4 +86,57 @@
     "command": "git.openFile",
     "when": "isInDiffEditor"
   },
+  {
+    "key": "f1",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "editor.action.refactor",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "-editor.action.refactor",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+q p",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  }
 ]
