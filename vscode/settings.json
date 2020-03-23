@@ -21,7 +21,6 @@
     "git.confirmSync": true,
     "extensions.autoUpdate": true,
     "debug.inlineValues": true,
-    "editor.snippetSuggestions": "top",
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true,
         "suppressWelcomeNotice": true
@@ -63,11 +62,18 @@
     "gitlens.recentChanges.highlight.locations": [
         "gutter"
     ],
-    "search.enableSearchEditorPreview": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+    "editor.parameterHints.enabled": true,
     "search.useGlobalIgnoreFiles": true,
     "debug.openExplorerOnEnd": true,
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.showSubSessionsInToolBar": true,
+    "editor.highlightActiveIndentGuide": true,
+    "editor.renderIndentGuides": true,
     "scm.alwaysShowProviders": true,
     "scm.countBadge": "focused",
     "scm.diffDecorations": "gutter",
@@ -77,5 +83,15 @@
     "workbench.list.horizontalScrolling": false,
     "gitlens.views.repositories.files.layout": "tree",
     "git.showPushSuccessNotification": true,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "editor.showFoldingControls": "always",
+    "editor.suggest.statusBar.visible": true,
+    "editor.suggest.localityBonus": true,
+    "sync.autoDownload": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    }
 }
