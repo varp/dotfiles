@@ -2,7 +2,23 @@
 {
     "workbench.editor.tabCloseButton": "left",
     "workbench.editor.showIcons": true,
-    "telemetry.enableTelemetry": false,
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.statusBar.visible": true,
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.list.openMode": "singleClick",
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.openPositioning": "last",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.showTabs": false,
+    "workbench.editor.splitSizing": "split",
+    "workbench.list.horizontalScrolling": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Sourlick Contrast (rainglow)",
+
+
+
     "editor.rulers": [
         80,
         120
@@ -11,16 +27,71 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
-    "editor.renderWhitespace": "none",
     "editor.wordWrapColumn": 120,
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": "off",
+    "editor.showFoldingControls": "always",
+    "editor.suggest.statusBar.visible": true,
+    "editor.suggest.localityBonus": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.formatOnSave": true,
+    "editor.parameterHints.enabled": true,
+    "editor.highlightActiveIndentGuide": true,
+    "editor.renderIndentGuides": true,
+    "editor.fontFamily": "Hasklig",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+
+
+
+    "telemetry.enableTelemetry": false,
+
     "explorer.openEditors.visible": 0,
-    "search.quickOpen.includeSymbols": true,
-    "files.encoding": "utf8",
-    "git.confirmSync": true,
-    "extensions.autoUpdate": true,
+    "explorer.decorations.badges": true,
+    "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
+    "files.autoSave": "onWindowChange",
+
+
+    "breadcrumbs.filePath": "last",
+    "breadcrumbs.symbolSortOrder": "type",
+
+
+    "debug.openExplorerOnEnd": true,
+    "debug.showBreakpointsInOverviewRuler": true,
+    "debug.showSubSessionsInToolBar": true,
     "debug.inlineValues": true,
+
+
+    "extensions.closeExtensionDetailsOnViewChange": true,
+    "extensions.autoUpdate": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.rendererType": "dom",
+    "problems.showCurrentInStatus": true,
+
+
+    "search.useGlobalIgnoreFiles": true,
+    "search.quickOpen.includeSymbols": true,
+
+
+
+
+    "font-switcher.enableLivePreview": true,
+    "font-switcher.fontFamily": "Hasklig, Fira Code, Iosevka Term, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PTMono, ProFont for Powerline, Nova Mono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, Liberation Mono for Powerline, Liberation Mono, Inconsolata-dz for Powerline, Inconsolata for Powerline, Hack, GoMono for Powerline, Fira Mono for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Anonymous Pro for Powerline, Andale Mono",
+
+
+
+    "scm.alwaysShowProviders": true,
+    "scm.countBadge": "focused",
+    "scm.diffDecorations": "gutter",
+    "git.confirmSync": true,
+    "git.showPushSuccessNotification": true,
+    "git.enableSmartCommit": true,
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true,
         "suppressWelcomeNotice": true
@@ -29,69 +100,29 @@
     "gitlens.views.lineHistory.location": "explorer",
     "gitlens.views.compare.location": "scm",
     "gitlens.views.search.location": "scm",
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
-    "font-switcher.enableLivePreview": true,
-    "font-switcher.fontFamily": "UbuntuMono Nerd Font Mono, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, SauceCodePro Nerd Font Mono, RobotoMono Nerd Font Mono, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PT Mono, ProFont for Powerline, Prestige Elite Std, Orator Std, OCR A Std, NovaMono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, MesloLGSDZ Nerd Font Mono, MesloLGS Nerd Font Mono, MesloLGMDZ Nerd Font Mono, MesloLGM Nerd Font Mono, MesloLGLDZ Nerd Font Mono, MesloLGL Nerd Font Mono, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, LiterationMono Nerd Font Mono, Liberation Mono for Powerline, Liberation Mono, Letter Gothic Std, InconsolataLGC Nerd Font Mono, InconsolataGo Nerd Font Mono, Inconsolata-g for Powerline, Inconsolata-dz for Powerline, Inconsolata Nerd Font Mono, Inconsolata for Powerline, IBM 3270 Semi-Narrow, IBM 3270 Narrow, IBM 3270, Hack, Go Mono for Powerline, FuraMono Nerd Font Mono, FuraCode Nerd Font Mono, Fira Mono for Powerline, DroidSansMono Nerd Font Mono, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVuSansMono Nerd Font Mono, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Cousine for Powerline, Courier New, Courier, Anonymous Pro for Powerline, Andale Mono",
-    "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
-    "editor.fontFamily": "Roboto Mono for Powerline",
-    "files.autoSave": "onWindowChange",
-    "git.enableSmartCommit": true,
-    "window.zoomLevel": 0,
-    "workbench.sideBar.location": "right",
     "gitlens.views.repositories.location": "scm",
     "gitlens.views.repositories.branches.layout": "list",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.statusBar.visible": true,
-    "workbench.view.alwaysShowHeaderActions": true,
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.formatOnSave": true,
-    "workbench.list.openMode": "singleClick",
-    "workbench.colorTheme": "Slime Contrast (rainglow)",
-    "breadcrumbs.filePath": "last",
-    "breadcrumbs.symbolSortOrder": "type",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.editor.openPositioning": "last",
-    "workbench.editor.revealIfOpen": true,
-    "workbench.editor.showTabs": false,
-    "workbench.editor.splitSizing": "split",
-    "explorer.decorations.badges": true,
     "gitlens.views.search.files.layout": "list",
+    "gitlens.views.repositories.files.layout": "tree",
     "gitlens.recentChanges.highlight.locations": [
         "gutter"
     ],
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": false
-    },
-    "editor.parameterHints.enabled": true,
-    "search.useGlobalIgnoreFiles": true,
-    "debug.openExplorerOnEnd": true,
-    "debug.showBreakpointsInOverviewRuler": true,
-    "debug.showSubSessionsInToolBar": true,
-    "editor.highlightActiveIndentGuide": true,
-    "editor.renderIndentGuides": true,
-    "scm.alwaysShowProviders": true,
-    "scm.countBadge": "focused",
-    "scm.diffDecorations": "gutter",
-    "extensions.closeExtensionDetailsOnViewChange": true,
-    "terminal.integrated.copyOnSelection": true,
-    "problems.showCurrentInStatus": true,
-    "workbench.list.horizontalScrolling": false,
-    "gitlens.views.repositories.files.layout": "tree",
-    "git.showPushSuccessNotification": true,
-    "terminal.integrated.rendererType": "dom",
+
+
+
     "[json]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "editor.showFoldingControls": "always",
-    "editor.suggest.statusBar.visible": true,
-    "editor.suggest.localityBonus": true,
     "sync.autoDownload": true,
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
-    }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+
+
+
+    "oneDarkPro.italic": false,
+    "oneDarkPro.bold": true,
 }
