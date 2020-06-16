@@ -12,7 +12,6 @@ tasks:
   default:
     cmds:
       - ./bin/task -l
-    silent: true
 
   install:
     desc: "Runs tasks: binfiles, dotfiles"
@@ -22,7 +21,6 @@ tasks:
           read answer
           [[ "$answer" == "Y" || "$answer" == "y" ]] || { echo "Canceled by user"; exit 1; }
           exit 0
-        silent: true
       - task: binfiles
       - task: dotfiles
 
@@ -41,7 +39,6 @@ tasks:
             [[ -f "$d" || -h "$d" ]] && unlink "$d"
             ln -vsf "$s" "$d"
           done
-        silent: true
 
   binfiles:
     desc: Installs bin files
@@ -56,7 +53,6 @@ tasks:
             ln -vsf "$s" "$d"
             chmod a+x "$d"
           done
-        silent: true
 
   vscode:settings:
     desc: Installs VS Code settings
@@ -68,7 +64,6 @@ tasks:
           mkdir -p "$(dirname "$d")"
           unlink "$d"
           ln -vsf "$s" "$d"
-        silent: true
 
   vscode:extenstions:
     desc: Installs VS code extenstions
@@ -80,7 +75,6 @@ tasks:
           for e in "${exts[@]}"; do
             "$vsbin" --install-extension $e
           done
-        silent: true
 
   vim:vundle:
     desc: Installs VIM's Vundle package mamager
@@ -92,7 +86,6 @@ tasks:
           [[ -d "$vundleDir" ]] && rm -rf "$vundleDir"
           mkdir -p "$vundleDir"
           git clone {{.VIM_VUNDLE_REPO}} "${vundleDir}/Vundle.vim"
-        silent: true
 
   sublime:settings:
     desc: Installs SublimeText settings
@@ -107,7 +100,6 @@ tasks:
             [[ -h "$d" || -f "$d" ]] && unlink "$d" 
             ln -vsf "$s" "$d"
           done
-        silent: true
 
   sublime:packagecontrol:
     desc: Installs ST3 package control
@@ -120,7 +112,6 @@ tasks:
           cd "$stDir"
           wget https://sublime.wbond.net/Package%20Control.sublime-package -O 'Package Control.sublime-package'
           cd "${OLD_PWD#"-"}"
-        silent: true
 
   env:load:dotenv:
     cmds:
@@ -133,7 +124,6 @@ tasks:
         eval "$DOTENV_SHELL_LOADER_SAVED_OPTS"
         unset DOTENV_SHELL_LOADER_SAVED_OPTS
         {{.EVAL}}
-    silent: true
 
   env:python:
     desc: Installs pyenv
@@ -142,7 +132,6 @@ tasks:
     cmds:
       - curl https://pyenv.run | bash
       - source ~/.bashrc
-    silent: true
 
   env:python:install:
     desc: Installs Python 3
@@ -153,14 +142,12 @@ tasks:
       - pyenv local $PYVER
       - source ~/.bashrc
       - python --version
-    silent: true
 
   repo:ppa:php:
     desc: Enables PPA for PHP
     cmds:
       - sudo add-apt-repository -y ppa:ondrej/php
       - sudo apt-get update -y
-    silent: true
 
   repo:rpm:php:
     desc: Enables RPM repos for PHP
@@ -168,7 +155,6 @@ tasks:
       - yum -y update; yum -y install epel-release; yum repolist
       - rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
       - yum repolist; yum -y update
-    silent: true
 
   env:php:composer:
     desc: Install PHP composer
@@ -182,15 +168,13 @@ tasks:
           curl https://getcomposer.org/composer-stable.phar --create-dirs -o ~/bin/composer
           chmod a+x ~/bin/composer
           composer --version
-        silent: true
       - cmd: composer global require hirak/prestissimo -n -o
-        silent: true
 
   env:php:
-    desc: Installs PHP env
+    desc: Configures PHP env
+    preconditions:
+      - which composer
     cmds:
-      - task: env:php:composer
-
       - task: env:load:dotenv
         vars:
           DIR: "{{.PHP_ENV_DIR}}"
@@ -206,7 +190,6 @@ tasks:
       - test -d ~/.nvm
     cmds:
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-    silent: true
 
   env:node:install:
     desc: Installs a Node version
@@ -220,7 +203,6 @@ tasks:
           nvm --version
           nvm install $NODEJSVER
           node --version
-        silent: true
 
   tools:lfm:
     desc: Installs LFM (https://inigo.katxi.org/devel/lfm/)
@@ -229,7 +211,6 @@ tasks:
     cmds:
       - pip install --upgrade pip
       - pip install --user lfm
-    silent: true
 
   tools:git:lfs:
     desc: Installs git-lfs
@@ -242,7 +223,6 @@ tasks:
         curl -L https://github.com/git-lfs/git-lfs/releases/download/${latestVer}/${asset}.tar.gz -o /tmp/${asset}.tar.gz
         cd /tmp; tar xzvf "${asset}.tar.gz"
         mv -v /tmp/git-lfs ~/bin/
-    silent: true
 
   tools:shell:powerline-go:
     desc: Installs latest powerline-go
@@ -254,7 +234,6 @@ tasks:
           url="https://github.com/justjanne/powerline-go/releases/latest/download/$platAsset"
           curl -L "${url}" -o ~/bin/powerline-go || { echo "ERROR"; return; }
           chmod a+x ~/bin/powerline-go && echo -e "Done!" ~/bin/powerline-go
-        silent: true
 
   shell:completions:
     desc: Installs various completions files
@@ -285,4 +264,3 @@ tasks:
       - cmd: |
           [[ -d ~/.config/base16-shell ]] && rm -rf ~/.config/base16-shell
           git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-    silent: true
