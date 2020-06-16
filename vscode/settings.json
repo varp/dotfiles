@@ -40,7 +40,8 @@
     "editor.highlightActiveIndentGuide": true,
     "editor.renderIndentGuides": true,
     "editor.fontFamily": "Hasklig",
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "editor.quickSuggestions": {
         "other": true,
@@ -124,5 +125,5 @@
 
 
     "oneDarkPro.italic": false,
-    "oneDarkPro.bold": true,
+    "oneDarkPro.bold": true
 }

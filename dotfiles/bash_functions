@@ -146,6 +146,10 @@ _fix_jetbrains_cli_launcher() {
   return
 }
 
+_shell_reload()
+{
+  exec -l $SHELL
+}
 
 _bashrc_reload()
 {
