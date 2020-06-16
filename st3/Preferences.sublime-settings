@@ -17,12 +17,18 @@
 	"bold_folder_labels": false,
 	"caret_style": "smooth",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme": "Packages/Dayle Rees Color Schemes/sublime/contrast/sourlick-contrast.tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": true,
 	"fade_fold_buttons": true,
 	"fallback_encoding": "Cyrillic (Windows-1251)",
 	"fold_buttons": true,
+	"font_face": "Hasklig",
+	"font_options":
+	[
+		"dlig",
+		"ss01"
+	],
 	"font_size": 14,
 	"gutter": true,
 	"highlight_line": true,
@@ -31,8 +37,7 @@
 	"ignored_packages":
 	[
 		"ProjectManager",
-		"Vintage",
-		"zzz A File Icon zzz"
+		"Vintage"
 	],
 	"indent_subsequent_lines": true,
 	"line_numbers": true,

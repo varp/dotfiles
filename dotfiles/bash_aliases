@@ -42,9 +42,9 @@ alias nsu='sudo netstat -lnup'
 alias nsx='sudo netstat -lnxp'
 
 if [[ "$_OS_NAME" == "Darwin" ]]; then
-    alias nst='sudo netstat -ln -v -p tcp'
-    alias nsu='sudo netstat -ln -v -p udp'
-    alias nsx='sudo netstat -ln -v -f unix'
+    alias nst='sudo lsof -n -P -i TCP -sTCP:LISTEN'
+    alias nsu='sudo lsof -n -P -i UDP'
+    alias nsx='sudo lsof -n -P -U'
 fi
 
 alias grepi='grep -i'
