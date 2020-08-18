@@ -39,10 +39,13 @@
     "editor.parameterHints.enabled": true,
     "editor.highlightActiveIndentGuide": true,
     "editor.renderIndentGuides": true,
-    "editor.fontFamily": "Hasklig",
-    "editor.fontSize": 12,
+    "editor.fontFamily": "Iosevka VardanPro Lucida Light",
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.renameOnType": true,
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
@@ -83,7 +86,7 @@
 
 
     "font-switcher.enableLivePreview": true,
-    "font-switcher.fontFamily": "Hasklig, Fira Code, Iosevka Term, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PTMono, ProFont for Powerline, Nova Mono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, Liberation Mono for Powerline, Liberation Mono, Inconsolata-dz for Powerline, Inconsolata for Powerline, Hack, GoMono for Powerline, Fira Mono for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Anonymous Pro for Powerline, Andale Mono",
+    "font-switcher.fontFamily": "Hasklig, Fira Code, Iosevka Term, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PTMono, ProFont for Powerline, Nova Mono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, Liberation Mono for Powerline, Liberation Mono, Inconsolata-dz for Powerline, Inconsolata for Powerline, Hack, GoMono for Powerline, Fira Mono for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Anonymous Pro for Powerline, Andale Mono,Iosevka VardanPro",
 
 
 
@@ -125,5 +128,7 @@
 
 
     "oneDarkPro.italic": false,
-    "oneDarkPro.bold": true
+    "oneDarkPro.bold": false,
+    "editor.fontWeight": "400",
+    "window.zoomLevel": 0
 }

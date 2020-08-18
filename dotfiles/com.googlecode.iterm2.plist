@@ -974,7 +974,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 11</string>
+			<string>Iosevka-VardanPro-Ubuntu-Style-Light 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -1630,7 +1630,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMonoForPowerline-Regular 14</string>
+			<string>Iosevka-VardanPro-Ubuntu-Style-Light 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -2295,7 +2295,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMonoForPowerline-Regular 14</string>
+			<string>Iosevka-VardanPro-Lucida-Style 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -2380,6 +2380,7 @@
 	<array>
 		<string>3.3.6</string>
 		<string>3.3.8</string>
+		<string>3.3.12</string>
 		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.7</string>
@@ -2390,10 +2391,10 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Liberation Mono for Powerline</string>
-		<string>MesloLGM Nerd Font Mono</string>
 		<string>Fira Mono for Powerline</string>
-		<string>Roboto Mono for Powerline</string>
+		<string>Iosevka VardanPro Lucida Light</string>
+		<string>Iosevka VardanPro Ubuntu Style</string>
+		<string>Iosevka VardanPro Lucida Style</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
@@ -2409,7 +2410,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{637, 845}</string>
+		<string>{639, 845}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2424,7 +2425,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>591197894.52250302</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>100</integer>
+	<integer>108</integer>
 	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -2756,6 +2757,14 @@
 				<true/>
 				<key>name</key>
 				<string>style</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.jobPid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3301,11 +3310,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-22T09:19:52Z</date>
+	<date>2020-08-17T09:54:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
-	<true/>
+	<false/>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Secure Input</key>
@@ -3350,7 +3359,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
