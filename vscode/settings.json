@@ -20,7 +20,6 @@
 
 
     "editor.rulers": [
-        80,
         120
     ],
     "editor.formatOnPaste": true,
@@ -39,7 +38,9 @@
     "editor.parameterHints.enabled": true,
     "editor.highlightActiveIndentGuide": true,
     "editor.renderIndentGuides": true,
-    "editor.fontFamily": "Iosevka VardanPro Lucida Light",
+    "editor.fontFamily": "Iosevka VardanPro Ubuntu Style",
+    "editor.fontWeight": "300",
+    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "editor.codeActionsOnSave": {
@@ -129,6 +130,5 @@
 
     "oneDarkPro.italic": false,
     "oneDarkPro.bold": false,
-    "editor.fontWeight": "400",
     "window.zoomLevel": 0
 }
