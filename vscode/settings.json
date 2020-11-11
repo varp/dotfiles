@@ -3,9 +3,8 @@
     "workbench.editor.tabCloseButton": "left",
     "workbench.editor.showIcons": true,
     "workbench.activityBar.visible": true,
-    "workbench.sideBar.location": "right",
+    "workbench.sideBar.location": "left",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.statusBar.visible": true,
     "workbench.view.alwaysShowHeaderActions": true,
     "workbench.list.openMode": "singleClick",
     "workbench.editor.closeOnFileDelete": true,
@@ -15,7 +14,7 @@
     "workbench.editor.splitSizing": "split",
     "workbench.list.horizontalScrolling": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Sourlick Contrast (rainglow)",
+    "workbench.colorTheme": "GitHub Light",
 
 
 
@@ -24,11 +23,11 @@
     ],
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
     "editor.mouseWheelScrollSensitivity": 2,
-    "editor.tabCompletion": "off",
+    "editor.tabCompletion": "on",
     "editor.showFoldingControls": "always",
     "editor.suggest.statusBar.visible": true,
     "editor.suggest.localityBonus": true,
@@ -38,9 +37,10 @@
     "editor.parameterHints.enabled": true,
     "editor.highlightActiveIndentGuide": true,
     "editor.renderIndentGuides": true,
-    "editor.fontFamily": "Iosevka VardanPro Ubuntu Style",
-    "editor.fontWeight": "300",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "Iosevka VardanPro Lucida Style",
+    "editor.fontWeight": "400",
+    "editor.fontSize": 14,
+    // "editor.lineHeight": 20,
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "editor.codeActionsOnSave": {
@@ -57,7 +57,7 @@
 
     "telemetry.enableTelemetry": false,
 
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 16,
     "explorer.decorations.badges": true,
     "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
     "files.autoSave": "onWindowChange",
@@ -128,7 +128,7 @@
 
 
 
-    "oneDarkPro.italic": false,
-    "oneDarkPro.bold": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "window.openFoldersInNewWindow": "on",
+    // "editor.colorDecorators": false,
 }

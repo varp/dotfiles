@@ -37,7 +37,8 @@
 	"ignored_packages":
 	[
 		"ProjectManager",
-		"Vintage"
+		"Vintage",
+		"zzz A File Icon zzz"
 	],
 	"indent_subsequent_lines": true,
 	"line_numbers": true,
