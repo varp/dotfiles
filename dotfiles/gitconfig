@@ -23,8 +23,8 @@
   ci        = commit -v
   ca        = commit -av
   st        = status -sb
-  sl        = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  ss        = log --pretty=format:'%Cgreen%h%Creset %Cblue[%ci]%Creset - %C(yellow)%d%Creset | %s - %C(bold blue)<%an>%Creset' --abbrev-commit
+  sl        = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
+  ss        = log --pretty=format:'%Cgreen%h%Creset %Cblue[%ci]%Creset - %C(yellow)%d%Creset | %s - %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
   up        = pull --rebase
   track     = !git-track
   prune-all = !git-prune-all
