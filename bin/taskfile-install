@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-curl -sL https://taskfile.dev/install.sh | bash
+curl -sL https://taskfile.dev/install.sh | bash -s -- -b /usr/local/bin
+curl -sL https://raw.githubusercontent.com/go-task/task/master/completion/bash/task.bash -o ${BASH_COMPLETION_COMPAT_DIR}/task.bash
 
-echo "./bin/task was installed!"
+echo "./usr/local/bin/task was installed!"
