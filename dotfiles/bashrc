@@ -73,7 +73,7 @@ esac
 _dedup_path()
 {
     PATH=`echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|'`
-    export PATH=${PATH//[[:space:]]/:}
+    export PATH=${PATH//[$'\n']/:}
 }
 
 _prepend_to_path()
