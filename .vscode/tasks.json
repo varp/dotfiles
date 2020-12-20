@@ -23,7 +23,7 @@
     {
       "label": "Make a tag and push to GH",
       "type": "shell",
-      "command": "git tag -f v$(date +%Y%m%d) ; git push -u --tags --force",
+      "command": "git tag -f v$(date +%Y%m%d) ; git push -u --tags --force origin HEAD",
       "problemMatcher": [],
     }
   ]
