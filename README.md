@@ -7,32 +7,32 @@
 
 To see list of all tasks:
 
-    ./bin/task
+    task
 
 Install dotfiles and binfiles:
     
-    ./bin/task install
+    task install
 
 Or separately:
 
-    ./bin/task dotfiles
-    ./bin/task binfiles
+    task dotfiles
+    task binfiles
 
 ### Sublime Text 3
-    ./bin/task sublime:settings # Install settings
-    ./bin/task sublime:packagecontrol # Install package manager
+    task sublime:settings # Install settings
+    task sublime:packagecontrol # Install package manager
 
 ### Visual Studio Code
-    ./bin/task vscode:settings    # Installs vscode settings
-    ./bin/task vscode:extensions  # Install vscode extensions 
+    task vscode:settings    # Installs vscode settings
+    task vscode:extensions  # Install vscode extensions 
 
 ### VIM
-    ./bin/task vim:vundle # Install VIM's Vundle
+    task vim:vundle # Install VIM's Vundle
 
 
 ### List of all tasks
 
-To get list of all tasks, just run: `./bin/task`
+To get list of all tasks, just run: `task`
 
     task: Available tasks for this project:
     * binfiles:                     Installs bin files
