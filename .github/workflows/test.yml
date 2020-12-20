@@ -10,9 +10,9 @@ jobs:
       - name: Tests
         run: |
           ./bin/taskfile-install
-          ./bin/task
-          ./bin/task binfiles
-          ./bin/task dotfiles
+          task
+          task binfiles
+          task dotfiles
 
   macosx:
     runs-on: macos-latest
@@ -25,6 +25,6 @@ jobs:
       - name: Tests
         run: |
           ./bin/taskfile-install
-          ./bin/task
-          ./bin/task binfiles
-          ./bin/task dotfiles
+          task
+          task binfiles
+          task dotfiles
