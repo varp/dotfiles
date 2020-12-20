@@ -32,14 +32,18 @@ export LC_MONETARY=ru_RU.UTF-8
 
 # export PROMPT_DIRTRIM=1
 
-if [ "$_OS_NAME" == "Darwin" ] && [ -f /usr/local/bin/brew ]; then
-     eval "$(brew shellenv)"
-fi
 
 
-### Add bin folder to PATH
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 
 ## SUDO
 export SUDO_PROMPT="[sudo] %p > "
+
+
+if [ "$_OS_NAME" == "Darwin" ] && [ -f /usr/local/bin/brew ]; then
+     eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+### Add bin folder to PATH
+_prepend_to_path "$HOME/bin"
+_prepend_to_path "/usr/local/bin"

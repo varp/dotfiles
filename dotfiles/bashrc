@@ -1,3 +1,4 @@
+# ex: filetype=sh
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -66,6 +67,36 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+## PATH without duplicates
+#################################
+_dedup_path()
+{
+    PATH=`echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|'`
+    export PATH=${PATH//[[:space:]]/:}
+}
+
+_prepend_to_path()
+{
+    # [ "${PATH#*$1:}" == "$PATH" ] && { 
+    [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && { 
+        export PATH="$1:$PATH"
+        _dedup_path
+    }
+}
+
+_append_to_path()
+{
+     [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && {
+         export PATH="$PATH:$1"
+         _dedup_path
+    }
+}
+
+_OLDPATH="$PATH"
+export PATH="$(command -p getconf PATH):$PATH"
+_dedup_path
+#################################
 
 
 ## load bash env
@@ -152,23 +183,30 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # Load Python Version Manager
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH; PATH="$PYENV_ROOT/bin:$PATH"
-[ -d "$PYENV_ROOT" ] && eval "$(pyenv init -)"
-export PATH; PATH="$HOME/.local/bin:$PATH"
+_prepend_to_path "$PYENV_ROOT/bin"
+
+[ -d "$PYENV_ROOT" ] && {
+    eval "$(pyenv init -)"
+    _prepend_to_path "$HOME/.local/bin"
+}
 
 USE_GOENV=false
 
 if $USE_GOENV; then
     # Goenv
     export GOENV_ROOT="$HOME/.goenv"
-    export PATH; PATH="$GOENV_ROOT/bin:$PATH"
-    [[ -s "$GOENV_ROOT/bin/goenv" ]] && eval "$(goenv init -)"
+    [[ -s "$GOENV_ROOT/bin/goenv" ]] && {
+        eval "$(goenv init -)"
+        _prepend_to_path "$GOENV_ROOT/bin"
 
-    export GOROOT="$(go env GOROOT)"
-    export GOPATH="$(go env GOPATH)"
+        export GOROOT="$(go env GOROOT)"
+        export GOPATH="$(go env GOPATH)"
 
-    export PATH; PATH="$GOROOT/bin:$PATH"
-    export PATH; PATH="$GOPATH/bin:$PATH"
+        _prepend_to_path "$GOROOT/bin"
+        _prepend_to_path "$GOPATH/bin"
+    }
+
+
 else
     # Go Version Manager
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
@@ -177,9 +215,11 @@ fi
 
 
 ## RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && {
+    . "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    _prepend_to_path "$HOME/.rvm/bin"
+}
 
 
 ## OSX
@@ -190,26 +230,25 @@ if [[ "$_OS_NAME" == "Darwin" ]]; then
 
     [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+    [[ -r '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc' ]] && . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 
     # The next line enables shell command completion for gcloud.
-    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+    [[ -r '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc' ]] && . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 
 
     # The next line updates PATH for Yandex Cloud CLI.
-    if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then source "$HOME/yandex-cloud/path.bash.inc"; fi
+    [ -f "$HOME/yandex-cloud/path.bash.inc" ] && . "$HOME/yandex-cloud/path.bash.inc"
 
     # The next line enables shell command completion for yc.
-    if [ -f "$HOME/yandex-cloud/completion.bash.inc" ]; then source "$HOME/yandex-cloud/completion.bash.inc"; fi
+    [ -f "$HOME/yandex-cloud/completion.bash.inc" ] && . "$HOME/yandex-cloud/completion.bash.inc"
 fi
 
 
-
-test -f ~/.bash_completion && . ~/.bash_completion
+[ -f ~/.bash_completion ] && . ~/.bash_completion
 
 
 ## iTerm integration
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
+[ -e "${HOME}/.iterm2_shell_integration.bash" ] && . "${HOME}/.iterm2_shell_integration.bash" || true
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -219,5 +258,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 
 
-# ex: filetype=sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+#### PATH without duplicates
+_dedup_path
+#################################

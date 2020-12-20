@@ -146,32 +146,37 @@ _fix_jetbrains_cli_launcher() {
   return
 }
 
-_shell_reload()
+_ppath()
 {
-  exec -l $SHELL
+    echo $PATH | tr ':' '\n' 
+}
+
+_reload()
+{
+  exec -l $SHELL -l
 }
 
 _bashrc_reload()
 {
-  . ${HOME}/.bashrc
+  . "${HOME}/.bashrc"
 }
 
 _bashprofile_reload()
 {
-  test -f ${HOME}/.bash_profile && . ${HOME}/.bash_profile
+  test -f "${HOME}/.bash_profile" && . "${HOME}/.bash_profile"
 }
 
 _bashfunctions_reload()
 {
-  . ${HOME}/.bash_functions
+  . "${HOME}/.bash_functions"
 }
 
 _bashenv_reload()
 {
-  . ${HOME}/.bash_env
+  . "${HOME}/.bash_env"
 }
 
 _bashaliases_reload()
 {
-  . ${HOME}/.bash_aliases
+  . "${HOME}/.bash_aliases"
 }
