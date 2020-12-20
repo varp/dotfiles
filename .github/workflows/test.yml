@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Tests
         run: |
-          ./bin/taskfile-install
+          sudo ./bin/taskfile-install
           task
           task binfiles
           task dotfiles

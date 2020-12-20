@@ -11,7 +11,7 @@ env:
 tasks:
   default:
     cmds:
-      - ./bin/task -l
+      - task -l
 
   install:
     desc: "Runs tasks: binfiles, dotfiles"
