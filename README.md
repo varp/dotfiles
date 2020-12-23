@@ -1,5 +1,7 @@
 # Dotfiles ![](https://github.com/varp/dotfiles/workflows/test/badge.svg)
 ## Prequisties
+    # install brew On Mac OS
+    brew install coreutils
     bash ./bin/taskfile-install # To install https://taskfile.dev/
 
 
