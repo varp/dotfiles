@@ -43,8 +43,11 @@
   status = auto
 
 [push]
-  default = tracking
+  default = tracking  
 
+[pull]
+  rebase = false
+  
 [gc]
   auto = 1
 
