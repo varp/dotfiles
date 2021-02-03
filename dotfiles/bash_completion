@@ -76,3 +76,20 @@ _goinside() {
     COMPREPLY=( $(compgen -W "${__goinside_services}" -- "${2}") )
 }
 complete -F _goinside goinside
+
+# load completions from:
+# - /usr/local/etc/bash_completion.d/
+# - ~/.bash_completion.d/
+if [[ "$_OS_NAME" == "Darwin" ]] && command brew >/dev/null; then
+    for bcfile in $(brew --prefix)/etc/bash_completion.d/*; do
+        . "$bcfile"
+    done
+fi
+
+## BASH COMPLETIONS 2
+export BASH_COMPLETION_USER_DIR="$HOME/.bash_completion.d"
+[[ ! -d $BASH_COMPLETION_USER_DIR ]] && mkdir -p $BASH_COMPLETION_USER_DIR
+
+#for bcfile in $BASH_COMPLETION_USER_DIR/*; do
+#    . "$bcfile"
+#done

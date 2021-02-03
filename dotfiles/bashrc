@@ -122,6 +122,9 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+
+
+
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
@@ -243,8 +246,6 @@ if [[ "$_OS_NAME" == "Darwin" ]]; then
     [ -f "$HOME/yandex-cloud/completion.bash.inc" ] && . "$HOME/yandex-cloud/completion.bash.inc"
 fi
 
-
-[ -f ~/.bash_completion ] && . ~/.bash_completion
 
 
 ## iTerm integration
