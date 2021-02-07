@@ -78,9 +78,9 @@ _goinside() {
 complete -F _goinside goinside
 
 # load completions from:
-# - /usr/local/etc/bash_completion.d/
-# - ~/.bash_completion.d/
-if [[ "$_OS_NAME" == "Darwin" ]] && command brew >/dev/null; then
+#   - /usr/local/etc/bash_completion.d/
+#   - ~/.bash_completion.d/
+if [[ "$_OS_NAME" == "Darwin" ]] && command -v brew >/dev/null; then
     for bcfile in $(brew --prefix)/etc/bash_completion.d/*; do
         . "$bcfile"
     done
