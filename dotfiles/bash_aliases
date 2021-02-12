@@ -55,7 +55,7 @@ alias grepi='grep -i'
 alias ssctl='sudo systemctl'
 
 
-## code aliases
-alias dckr='sudo docker'
-alias dcc='sudo docker-compose'
+## Docker related aliases
+alias dckr='docker'
+alias dcc='docker-compose'
 
