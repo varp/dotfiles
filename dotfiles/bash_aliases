@@ -56,6 +56,7 @@ alias ssctl='sudo systemctl'
 
 
 ## Docker related aliases
-alias dckr='docker'
-alias dcc='docker-compose'
+alias dk='docker'
+alias dkc='docker-compose'
+alias dm='docker-machine'
 
