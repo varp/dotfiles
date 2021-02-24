@@ -94,7 +94,7 @@ _append_to_path()
 }
 
 _OLDPATH="$PATH"
-export PATH="$(command -p getconf PATH):$PATH"
+export PATH="$(command -p getconf PATH)"
 _dedup_path
 #################################
 
