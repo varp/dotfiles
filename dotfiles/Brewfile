@@ -28,3 +28,7 @@ cask "telegram"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "visual-studio-code"
+cask "dropbox"
+cask "karabiner-elements"
+#cask "yandex-disk" # probably stale cask with invalid hash for installer
+cask "lastpass"
