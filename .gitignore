@@ -3,3 +3,4 @@
 .env
 .python-version
 bin/task
+Brewfile.lock.json
