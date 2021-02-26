@@ -130,5 +130,8 @@
 
     "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "on",
+    "workbench.list.smoothScrolling": true,
+    "window.newWindowDimensions": "offset",
+    "git.autoRepositoryDetection": "subFolders",
     // "editor.colorDecorators": false,
 }
