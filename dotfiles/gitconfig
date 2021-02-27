@@ -1,6 +1,8 @@
+# vim: sts=2 sw=2 ts=2
+
 [user]
-	name = Vardan Pogosian
-	email = vardan.pogosyan@gmail.com
+  name = Vardan Pogosian
+  email = vardan.pogosyan@gmail.com
 
 [github]
   user = varp
@@ -13,15 +15,17 @@
 
 [core]
   editor = vim
-	autocrlf = input
+  autocrlf = input
   eol = lf
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 
 [alias]
+  c         = commit
   co        = checkout
   ct        = checkout -t
   ci        = commit -v
   ca        = commit -av
+  s         = status
   st        = status -sb
   sl        = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
   ss        = log --pretty=format:'%Cgreen%h%Creset %Cblue[%ci]%Creset - %C(yellow)%d%Creset | %s - %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
@@ -43,49 +47,51 @@
   status = auto
 
 [push]
-  default = tracking  
+  default = tracking
 
 [pull]
   rebase = false
-  
+
 [gc]
   auto = 1
 
+[url "ssh://git@github.com"]
+  insteadOf = https://github.com
+[url "ssh://git@bitbucket.org"]
+  insteadof = https://bitbucket.org
 
-[url "ssh://git@heroku.com/"]
-	insteadOf = https://git.heroku.com/
 
 [diff]
-	tool = vimdiff
-	guitool = phpstorm
+    tool = vimdiff
+    guitool = phpstorm
 
 [difftool "phpstorm"]
-	cmd = phpstorm -n -W --args diff "$LOCAL" $(realpath "$REMOTE")
-	trustExitCode = false
+    cmd = phpstorm -n -W --args diff "$LOCAL" $(realpath "$REMOTE")
+    trustExitCode = false
 
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [merge]
-	tool = diffconflicts
-	guitool = phpstorm
+    tool = diffconflicts
+    guitool = phpstorm
     conflictstyle = diff3
 
 [mergetool]
     prompt = false
-	keepBackup = false
+    keepBackup = false
 
 [mergetool "phpstorm"]
-	cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
-	trustExitCode = false
+    cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
+    trustExitCode = false
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [mergetool "diffconflicts"]
-	cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
+    cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true

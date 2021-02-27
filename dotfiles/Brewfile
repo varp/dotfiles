@@ -17,6 +17,7 @@ brew "php@7.4", link: true
 brew "tor", restart_service: true
 brew "p7zip"
 cask "keka"
+cask "kekaexternalhelper"
 cask "alfred"
 cask "bartender"
 cask "expressvpn"
