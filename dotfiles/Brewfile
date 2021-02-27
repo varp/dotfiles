@@ -15,6 +15,8 @@ brew "git-lfs"
 brew "node"
 brew "php@7.4", link: true
 brew "tor", restart_service: true
+brew "p7zip"
+cask "keka"
 cask "alfred"
 cask "bartender"
 cask "expressvpn"
@@ -32,3 +34,4 @@ cask "dropbox"
 cask "karabiner-elements"
 #cask "yandex-disk" # probably stale cask with invalid hash for installer
 cask "lastpass"
+cask "postman"
