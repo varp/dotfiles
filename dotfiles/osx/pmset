@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+
+### Power Management Options
+## backuping current options
+pmset -g > ~/.pmset.options.$(date +"%Y%m%d").backup
+pmset -a standbydelayhigh 3600
+pmset -a standbydelaylow 900
+pmset -a highstandbythreshold 80
+
+# vim: ft=shell
