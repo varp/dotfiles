@@ -13,7 +13,7 @@ parse_git_uncommited_changes() {
 }
 
 parse_git_branch() {
-  branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  branch=$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   [[ ! -z "$branch" ]] && echo "($branch$(parse_git_uncommited_changes))"
 }
 
@@ -33,16 +33,16 @@ parse_python_version() {
   [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/\1/'
 }
 
-parse_php_version(){
+parse_php_version() {
   [[ -f *.php || -f composer.json ]] || return
   [ -n "$(which php)" ] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/v\1/p'
 }
 
 parse_go_version() {
   # see: https://github.com/denysdovhan/spaceship-prompt/blob/master/sections/golang.zsh
-  [[ ( $GOENV_VERSION && "$GOENV_VERSION" != "system" ) || ( $gvm_go_name && "$gvm_go_name" != "system" ) || \
-   -f .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock \
-  || ( $GOPATH && "$PWD/" =~ "$GOPATH/" ) ]] || return
+  [[ ($GOENV_VERSION && "$GOENV_VERSION" != "system") || ($gvm_go_name && "$gvm_go_name" != "system") || -f \
+  .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock || (\
+  $GOPATH && "$PWD/" =~ "$GOPATH/") ]] || return
   go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }'
 }
 
@@ -54,26 +54,23 @@ parse_languages() {
   php_symbol='🐘'
   go_symbol='🐼'
 
-
   node_ver=$(parse_node_version_nvm)
   ruby_ver=$(parse_ruby_version)
   python_ver=$(parse_python_version)
   php_ver=$(parse_php_version)
   go_ver=$(parse_go_version)
 
-  langs=( )
+  langs=()
 
-  [ -n "$node_ver" ] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver" )
-  [ -n "$python_ver" ] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver" )
-  [ -n "$ruby_ver" ] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver" )
-  [ -n "$php_ver" ] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver" )
-  [ -n "$go_ver" ] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver" )
-  
+  [ -n "$node_ver" ] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver")
+  [ -n "$python_ver" ] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver")
+  [ -n "$ruby_ver" ] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver")
+  [ -n "$php_ver" ] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver")
+  [ -n "$go_ver" ] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver")
 
   [[ ! -z "${langs[*]}" ]] && echo "${langs[@]}"
 
 }
-
 
 # to_timestamp() {
 #   if [[ $# -eq 0 || $# -lt 6 ]]; then
@@ -116,17 +113,18 @@ macchanger() {
 
   sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport --disassociate
   sudo ifconfig $IFACE ether $NEWMAC
-  networksetup -setairportpower $IFACE off; sleep 1; networksetup -setairportpower $IFACE on; sleep 1
+  networksetup -setairportpower $IFACE off
+  sleep 1
+  networksetup -setairportpower $IFACE on
+  sleep 1
 }
-
 
 goinside() {
-    docker-compose exec -e SHELL=bash $1 bash -c "stty cols $COLUMNS rows $LINES && bash"
+  docker-compose exec -e SHELL="${GOSHELL:-bash}" "$1" "${GOSHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOSHELL:-bash}"
 }
 
-
 _fix_jetbrains_cli_launcher() {
-  [ -z  "$1" ] && {
+  [ -z "$1" ] && {
     echo "Usage: _fix_jetbrains_cli_launcher <IDE cli name>"
     return 1
   }
@@ -138,7 +136,7 @@ _fix_jetbrains_cli_launcher() {
   }
 
   local _wrapper_path="$HOME/bin/$1"
-  cat $_cli_path | sed -E -e 's@#!/bin/sh.*@#!/usr/bin/env bash@g' > "${_wrapper_path}"
+  cat $_cli_path | sed -E -e 's@#!/bin/sh.*@#!/usr/bin/env bash@g' >"${_wrapper_path}"
 
   chmod +x "$_wrapper_path"
 
@@ -146,37 +144,30 @@ _fix_jetbrains_cli_launcher() {
   return
 }
 
-_ppath()
-{
-    echo $PATH | tr ':' '\n' 
+_ppath() {
+  echo $PATH | tr ':' '\n'
 }
 
-_reload()
-{
+_reload() {
   exec -l $SHELL -l
 }
 
-_bashrc_reload()
-{
+_bashrc_reload() {
   . "${HOME}/.bashrc"
 }
 
-_bashprofile_reload()
-{
+_bashprofile_reload() {
   test -f "${HOME}/.bash_profile" && . "${HOME}/.bash_profile"
 }
 
-_bashfunctions_reload()
-{
+_bashfunctions_reload() {
   . "${HOME}/.bash_functions"
 }
 
-_bashenv_reload()
-{
+_bashenv_reload() {
   . "${HOME}/.bash_env"
 }
 
-_bashaliases_reload()
-{
+_bashaliases_reload() {
   . "${HOME}/.bash_aliases"
 }

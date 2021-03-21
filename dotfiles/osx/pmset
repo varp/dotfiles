@@ -4,8 +4,11 @@
 ### Power Management Options
 ## backuping current options
 pmset -g > ~/.pmset.options.$(date +"%Y%m%d").backup
-pmset -a standbydelayhigh 3600
-pmset -a standbydelaylow 900
-pmset -a highstandbythreshold 80
+pmset -b standbydelayhigh 900
+pmset -b standbydelaylow 900
+pmset -b highstandbythreshold 80
+pmset -b tcpkeepalive 0
+pmset -b autopoweroffdelay 300
+pmset -b ttyskeepawake 0
 
 # vim: ft=shell
