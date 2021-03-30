@@ -120,59 +120,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-############################################ prompt #############################################
-if [[ $(whoami) == "root" ]]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u@\H\[\e[0m\] @ \w \n\[\e[41m\]#\[\e[0m\] "
-else
-    PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\[\e[47m\]\[\e[0;33;47m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\]$(parse_languages)\[\e[0;0m\]\$ "
-fi
-
-# iTerm integration
-[ -e ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
-
-INTERACTIVE_BASHPID_TIMER="/tmp/${USER}.START.$$"
-PS0='$(echo $SECONDS > "$INTERACTIVE_BASHPID_TIMER")'
-
-__update_ps1() {
-    local __ERROR_CODE="${__bp_last_ret_value:-$?}"
-
-    local __DURATION=0
-    if [ -e $INTERACTIVE_BASHPID_TIMER ]; then
-        local __END=$SECONDS
-        local __START=$(cat "$INTERACTIVE_BASHPID_TIMER")
-        __DURATION="$(($__END - ${__START:-__END}))"
-        rm -f "$INTERACTIVE_BASHPID_TIMER"
-    fi
-
-    export _LANGS_ENV="$(parse_languages)"
-    local mods="duration,load,cwd,perms,git,shell-var,rbenv,goenv,venv,vgo,docker,docker-context,kube,gcp,jobs,exit,root"
-    local args="-shell-var _LANGS_ENV"
-
-    if [ -n "$SSH_CONNECTION" ]; then
-        mods="termtitle,time,cwd,perms,load,shell-var,dotenv,host,user,jobs,exit,ssh,root"
-    fi
-
-    eval "$(
-        ~/bin/powerline-go \
-            -hostname-only-if-ssh \
-            -max-width 70 \
-            -ignore-warnings \
-            -shell-var-no-warn-empty \
-            -eval \
-            -duration $__DURATION \
-            -error $__ERROR_CODE \
-            -jobs $(jobs -r | wc -l) \
-            -shell bash \
-            -modules $mods $args
-    )"
-}
-
-if [ "$TERM" != "linux" ] && [ -f "$HOME/bin/powerline-go" ]; then
-    PROMPT_COMMAND="__update_ps1; $PROMPT_COMMAND"
-fi
-
-############################################ prompt #############################################
-
 # Load NVM (Node Version Manager)
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
