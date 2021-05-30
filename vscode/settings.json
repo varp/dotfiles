@@ -125,13 +125,20 @@
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-
-
-
     "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "on",
     "workbench.list.smoothScrolling": true,
     "window.newWindowDimensions": "offset",
     "git.autoRepositoryDetection": "subFolders",
+    "go.toolsManagement.autoUpdate": true,
+    "terminal.integrated.fontFamily": "Iosevka VardanPro Term Lucida Style",
+    "terminal.integrated.fontSize": 14,
+    "rest-client.fontSize": 12,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "tag-create:command"
+    ],
     // "editor.colorDecorators": false,
 }
