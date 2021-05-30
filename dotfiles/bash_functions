@@ -120,7 +120,7 @@ macchanger() {
 }
 
 goinside() {
-  docker-compose exec -e SHELL="${GOSHELL:-bash}" "$1" "${GOSHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOSHELL:-bash}"
+  docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
 }
 
 _fix_jetbrains_cli_launcher() {
