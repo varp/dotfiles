@@ -139,6 +139,6 @@
         "stash-push:command",
         "switch:command",
         "tag-create:command"
-    ],
+    ]
     // "editor.colorDecorators": false,
 }
