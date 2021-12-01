@@ -35,12 +35,11 @@ __update_ps1() {
     eval "$(
         ~/bin/powerline-go \
             -hostname-only-if-ssh \
-            -max-width 100 \
             -ignore-warnings \
             -shell-var-no-warn-empty \
-            -eval \
             -error $__ERROR_CODE \
             -jobs $(jobs -r | wc -l) \
+            -eval \
             -shell bash \
             -modules $mods $args
     )"
