@@ -1,9 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
+	"folders": [{
+		"path": "."
+	}],
 	"settings": {
 		"files.associations": {
 			"bash_*": "shellscript",
@@ -23,6 +21,10 @@
 				"username": "varp"
 			}
 		},
-		"cSpell.enabled": true
+		"cSpell.enabled": true,
+		"shellcheck.customArgs": [
+			"-x"
+		],
+		"shellcheck.useWorkspaceRootAsCwd": true
 	}
 }
