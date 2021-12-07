@@ -1,4 +1,5 @@
-. "$HOME/.bashrc"
+# shellcheck source=dotfiles/bashrc
+. "${HOME}/.bashrc"
 
 ############################################ prompt #############################################
 if [[ $(whoami) == "root" ]]; then
@@ -24,7 +25,9 @@ __update_ps1() {
     #     rm -f "$INTERACTIVE_BASHPID_TIMER"
     # fi
 
-    export _LANGS_ENV="$(parse_languages)"
+    _LANGS_ENV="$(parse_languages)"
+    export _LANGS_ENV
+
     local mods="cwd,perms,git,shell-var,goenv,docker,docker-context,jobs,exit,root"
     local args="-shell-var _LANGS_ENV"
 
