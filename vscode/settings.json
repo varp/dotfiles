@@ -13,8 +13,16 @@
     "workbench.editor.splitSizing": "split",
     "workbench.list.horizontalScrolling": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "GitHub Light",
+    "workbench.colorTheme": "Github Light Theme - Gray",
 
+
+    "window.openFilesInNewWindow": "off",
+    "window.openFoldersInNewWindow": "off",
+    "security.workspace.trust.untrustedFiles": "prompt",
+
+    "window.zoomLevel": 0,
+    "workbench.list.smoothScrolling": true,
+    "window.newWindowDimensions": "offset",
 
 
     "editor.rulers": [
@@ -33,10 +41,9 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.formatOnSave": true,
     "editor.parameterHints.enabled": true,
-    "editor.fontFamily": "Iosevka VardanPro Lucida Style",
+    "editor.fontFamily": "Iosevka VardanPro Term Lucida Style",
     "editor.fontWeight": "400",
     "editor.fontSize": 14,
-    // "editor.lineHeight": 20,
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "editor.codeActionsOnSave": {
@@ -107,10 +114,6 @@
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "window.zoomLevel": 0,
-    "window.openFoldersInNewWindow": "on",
-    "workbench.list.smoothScrolling": true,
-    "window.newWindowDimensions": "offset",
     "git.autoRepositoryDetection": "subFolders",
     "go.toolsManagement.autoUpdate": true,
     "terminal.integrated.fontFamily": "Iosevka VardanPro Term Lucida Style",
@@ -121,6 +124,7 @@
         "stash-push:command",
         "switch:command",
         "tag-create:command"
-    ]
+    ],
+    "redhat.telemetry.enabled": false
 
 }
