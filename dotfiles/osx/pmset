@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-
 ### Power Management Options
 ## backuping current options
-pmset -g > ~/.pmset.options.$(date +"%Y%m%d").backup
+pmset -g >~/.pmset.options."$(date +"%Y%m%d")".backup
+pmset -b hibernatemode 25
 pmset -b standbydelayhigh 900
 pmset -b standbydelaylow 900
 pmset -b highstandbythreshold 80
