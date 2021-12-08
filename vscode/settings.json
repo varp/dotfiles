@@ -10,12 +10,19 @@
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.openPositioning": "last",
     "workbench.editor.revealIfOpen": true,
-    "workbench.editor.showTabs": false,
     "workbench.editor.splitSizing": "split",
     "workbench.list.horizontalScrolling": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "GitHub Light",
+    "workbench.colorTheme": "Github Light Theme - Gray",
 
+
+    "window.openFilesInNewWindow": "off",
+    "window.openFoldersInNewWindow": "off",
+    "security.workspace.trust.untrustedFiles": "prompt",
+
+    "window.zoomLevel": 0,
+    "workbench.list.smoothScrolling": true,
+    "window.newWindowDimensions": "offset",
 
 
     "editor.rulers": [
@@ -29,24 +36,20 @@
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.tabCompletion": "on",
     "editor.showFoldingControls": "always",
-    "editor.suggest.statusBar.visible": true,
     "editor.suggest.localityBonus": true,
     "editor.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.formatOnSave": true,
     "editor.parameterHints.enabled": true,
-    "editor.highlightActiveIndentGuide": true,
-    "editor.renderIndentGuides": true,
-    "editor.fontFamily": "Iosevka VardanPro Lucida Style",
+    "editor.fontFamily": "Iosevka VardanPro Term Lucida Style",
     "editor.fontWeight": "400",
     "editor.fontSize": 14,
-    // "editor.lineHeight": 20,
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "editor.renameOnType": true,
+    "editor.linkedEditing": true,
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
@@ -55,7 +58,7 @@
 
 
 
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
 
     "explorer.openEditors.visible": 16,
     "explorer.decorations.badges": true,
@@ -76,7 +79,6 @@
     "extensions.closeExtensionDetailsOnViewChange": true,
     "extensions.autoUpdate": true,
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.rendererType": "dom",
     "problems.showCurrentInStatus": true,
 
 
@@ -91,7 +93,6 @@
 
 
 
-    "scm.alwaysShowProviders": true,
     "scm.countBadge": "focused",
     "scm.diffDecorations": "gutter",
     "git.confirmSync": true,
@@ -99,39 +100,31 @@
     "git.enableSmartCommit": true,
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true,
-        "suppressWelcomeNotice": true
     },
-    "gitlens.views.fileHistory.location": "explorer",
-    "gitlens.views.lineHistory.location": "explorer",
-    "gitlens.views.compare.location": "scm",
-    "gitlens.views.search.location": "scm",
-    "gitlens.views.repositories.location": "scm",
     "gitlens.views.repositories.branches.layout": "list",
-    "gitlens.views.search.files.layout": "list",
     "gitlens.views.repositories.files.layout": "tree",
-    "gitlens.recentChanges.highlight.locations": [
-        "gutter"
-    ],
-
 
 
     "[json]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "sync.autoDownload": true,
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-
-
-
-    "window.zoomLevel": 0,
-    "window.openFoldersInNewWindow": "on",
-    "workbench.list.smoothScrolling": true,
-    "window.newWindowDimensions": "offset",
     "git.autoRepositoryDetection": "subFolders",
-    // "editor.colorDecorators": false,
+    "go.toolsManagement.autoUpdate": true,
+    "terminal.integrated.fontFamily": "Iosevka VardanPro Term Lucida Style",
+    "terminal.integrated.fontSize": 14,
+    "rest-client.fontSize": 12,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "tag-create:command"
+    ],
+    "redhat.telemetry.enabled": false
+
 }
