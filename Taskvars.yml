@@ -22,6 +22,7 @@ DOTFILES: >-
   ansible.cfg
   base16_theme
   vimrc_background
+  config/mc/mc.keymap
 BINFILES: >-
   genpassword
 VSCODEEXTENSIONS: >-

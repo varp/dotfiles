@@ -1,0 +1,9 @@
+[filemanager]
+SplitMore = alt-shift-right; ctrl-shift-right
+SplitLess = alt-shift-left; ctrl-shift-left
+HotList = ctrl-backslash; alt-slash
+
+[panel]
+CdChild = ctrl-pgdn; ctrl-down
+CdParent = ctrl-pgup; ctrl-up
+Sort = alt-shift-s
