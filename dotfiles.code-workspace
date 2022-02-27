@@ -22,8 +22,11 @@
 			}
 		},
 		"cSpell.enabled": true,
+		"shellcheck.exclude": [
+		],
 		"shellcheck.customArgs": [
-			"-x"
+			"--external-sources",
+			"--shell=bash"
 		],
 		"shellcheck.useWorkspaceRootAsCwd": true
 	}
