@@ -37,3 +37,4 @@ cask "karabiner-elements"
 cask "yandex-disk" # probably stale cask with invalid hash for installer
 cask "1password"
 cask "postman"
+cask "monitorcontrol"
