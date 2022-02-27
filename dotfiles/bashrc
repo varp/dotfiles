@@ -129,6 +129,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 _prepend_to_path "$PYENV_ROOT/bin"
 
 [ -d "$PYENV_ROOT" ] && {
+    eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
     _prepend_to_path "$HOME/.local/bin"
 }
