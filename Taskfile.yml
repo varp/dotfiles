@@ -23,6 +23,7 @@ tasks:
           exit 0
       - task: binfiles
       - task: dotfiles
+      - task: tools:shell:powerline-go
 
   dotfiles:
     desc: Installs dot files

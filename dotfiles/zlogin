@@ -1,11 +1,8 @@
 ## CUSTOM ##
 
 ## OSX
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PATH
-  PATH="$(brew --prefix php@7.2)/bin:$PATH"
-  export PATH
-  PATH="$(brew --prefix php@7.2)/sbin:$PATH"
+if [ "$_OS_NAME" == "Darwin" ] && [ -f /usr/local/bin/brew ]; then
+     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 autoload -U +X compinit && compinit
