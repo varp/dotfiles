@@ -14,13 +14,12 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.openPositioning": "last",
     "workbench.editor.closeOnFileDelete": true,
-    "workbench.activityBar.visible": true,
     "window.openFoldersInNewWindow": "off",
     "window.openFilesInNewWindow": "off",
     "window.newWindowDimensions": "offset",
     "vsicons.dontShowNewVersionMessage": true,
     "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontFamily": "Iosevka VardanPro Term Lucida Style",
+    "terminal.integrated.fontFamily": "Monaco",
     "terminal.integrated.copyOnSelection": true,
     "telemetry.telemetryLevel": "off",
     "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
@@ -47,6 +46,7 @@
         "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px"
     },
 
+    "terminal.integrated.fontFamily": "JetBrains Mono",
     "terminal.integrated.profiles.osx": {
         "bash": {
             "path": "bash",
@@ -106,7 +106,6 @@
     // Editor
     "files.autoSave": "onWindowChange",
     "editor.wordWrapColumn": 120,
-    "editor.wordWrap": "on",
     "editor.tabSize": 4,
     "editor.tabCompletion": "on",
     "editor.suggest.localityBonus": true,
@@ -122,7 +121,8 @@
     "editor.largeFileOptimizations": true,
     "editor.guides.bracketPairs": "active",
     "editor.fontWeight": "400",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
+    "editor.lineHeight": 16,
     "editor.fontLigatures": true,
     "editor.fontFamily": "JetBrains Mono",
     "editor.cursorSmoothCaretAnimation": true,
@@ -145,6 +145,11 @@
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "window.titleBarStyle": "native",
+    "workbench.colorTheme": "GitHub Light",
+    "editor.accessibilitySupport": "off",
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "GitHub Light"
 
 }

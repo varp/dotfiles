@@ -168,7 +168,7 @@ fi
 
 command -v composer >/dev/null && {
     _prepend_to_path "$HOME/.composer/vendor/bin"
-    command -v symfony-autocomplete >/dev/null && eval "$(symfony-autocomplete)"
+    # command -v symfony-autocomplete >/dev/null && eval "$(symfony-autocomplete)"
 }
 
 ## OSX
