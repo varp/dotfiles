@@ -15,7 +15,7 @@ VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 
 .PHONY: $(SOURCE_DOTFILES) dotfiles \
 brew dev-go dev-php \
-$(SOURCE_VSCODE_SETTINGS) editor-vscode-settings editor-vim-vundle \
+$(SOURCE_VSCODE_SETTINGS) editor-vscode-settings editor-vim-vundle micro \
 tools-shell-powerline-go 
 	
 ifeq ($(shell uname -s), Darwin)
@@ -24,7 +24,7 @@ else
 all: base
 endif
 
-base: dotfiles tools-shell-powerline-go editor-vim-vundle
+base: dotfiles tools-shell-powerline-go micro editor-vim-vundle
 
 
 $(SOURCE_DOTFILES):
@@ -49,6 +49,17 @@ editor-vim-vundle:
 	-@[ -d $(VIM_VUNDLE_DIR) ] && rm -rf $(VIM_VUNDLE_DIR)
 	-@mkdir -p $(VIM_VUNDLE_DIR)
 	-git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
+
+micro:
+	@if ! command -v micro >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install micro; \
+		else \
+			curl https://getmic.ro | bash; \
+		fi \
+	else \
+		micro --version; \
+	fi
 
 brew:
 	@if [ "$$(uname -s)" == "Darwin" ]; then \
