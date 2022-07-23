@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 SOURCE_BINFILES=bin/*
 
 SOURCE_DOTFILES_DIR=dotfiles
@@ -82,7 +84,7 @@ dev-node: brew
 
 dev-go: brew
 	@if ! command -v go >/dev/null; then \
-		if [ "$$(uname -s)" == "Darwin" ]; then \
+		if [ "$$(uname -s)" = "Darwin" ]; then \
 			brew install go; \
 		else \
 			sudo apt install golang; \
