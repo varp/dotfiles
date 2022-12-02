@@ -2,7 +2,6 @@ SOURCE_BINFILES=bin/*
 
 SOURCE_DOTFILES_DIR=dotfiles
 SOURCE_DOTFILES=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -type f)
-SOURCE_DOTFILES_FOR_CLEAN=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -mindepth 1 -maxdepth 1 -type f -or -type d | xargs)
 
 DEST_DOTFILES_DIR=$(HOME)
 
@@ -35,9 +34,15 @@ dotfiles: $(SOURCE_DOTFILES)
 
 $(SOURCE_VSCODE_SETTINGS):
 	-@[ -f $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) ] && unlink $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
+	
 
 editor-vscode-settings: $(SOURCE_VSCODE_SETTINGS)
-	@ln -vsf "$(realpath $(SOURCE_VSCODE_SETTINGS_DIR)/$@)" $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
+	@for vscodeDotFile in $?; do \
+		src=$(addprefix $(realpath $(SOURCE_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
+		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
+		ln -vsf "$$src" "$$dst"; \
+	done
+	
 
 editor-vim-vundle: 
 	-@[ -L $(VIM_VUNDLE_DIR) ] && unlink $(VIM_VUNDLE_DIR)
@@ -118,12 +123,7 @@ all: base
 endif
 
 ## CLEAN
-clean-dotfiles:
-	-for dotfile in $(SOURCE_DOTFILES_FOR_CLEAN); do \
-		basename=$$(basename $$dotfile); \
-		[ -d $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ] && rm -rvf $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ; \
-		[ -f $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ] && rm -vf $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ; \
-	done
+clean-dotfiles: $(SOURCE_DOTFILES)
 
 clean-vscode-settings: $(SOURCE_VSCODE_SETTINGS)	
 
