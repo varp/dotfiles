@@ -4,6 +4,7 @@
 	}],
 	"settings": {
 		"files.associations": {
+			"shell_*": "shellscript",
 			"bash_*": "shellscript",
 			"bashrc": "shellscript",
 			"aliases_completions": "shellscript",

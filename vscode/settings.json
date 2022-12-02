@@ -147,9 +147,13 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "GitHub Light",
     "editor.accessibilitySupport": "off",
     "window.autoDetectColorScheme": true,
-    "workbench.preferredLightColorTheme": "GitHub Light"
+    "workbench.preferredLightColorTheme": "GitHub Light",
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "workbench.colorTheme": "GitHub Light"
 
 }

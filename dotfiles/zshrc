@@ -1,13 +1,15 @@
+##
+## POSIX complaint shell utitly function and envs
+##
+source "$HOME/.bash_functions"
+source "$HOME/.bash_env"
+source "$HOME/.bash_aliases"
+source "$HOME/.shell_lang_version_managers"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-[[ -d "$ZSH" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-export ZSH_THEMES="$ZSH/custom/themes"
-
-if [[ ! -d "$ZSH_THEMES/powerline9k" ]]; then
-    git clone https://github.com/bhilburn/powerlevel9k.git "$ZSH_THEMES"
-fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -84,9 +86,9 @@ plugins=(
   perms
   docker
   docker-compose
-  zsh_reload
-  ansible
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
+[[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
+eval "$(starship init zsh)"

@@ -66,9 +66,7 @@
     guitool = phpstorm
 
 [difftool "phpstorm"]
-    cmd = phpstorm -n -W --args diff "$LOCAL" $(realpath "$REMOTE")
-    trustExitCode = false
-
+    cmd = phpstorm diff "$LOCAL" "$REMOTE" 
 
 [difftool]
     prompt = false
@@ -83,8 +81,7 @@
     keepBackup = false
 
 [mergetool "phpstorm"]
-    cmd = phpstorm -n -W --args merge $(realpath "$LOCAL") $(realpath "$REMOTE") $(realpath "$MERGED")
-    trustExitCode = false
+    cmd = phpstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
 [filter "lfs"]
     clean = git-lfs clean -- %f

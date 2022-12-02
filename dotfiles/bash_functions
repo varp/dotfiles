@@ -62,11 +62,11 @@ parse_languages() {
 
   langs=()
 
-  [ -n "$node_ver" ] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver")
-  [ -n "$python_ver" ] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver")
-  [ -n "$ruby_ver" ] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver")
-  [ -n "$php_ver" ] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver")
-  [ -n "$go_ver" ] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver")
+  [[ -n "$node_ver" ]] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver")
+  [[ -n "$python_ver" ]] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver")
+  [[ -n "$ruby_ver" ]] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver")
+  [[ -n "$php_ver" ]] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver")
+  [[ -n "$go_ver" ]] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver")
 
   [[ ! -z "${langs[*]}" ]] && echo "${langs[@]}"
 
@@ -124,13 +124,13 @@ goinside() {
 }
 
 _fix_jetbrains_cli_launcher() {
-  [ -z "$1" ] && {
+  [[ -z "$1" ]] && {
     echo "Usage: _fix_jetbrains_cli_launcher <IDE cli name>"
     return 1
   }
 
   local _cli_path="$(which ${1})"
-  [ -z "$_cli_path" ] && {
+  [[ -z "$_cli_path" ]] && {
     echo "ERROR: specified tool is not on the system PATH"
     return 2
   }
@@ -144,13 +144,40 @@ _fix_jetbrains_cli_launcher() {
   return
 }
 
+## PATH without duplicates
+#################################
+_dedup_path() {
+    PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
+    export PATH=${PATH//[$'\n']/:}
+}
+
+_prepend_to_path() {
+    # [ "${PATH#*$1:}" == "$PATH" ] && {
+    [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && {
+        export PATH="$1:$PATH"
+        _dedup_path
+    }
+}
+
+_append_to_path() {
+    [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && {
+        export PATH="$PATH:$1"
+        _dedup_path
+    }
+}
+
 _ppath() {
   echo $PATH | tr ':' '\n'
 }
 
+
+## Shell reload
+
 _reload() {
   exec -l $SHELL -l
 }
+
+## Bash reload
 
 _bashrc_reload() {
   . "${HOME}/.bashrc"

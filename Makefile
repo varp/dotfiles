@@ -2,6 +2,8 @@ SOURCE_BINFILES=bin/*
 
 SOURCE_DOTFILES_DIR=dotfiles
 SOURCE_DOTFILES=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -type f)
+SOURCE_DOTFILES_FOR_CLEAN=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -mindepth 1 -maxdepth 1 -type f -or -type d | xargs)
+
 DEST_DOTFILES_DIR=$(HOME)
 
 SOURCE_VSCODE_SETTINGS_DIR=vscode
@@ -17,16 +19,9 @@ VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 brew dev-go dev-php \
 $(SOURCE_VSCODE_SETTINGS) editor-vscode-settings editor-vim-vundle micro \
 tools-shell-powerline-go 
-	
-ifeq ($(shell uname -s), Darwin)
-all: base editor-vscode-settings
-else
-all: base
-endif
-
-base: dotfiles tools-shell-powerline-go micro editor-vim-vundle
 
 
+## SETUP DOTFILES
 $(SOURCE_DOTFILES):
 	-@mkdir -p $(dir $(addprefix $(DEST_DOTFILES_DIR)/.,$@))	
 	-@[ -f $(addprefix $(DEST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DEST_DOTFILES_DIR)/.,$@)
@@ -40,15 +35,17 @@ dotfiles: $(SOURCE_DOTFILES)
 
 $(SOURCE_VSCODE_SETTINGS):
 	-@[ -f $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) ] && unlink $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
-	@ln -vsf "$(realpath $(SOURCE_VSCODE_SETTINGS_DIR)/$@)" $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
 
 editor-vscode-settings: $(SOURCE_VSCODE_SETTINGS)
+	@ln -vsf "$(realpath $(SOURCE_VSCODE_SETTINGS_DIR)/$@)" $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
 
 editor-vim-vundle: 
 	-@[ -L $(VIM_VUNDLE_DIR) ] && unlink $(VIM_VUNDLE_DIR)
 	-@[ -d $(VIM_VUNDLE_DIR) ] && rm -rf $(VIM_VUNDLE_DIR)
 	-@mkdir -p $(VIM_VUNDLE_DIR)
 	-git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
+
+## SETUP TOOLS
 
 micro:
 	@if ! command -v micro >/dev/null; then \
@@ -107,3 +104,27 @@ tools-shell-powerline-go: dev-go
 	url="https://github.com/justjanne/powerline-go/releases/latest/download/$$platAsset"; \
 	curl -L $$url -o $(HOME)/bin/powerline-go; \
 	chmod a+x $(HOME)/bin/powerline-go
+
+
+### MAIN TARGETS
+
+## SETUP
+base: dotfiles tools-shell-powerline-go micro editor-vim-vundle
+
+ifeq ($(shell uname -s), Darwin)
+all: base editor-vscode-settings
+else
+all: base
+endif
+
+## CLEAN
+clean-dotfiles:
+	-for dotfile in $(SOURCE_DOTFILES_FOR_CLEAN); do \
+		basename=$$(basename $$dotfile); \
+		[ -d $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ] && rm -rvf $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ; \
+		[ -f $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ] && rm -vf $(addprefix $(DEST_DOTFILES_DIR)/.,$$basename) ; \
+	done
+
+clean-vscode-settings: $(SOURCE_VSCODE_SETTINGS)	
+
+clean: clean-dotfiles clean-vscode-settings
