@@ -16,11 +16,14 @@ VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 
 .SILENT:
 
-.PHONY: $(SOURCE_DOTFILES) dotfiles \
+.PHONY: make-bin-folder \
+$(SOURCE_DOTFILES) dotfiles \
 brew dev-go dev-php \
 $(SOURCE_VSCODE_SETTINGS) editor-vscode-settings editor-vim-vundle micro \
 tools-shell-powerline-go 
 
+make-bin-folder:
+	-@[ ! -d $(HOME)/bin ] && mkdir -p $(HOME)/bin
 
 ## SETUP DOTFILES
 $(SOURCE_DOTFILES):
@@ -106,7 +109,7 @@ dev-php: brew
 		php --version; \
 	fi
 
-tools-shell-powerline-go: dev-go
+tools-shell-powerline-go: dev-go make-bin-folder
 	@platAsset="powerline-go-$$(go env GOOS)-$$(go env GOARCH)"; \
 	url="https://github.com/justjanne/powerline-go/releases/latest/download/$$platAsset"; \
 	curl -L $$url -o $(HOME)/bin/powerline-go; \
