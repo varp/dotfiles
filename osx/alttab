@@ -1,16 +1,14 @@
 {
     MSAppCenter310AppCenterUserDefaultsMigratedKey = 1;
     MSAppCenter310CrashesUserDefaultsMigratedKey = 1;
-    MSAppCenterInstallId = "CB6C0923-494E-49E6-A5C5-E110DE1D5A03";
+    MSAppCenterInstallId = "1EF33B48-08DD-4680-9127-744121FA90A7";
     MSAppCenterNetworkRequestsAllowed = 0;
-    MSAppCenterPastDevices = {length = 1149, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 00000389 };
+    MSAppCenterPastDevices = {length = 1150, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000038a };
     MSAppCenterSessionIdHistory = {length = 460, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 00000156 };
     MSAppCenterUserIdHistory = {length = 455, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 00000151 };
-    "NSStatusItem Preferred Position Item-0" = 5747;
-    "NSWindow Frame SUStatusFrame" = "520 555 400 135 0 0 1440 875 ";
-    "NSWindow Frame SUUpdateAlert" = "410 357 620 398 0 0 1440 875 ";
+    "NSStatusItem Preferred Position Item-0" = 5950;
     SUHasLaunchedBefore = 1;
-    SULastCheckTime = "2022-07-17 07:12:42 +0000";
+    SULastCheckTime = "2022-12-05 12:29:53 +0000";
     SUUpdateRelaunchingMarker = 0;
     alignThumbnails = 1;
     cursorFollowFocusEnabled = true;
@@ -20,18 +18,17 @@
     hideWindowlessApps = true;
     holdShortcut = "\\U2318";
     holdShortcut2 = "\\U2318";
-    iconSize = 40;
+    iconSize = 36;
     mouseHoverEnabled = false;
     nextWindowShortcut2 = "`";
-    preferencesVersion = "6.43.0";
+    preferencesVersion = "6.51.0";
     quitAppShortcut = "\\U00a7";
-    rowsCount = 3;
+    rowsCount = 4;
     showHiddenWindows = 1;
     showMinimizedWindows = 1;
     showOnScreen = 0;
     showTabsAsWindows = true;
-    theme = 1;
     updatePolicy = 1;
-    windowMaxWidthInRow = 60;
-    windowMinWidthInRow = 25;
+    windowMaxWidthInRow = 40;
+    windowMinWidthInRow = 20;
 }
