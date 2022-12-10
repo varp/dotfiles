@@ -17,9 +17,12 @@
     "window.openFoldersInNewWindow": "off",
     "window.openFilesInNewWindow": "off",
     "window.newWindowDimensions": "offset",
+    
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": true,
+
     "vsicons.dontShowNewVersionMessage": true,
     "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontFamily": "Monaco",
     "terminal.integrated.copyOnSelection": true,
     "telemetry.telemetryLevel": "off",
     "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
@@ -121,7 +124,7 @@
     "editor.largeFileOptimizations": true,
     "editor.guides.bracketPairs": "active",
     "editor.fontWeight": "400",
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
     "editor.lineHeight": 16,
     "editor.fontLigatures": true,
     "editor.fontFamily": "JetBrains Mono",
@@ -146,7 +149,6 @@
         "editor.defaultFormatter": "HookyQR.beautify"
     },
     "go.toolsManagement.autoUpdate": true,
-    "window.titleBarStyle": "native",
     "editor.accessibilitySupport": "off",
     "window.autoDetectColorScheme": true,
     "workbench.preferredLightColorTheme": "GitHub Light",
@@ -155,5 +157,4 @@
         "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "workbench.colorTheme": "GitHub Light"
-
 }
