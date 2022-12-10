@@ -12,7 +12,6 @@
     holdShortcut2 = "\\U2318";
     iconSize = 36;
     mouseHoverEnabled = false;
-    nextWindowShortcut2 = "\`";
     preferencesVersion = "6.51.0";
     quitAppShortcut = "\\U00a7";
     rowsCount = 4;
