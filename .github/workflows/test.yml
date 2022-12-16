@@ -18,6 +18,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install VS Code
+        run: brew install visual-studio-code
       - name: Tests
         run: |
           make

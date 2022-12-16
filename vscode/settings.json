@@ -155,5 +155,6 @@
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/helm/darwin-amd64/helm",
         "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    }
+    },
+    "git.autofetch": true
 }

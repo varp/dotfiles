@@ -3,12 +3,12 @@ SHELL=/bin/bash
 SOURCE_BINFILES=bin/*
 
 SOURCE_DOTFILES_DIR=dotfiles
-SOURCE_DOTFILES=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find -E . -type f -and -not -name '\.*')
+SOURCE_DOTFILES=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -type f -and -not -name '\.*')
 
 DEST_DOTFILES_DIR=$(HOME)
 
 SOURCE_VSCODE_SETTINGS_DIR=vscode
-SOURCE_VSCODE_SETTINGS=$(shell cd ./$(SOURCE_VSCODE_SETTINGS_DIR) && find -E . -type f -and -not -name '\.*')
+SOURCE_VSCODE_SETTINGS=$(shell cd ./$(SOURCE_VSCODE_SETTINGS_DIR) && find . -type f -and -not -name '\.*')
 DEST_VSCODE_SETTINGS_DIR?="$(HOME)/Library/Application Support/Code/User"
 
 VIM_VUNDLE_DIR=$(DEST_DOTFILES_DIR)/.vim/bundle
