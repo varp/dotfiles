@@ -9,22 +9,18 @@ jobs:
       - uses: actions/checkout@v2
       - name: Tests
         run: |
-          sudo ./bin/taskfile-install
-          task
-          task binfiles
-          task dotfiles
+          make
+          make dotfiles
+          make base
+          make all
 
   macosx:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: installing coreutils and updating $PATH
-        run: |
-          brew install coreutils
-          export PATH="/usr/local/bin/:$PATH"
       - name: Tests
         run: |
-          ./bin/taskfile-install
-          task
-          task binfiles
-          task dotfiles
+          make
+          make dotfiles
+          make base
+          make all

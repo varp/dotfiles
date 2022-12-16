@@ -9,14 +9,5 @@ services:
     volumes: 
       - .:/dotfiles
 
-  centos:
-    image: vardan/centos:basecli
-    volumes: 
-      - .:/dotfiles
-    entrypoint: "/bin/bash"
-    command: ["-c", "while true; do sleep 1; done"]
-    user: root
-
-
 networks: 
   default:
