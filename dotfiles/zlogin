@@ -5,5 +5,15 @@ if [[ "$_OS_NAME" == "Darwin" ]] && [[ -f /usr/local/bin/brew ]]; then
      eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+##
+## completions
+##
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
+ZSH_COMPLETION_DIR=$HOME/.zsh_completion.d
+[[ ! -d $ZSH_COMPLETION_DIR ]] && mkdir -p "$ZSH_COMPLETION_DIR"
+fpath=("$ZSH_COMPLETION_DIR" $fpath)
+export fpath
+
+source "$HOME/.zsh_completion"

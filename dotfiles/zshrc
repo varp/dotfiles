@@ -1,14 +1,17 @@
 ##
 ## POSIX complaint shell utitly function and envs
 ##
-source "$HOME/.bash_functions"
-source "$HOME/.bash_env"
-source "$HOME/.bash_aliases"
-source "$HOME/.shell_lang_version_managers"
+source "$HOME/.shell/functions"
+source "$HOME/.shell/env"
+source "$HOME/.shell/aliases"
+source "$HOME/.shell/xvm" 
 
-# Path to your oh-my-zsh installation.
+##
+## OhMyZsh
+##
 export ZSH="$HOME/.oh-my-zsh"
-[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+export KEEP_ZSHRC="yes"
+[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "export KEEP_ZSHRC=$KEEP_ZSHRC; $(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -90,5 +93,8 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 
+##
+## starship
+##
 [[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"

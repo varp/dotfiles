@@ -19,7 +19,7 @@
     "window.newWindowDimensions": "offset",
     
     "window.titleBarStyle": "custom",
-    "window.commandCenter": true,
+    "window.commandCenter": false,
 
     "vsicons.dontShowNewVersionMessage": true,
     "terminal.integrated.fontSize": 14,
@@ -85,7 +85,7 @@
             ]
         }
     },
-    "terminal.integrated.defaultProfile.osx": "bash 5",
+    "terminal.integrated.defaultProfile.osx": "zsh",
 
     // VCS
     "scm.diffDecorations": "gutter",
@@ -124,8 +124,8 @@
     "editor.largeFileOptimizations": true,
     "editor.guides.bracketPairs": "active",
     "editor.fontWeight": "400",
-    "editor.fontSize": 12,
-    "editor.lineHeight": 16,
+    "editor.fontSize": 13,
+    "editor.lineHeight": 20,
     "editor.fontLigatures": true,
     "editor.fontFamily": "JetBrains Mono",
     "editor.cursorSmoothCaretAnimation": true,
@@ -140,7 +140,7 @@
 
     // Languages related
     "[jsonc]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[json]": {
         "editor.defaultFormatter": "HookyQR.beautify"
@@ -155,6 +155,5 @@
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/helm/darwin-amd64/helm",
         "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
-    "workbench.colorTheme": "GitHub Light"
+    }
 }

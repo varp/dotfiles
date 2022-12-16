@@ -4,13 +4,13 @@
 
 # Load NVM (Node Version Manager)
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Load Python Version Manager
 export PYENV_ROOT="$HOME/.pyenv"
 _prepend_to_path "$PYENV_ROOT/bin"
 
-[ -d "$PYENV_ROOT" ] && {
+[[ -d "$PYENV_ROOT" ]] && {
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
     _prepend_to_path "$HOME/.local/bin"

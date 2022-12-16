@@ -25,17 +25,17 @@ parse_node_version_nvm() {
 
 parse_ruby_version() {
   [[ -f Gemfile || -f Rakefile || -f *.rb ]] || return
-  [ $RUBY_VERSION ] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/v\1/'
+  [[ $RUBY_VERSION ]] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/v\1/'
 }
 
 parse_python_version() {
   [[ -n "$PYENV_VERSION" || -f .python-version || -f requirements.txt || -f pyproject.toml || -f *.py ]] || return
-  [ -d "$HOME/.pyenv" ] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/\1/'
+  [[ -d "$HOME/.pyenv" ]] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/\1/'
 }
 
 parse_php_version() {
   [[ -f *.php || -f composer.json ]] || return
-  [ -n "$(which php)" ] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/v\1/p'
+  [[ -n "$(which php)" ]] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/v\1/p'
 }
 
 parse_go_version() {
@@ -72,77 +72,11 @@ parse_languages() {
 
 }
 
-# to_timestamp() {
-#   if [[ $# -eq 0 || $# -lt 6 ]]; then
-#     echo "usage: to_timestamp <year> <month> <day> <hour> <minute> <sec>"
-#     return
-#   fi
-
-#   python -c "import datetime; print(datetime.datetime($1, $2, $3, $4, $5, $6).timestamp())"
-# }
-
-# from_timestamp() {
-#   if [[ $# -eq 0 ]]; then
-#     echo "usage: from_timestamp <timestamp>"
-#     return
-#   fi
-
-#   python -c "import datetime; print(datetime.datetime.fromtimestamp($1))"
-# }
-
-# sshmount() {
-#   mkdir -p "~/Volumes/$1"
-#   sshfs user@$1:/ "~/Volumes/$1" -ovolname=$1 -onoappledouble -onoapplexattr && open "~/Volumes/$1"
-# }
-
-## Powerline GO
-
-macchanger() {
-  if [[ $# -eq 0 ]]; then
-    local IFACE="$(networksetup -listallhardwareports | grep -A 2 'Wi-Fi' | sed -E '1d; $d; s/.*Device: ([0-9a-z]+).*/\1/;')"
-  else
-    local IFACE="$1"
-  fi
-
-  local NEWMAC=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/./0/2; s/.$//')
-  # local NETWORK=$(networksetup -getairportnetwork $IFACE | sed -E 's/.*work: (.*)/\1/')
-
-  read -p "Do you want to setup the new MAC address [$NEWMAC] on interface [$IFACE]? [Y/n] " YES
-
-  [[ "$YES" == "n" ]] && return
-
-  sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport --disassociate
-  sudo ifconfig $IFACE ether $NEWMAC
-  networksetup -setairportpower $IFACE off
-  sleep 1
-  networksetup -setairportpower $IFACE on
-  sleep 1
-}
 
 goinside() {
   docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
 }
 
-_fix_jetbrains_cli_launcher() {
-  [[ -z "$1" ]] && {
-    echo "Usage: _fix_jetbrains_cli_launcher <IDE cli name>"
-    return 1
-  }
-
-  local _cli_path="$(which ${1})"
-  [[ -z "$_cli_path" ]] && {
-    echo "ERROR: specified tool is not on the system PATH"
-    return 2
-  }
-
-  local _wrapper_path="$HOME/bin/$1"
-  cat $_cli_path | sed -E -e 's@#!/bin/sh.*@#!/usr/bin/env bash@g' >"${_wrapper_path}"
-
-  chmod +x "$_wrapper_path"
-
-  echo "jetbrains cli wrapper was "${_wrapper_path@Q}" created"
-  return
-}
 
 ## PATH without duplicates
 #################################
@@ -153,14 +87,14 @@ _dedup_path() {
 
 _prepend_to_path() {
     # [ "${PATH#*$1:}" == "$PATH" ] && {
-    [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && {
+    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
         export PATH="$1:$PATH"
         _dedup_path
     }
 }
 
 _append_to_path() {
-    [ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ] && {
+    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
         export PATH="$PATH:$1"
         _dedup_path
     }
@@ -174,27 +108,18 @@ _ppath() {
 ## Shell reload
 
 _reload() {
-  exec -l $SHELL -l
+  exec -l $SHELL
 }
 
-## Bash reload
-
-_bashrc_reload() {
-  . "${HOME}/.bashrc"
+## shell reload
+_functions_reload() {
+  . "${HOME}/.shell/functions"
 }
 
-_bashprofile_reload() {
-  test -f "${HOME}/.bash_profile" && . "${HOME}/.bash_profile"
+_env_reload() {
+  . "${HOME}/.shell/env"
 }
 
-_bashfunctions_reload() {
-  . "${HOME}/.bash_functions"
-}
-
-_bashenv_reload() {
-  . "${HOME}/.bash_env"
-}
-
-_bashaliases_reload() {
-  . "${HOME}/.bash_aliases"
+_aliases_reload() {
+  . "${HOME}/.shell/aliases"
 }
