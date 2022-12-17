@@ -53,7 +53,7 @@ editor-vim-vundle:
 	-@[ -L $(VIM_VUNDLE_DIR) ] && unlink $(VIM_VUNDLE_DIR)
 	-@[ -d $(VIM_VUNDLE_DIR) ] && rm -rf $(VIM_VUNDLE_DIR)
 	-@mkdir -p $(VIM_VUNDLE_DIR)
-	-git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
+	git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
 
 ## SETUP TOOLS
 

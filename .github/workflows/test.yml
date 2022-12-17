@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Generate SSH keys
+        run: |
+          ssh-keygen -t ed25519 -f id_rsa -C varp-dotfiles -N ''
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
       - name: Tests
         run: |
           make
@@ -19,7 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install VS Code
-        run: brew install visual-studio-code
+        run: |
+         brew install visual-studio-code
+         code
+      - name: Generate SSH keys
+        run: |
+          ssh-keygen -t ed25519 -f id_rsa -C varp-dotfiles -N ''
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
       - name: Tests
         run: |
           make
