@@ -261,4 +261,8 @@
     "command": "-deleteWordPartRight",
     "when": "textInputFocus && !editorReadonly"
   },
+  {
+    "key": "shift+cmd+n",
+    "command": "welcome.showNewFileEntries"
+  },
 ]

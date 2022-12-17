@@ -1,29 +1,31 @@
 SHELL=/bin/bash
 
-SOURCE_BINFILES=bin/*
+DST_BASE_DIR?=$(HOME)
 
-SOURCE_DOTFILES_DIR=dotfiles
-SOURCE_DOTFILES=$(shell cd ./$(SOURCE_DOTFILES_DIR) && find . -type f -and -not -name '\.*')
+DST_BIN_DIR?=$(DST_BASE_DIR)/bin
 
-DEST_DOTFILES_DIR=$(HOME)
+SRC_DOTFILES_DIR=dotfiles
+SRC_DOTFILES=$(shell cd ./$(SRC_DOTFILES_DIR) && find . -type f -and -not -name '\.*')
+DST_DOTFILES_DIR?=$(DST_BASE_DIR)
 
-SOURCE_VSCODE_SETTINGS_DIR=vscode
-SOURCE_VSCODE_SETTINGS=$(shell cd ./$(SOURCE_VSCODE_SETTINGS_DIR) && find . -type f -and -not -name '\.*')
-DEST_VSCODE_SETTINGS_DIR?="$(HOME)/Library/Application Support/Code/User"
+SRC_VSCODE_SETTINGS_DIR=vscode
+SRC_VSCODE_SETTINGS=$(shell cd ./$(SRC_VSCODE_SETTINGS_DIR) && find . -type f -and -not -name '\.*')
+DEST_VSCODE_SETTINGS_DIR?="$(DST_BASE_DIR)/Library/Application Support/Code/User"
 
-VIM_VUNDLE_DIR=$(DEST_DOTFILES_DIR)/.vim/bundle
+VIM_VUNDLE_DIR=$(DST_DOTFILES_DIR)/.vim/bundle
 VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 
-.SILENT:
-
 .PHONY: help bin-folder \
-$(SOURCE_DOTFILES) dotfiles \
+$(SRC_DOTFILES) dotfiles-dotfiles \
+$(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
-$(SOURCE_VSCODE_SETTINGS) dotfiles-vscode \
 editor-vim-vundle editor-micro \
 tool-brew tool-powerline-go  \
-@base @base-tools @core @tools \
-core tools devs all
+@base @base-tools @dotfiles-group @tools-group \
+dotfiles tools editors devs \
+all \
+clean-dotfiles-dotfiles clean-dotfiles-vscode \
+clen
 
 .DEFAULT_GOAL: help
 help:
@@ -34,28 +36,28 @@ help:
      | column -t  -s '###'
 
 bin-folder:
-	-@[ ! -d $(HOME)/bin ] && mkdir -p $(HOME)/bin
+	-@[ ! -d $(DST_BIN_DIR) ] && mkdir -p $(DST_BIN_DIR)
 
-$(SOURCE_DOTFILES):
-	-@mkdir -p $(dir $(addprefix $(DEST_DOTFILES_DIR)/.,$@))	
-	-@[ -f $(addprefix $(DEST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DEST_DOTFILES_DIR)/.,$@)
+$(SRC_DOTFILES):
+	-@mkdir -p $(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@))	
+	-@[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@)
 
 #: Install dotfiles #dotfiles
-dotfiles-dotfiles: $(SOURCE_DOTFILES)
+dotfiles-dotfiles: $(SRC_DOTFILES)
 	@for dotfile in $?; do \
-		src=$(addprefix $(realpath $(SOURCE_DOTFILES_DIR))/, $$dotfile); \
-		dst=$(addprefix $(DEST_DOTFILES_DIR)/.,$$dotfile); \
+		src=$(addprefix $(realpath $(SRC_DOTFILES_DIR))/, $$dotfile); \
+		dst=$(addprefix $(DST_DOTFILES_DIR)/.,$$dotfile); \
 		ln -vsf "$$src" "$$dst"; \
 	done
 
-$(SOURCE_VSCODE_SETTINGS):
+$(SRC_VSCODE_SETTINGS):
 	-@[ -f $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) ] && unlink $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
 	
 #: Install VS Code settings #dotfiles
-dotfiles-vscode: $(SOURCE_VSCODE_SETTINGS)
+dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 	@mkdir -p $(DEST_VSCODE_SETTINGS_DIR) || ls -la  $(DEST_VSCODE_SETTINGS_DIR)
 	@for vscodeDotFile in $?; do \
-		src=$(addprefix $(realpath $(SOURCE_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
+		src=$(addprefix $(realpath $(SRC_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
 		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
 		ln -vsf "$$src" "$$dst"; \
 	done
@@ -76,15 +78,15 @@ editor-micro:
 			curl https://getmic.ro | bash; \
 		fi \
 	else \
-		micro --version; \
+		echo -e "$(@):\n $$(micro --version)"; \
 	fi
 
 #: Install powerline-go (see: https://github.com/justjanne/powerline-go) #tools
-tool-powerline-go: dev-go make-bin-folder
+tool-powerline-go: dev-go bin-folder
 	@platAsset="powerline-go-$$(go env GOOS)-$$(go env GOARCH)"; \
 	url="https://github.com/justjanne/powerline-go/releases/latest/download/$$platAsset"; \
-	curl -L $$url -o $(HOME)/bin/powerline-go; \
-	chmod a+x $(HOME)/bin/powerline-go
+	curl -L $$url -o $(DST_BIN_DIR)/powerline-go; \
+	chmod a+x $(DST_BIN_DIR)/powerline-go
 
 #: Install Homebrew (see: https://brew.sh) #tools
 tool-brew:
@@ -101,10 +103,10 @@ dev-node: brew
 			brew install node; \
 		else \
 			curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -; \
-			sudo apt-get install -y nodejs; \
+			sudo apt install -y nodejs; \
 		fi \
 	else \
-		node version; \
+		echo -e "$(@):\n $$(node --version)"; \
 	fi	
 
 #: Install Go (see: https://go.dev) #dev
@@ -113,10 +115,10 @@ dev-go: brew
 		if [ "$$(uname -s)" = "Darwin" ]; then \
 			brew install go; \
 		else \
-			sudo apt install golang; \
+			sudo apt install -y golang; \
 		fi \
 	else \
-		go version; \
+		echo -e "$(@):\n $$(go version)"; \
 	fi
 
 #: Install PHP (see: https://php.net) #dev
@@ -125,10 +127,10 @@ dev-php: brew
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install php; \
 		else \
-			sudo apt install php; \
+			sudo apt install -y php; \
 		fi \
 	else \
-		php --version; \
+		echo -e "$(@):\n $$(php --version)"; \
 	fi
 
 
@@ -136,7 +138,7 @@ release-tag:
 	git tag -f v$$(date +%Y%m%d); git push -u origin HEAD; git push --tags --force origin HEAD
 
 
-@base: dotfiles-dotifles bin-folder 
+@base: dotfiles-dotfiles bin-folder 
 @base-tools: tool-powerline-go
 
 ifeq ($(shell uname -s), Darwin)
@@ -164,8 +166,8 @@ all: dotfiles editors tools devs
 
 
 #: Uninstalls dotfiles
-clean-dotfiles: $(SOURCE_DOTFILES)
+clean-dotfiles-dotfiles: $(SRC_DOTFILES)
 #: Uninstalls VS Code settings
-clean-vscode-settings: $(SOURCE_VSCODE_SETTINGS)	
+clean-dotfiles-vscode: $(SRC_VSCODE_SETTINGS)	
 #: Uninstalls dotfiles and VS Code settings
-clean: clean-dotfiles clean-vscode-settings
+clean: clean-dotfiles-dotfiles clean-dotfiles-vscode
