@@ -147,5 +147,6 @@
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.view.alwaysShowHeaderActions": true
+    "workbench.view.alwaysShowHeaderActions": true,
+    "editor.stickyScroll.enabled": true
 }

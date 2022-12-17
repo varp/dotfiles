@@ -1,4 +1,4 @@
-#
+# vim: filetype=sh
 # prompt
 
 parse_git_uncommited_changes() {

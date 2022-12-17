@@ -1,61 +1,33 @@
 # Dotfiles ![](https://github.com/varp/dotfiles/workflows/test/badge.svg)
-## Prequisties
-    # install brew On Mac OS
-    brew install coreutils
-    bash ./bin/taskfile-install # To install https://taskfile.dev/
 
+Collections of dotfiles and several Makefile targets to install tools and etc.
 
 ## Installation
 
-To see list of all tasks:
+1. Just use git to clone the repository to your system: `git clone https://github.com/varp/dotfiles.git && cd dotfiles`. 
+2. Run `make dotfiles`
 
-    task
-
-Install dotfiles and binfiles:
-    
-    task install
-
-Or separately:
-
-    task dotfiles
-    task binfiles
-
-### Sublime Text 3
-    task sublime:settings # Install settings
-    task sublime:packagecontrol # Install package manager
-
-### Visual Studio Code
-    task vscode:settings    # Installs vscode settings
-    task vscode:extensions  # Install vscode extensions 
-
-### VIM
-    task vim:vundle # Install VIM's Vundle
-
-
-### List of all tasks
-
-To get list of all tasks, just run: `task`
-
-    task: Available tasks for this project:
-    * binfiles:                     Installs bin files
-    * dotfiles:                     Installs dot files
-    * env:node:                     Installs NodeJs env
-    * env:node:install:             Installs a Node version
-    * env:php:                      Installs PHP env
-    * env:php:composer:             Installs PHP composer
-    * env:python:                   Installs pyenv
-    * env:python:install:           Installs Python 3
-    * install:                      Runs tasks: binfiles, dotfiles
-    * repo:ppa:php:                 Enables PPA for PHP
-    * repo:rpm:php:                 Enables RPM repos for PHP
-    * sublime:packagecontrol:       Installs ST3 package control
-    * sublime:settings:             Installs SublimeText settings
-    * tools:git:lfs:                Installs git-lfs
-    * tools:lfm:                    Installs LFM
-    * tools:shell:powerline-go:     Installs latest powerline-go
-    * vim:vundle:                   Installs VIM's Vundle package mamager
-    * vscode:extenstions:           Installs VS code extenstions
-    * vscode:settings:              Installs VS Code settings
+## Targets
+To see list of available targets with descriptions run `make`. Targets are organized into groups - third column on the output below.
+```
+dotfiles-dotfiles      Install dotfiles                                                                    dotfiles
+dotfiles-vscode        Install VS Code settings                                                            dotfiles
+editor-vim-vundle      Install VimVundle package mamanger (see: https://github.com/VundleVim/Vundle.vim)   editors
+editor-micro           Install micro (see: https://micro-editor.github.io/)                                editors
+tool-powerline-go      Install powerline-go (see: https://github.com/justjanne/powerline-go)               tools
+tool-brew              Install Homebrew (see: https://brew.sh)                                             tools
+dev-node               Install NodeJs (see: https://nodejs.org)                                            dev
+dev-go                 Install Go (see: https://go.dev)                                                    dev
+dev-php                Install PHP (see: https://php.net)                                                  dev
+dotfiles               Installs dotfiles, micro, VimVundle. On MacOS: VS Code settigns, Homebrew           group
+editors                Installs micro and VimVundle
+tools                  Installs powerline-go. On MacOS: Homebrew                                           group
+devs                   Installs PHP, Go, NodeJS                                                            group
+all                    Installs all groups                                                                 group
+clean-dotfiles         Uninstalls dotfiles
+clean-vscode-settings  Uninstalls VS Code settings
+clean                  Uninstalls dotfiles and VS Code settings
+```
 
 # Links
 - [A lot of tweaks for MacOS GUI and many more!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
