@@ -48,11 +48,11 @@
     "command": "-workbench.action.showCommands"
   },
   {
-    "key": "ctrl+q 1",
+    "key": "ctrl+q ctrl+u",
     "command": "workbench.action.editorLayoutSingle"
   },
   {
-    "key": "ctrl+q 2",
+    "key": "ctrl+q v",
     "command": "workbench.action.editorLayoutTwoColumns"
   },
   {
@@ -140,12 +140,12 @@
     "command": "-workbench.action.quickOpen"
   },
   {
-    "key": "ctrl+space",
+    "key": "cmd+space",
     "command": "editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+space",
+    "key": "cmd+space",
     "command": "-editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
@@ -163,5 +163,97 @@
     "key": "cmd+/",
     "command": "-toggleExplainMode",
     "when": "suggestWidgetVisible"
-  }
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "git.pushTo",
+    "when": "!inDebugMode && !terminalFocus"
+  },
+  {
+    "key": "alt+cmd+k",
+    "command": "-git.pushTo",
+    "when": "!inDebugMode && !terminalFocus"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.view.explorer",
+    "when": "!explorerViewletVisible"
+  },
+  {
+    "key": "cmd+1",
+    "command": "-workbench.view.explorer",
+    "when": "editorFocus && viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "cmd+5",
+    "command": "workbench.view.debug",
+    "when": "!viewContainer.workbench.view.debug.active"
+  },
+  {
+    "key": "cmd+5",
+    "command": "-workbench.view.debug",
+    "when": "editorFocus && viewContainer.workbench.view.debug.enabled"
+  },
+  {
+    "key": "cmd+5",
+    "command": "-workbench.action.focusFifthEditorGroup"
+  },
+  {
+    "key": "cmd+5",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.debug'"
+  },
+  {
+    "key": "cmd+5",
+    "command": "-workbench.action.toggleSidebarVisibility",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "alt+right",
+    "command": "cursorWordPartRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+right",
+    "command": "cursorWordPartRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+left",
+    "command": "cursorWordPartStartLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+left",
+    "command": "cursorWordPartStartLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+backspace",
+    "command": "deleteWordPartLeft",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+alt+backspace",
+    "command": "-deleteWordPartRight",
+    "when": "textInputFocus && !editorReadonly"
+  },
 ]

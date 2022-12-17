@@ -4,6 +4,7 @@
 	}],
 	"settings": {
 		"files.associations": {
+			"shell_*": "shellscript",
 			"bash_*": "shellscript",
 			"bashrc": "shellscript",
 			"aliases_completions": "shellscript",
@@ -22,8 +23,11 @@
 			}
 		},
 		"cSpell.enabled": true,
+		"shellcheck.exclude": [
+		],
 		"shellcheck.customArgs": [
-			"-x"
+			"--external-sources",
+			"--shell=bash"
 		],
 		"shellcheck.useWorkspaceRootAsCwd": true
 	}

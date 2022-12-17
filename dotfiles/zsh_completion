@@ -1,0 +1,6 @@
+_goinside() {
+    local -a __goinside_services
+    __goinside_services=($(docker-compose ps --services --filter status=running))
+    _describe 'goinside' __goinside_services
+}
+compdef _goinside goinside

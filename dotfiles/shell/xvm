@@ -1,0 +1,54 @@
+##
+## Languages versions managers
+##
+
+# Load NVM (Node Version Manager)
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Load Python Version Manager
+export PYENV_ROOT="$HOME/.pyenv"
+_prepend_to_path "$PYENV_ROOT/bin"
+
+[[ -d "$PYENV_ROOT" ]] && {
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+    _prepend_to_path "$HOME/.local/bin"
+}
+
+USE_GOENV=false
+
+if $USE_GOENV; then
+    # Goenv
+    export GOENV_ROOT="$HOME/.goenv"
+    [[ -s "$GOENV_ROOT/bin/goenv" ]] && {
+        eval "$(goenv init -)"
+        _prepend_to_path "$GOENV_ROOT/bin"
+
+        export GOROOT="$(go env GOROOT)"
+        export GOPATH="$(go env GOPATH)"
+
+        _prepend_to_path "$GOROOT/bin"
+        _prepend_to_path "$GOPATH/bin"
+    }
+
+else
+
+    # Go Version Manager
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
+    [[ -s "$HOME/.gvm/scripts/completion" ]] && . "$HOME/.gvm/scripts/completion"
+fi
+
+## RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && {
+    . "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    _prepend_to_path "$HOME/.rvm/bin"
+}
+
+## Composer
+
+command -v composer >/dev/null && {
+    _prepend_to_path "$HOME/.composer/vendor/bin"
+    # command -v symfony-autocomplete >/dev/null && eval "$(symfony-autocomplete)"
+}

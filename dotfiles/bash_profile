@@ -1,4 +1,5 @@
 # shellcheck source=dotfiles/bashrc
+
 . "${HOME}/.bashrc"
 
 ############################################ prompt #############################################
@@ -37,6 +38,8 @@ __update_ps1() {
 
     eval "$(
         ~/bin/powerline-go \
+            -newline \
+            -cwd-mode semifancy \
             -hostname-only-if-ssh \
             -ignore-warnings \
             -shell-var-no-warn-empty \

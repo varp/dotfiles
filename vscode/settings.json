@@ -1,130 +1,160 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.editor.tabCloseButton": "left",
-    "workbench.editor.showIcons": true,
-    "workbench.activityBar.visible": true,
-    "workbench.sideBar.location": "left",
-    "workbench.iconTheme": "vscode-icons",
+    // Workbench
     "workbench.view.alwaysShowHeaderActions": true,
-    "workbench.list.openMode": "singleClick",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.editor.openPositioning": "last",
-    "workbench.editor.revealIfOpen": true,
-    "workbench.editor.splitSizing": "split",
-    "workbench.list.horizontalScrolling": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Github Light Theme - Gray",
-
-
-    "window.openFilesInNewWindow": "off",
-    "window.openFoldersInNewWindow": "off",
-    "security.workspace.trust.untrustedFiles": "prompt",
-
-    "window.zoomLevel": 0,
+    "workbench.sideBar.location": "left",
     "workbench.list.smoothScrolling": true,
+    "workbench.list.openMode": "singleClick",
+    "workbench.list.horizontalScrolling": false,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.editor.splitSizing": "split",
+    "workbench.editor.showIcons": true,
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.openPositioning": "last",
+    "workbench.editor.closeOnFileDelete": true,
+    "window.openFoldersInNewWindow": "off",
+    "window.openFilesInNewWindow": "off",
     "window.newWindowDimensions": "offset",
+    
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": false,
 
-
-    "editor.rulers": [
-        120
-    ],
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 4,
-    "editor.wordWrap": "on",
-    "editor.wordWrapColumn": 120,
-    "editor.mouseWheelScrollSensitivity": 2,
-    "editor.tabCompletion": "on",
-    "editor.showFoldingControls": "always",
-    "editor.suggest.localityBonus": true,
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.formatOnSave": true,
-    "editor.parameterHints.enabled": true,
-    "editor.fontFamily": "Iosevka VardanPro Term Lucida Style",
-    "editor.fontWeight": "400",
-    "editor.fontSize": 14,
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    },
-    "editor.linkedEditing": true,
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": false
-    },
-
-
-
-    "telemetry.telemetryLevel": "off",
-
-    "explorer.openEditors.visible": 16,
-    "explorer.decorations.badges": true,
-    "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
-    "files.autoSave": "onWindowChange",
-
-
-    "breadcrumbs.filePath": "last",
-    "breadcrumbs.symbolSortOrder": "type",
-
-
-    "debug.openExplorerOnEnd": true,
-    "debug.showBreakpointsInOverviewRuler": true,
-    "debug.showSubSessionsInToolBar": true,
-    "debug.inlineValues": true,
-
-
-    "extensions.closeExtensionDetailsOnViewChange": true,
-    "extensions.autoUpdate": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.copyOnSelection": true,
-    "problems.showCurrentInStatus": true,
-
-
+    "telemetry.telemetryLevel": "off",
+    "sync.gist": "7f20ce77286cf7608c6132c2eb684ebf",
+    "security.workspace.trust.untrustedFiles": "prompt",
     "search.useGlobalIgnoreFiles": true,
     "search.quickOpen.includeSymbols": true,
-
-
-
-
-    "font-switcher.enableLivePreview": true,
     "font-switcher.fontFamily": "Hasklig, Fira Code, Iosevka Term, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PTMono, ProFont for Powerline, Nova Mono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, Liberation Mono for Powerline, Liberation Mono, Inconsolata-dz for Powerline, Inconsolata for Powerline, Hack, GoMono for Powerline, Fira Mono for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Anonymous Pro for Powerline, Andale Mono,Iosevka VardanPro",
-
-
-
-    "scm.countBadge": "focused",
-    "scm.diffDecorations": "gutter",
-    "git.confirmSync": true,
-    "git.showPushSuccessNotification": true,
-    "git.enableSmartCommit": true,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true,
-    },
-    "gitlens.views.repositories.branches.layout": "list",
-    "gitlens.views.repositories.files.layout": "tree",
-
-
-    "[json]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "git.autoRepositoryDetection": "subFolders",
-    "go.toolsManagement.autoUpdate": true,
-    "terminal.integrated.fontFamily": "Iosevka VardanPro Term Lucida Style",
-    "terminal.integrated.fontSize": 14,
+    "font-switcher.enableLivePreview": true,
     "rest-client.fontSize": 12,
+    "redhat.telemetry.enabled": false,
+    "problems.showCurrentInStatus": true,
+    "debug.showSubSessionsInToolBar": true,
+    "debug.showBreakpointsInOverviewRuler": true,
+    "debug.openExplorerOnEnd": true,
+    "debug.inlineValues": true,
+    "extensions.closeExtensionDetailsOnViewChange": true,
+    "extensions.autoUpdate": true,
+    "explorer.openEditors.visible": 16,
+    "explorer.decorations.badges": true,
+    "customizeUI.stylesheet": {
+        "[id='workbench.parts.sidebar'] .pane-body": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px",
+        "[id='workbench.view.explorer'] .pane-body ": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px;",
+        "[id='workbench.view.explorer'] .monaco-icon-label": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px;",
+        "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px"
+    },
+
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "bash",
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        },
+        "bash 5": {
+            "path": "/usr/local/bin/bash",
+            "args": [
+                "-l"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+
+    // VCS
+    "scm.diffDecorations": "gutter",
+    "scm.countBadge": "focused",
+    "gitlens.views.repositories.files.layout": "tree",
+    "gitlens.views.repositories.branches.layout": "list",
     "gitlens.gitCommands.skipConfirmations": [
         "fetch:command",
         "stash-push:command",
         "switch:command",
         "tag-create:command"
     ],
-    "redhat.telemetry.enabled": false
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "git.showPushSuccessNotification": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": true,
+    "git.autoRepositoryDetection": "subFolders",
 
+    // Editor
+    "files.autoSave": "onWindowChange",
+    "editor.wordWrapColumn": 120,
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+    "editor.suggest.localityBonus": true,
+    "editor.smoothScrolling": true,
+    "editor.showFoldingControls": "always",
+    "editor.rulers": [
+        120
+    ],
+    "editor.parameterHints.enabled": true,
+    "editor.mouseWheelScrollSensitivity": 2,
+    "editor.minimap.enabled": false,
+    "editor.linkedEditing": true,
+    "editor.largeFileOptimizations": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.fontWeight": "400",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 20,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.colorDecorators": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "breadcrumbs.symbolSortOrder": "type",
+    "breadcrumbs.filePath": "last",
+    "cSpell.language": "en,ru",
+
+    // Languages related
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "editor.accessibilitySupport": "off",
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "GitHub Light",
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "git.autofetch": true
 }

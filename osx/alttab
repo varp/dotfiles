@@ -1,0 +1,25 @@
+{
+    SUHasLaunchedBefore = 1;
+    SULastCheckTime = "2022-12-05 12:29:53 +0000";
+    SUUpdateRelaunchingMarker = 0;
+    alignThumbnails = 1;
+    cursorFollowFocusEnabled = true;
+    fadeOutAnimation = true;
+    focusWindowShortcut = F;
+    fontHeight = 15;
+    hideWindowlessApps = true;
+    holdShortcut = "\\U2318";
+    holdShortcut2 = "\\U2318";
+    iconSize = 36;
+    mouseHoverEnabled = false;
+    preferencesVersion = "6.51.0";
+    quitAppShortcut = "\\U00a7";
+    rowsCount = 4;
+    showHiddenWindows = 1;
+    showMinimizedWindows = 1;
+    showOnScreen = 0;
+    showTabsAsWindows = true;
+    updatePolicy = 1;
+    windowMaxWidthInRow = 40;
+    windowMinWidthInRow = 20;
+}

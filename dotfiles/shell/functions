@@ -1,0 +1,125 @@
+#
+# prompt
+
+parse_git_uncommited_changes() {
+  uncommited=$(git status --porcelain 2>&1 | grep -v ^fatal | grep -v ^?? | wc -l)
+  unstaged=$(git status --porcelain 2>&1 | grep -v ^fatal | grep ^?? | wc -l)
+
+  res=""
+  [[ $uncommited -gt 0 ]] && res="$res*"
+  [[ $unstaged -gt 0 ]] && res="$res*"
+
+  [[ ! -z "$res" ]] && echo " $res"
+}
+
+parse_git_branch() {
+  branch=$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  [[ ! -z "$branch" ]] && echo "($branch$(parse_git_uncommited_changes))"
+}
+
+parse_node_version_nvm() {
+  [[ -f package.json || -d node_modules || -f *.js ]] || return
+  # [ $NVM_BIN ] && echo $NVM_BIN | sed -E -e 's@.*v([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*@v\1@g'
+  command -v node >/dev/null && node --version | tr -d '\n'
+}
+
+parse_ruby_version() {
+  [[ -f Gemfile || -f Rakefile || -f *.rb ]] || return
+  [[ $RUBY_VERSION ]] && echo $RUBY_VERSION | sed -e 's/ruby\-\(.*\)/v\1/'
+}
+
+parse_python_version() {
+  [[ -n "$PYENV_VERSION" || -f .python-version || -f requirements.txt || -f pyproject.toml || -f *.py ]] || return
+  [[ -d "$HOME/.pyenv" ]] && pyenv version | sed -e 's/\( (.*)\)//' -e 's/\(.*\)/\1/'
+}
+
+parse_php_version() {
+  [[ -f *.php || -f composer.json ]] || return
+  [[ -n "$(which php)" ]] && php -v | sed -nE -e '1 s/PHP ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*/v\1/p'
+}
+
+parse_go_version() {
+  # see: https://github.com/denysdovhan/spaceship-prompt/blob/master/sections/golang.zsh
+  [[ ($GOENV_VERSION && "$GOENV_VERSION" != "system") || ($gvm_go_name && "$gvm_go_name" != "system") || -f \
+  .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock || (\
+  $GOPATH && "$PWD/" =~ "$GOPATH/") ]] || return
+  go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }'
+}
+
+parse_languages() {
+
+  ruby_symbol='💎'
+  node_symbol='🔷'
+  pyenv_symbol='🐍'
+  php_symbol='🐘'
+  go_symbol='🐼'
+
+  node_ver=$(parse_node_version_nvm)
+  ruby_ver=$(parse_ruby_version)
+  python_ver=$(parse_python_version)
+  php_ver=$(parse_php_version)
+  go_ver=$(parse_go_version)
+
+  langs=()
+
+  [[ -n "$node_ver" ]] && export _LANG_ENV_NODE=$node_ver && langs+=("$node_symbol $node_ver")
+  [[ -n "$python_ver" ]] && export _LANG_ENV_PYTHON=$python_ver && langs+=("$pyenv_symbol $python_ver")
+  [[ -n "$ruby_ver" ]] && export _LANG_ENV_RUBY=$ruby_ver && langs+=("$ruby_symbol $ruby_ver")
+  [[ -n "$php_ver" ]] && export _LANG_ENV_PHP=$php_ver && langs+=("$php_symbol $php_ver")
+  [[ -n "$go_ver" ]] && export _LANG_ENV_GO=$go_ver && langs+=("$go_symbol $go_ver")
+
+  [[ ! -z "${langs[*]}" ]] && echo "${langs[@]}"
+
+}
+
+
+goinside() {
+  docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+}
+
+
+## PATH without duplicates
+#################################
+_dedup_path() {
+    PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
+    export PATH=${PATH//[$'\n']/:}
+}
+
+_prepend_to_path() {
+    # [ "${PATH#*$1:}" == "$PATH" ] && {
+    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
+        export PATH="$1:$PATH"
+        _dedup_path
+    }
+}
+
+_append_to_path() {
+    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
+        export PATH="$PATH:$1"
+        _dedup_path
+    }
+}
+
+_ppath() {
+  echo $PATH | tr ':' '\n'
+}
+
+
+## Shell reload
+
+_reload() {
+  exec -l $SHELL
+}
+
+## shell reload
+_functions_reload() {
+  . "${HOME}/.shell/functions"
+}
+
+_env_reload() {
+  . "${HOME}/.shell/env"
+}
+
+_aliases_reload() {
+  . "${HOME}/.shell/aliases"
+}
