@@ -1,5 +1,7 @@
 SHELL=/bin/bash
 
+LOCAL_BIN_DIR?=/usr/local/bin
+
 DST_BASE_DIR?=$(HOME)
 
 DST_BIN_DIR?=$(DST_BASE_DIR)/bin
@@ -37,6 +39,7 @@ help:
 
 bin-folder:
 	-@[ ! -d $(DST_BIN_DIR) ] && mkdir -p $(DST_BIN_DIR)
+	-@[ ! -d $(LOCAL_BIN_DIR) ] && mkdir -p $(LOCAL_BIN_DIR)
 
 $(SRC_DOTFILES):
 	-@mkdir -p $(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@))	
@@ -75,7 +78,7 @@ editor-micro:
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install micro; \
 		else \
-			curl https://getmic.ro | bash; \
+			cd $(DST_BIN_DIR) && curl https://getmic.ro | bash; \
 		fi \
 	else \
 		echo -e "$(@):\n $$(micro --version)"; \
