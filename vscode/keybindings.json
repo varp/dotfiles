@@ -199,6 +199,11 @@
   },
   {
     "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible"
+  },
+  {
+    "key": "cmd+1",
     "command": "-workbench.view.explorer",
     "when": "editorFocus && viewContainer.workbench.view.explorer.enabled"
   },
