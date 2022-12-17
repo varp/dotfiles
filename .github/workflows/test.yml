@@ -7,34 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Generate SSH keys
-        run: |
-          mkdir -p ~/.ssh || ls -la ~/.ssh
-          ssh-keygen -f ~/.ssh/id_rsa -C varp-dotfiles -N ''
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
       - name: Tests
         run: |
           make
-          make dotfiles
-          make base
-          make all
+          make dotfiles DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make base DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make all DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
 
   macosx:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install VS Code
-        run: |
-         brew install visual-studio-code
-         code
-      - name: Generate SSH keys
-        run: |
-          mkdir -p ~/.ssh || ls -la ~/.ssh
-          ssh-keygen -f ~/.ssh/id_rsa -C varp-dotfiles -N ''
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
       - name: Tests
         run: |
           make
-          make dotfiles
-          make base
-          make all
+          make dotfiles DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make base DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make all DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp

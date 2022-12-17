@@ -42,6 +42,7 @@ $(SOURCE_VSCODE_SETTINGS):
 	
 
 editor-vscode-settings: $(SOURCE_VSCODE_SETTINGS)
+	@mkdir -p $(DEST_VSCODE_SETTINGS_DIR) || ls -la  $(DEST_VSCODE_SETTINGS_DIR)
 	@for vscodeDotFile in $?; do \
 		src=$(addprefix $(realpath $(SOURCE_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
 		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
