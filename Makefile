@@ -22,7 +22,7 @@ $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
 editor-vim-vundle editor-micro \
-tool-brew tool-powerline-go  \
+tool-brew tool-powerline-go tool-bat \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
 all \
@@ -99,6 +99,18 @@ tool-brew:
 		fi \
 	fi
 
+#: Install bat (see: https://github.com/sharkdp/bat) #tools
+tool-bat: brew
+	@if ! command -v bat >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install bat; \
+		else \
+			sudo apt install -y bat; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(bat --version)"; \
+	fi	
+
 #: Install NodeJs (see: https://nodejs.org) #dev
 dev-node: brew
 	@if ! command -v node >/dev/null; then \
@@ -142,7 +154,7 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go
+@base-tools: tool-powerline-go tool-bat
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode

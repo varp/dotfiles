@@ -265,4 +265,8 @@
     "key": "shift+cmd+n",
     "command": "welcome.showNewFileEntries"
   },
+  {
+    "key": "ctrl+shift+w",
+    "command": "editor.action.toggleWordWrap"
+  },
 ]
