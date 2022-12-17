@@ -10,7 +10,8 @@ jobs:
       - name: Tests
         run: |
           make
-          make all DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make all DST_BASE_DIR=/tmp
+          make clean DST_BASE_DIR=/tmp
 
   macosx:
     runs-on: macos-latest
@@ -19,4 +20,5 @@ jobs:
       - name: Tests
         run: |
           make
-          make all DEST_DOTFILES_DIR=/tmp DEST_VSCODE_SETTINGS_DIR=/tmp
+          make all DST_BASE_DIR=/tmp
+          make clean DST_BASE_DIR=/tmp
