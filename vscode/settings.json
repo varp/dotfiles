@@ -1,27 +1,19 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "[javascript]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
     "breadcrumbs.filePath": "last",
     "breadcrumbs.symbolSortOrder": "type",
     "cSpell.language": "en,ru",
-    "customizeUI.stylesheet": {
-        "[id='workbench.parts.sidebar'] .pane-body": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px",
-        "[id='workbench.view.explorer'] .monaco-icon-label": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px;",
-        "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px",
-        "[id='workbench.view.explorer'] .pane-body ": "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; font-size: 14px;"
-    },
     "debug.inlineValues": true,
     "debug.openExplorerOnEnd": true,
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.showSubSessionsInToolBar": true,
+    "diffEditor.codeLens": true,
+    "docker.containers.description": [
+        "ContainerName",
+        "Status",
+        "Ports",
+        "CreatedTime"
+    ],
     "editor.accessibilitySupport": "off",
     "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
@@ -35,7 +27,7 @@
     "editor.fontWeight": "400",
     "editor.guides.bracketPairs": "active",
     "editor.largeFileOptimizations": true,
-    "editor.lineHeight": 20,
+    "editor.lineHeight": 18,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 2,
@@ -45,6 +37,7 @@
     ],
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
+    "editor.stickyScroll.enabled": true,
     "editor.suggest.localityBonus": true,
     "editor.tabCompletion": "on",
     "editor.tabSize": 4,
@@ -53,11 +46,13 @@
     "explorer.openEditors.visible": 16,
     "extensions.autoUpdate": true,
     "extensions.closeExtensionDetailsOnViewChange": true,
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "onFocusChange",
+    "files.autoSaveDelay": 10000,
     "font-switcher.enableLivePreview": true,
     "font-switcher.fontFamily": "Hasklig, Fira Code, Iosevka Term, Ubuntu Mono derivative Powerline, Space Mono for Powerline, Space Mono, Source Code Variable, Source Code Pro for Powerline, Roboto Mono Thin for Powerline, Roboto Mono Medium for Powerline, Roboto Mono Light for Powerline, Roboto Mono for Powerline, Roboto Mono, PTMono, ProFont for Powerline, Nova Mono for Powerline, Noto Mono for Powerline, monofur for Powerline, Monaco, Meslo LG S for Powerline, Meslo LG S DZ for Powerline, Meslo LG M for Powerline, Meslo LG M DZ for Powerline, Meslo LG L for Powerline, Meslo LG L DZ for Powerline, Menlo, Liberation Mono for Powerline, Liberation Mono, Inconsolata-dz for Powerline, Inconsolata for Powerline, Hack, GoMono for Powerline, Fira Mono for Powerline, Droid Sans Mono Slashed for Powerline, Droid Sans Mono for Powerline, Droid Sans Mono Dotted for Powerline, DejaVu Sans Mono for Powerline, DejaVu Sans Mono, Anonymous Pro for Powerline, Andale Mono,Iosevka VardanPro",
     "git.autofetch": true,
     "git.autoRepositoryDetection": "subFolders",
+    "git.autoStash": true,
     "git.confirmSync": true,
     "git.enableSmartCommit": true,
     "git.showPushSuccessNotification": true,
@@ -76,8 +71,9 @@
     "problems.showCurrentInStatus": true,
     "redhat.telemetry.enabled": false,
     "rest-client.fontSize": 12,
-    "scm.countBadge": "focused",
-    "scm.diffDecorations": "gutter",
+    "scm.autoReveal": false,
+    "scm.defaultViewMode": "tree",
+    "scm.diffDecorationsGutterWidth": 5,
     "search.quickOpen.includeSymbols": true,
     "search.useGlobalIgnoreFiles": true,
     "security.workspace.trust.untrustedFiles": "prompt",
@@ -86,7 +82,7 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontFamily": "JetBrains Mono",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 13,
     "terminal.integrated.profiles.osx": {
         "bash": {
             "args": [
@@ -122,10 +118,6 @@
             "path": "zsh"
         }
     },
-    "vs-kubernetes": {
-        "vscode-kubernetes.helm-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vscode-kubernetes.minikube-path.mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
     "vsicons.dontShowNewVersionMessage": true,
     "window.autoDetectColorScheme": true,
     "window.commandCenter": false,
@@ -133,20 +125,20 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "GitHub Light",
+    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.openPositioning": "last",
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showIcons": true,
     "workbench.editor.splitSizing": "split",
     "workbench.editor.tabCloseButton": "left",
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.list.horizontalScrolling": false,
     "workbench.list.openMode": "singleClick",
     "workbench.list.smoothScrolling": true,
+    "workbench.preferredDarkColorTheme": "GitHub Dark Colorblind (Beta)",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.view.alwaysShowHeaderActions": true,
-    "editor.stickyScroll.enabled": true
+    "workbench.view.alwaysShowHeaderActions": true
 }
