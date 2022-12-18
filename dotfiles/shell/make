@@ -1,0 +1,40 @@
+# GitHub
+function _gh_get_latest_release_url() {
+    local repo=$1
+
+    curl -sI "$repo"/releases/latest | grep '^location:' | sed -E 's/location: (.*)\r/\1/g'
+}
+
+function _gh_extract_version_from_url() {
+    local latestUrl=$1
+
+    echo "$latestUrl" | sed -E 's#.*/v(.+)#\1#g'
+}
+
+# Makefile
+
+# Prints list of targets which was special marked in Makefile 
+#
+#   To mark Makefile target add before it comment, 
+#   on the previos line, commnet formated as '#: <description> [#hastag]'.
+#   
+#   '#hashtag's will be printed as third column.
+
+#   Example input:
+#
+#   #: Target description #hastag
+#   do-something-target:
+#       echo "something"
+#
+#   Example output:
+#   do-something-target         Target description          hashtag       
+#
+# see: https://stackoverflow.com/a/59087509/1700018
+function _mf_print_targets() {
+    grep -B1 -E "^[a-zA-Z0-9_-]+\:([^\=]|$)" Makefile \
+     | grep -v -- -- \
+     | sed 'N;s/\n/###/' \
+     | sed -n 's/^#: \(.*\)###\(.*\):.*/\2###\1/p' \
+     | column -t  -s '###'
+}
+

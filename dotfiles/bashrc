@@ -78,11 +78,6 @@ if [ -f ~/.shell/env ]; then
 fi
 
 
-_OLDPATH="$PATH"
-export PATH="$(command -p getconf PATH)"
-_dedup_path
-
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -130,7 +125,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] &&
     eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 #### PATH without duplicates
 _dedup_path

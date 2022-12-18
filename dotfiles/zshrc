@@ -98,3 +98,7 @@ source "$ZSH/oh-my-zsh.sh"
 ##
 [[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
+
+#### PATH without duplicates
+_dedup_path
+#################################

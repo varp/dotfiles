@@ -90,6 +90,9 @@ fi
 export BASH_COMPLETION_USER_DIR="$HOME/.bash_completion.d"
 [[ ! -d $BASH_COMPLETION_USER_DIR ]] && mkdir -p $BASH_COMPLETION_USER_DIR
 
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+
 #for bcfile in $BASH_COMPLETION_USER_DIR/*; do
 #    . "$bcfile"
 #done

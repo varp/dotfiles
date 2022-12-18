@@ -39,10 +39,22 @@ export PROMPT_DIRTRIM=1
 export SUDO_PROMPT="[sudo] %p > "
 
 
+
+## Reset PATH
+_OLDPATH="$PATH"
+export PATH="$(command -p getconf PATH)"
+
+_prepend_to_path "/usr/local/bin"
+_prepend_to_path "/usr/local/sbin"
+
+
 if [[ "$_OS_NAME" == "Darwin" ]] && [[ -f /usr/local/bin/brew ]]; then
      eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-### Add bin folder to PATH
+## add home bin folder
 _prepend_to_path "$HOME/bin"
-_prepend_to_path "/usr/local/bin"
+
+#### PATH without duplicates
+_dedup_path
+#################################

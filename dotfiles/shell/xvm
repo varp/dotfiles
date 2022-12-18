@@ -52,3 +52,7 @@ command -v composer >/dev/null && {
     _prepend_to_path "$HOME/.composer/vendor/bin"
     # command -v symfony-autocomplete >/dev/null && eval "$(symfony-autocomplete)"
 }
+
+#### PATH without duplicates
+_dedup_path
+#################################

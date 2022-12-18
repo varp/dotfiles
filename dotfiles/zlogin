@@ -1,10 +1,3 @@
-## CUSTOM ##
-
-## OSX
-if [[ "$_OS_NAME" == "Darwin" ]] && [[ -f /usr/local/bin/brew ]]; then
-     eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 ##
 ## completions
 ##
