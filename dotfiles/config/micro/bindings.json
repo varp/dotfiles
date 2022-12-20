@@ -1,0 +1,7 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "CtrlUnderscore": "lua:comment.comment",
+    "Alt-j": "lua:joinLines.joinLines",
+    // Alt-J - Alt-Shift-j
+    "Alt-J": "lua:joinLines.joinLines"
+}

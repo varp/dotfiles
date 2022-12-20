@@ -1,0 +1,11 @@
+{
+    "colorcolumn": 120,
+    "colorscheme": "one-dark",
+    "diffgutter": true,
+    "ft:yaml": {
+        "eofnewline": false,
+        "tabsize": 2
+    },
+    "statusformatl": "$(filename) $(modified)($(line),$(col)) $(status.paste)| ft:$(opt:filetype) | $(opt:fileformat) | $(opt:encoding) | Git $(status.branch):$(status.hash)",
+    "statusformatr": "$(bind:ToggleHelp): help"
+}

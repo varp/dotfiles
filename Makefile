@@ -21,7 +21,7 @@ VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
-editor-vim-vundle editor-micro \
+editor-vim-vundle editor-micro editor-micro-plugins \
 tool-brew tool-powerline-go tool-bat \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
@@ -82,6 +82,16 @@ editor-micro:
 		fi \
 	else \
 		echo -e "$(@):\n $$(micro --version)"; \
+	fi
+
+#: Install micro plugins: joinLines, detectident, quoter #editors
+editor-micro-plugins: editor-micro
+	@if command -v micro >/dev/null; then \
+		for plugin in "joinLines" "detectindent" "quoter"; do \
+			micro -plugin install $$plugin; \
+		done \
+	else \
+		echo -e "$(@):\n micro editor is not installed"; \
 	fi
 
 #: Install powerline-go (see: https://github.com/justjanne/powerline-go) #tools
@@ -168,7 +178,7 @@ endif
 dotfiles: @dotfiles-group
 
 #: Installs micro and VimVundle
-editors: editor-micro editor-vim-vundle
+editors: editor-micro editor-micro-plugins editor-vim-vundle
 
 #: Installs powerline-go. On MacOS: Homebrew #group
 tools: @tools-group
