@@ -17,11 +17,14 @@ DEST_VSCODE_SETTINGS_DIR?="$(DST_BASE_DIR)/Library/Application Support/Code/User
 VIM_VUNDLE_DIR=$(DST_DOTFILES_DIR)/.vim/bundle
 VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
 
+
+FORCE_INSTALL?=false
+
 .PHONY: help bin-folder \
 $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
-editor-vim-vundle editor-micro editor-micro-plugins \
+editor-vim-vundle editor-micro editor-micro-plugins editor-neovim \
 tool-brew tool-powerline-go tool-bat \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
@@ -72,6 +75,19 @@ editor-vim-vundle:
 	-@mkdir -p $(VIM_VUNDLE_DIR)
 	git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
 
+#: Install Neovim (see: https://github.com/neovim/neovim) #editors
+editor-neovim:
+	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v nvim >/dev/null; then \
+		if [[ "$$(uname -s)" == "Darwin" ]]; then \
+			brew install neovim; \
+		else \
+			curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim-linux64.deb && \
+			apt install -y /tmp/nvim-linux64.deb && apt install -fy; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(nvim --version)"; \
+	fi
+
 #: Install micro (see: https://micro-editor.github.io/) #editors
 editor-micro:
 	@if ! command -v micro >/dev/null; then \
@@ -103,7 +119,7 @@ tool-powerline-go: dev-go bin-folder
 
 #: Install Homebrew (see: https://brew.sh) #tools
 tool-brew:
-	@if [ "$$(uname -s)" == "Darwin" ]; then \
+	@if [[ "$$(uname -s)" == "Darwin" ]]; then \
 		if ! brew --version >/dev/null; then \
 			/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
 		fi \
@@ -123,7 +139,7 @@ tool-bat: brew
 
 #: Install NodeJs (see: https://nodejs.org) #dev
 dev-node: brew
-	@if ! command -v node >/dev/null; then \
+	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v node >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install node; \
 		else \
