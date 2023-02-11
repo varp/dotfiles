@@ -1,3 +1,6 @@
+[main]
+CdQuick= alt-c; alt-shift-c
+
 [filemanager]
 SplitMore = alt-shift-right; ctrl-shift-right
 SplitLess = alt-shift-left; ctrl-shift-left
