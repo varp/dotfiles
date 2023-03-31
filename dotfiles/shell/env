@@ -56,8 +56,9 @@ fi
 _prepend_to_path "/usr/local/bin"
 _prepend_to_path "/usr/local/sbin"
 
-if [[ "$_OS_NAME" == "Darwin" ]] && [[ -f /usr/local/bin/brew ]]; then
-     eval "$(/usr/local/bin/brew shellenv)"
+if [[ "$_OS_NAME" == "Darwin" ]] then
+    [[ -f /usr/local/bin/brew ]] && eval "$(/usr/local/bin/brew shellenv)"
+    [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 ## add home bin folder

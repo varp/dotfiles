@@ -125,7 +125,6 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "GitHub Light",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.openPositioning": "last",
     "workbench.editor.revealIfOpen": true,
@@ -146,5 +145,6 @@
         "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
         "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
         "vscode-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
-    }
+    },
+    "workbench.colorTheme": "GitHub Light"
 }
