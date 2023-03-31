@@ -1,3 +1,4 @@
+# vim: set filetype=sh
 # GitHub
 function _gh_get_latest_release_url() {
     local repo=$1

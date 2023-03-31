@@ -44,9 +44,17 @@ export SUDO_PROMPT="[sudo] %p > "
 _OLDPATH="$PATH"
 export PATH="$(command -p getconf PATH)"
 
+if [[ $(whoami) == "root" ]]; then
+    _prepend_to_path "/sbin"
+    _prepend_to_path "/usr/sbin"
+fi
+
+if [[ "$_OS_NAME" == "Linux" ]] && [[ -d /snap/bin ]]; then
+    _prepend_to_path "/snap/bin"
+fi
+
 _prepend_to_path "/usr/local/bin"
 _prepend_to_path "/usr/local/sbin"
-
 
 if [[ "$_OS_NAME" == "Darwin" ]] && [[ -f /usr/local/bin/brew ]]; then
      eval "$(/usr/local/bin/brew shellenv)"
