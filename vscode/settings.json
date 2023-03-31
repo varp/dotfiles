@@ -20,7 +20,7 @@
         "source.organizeImports": true
     },
     "editor.colorDecorators": false,
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 13,
@@ -125,7 +125,7 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+    "workbench.colorTheme": "GitHub Light",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.openPositioning": "last",
     "workbench.editor.revealIfOpen": true,
@@ -140,5 +140,11 @@
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.view.alwaysShowHeaderActions": true
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.editor.untitled.hint": "hidden",
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
+        "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+        "vscode-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
+    }
 }

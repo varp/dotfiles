@@ -24,12 +24,6 @@ if $USE_GOENV; then
     [[ -s "$GOENV_ROOT/bin/goenv" ]] && {
         eval "$(goenv init -)"
         _prepend_to_path "$GOENV_ROOT/bin"
-
-        export GOROOT="$(go env GOROOT)"
-        export GOPATH="$(go env GOPATH)"
-
-        _prepend_to_path "$GOROOT/bin"
-        _prepend_to_path "$GOPATH/bin"
     }
 
 else
@@ -38,6 +32,11 @@ else
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && . "$HOME/.gvm/scripts/gvm"
     [[ -s "$HOME/.gvm/scripts/completion" ]] && . "$HOME/.gvm/scripts/completion"
 fi
+
+command -v go >/dev/null && {
+    _prepend_to_path "$(go env GOPATH)/bin"
+}
+
 
 ## RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && {

@@ -1,5 +1,5 @@
 ##
-## POSIX complaint shell utitly function and envs
+## POSIX complaint shell utitly functions and envs
 ##
 source "$HOME/.shell/functions"
 source "$HOME/.shell/env"
@@ -89,7 +89,9 @@ plugins=(
   perms
   docker
   docker-compose
-)
+  kubectl
+  globalias
+ )
 
 source "$ZSH/oh-my-zsh.sh"
 
