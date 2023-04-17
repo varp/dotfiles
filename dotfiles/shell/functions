@@ -74,7 +74,10 @@ parse_languages() {
 
 
 goinside() {
-  docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+  
+  [[ -z "${GOINSIDE_USER}" ]] && \
+    docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}" || \
+    docker-compose exec -u "${GOINSIDE_USER}" -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
 }
 
 

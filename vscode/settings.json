@@ -81,8 +81,8 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "JetBrains Mono",
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.profiles.osx": {
         "bash": {
             "args": [

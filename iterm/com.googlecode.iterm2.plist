@@ -197,7 +197,7 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Bold Color</key>
@@ -705,6 +705,8 @@
 					<string></string>
 				</dict>
 			</dict>
+			<key>Left Option Key Changeable</key>
+			<true/>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -760,7 +762,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>3</integer>
+			<integer>4</integer>
 			<key>Title Components</key>
 			<integer>512</integer>
 			<key>Transparency</key>
@@ -955,7 +957,7 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Bold Color</key>
@@ -1466,7 +1468,7 @@
 				</dict>
 			</dict>
 			<key>Left Option Key Changeable</key>
-			<false/>
+			<true/>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -1535,7 +1537,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>3</integer>
+			<integer>4</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -2453,10 +2455,7 @@
 	<key>TabTransform</key>
 	<integer>0</integer>
 	<key>URLHandlersByGuid</key>
-	<dict>
-		<key>ssh</key>
-		<string>CF3545AD-DA2C-4933-8241-2EC09851E1CB</string>
-	</dict>
+	<dict/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
