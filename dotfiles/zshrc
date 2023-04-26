@@ -4,7 +4,16 @@
 source "$HOME/.shell/functions"
 source "$HOME/.shell/env"
 source "$HOME/.shell/aliases"
-source "$HOME/.shell/xvm" 
+source "$HOME/.shell/xvm"
+
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH="$(brew --prefix)/completions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 ##
 ## OhMyZsh
@@ -12,7 +21,6 @@ source "$HOME/.shell/xvm"
 export ZSH="$HOME/.oh-my-zsh"
 export KEEP_ZSHRC="yes"
 [[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "export KEEP_ZSHRC=$KEEP_ZSHRC; $(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -67,6 +75,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+ZSH_DISABLE_COMPFIX=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -91,7 +101,7 @@ plugins=(
   docker-compose
   kubectl
   globalias
- )
+)
 
 source "$ZSH/oh-my-zsh.sh"
 
