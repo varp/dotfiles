@@ -23,8 +23,7 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "editor.fontSize": 13,
-    "editor.fontWeight": "300",
+    "editor.fontWeight": "400",
     "editor.guides.bracketPairs": "active",
     "editor.largeFileOptimizations": true,
     "editor.lineHeight": 1.3,
@@ -135,16 +134,60 @@
     "workbench.list.horizontalScrolling": false,
     "workbench.list.openMode": "singleClick",
     "workbench.list.smoothScrolling": true,
-    "workbench.preferredDarkColorTheme": "GitHub Dark Colorblind (Beta)",
+    "workbench.preferredDarkColorTheme": "One Dark Vivid",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.view.alwaysShowHeaderActions": true,
     "workbench.editor.untitled.hint": "hidden",
-    "vs-kubernetes": {
-        "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
-        "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
-        "vscode-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
+    "workbench.colorTheme": "GitHub Light",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.wrapTabs": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.preview": true,
+    "scm.inputFontSize": 12,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "One Dark italic",
+                "scope": [
+                    "comment",
+                    "entity.other.attribute-name",
+                    "keyword",
+                    "markup.underline.link",
+                    "storage.modifier",
+                    "storage.type",
+                    "string.url",
+                    "variable.language.super",
+                    "variable.language.this"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "name": "One Dark italic reset",
+                "scope": [
+                    "keyword.operator",
+                    "keyword.other.type",
+                    "storage.modifier.import",
+                    "storage.modifier.package",
+                    "storage.type.built-in",
+                    "storage.type.function.arrow",
+                    "storage.type.generic",
+                    "storage.type.java",
+                    "storage.type.primitive"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
     },
-    "workbench.colorTheme": "GitHub Light"
+    "vscode-kubernetes.helm-path": "helm"
 }
