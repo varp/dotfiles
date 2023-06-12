@@ -1,3 +1,11 @@
+Host alfacheck@n2-hetzner
+    HostName n2-hetzner
+    User alfacheck
+
+Host eocheck@n2-hetzner
+    HostName n2-hetzner
+    User eocheck
+
 Host *
     HostName %h
 #    ControlMaster auto

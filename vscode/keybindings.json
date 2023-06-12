@@ -15,14 +15,6 @@
     "command": "workbench.action.toggleActivityBarVisibility"
   },
   {
-    "key": "ctrl+q v",
-    "command": "workbench.action.splitEditorRight"
-  },
-  {
-    "key": "ctrl+q h",
-    "command": "workbench.action.splitEditorDown"
-  },
-  {
     "key": "alt+escape",
     "command": "revealInExplorer"
   },
@@ -50,10 +42,6 @@
   {
     "key": "ctrl+q ctrl+u",
     "command": "workbench.action.editorLayoutSingle"
-  },
-  {
-    "key": "ctrl+q v",
-    "command": "workbench.action.editorLayoutTwoColumns"
   },
   {
     "key": "shift+escape",
@@ -268,5 +256,25 @@
   {
     "key": "ctrl+shift+w",
     "command": "editor.action.toggleWordWrap"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.reopenClosedEditor"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-workbench.action.reopenClosedEditor"
+  },
+  {
+    "key": "ctrl+q v",
+    "command": "workbench.action.moveEditorToRightGroup"
+  },
+  {
+    "key": "ctrl+q h",
+    "command": "workbench.action.moveEditorToBelowGroup"
+  },
+  {
+    "key": "ctrl+q m",
+    "command": "workbench.action.toggleEditorWidths"
   },
 ]

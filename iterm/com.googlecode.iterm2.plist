@@ -236,7 +236,7 @@
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -998,7 +998,7 @@
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1749,7 +1749,7 @@
 			<key>Blend</key>
 			<real>0.5</real>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
@@ -1790,7 +1790,7 @@
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -2404,7 +2404,7 @@
 	<key>PasteSpecialSubstitution</key>
 	<string></string>
 	<key>PasteSpecialUseRegexSubstitution</key>
-	<true/>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -2442,6 +2442,8 @@
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>PromptOnQuit</key>
+	<true/>
 	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -2455,7 +2457,10 @@
 	<key>TabTransform</key>
 	<integer>0</integer>
 	<key>URLHandlersByGuid</key>
-	<dict/>
+	<dict>
+		<key>ssh</key>
+		<string>CF3545AD-DA2C-4933-8241-2EC09851E1CB</string>
+	</dict>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
