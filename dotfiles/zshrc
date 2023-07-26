@@ -6,15 +6,6 @@ source "$HOME/.shell/env"
 source "$HOME/.shell/aliases"
 source "$HOME/.shell/xvm"
 
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  FPATH="$(brew --prefix)/completions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 ##
 ## OhMyZsh
 ##
@@ -105,14 +96,39 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 
-unsetopt correct_all
+##
+## correct only spelling of commands
+##
+unsetopt correct_all # do not correct spelling of all arguments
 setopt correct
+
+##
+## completions
+##
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH="$(brew --prefix)/completions:${FPATH}"
+fi
+
+ZSH_COMPLETION_DIR=$HOME/.zsh_completion.d
+[[ ! -d $ZSH_COMPLETION_DIR ]] && mkdir -p "$ZSH_COMPLETION_DIR"
+fpath=("$ZSH_COMPLETION_DIR" $fpath)
+export fpath
+
+source "$HOME/.zsh_completion"
+
+autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
+
 ##
 ## starship
 ##
 [[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
 
-#### PATH without duplicates
+##
+## PATH without duplicates
+##
 _dedup_path
 #################################
