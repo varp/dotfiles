@@ -150,6 +150,14 @@ dev-node: brew
 		echo -e "$(@):\n $$(node --version)"; \
 	fi	
 
+#: Install nvm (NodeJs version manager)
+dev-node-nvm:
+	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v nvm >/dev/null; then \
+		PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash"; \
+	else \
+		echo -e "$(@):\n $$(nvm --version)"; \
+	fi	
+
 #: Install Go (see: https://go.dev) #dev
 dev-go: brew
 	@if ! command -v go >/dev/null; then \
