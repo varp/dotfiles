@@ -13,7 +13,7 @@
     ],
     "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     },
     "editor.colorDecorators": false,
     "editor.fontFamily": "JetBrains Mono",
@@ -100,10 +100,8 @@
     "window.autoDetectColorScheme": true,
     "window.newWindowDimensions": "offset",
     "window.openFilesInNewWindow": "off",
-    "window.openFoldersInNewWindow": "off",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.editor.tabCloseButton": "left",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "One Dark Vivid",
@@ -118,7 +116,6 @@
     "editor.inlineSuggest.showToolbar": "always",
     "editor.suggest.insertMode": "replace",
     "editor.suggest.preview": true,
-    "vscode-kubernetes.helm-path": "helm",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
     "zenMode.silentNotifications": false,
@@ -129,7 +126,7 @@
     "scm.diffDecorations": "gutter",
     "terminal.integrated.shellIntegration.suggestEnabled": true,
     "terminal.integrated.tabStopWidth": 4,
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 14,
     "editor.stickyTabStops": true,
     "editor.stickyScroll.maxLineCount": 3,
     "editor.guides.indentation": false,
@@ -144,7 +141,6 @@
     "scm.defaultViewMode": "tree",
     "outline.collapseItems": "alwaysCollapse",
     "explorer.autoReveal": "focusNoScroll",
-    "window.experimental.useSandbox": true,
     "workbench.list.scrollByPage": true,
     "workbench.layoutControl.type": "toggles",
     "workbench.hover.delay": 700,
@@ -196,14 +192,12 @@
     "workbench.settings.useSplitJSON": true,
     "editor.definitionLinkOpensInPeek": true,
     "editor.linkedEditing": true,
-    "terminal.integrated.tabFocusMode": false,
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.find.seedSearchStringFromSelection": "selection",
     "diffEditor.codeLens": true,
     "diffEditor.wordWrap": "on",
     "workbench.localHistory.maxFileSize": 1024,
-    "workbench.editor.untitled.hint": "hidden",
     "workbench.editor.wrapTabs": true,
     "debug.toolBarLocation": "docked",
     "gitlens.telemetry.enabled": false,
@@ -212,11 +206,10 @@
     "workbench.editor.titleScrollbarSizing": "large",
     "search.decorations.badges": false,
     "git.mergeEditor": true,
-    "interactiveSession.editor.wordWrap": "on",
     "workbench.editor.highlightModifiedTabs": true,
     "gitlens.menus": {
         "editor": {
-            "blame": false,
+            "blame": true,
             "clipboard": true,
             "compare": true,
             "history": false,
@@ -224,7 +217,7 @@
         },
         "editorGroup": {
             "blame": false,
-            "compare": false
+            "compare": true
         },
         "editorTab": {
             "clipboard": true,
@@ -274,6 +267,25 @@
     "workbench.editor.tabSizing": "shrink",
     "errorLens.messageBackgroundMode": "message",
     "problems.showCurrentInStatus": true,
+    "git.enableSmartCommit": true,
     "workbench.editor.enablePreview": false,
-    "git.enableSmartCommit": true
+    "excalidraw.theme": "auto",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false
+    },
+    "workbench.editor.empty.hint": "hidden",
+    // Could stops work in the future
+    "apc.listRow": {
+        "fontSize": 14
+    },
+    "apc.stylesheet": {
+        ".monaco-workbench.mac .debug-hover-widget .monaco-list-row .expression, .monaco-workbench.mac .debug-pane .monaco-list-row .expression": "font-size: 13px"
+    },
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+    },
+    "workbench.editor.tabActionLocation": "left"
 }

@@ -2400,11 +2400,11 @@
 	<key>PasteSpecialChunkSize</key>
 	<integer>1024</integer>
 	<key>PasteSpecialRegex</key>
-	<string>\\</string>
+	<string>[\s,"]+</string>
 	<key>PasteSpecialSubstitution</key>
-	<string></string>
+	<string> </string>
 	<key>PasteSpecialUseRegexSubstitution</key>
-	<false/>
+	<true/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -2449,7 +2449,7 @@
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>

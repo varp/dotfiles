@@ -40,9 +40,8 @@ parse_php_version() {
 
 parse_go_version() {
   # see: https://github.com/denysdovhan/spaceship-prompt/blob/master/sections/golang.zsh
-  [[ ($GOENV_VERSION && "$GOENV_VERSION" != "system") || ($gvm_go_name && "$gvm_go_name" != "system") || -f \
-  .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock || (\
-  $GOPATH && "$PWD/" =~ "$GOPATH/") ]] || return
+  [[ ($GOENV_VERSION && "$GOENV_VERSION" != "system") || ($gvm_go_name && "$gvm_go_name" != "system") || -f .go-version || -f go.mod || -d Godeps || -f glide.yaml || -f *.go || -f Gopkg.toml || -f Gopkg.lock || (
+    $GOPATH && "$PWD/" =~ "$GOPATH/") ]] || return
   go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }'
 }
 
@@ -72,41 +71,39 @@ parse_languages() {
 
 }
 
-
 goinside() {
-  
-  [[ -z "${GOINSIDE_USER}" ]] && \
-    docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}" || \
+  if [[ -z "${GOINSIDE_USER}" ]]; then
+    docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+  else
     docker-compose exec -u "${GOINSIDE_USER}" -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+  fi
 }
-
 
 ## PATH without duplicates
 #################################
 _dedup_path() {
-    PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
-    export PATH=${PATH//[$'\n']/:}
+  PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
+  export PATH=${PATH//[$'\n']/:}
 }
 
 _prepend_to_path() {
-    # [ "${PATH#*$1:}" == "$PATH" ] && {
-    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
-        export PATH="$1:$PATH"
-        _dedup_path
-    }
+  # [ "${PATH#*$1:}" == "$PATH" ] && {
+  [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
+    export PATH="$1:$PATH"
+    _dedup_path
+  }
 }
 
 _append_to_path() {
-    [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
-        export PATH="$PATH:$1"
-        _dedup_path
-    }
+  [[ -z "$(echo $PATH | tr ':' '\n' | grep -e "${1/#\~/$HOME}")" ]] && {
+    export PATH="$PATH:$1"
+    _dedup_path
+  }
 }
 
 _ppath() {
   echo $PATH | tr ':' '\n'
 }
-
 
 ## Shell reload
 
