@@ -32,7 +32,6 @@ cask "keka"
 cask "kekaexternalhelper"
 cask "alfred"
 cask "bartender"
-cask "mullvadvpn"
 cask "google-chrome"
 cask "istat-menus"
 cask "iterm2"
@@ -51,3 +50,6 @@ cask "raycast"
 cask "alt-tab"
 cask "notion"
 cask "obsidian"
+
+# fonts
+font-jetbrains-mono-nerd-font
