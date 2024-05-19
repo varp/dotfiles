@@ -248,7 +248,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
-			<false/>
+			<true/>
 			<key>Flashing Bell</key>
 			<true/>
 			<key>Foreground Color</key>
@@ -716,7 +716,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>JetBrainsMonoNFM-Regular 14</string>
+			<string>JetBrainsMonoNFM-Regular 15</string>
 			<key>Open Password Manager Automatically</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -998,7 +998,7 @@
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1010,7 +1010,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
-			<false/>
+			<true/>
 			<key>Flashing Bell</key>
 			<true/>
 			<key>Foreground Color</key>
@@ -1478,7 +1478,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>JetBrainsMonoNFM-Regular 14</string>
+			<string>JetBrainsMonoNFM-Regular 15</string>
 			<key>Open Password Manager Automatically</key>
 			<true/>
 			<key>Option Key Sends</key>

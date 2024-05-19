@@ -287,5 +287,6 @@
     "vs-kubernetes": {
         "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
     },
-    "workbench.editor.tabActionLocation": "left"
+    "workbench.editor.tabActionLocation": "left",
+    "editor.accessibilitySupport": "off"
 }
