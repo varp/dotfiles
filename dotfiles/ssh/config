@@ -1,5 +1,9 @@
 Include /Users/vardan.pogosyan/.colima/ssh_config
 
+  Host n2-hetzner
+    HostName n2-hetzner
+    User alfa-holod
+
 Host nalog@n2-hetzner
     HostName n2-hetzner
     IdentityFile ~/.ssh/id_rsa

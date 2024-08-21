@@ -29,6 +29,6 @@
 			"--external-sources",
 			"--shell=bash"
 		],
-		"shellcheck.useWorkspaceRootAsCwd": true
+		"shellcheck.useWorkspaceRootAsCwd": true,
 	}
 }

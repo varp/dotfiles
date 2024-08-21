@@ -288,5 +288,9 @@
     "workbench.editor.tabActionLocation": "left",
     "editor.accessibilitySupport": "off",
     "github.copilot.editor.enableAutoCompletions": true,
-    "yaml.maxItemsComputed": 10000
+    "yaml.maxItemsComputed": 10000,
+    "taskExplorer.pathToPrograms": {
+        "make": "make"
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
 }
