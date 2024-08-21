@@ -37,7 +37,7 @@
     "git.autofetch": true,
     "git.autoRepositoryDetection": "subFolders",
     "git.autoStash": true,
-    "git.confirmSync": true,
+    "git.confirmSync": false,
     "git.showPushSuccessNotification": true,
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true
@@ -133,16 +133,15 @@
     "editor.guides.bracketPairsHorizontal": true,
     "editor.renderLineHighlightOnlyWhenFocus": true,
     "search.seedWithNearestWord": true,
-    "editor.hover.delay": 1000,
+    "editor.hover.delay": 500,
     "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 20,
+    "workbench.tree.indent": 10,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.limit.value": 16,
     "scm.defaultViewMode": "tree",
     "outline.collapseItems": "alwaysCollapse",
     "explorer.autoReveal": "focusNoScroll",
     "workbench.list.scrollByPage": true,
-    "workbench.layoutControl.type": "toggles",
     "workbench.hover.delay": 700,
     "workbench.commandPalette.preserveInput": true,
     "workbench.commandPalette.experimental.suggestCommands": true,
@@ -190,7 +189,6 @@
         ]
     },
     "workbench.settings.useSplitJSON": true,
-    "editor.definitionLinkOpensInPeek": true,
     "editor.linkedEditing": true,
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -202,9 +200,9 @@
     "debug.toolBarLocation": "docked",
     "gitlens.telemetry.enabled": false,
     "gitlens.plusFeatures.enabled": false,
-    "gitHistory.showEditorTitleMenuBarIcons": false,
+    "gitHistory.showEditorTitleMenuBarIcons": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "search.decorations.badges": false,
+    "search.decorations.badges": true,
     "git.mergeEditor": true,
     "workbench.editor.highlightModifiedTabs": true,
     "gitlens.menus": {
@@ -288,5 +286,7 @@
         "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
     },
     "workbench.editor.tabActionLocation": "left",
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "yaml.maxItemsComputed": 10000
 }
