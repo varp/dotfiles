@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
     "cSpell.language": "en,ru",
-    "debug.inlineValues": "on",
     "debug.openExplorerOnEnd": true,
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.showSubSessionsInToolBar": true,
@@ -11,7 +10,6 @@
         "Ports",
         "CreatedTime"
     ],
-    "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
@@ -21,13 +19,11 @@
     "editor.fontWeight": "400",
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
-    "editor.parameterHints.enabled": true,
     "editor.rulers": [
         120
     ],
     "editor.smoothScrolling": true,
     "editor.suggest.localityBonus": true,
-    "editor.tabCompletion": "on",
     "editor.tabSize": 4,
     "editor.wordWrapColumn": 120,
     "explorer.openEditors.visible": 16,
@@ -37,7 +33,7 @@
     "git.autofetch": true,
     "git.autoRepositoryDetection": "subFolders",
     "git.autoStash": true,
-    "git.confirmSync": true,
+    "git.confirmSync": false,
     "git.showPushSuccessNotification": true,
     "gitlens.advanced.messages": {
         "suppressLineUncommittedWarning": true
@@ -104,53 +100,38 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.list.openMode": "singleClick",
-    "workbench.preferredDarkColorTheme": "One Dark Vivid",
-    "workbench.preferredLightColorTheme": "GitHub Light",
-    "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "GitHub Light",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.inlineSuggest.showToolbar": "always",
     "editor.suggest.insertMode": "replace",
     "editor.suggest.preview": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
     "zenMode.silentNotifications": false,
     "explorer.fileNesting.enabled": true,
-    "search.actionsPosition": "auto",
-    "debug.console.acceptSuggestionOnEnter": "on",
     "scm.countBadge": "focused",
-    "scm.diffDecorations": "gutter",
     "terminal.integrated.shellIntegration.suggestEnabled": true,
     "terminal.integrated.tabStopWidth": 4,
     "terminal.integrated.fontSize": 14,
     "editor.stickyTabStops": true,
-    "editor.stickyScroll.maxLineCount": 3,
     "editor.guides.indentation": false,
-    "editor.guides.bracketPairsHorizontal": true,
     "editor.renderLineHighlightOnlyWhenFocus": true,
     "search.seedWithNearestWord": true,
-    "editor.hover.delay": 1000,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 20,
+    "workbench.tree.indent": 10,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.limit.value": 16,
     "scm.defaultViewMode": "tree",
     "outline.collapseItems": "alwaysCollapse",
     "explorer.autoReveal": "focusNoScroll",
     "workbench.list.scrollByPage": true,
-    "workbench.layoutControl.type": "toggles",
-    "workbench.hover.delay": 700,
     "workbench.commandPalette.preserveInput": true,
     "workbench.commandPalette.experimental.suggestCommands": true,
     "workbench.editorLargeFileConfirmation": 250,
     "files.insertFinalNewline": true,
     "editor.find.globalFindClipboard": true,
     "editor.scrollbar.horizontal": "visible",
-    "editor.parameterHints.cycle": false,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -190,21 +171,16 @@
         ]
     },
     "workbench.settings.useSplitJSON": true,
-    "editor.definitionLinkOpensInPeek": true,
     "editor.linkedEditing": true,
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.find.seedSearchStringFromSelection": "selection",
     "diffEditor.codeLens": true,
-    "diffEditor.wordWrap": "on",
     "workbench.localHistory.maxFileSize": 1024,
     "workbench.editor.wrapTabs": true,
-    "debug.toolBarLocation": "docked",
     "gitlens.telemetry.enabled": false,
     "gitlens.plusFeatures.enabled": false,
-    "gitHistory.showEditorTitleMenuBarIcons": false,
+    "gitHistory.showEditorTitleMenuBarIcons": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "search.decorations.badges": false,
     "git.mergeEditor": true,
     "workbench.editor.highlightModifiedTabs": true,
     "gitlens.menus": {
@@ -264,7 +240,6 @@
     },
     "material-icon-theme.activeIconPack": "react_redux",
     "oneDarkPro.vivid": true,
-    "workbench.editor.tabSizing": "shrink",
     "errorLens.messageBackgroundMode": "message",
     "problems.showCurrentInStatus": true,
     "git.enableSmartCommit": true,
@@ -287,5 +262,18 @@
     "vs-kubernetes": {
         "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
     },
-    "workbench.editor.tabActionLocation": "left"
+    "workbench.editor.tabActionLocation": "left",
+    "editor.accessibilitySupport": "off",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "yaml.maxItemsComputed": 10000,
+    "taskExplorer.pathToPrograms": {
+        "make": "make"
+    },
+    "workbench.hover.delay": 1000,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.configureOnOpen": false,
 }

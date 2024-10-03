@@ -111,10 +111,10 @@ if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/completions:${FPATH}"
 fi
 
-ZSH_COMPLETION_DIR=$HOME/.zsh_completion.d
+ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
 [[ ! -d $ZSH_COMPLETION_DIR ]] && mkdir -p "$ZSH_COMPLETION_DIR"
-fpath=("$ZSH_COMPLETION_DIR" $fpath)
-export fpath
+FPATH="$ZSH_COMPLETION_DIR:${FPATH}"
+export FPATH
 
 source "$HOME/.zsh_completion"
 
