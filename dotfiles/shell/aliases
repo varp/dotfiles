@@ -20,13 +20,11 @@ alias lh='ls -lh'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([[ $? = 0 ]] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-
 # VirtualBox related stuff which is defined in ./functions
 alias mvbsf='mount_vbox_share'
 alias umvbsf='umount_vbox_share'
 
 alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`\".replace(\"password: \", \"\"); print(\"Plain password \t=>\t\", plain_pass, \"\nPassword MD5 \t=>\t\", hashlib.md5(plain_pass.encode()).hexdigest());"'
-
 
 # Aliases for apt
 alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
@@ -50,13 +48,9 @@ fi
 alias grepi='grep -i'
 #alias vim='vim -p'
 
-
 ## systemd
 alias ssctl='sudo systemctl'
 
-
 ## Docker related aliases
 alias dk='docker'
-alias dkc='docker-compose'
-alias dm='docker-machine'
-
+alias dkc='docker compose'
