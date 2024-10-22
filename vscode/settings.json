@@ -108,7 +108,7 @@
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "GitHub Light",
+    "workbench.colorTheme": "One Dark",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -288,5 +288,8 @@
     "workbench.editor.tabActionLocation": "left",
     "editor.accessibilitySupport": "off",
     "github.copilot.editor.enableAutoCompletions": true,
-    "yaml.maxItemsComputed": 10000
+    "yaml.maxItemsComputed": 10000,
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    }
 }

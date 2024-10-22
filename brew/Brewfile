@@ -3,8 +3,8 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
-tap "shivammathur/php"
-brew "tor", restart_service: true
+#tap "shivammathur/php"
+#brew "tor", restart_service: true
 brew "p7zip"
 brew "bash"
 brew "bash-completion@2"
@@ -18,9 +18,9 @@ brew "micro"
 brew "git"
 brew "git-lfs"
 brew "node"
-brew "composer"
-brew "php@7.4"
-brew "brew-php-switcher"
+#brew "composer"
+#brew "php@7.4"
+#brew "brew-php-switcher"
 brew "go"
 brew "minikube"
 brew "helm"
@@ -42,7 +42,7 @@ cask "whatsapp"
 cask "visual-studio-code"
 cask "dropbox"
 cask "karabiner-elements"
-cask "yandex-disk" # probably stale cask with invalid hash for installer
+#cask "yandex-disk" # probably stale cask with invalid hash for installer
 cask "1password"
 cask "1password/tap/1password-cli"
 cask "postman"
@@ -52,4 +52,4 @@ cask "notion"
 cask "obsidian"
 
 # fonts
-font-jetbrains-mono-nerd-font
+cask "font-jetbrains-mono-nerd-font"
