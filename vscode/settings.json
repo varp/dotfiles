@@ -1,27 +1,30 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "cSpell.language": "en,ru",
+    // 
+    // debug
+    //
     "debug.inlineValues": "on",
     "debug.openExplorerOnEnd": true,
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.showSubSessionsInToolBar": true,
-    "docker.containers.description": [
-        "ContainerName",
-        "Status",
-        "Ports",
-        "CreatedTime"
-    ],
+    "debug.console.acceptSuggestionOnEnter": "on",
+    "debug.toolBarLocation": "docked",
+    // 
+    // editor
+    //
     "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
     "editor.colorDecorators": false,
     "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
+    "editor.find.autoFindInSelection": "multiline",
     "editor.rulers": [
         120
     ],
@@ -31,122 +34,12 @@
     "editor.tabSize": 4,
     "editor.wordWrapColumn": 120,
     "explorer.openEditors.visible": 16,
-    "extensions.autoUpdate": "onlyEnabledExtensions",
-    "extensions.closeExtensionDetailsOnViewChange": true,
-    "files.autoSave": "onFocusChange",
-    "git.autofetch": true,
-    "git.autoRepositoryDetection": "subFolders",
-    "git.autoStash": true,
-    "git.confirmSync": false,
-    "git.showPushSuccessNotification": true,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
-    },
-    "gitlens.gitCommands.skipConfirmations": [
-        "fetch:command",
-        "stash-push:command",
-        "switch:command",
-        "tag-create:command"
-    ],
-    "gitlens.views.repositories.branches.layout": "list",
-    "gitlens.views.repositories.files.layout": "tree",
-    "go.toolsManagement.autoUpdate": true,
-    "redhat.telemetry.enabled": false,
-    "rest-client.fontSize": 12,
-    "scm.autoReveal": false,
-    "search.quickOpen.includeSymbols": true,
-    "search.useGlobalIgnoreFiles": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
-    "terminal.integrated.profiles.osx": {
-        "bash": {
-            "args": [
-                "-l"
-            ],
-            "icon": "terminal-bash",
-            "path": "bash"
-        },
-        "bash 5": {
-            "args": [
-                "-l"
-            ],
-            "path": "/usr/local/bin/bash"
-        },
-        "fish": {
-            "args": [
-                "-l"
-            ],
-            "path": "fish"
-        },
-        "pwsh": {
-            "icon": "terminal-powershell",
-            "path": "pwsh"
-        },
-        "tmux": {
-            "icon": "terminal-tmux",
-            "path": "tmux"
-        },
-        "zsh": {
-            "args": [
-                "-l"
-            ],
-            "path": "zsh"
-        }
-    },
-    "vsicons.dontShowNewVersionMessage": true,
-    "window.autoDetectColorScheme": true,
-    "window.newWindowDimensions": "offset",
-    "window.openFilesInNewWindow": "off",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.list.openMode": "singleClick",
-    "workbench.preferredDarkColorTheme": "One Dark Vivid",
-    "workbench.preferredLightColorTheme": "GitHub Light",
-    "workbench.sideBar.location": "left",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "One Dark",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.inlineSuggest.showToolbar": "always",
-    "editor.suggest.insertMode": "replace",
-    "editor.suggest.preview": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.cursorBlinking": true,
-    "zenMode.silentNotifications": false,
-    "explorer.fileNesting.enabled": true,
-    "search.actionsPosition": "auto",
-    "debug.console.acceptSuggestionOnEnter": "on",
-    "scm.countBadge": "focused",
-    "scm.diffDecorations": "gutter",
-    "terminal.integrated.shellIntegration.suggestEnabled": true,
-    "terminal.integrated.tabStopWidth": 4,
-    "terminal.integrated.fontSize": 14,
     "editor.stickyTabStops": true,
     "editor.stickyScroll.maxLineCount": 3,
     "editor.guides.indentation": false,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.renderLineHighlightOnlyWhenFocus": true,
-    "search.seedWithNearestWord": true,
     "editor.hover.delay": 500,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 10,
-    "workbench.editor.mouseBackForwardToNavigate": false,
-    "workbench.editor.limit.value": 16,
-    "scm.defaultViewMode": "tree",
-    "outline.collapseItems": "alwaysCollapse",
-    "explorer.autoReveal": "focusNoScroll",
-    "workbench.list.scrollByPage": true,
-    "workbench.hover.delay": 700,
-    "workbench.commandPalette.preserveInput": true,
-    "workbench.commandPalette.experimental.suggestCommands": true,
-    "workbench.editorLargeFileConfirmation": 250,
-    "files.insertFinalNewline": true,
     "editor.find.globalFindClipboard": true,
     "editor.scrollbar.horizontal": "visible",
     "editor.parameterHints.cycle": false,
@@ -188,24 +81,82 @@
             }
         ]
     },
-    "workbench.settings.useSplitJSON": true,
     "editor.linkedEditing": true,
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.find.seedSearchStringFromSelection": "selection",
-    "diffEditor.codeLens": true,
-    "diffEditor.wordWrap": "on",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.preview": true,
+    "editor.accessibilitySupport": "off",
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    //
+    // workbench
+    //
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.revealIfOpen": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.list.openMode": "singleClick",
+    "workbench.preferredDarkColorTheme": "One Dark Vivid",
+    "workbench.preferredLightColorTheme": "Default Light+",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "One Dark",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 10,
+    "workbench.editor.mouseBackForwardToNavigate": false,
+    "workbench.editor.limit.value": 16,
+    "workbench.list.scrollByPage": true,
+    "workbench.hover.delay": 700,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.commandPalette.experimental.suggestCommands": true,
+    "workbench.editorLargeFileConfirmation": 250,
+    "workbench.settings.useSplitJSON": true,
     "workbench.localHistory.maxFileSize": 1024,
     "workbench.editor.wrapTabs": true,
-    "debug.toolBarLocation": "docked",
-    "gitlens.telemetry.enabled": false,
-    "gitlens.plusFeatures.enabled": false,
-    "gitHistory.showEditorTitleMenuBarIcons": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "search.decorations.badges": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.tabActionLocation": "left",
+    "workbench.activityBar.location": "top",
+    "workbench.list.defaultFindMode": "filter",
+    "workbench.editor.enablePreview": false,
+    //
+    // files
+    //
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    //
+    // git
+    //
+    "git.autofetch": true,
+    "git.autoRepositoryDetection": "subFolders",
+    "git.autoStash": true,
+    "git.confirmSync": false,
+    "git.showPushSuccessNotification": true,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "tag-create:command"
+    ],
+    "gitlens.views.repositories.branches.layout": "list",
+    "gitlens.views.repositories.files.layout": "tree",
+    "gitlens.telemetry.enabled": false,
+    "gitHistory.showEditorTitleMenuBarIcons": true,
+    "gitlens.plusFeatures.enabled": false,
     "git.mergeEditor": true,
-    "workbench.editor.highlightModifiedTabs": true,
     "gitlens.menus": {
+        "workbench.editor.highlightModifiedTabs": true,
         "editor": {
             "blame": true,
             "clipboard": true,
@@ -260,13 +211,88 @@
             "stash": true
         }
     },
-    "material-icon-theme.activeIconPack": "react_redux",
-    "oneDarkPro.vivid": true,
-    "workbench.editor.tabSizing": "shrink",
+    "git.enableSmartCommit": true,
+    "diffEditor.codeLens": true,
+    "diffEditor.wordWrap": "on",
+    "scm.countBadge": "focused",
+    "scm.diffDecorations": "gutter",
+    "scm.defaultViewMode": "tree",
+    //
+    // terminal
+    //
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash",
+            "path": "bash"
+        },
+        "bash 5": {
+            "args": [
+                "-l"
+            ],
+            "path": "/usr/local/bin/bash"
+        },
+        "fish": {
+            "args": [
+                "-l"
+            ],
+            "path": "fish"
+        },
+        "pwsh": {
+            "icon": "terminal-powershell",
+            "path": "pwsh"
+        },
+        "tmux": {
+            "icon": "terminal-tmux",
+            "path": "tmux"
+        },
+        "zsh": {
+            "args": [
+                "-l"
+            ],
+            "path": "zsh"
+        }
+    },
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.tabStopWidth": 4,
+    "terminal.integrated.fontSize": 14,
+    //
+    // window
+    //
+    "window.autoDetectColorScheme": true,
+    "window.newWindowDimensions": "offset",
+    "window.openFilesInNewWindow": "off",
+    //
+    // search
+    //
+    "search.actionsPosition": "auto",
+    "search.seedWithNearestWord": true,
+    "search.decorations.badges": true,
+    "search.quickOpen.includeSymbols": true,
+    "search.useGlobalIgnoreFiles": true,
+    // 
+    // explorer
+    //
+    "explorer.fileNesting.enabled": true,
+    "explorer.autoReveal": "focusNoScroll",
+    "outline.collapseItems": "alwaysCollapse",
+    "vsicons.dontShowNewVersionMessage": true,
+    "zenMode.silentNotifications": false,
     "errorLens.messageBackgroundMode": "message",
     "problems.showCurrentInStatus": true,
-    "git.enableSmartCommit": true,
-    "workbench.editor.enablePreview": false,
+    //
+    // extensions
+    //
+    "cSpell.language": "en,ru",
+    "material-icon-theme.activeIconPack": "react_redux",
+    "oneDarkPro.vivid": true,
+    "extensions.closeExtensionDetailsOnViewChange": true,
     "excalidraw.theme": "auto",
     "github.copilot.enable": {
         "*": true,
@@ -274,7 +300,6 @@
         "markdown": true,
         "scminput": false
     },
-    "workbench.editor.empty.hint": "hidden",
     // Could stops work in the future
     "apc.listRow": {
         "fontSize": 14
@@ -285,11 +310,20 @@
     "vs-kubernetes": {
         "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
     },
-    "workbench.editor.tabActionLocation": "left",
-    "editor.accessibilitySupport": "off",
     "github.copilot.editor.enableAutoCompletions": true,
     "yaml.maxItemsComputed": 10000,
     "[shellscript]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
-    }
+    },
+    "code-runner.fileDirectoryAsCwd": true,
+    "docker.containers.description": [
+        "ContainerName",
+        "Status",
+        "Ports",
+        "CreatedTime"
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "redhat.telemetry.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.telemetryLevel": "off"
 }
