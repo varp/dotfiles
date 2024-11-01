@@ -1,4 +1,4 @@
-// Place your key bindings in this file to override the defaultsauto[]
+// Place your key bindings in this file to override the defaults
 [
   {
     "key": "ctrl+up",
@@ -33,7 +33,7 @@
   },
   {
     "key": "cmd+escape",
-    "command": "workbench.action.showCommands"
+    "command": "workbench.action.quickOpen"
   },
   {
     "key": "shift+cmd+a",
@@ -300,5 +300,5 @@
     "key": "alt+cmd+r",
     "command": "-workbench.action.debug.continue",
     "when": "inDebugMode"
-  },
+  }
 ]

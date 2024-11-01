@@ -108,7 +108,12 @@ _ppath() {
 ## Shell reload
 
 _reload() {
-  exec -l $SHELL
+  shell_name="$(basename "$SHELL")"
+  if [ "$shell_name" = "zsh" ]; then
+    source "$HOME/.zshrc"
+  else
+    source "$HOME/.bashrc"
+  fi
 }
 
 ## shell reload

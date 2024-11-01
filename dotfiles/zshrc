@@ -11,7 +11,10 @@ source "$HOME/.shell/xvm"
 ##
 export ZSH="$HOME/.oh-my-zsh"
 export KEEP_ZSHRC="yes"
-[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "export KEEP_ZSHRC=$KEEP_ZSHRC; curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "$(
+  export KEEP_ZSHRC=$KEEP_ZSHRC
+  curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -126,6 +129,9 @@ autoload -Uz bashcompinit && bashcompinit
 ##
 [[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
+
+### custom config which should not be synced with git
+[[ -f "$HOME/.zshrc_profile" ]] && source "$HOME/.zshrc_profile"
 
 ##
 ## PATH without duplicates

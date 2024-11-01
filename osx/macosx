@@ -31,7 +31,7 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock minimize-to-application -bool false
 
 # Enable spring loading for all Dock items
 # defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -44,6 +44,12 @@ defaults write com.apple.dock mru-spaces -bool false
 
 # Automatically hide and show the Dock
 # defaults write com.apple.dock autohide -bool true
+
+# Show suggest and recent apps in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Set display position to right
+defaults write com.apple.dock orientation -string "right"
 
 # Remove the auto-hiding Dock delay
 # defaults write com.apple.dock autohide-delay -float 0.1

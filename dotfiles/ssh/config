@@ -1,26 +1,4 @@
-Include /Users/vardan.pogosyan/.colima/ssh_config
-
-  Host n2-hetzner
-    HostName n2-hetzner
-    User alfa-holod
-
-Host nalog@n2-hetzner
-    HostName n2-hetzner
-    IdentityFile ~/.ssh/id_rsa
-    User nalog
-
-Host tg-check@n2-hetzner
-    HostName n2-hetzner
-    IdentityFile ~/.ssh/id_rsa
-    User tg-check
-
-Host alfacheck@n2-hetzner
-    HostName n2-hetzner
-    User alfacheck
-
-Host eocheck@n2-hetzner
-    HostName n2-hetzner
-    User eocheck
+Include ~/.colima/ssh_config
 
 Host *
     HostName %h
