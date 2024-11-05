@@ -7,14 +7,12 @@ source "$HOME/.shell/aliases"
 source "$HOME/.shell/xvm"
 
 ##
-## OhMyZsh
+## zinit
 ##
-export ZSH="$HOME/.oh-my-zsh"
-export KEEP_ZSHRC="yes"
-[[ -d "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] || sh -c "$(
-  export KEEP_ZSHRC=$KEEP_ZSHRC
-  curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-)"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,33 +69,29 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ZSH_DISABLE_COMPFIX=true
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  pyenv
-  dotenv
-  sudo
-  golang
-  common-aliases
-  dash
-  pyenv
-  nvm
-  colored-man-pages
-  systemd
-  themes
-  composer
-  perms
-  docker
-  docker-compose
-  kubectl
-  # globalias
-)
+# Plugins
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
-source "$ZSH/oh-my-zsh.sh"
+zinit snippet OMZP::git
+zinit snippet OMZP::pyenv
+zinit snippet OMZP::dotenv
+zinit snippet OMZP::sudo
+zinit snippet OMZP::golang
+zinit snippet OMZP::common-aliases
+zinit snippet OMZP::dash
+zinit snippet OMZP::pyenv
+zinit snippet OMZP::nvm
+zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::systemd
+zinit snippet OMZP::themes
+zinit snippet OMZP::perms
+zinit snippet OMZP::docker-compose
+zinit snippet OMZP::kubectl
+
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
 
 ##
 ## correct only spelling of commands
@@ -115,23 +109,23 @@ if type brew &>/dev/null; then
 fi
 
 ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
-[[ ! -d $ZSH_COMPLETION_DIR ]] && mkdir -p "$ZSH_COMPLETION_DIR"
+[ ! -d $ZSH_COMPLETION_DIR ] && mkdir -p "$ZSH_COMPLETION_DIR"
 FPATH="$ZSH_COMPLETION_DIR:${FPATH}"
 export FPATH
 
-source "$HOME/.zsh_completion"
-
-autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+[ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
 
 ##
 ## starship
 ##
-[[ -f "/usr/local/bin/starship" ]] || curl -sS https://starship.rs/install.sh | sh
+[ -f "/usr/local/bin/starship" ] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
 
 ### custom config which should not be synced with git
-[[ -f "$HOME/.zshrc_profile" ]] && source "$HOME/.zshrc_profile"
+[ -f "$HOME/.zshrc_profile" ] && source "$HOME/.zshrc_profile"
 
 ##
 ## PATH without duplicates
