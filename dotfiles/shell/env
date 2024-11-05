@@ -1,24 +1,19 @@
 # vim: filetype=sh
 # Default editor
-export EDITOR=vim
-
+export EDITOR=nvim
 
 export _SHELL_NAME=$(basename $SHELL)
 export _OS_NAME=$(uname -s)
 
-
 ## Ubuntu packaging
 export DEBFULLNAME="Vardan Pogosian"
 export DEBEMAIL="vardan.pogosyan@gmail.com"
-
 
 # create tmux seession or connect to existing one when is connected by SSH
 # [[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
 
 ## Bash completions for aliases
 export IBUS_ENABLE_SYNC_MODE=1
-
-
 
 ## CDPATH
 export CDPATH="$HOME:$HOME/code"
@@ -30,40 +25,31 @@ export LC_COLLATE=ru_RU.UTF-8
 export LC_TIME=ru_RU.UTF-8
 export LC_MONETARY=ru_RU.UTF-8
 
-
 export PROMPT_DIRTRIM=1
-
-
 
 ## SUDO
 export SUDO_PROMPT="[sudo] %p > "
-
-
 
 ## Reset PATH
 _OLDPATH="$PATH"
 export PATH="$(command -p getconf PATH)"
 
 if [[ $(whoami) == "root" ]]; then
-    _prepend_to_path "/sbin"
-    _prepend_to_path "/usr/sbin"
+    export PATH="/sbin:$PATH"
+    export PATH="/usr/sbin:$PATH"
 fi
 
 if [[ "$_OS_NAME" == "Linux" ]] && [[ -d /snap/bin ]]; then
-    _prepend_to_path "/snap/bin"
+    export PATH="/snap/bin:$PATH"
 fi
 
-_prepend_to_path "/usr/local/bin"
-_prepend_to_path "/usr/local/sbin"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
-if [[ "$_OS_NAME" == "Darwin" ]] then
+if [[ "$_OS_NAME" == "Darwin" ]]; then
     [[ -f /usr/local/bin/brew ]] && eval "$(/usr/local/bin/brew shellenv)"
     [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 ## add home bin folder
-_prepend_to_path "$HOME/bin"
-
-#### PATH without duplicates
-_dedup_path
-#################################
+export PATH="$HOME/bin:$PATH"
