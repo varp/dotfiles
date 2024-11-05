@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AiMaxTokens</key>
-	<integer>128000</integer>
-	<key>AiModel</key>
-	<string>gpt-4o</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>BracketedPasteMode</key>
@@ -14,10 +10,18 @@
 	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>452B50B6-88DB-4A21-862B-151E319F2089</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
+	<key>DimOnlyText</key>
+	<false/>
+	<key>EnableProxyIcon</key>
+	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideTab</key>
+	<true/>
 	<key>Hotkey</key>
 	<false/>
 	<key>HotkeyChar</key>
@@ -720,7 +724,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>JetBrainsMonoNLNFM-Regular 15</string>
+			<string>JetBrainsMonoNFM-Regular 15</string>
 			<key>Open Password Manager Automatically</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -773,10 +777,6 @@
 			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
-			<key>Unicode Normalization</key>
-			<integer>0</integer>
-			<key>Unicode Version</key>
-			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1486,7 +1486,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>JetBrainsMonoNLNF-Regular 15</string>
+			<string>JetBrainsMonoNFM-Regular 15</string>
 			<key>Open Password Manager Automatically</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -2448,6 +2448,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
+	<true/>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2462,6 +2464,12 @@
 	<true/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>StatusBarPosition</key>
+	<integer>0</integer>
+	<key>StretchTabsToFillBar</key>
+	<true/>
+	<key>TabStyleWithAutomaticOption</key>
+	<integer>6</integer>
 	<key>TabTransform</key>
 	<integer>0</integer>
 	<key>URLHandlersByGuid</key>
@@ -2469,6 +2477,8 @@
 		<key>ssh</key>
 		<string>CF3545AD-DA2C-4933-8241-2EC09851E1CB</string>
 	</dict>
+	<key>UseBorder</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
