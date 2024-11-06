@@ -104,7 +104,7 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-frappe",
+    "workbench.iconTheme": "catppuccin-latte",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",

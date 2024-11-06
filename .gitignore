@@ -4,3 +4,5 @@
 .python-version
 bin/task
 Brewfile.lock.json
+
+/tools/time_ms/time_ms
