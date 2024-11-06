@@ -104,39 +104,37 @@ unsetopt correct_all # do not correct spelling of all arguments
 setopt correct
 
 ##
-## completions
-##
-if [ -n "$HOMEBREW_PREFIX" ]; then
-  FPATH="$HOMEBREW_PREFIX/share/zsh-completions:${FPATH}"
-  FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
-  FPATH="$HOMEBREW_PREFIX/completions:${FPATH}"
-fi
-
-ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
-[ ! -d $ZSH_COMPLETION_DIR ] && mkdir -p "$ZSH_COMPLETION_DIR"
-FPATH="$ZSH_COMPLETION_DIR:${FPATH}"
-export FPATH
-
-# autoload -Uz bashcompinit && bashcompinit
-# autoload -Uz compinit && compinit
-# zinit wait lucid for \
-#   atinit"zicompinit; zicdreplay" nocd "$HOME/.zsh_completion"
-
-# [ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
-
-##
 ## starship
 ##
 [ -f "/usr/local/bin/starship" ] || curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
 
 ### custom config which should not be synced with git
-[ -f "$HOME/.zshrc_profile" ] && source "$HOME/.zshrc_profile"
+[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
+
+##
+## custom completions
+##
+
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
+  fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+  fpath=("$HOMEBREW_PREFIX/completions" $fpath)
+fi
+
+ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
+[ ! -d $ZSH_COMPLETION_DIR ] && mkdir -p "$ZSH_COMPLETION_DIR"
+fpath=("$ZSH_COMPLETION_DIR" $fpath)
+
+## TODO: there is an issue https://github.com/zdharma-continuum/zinit/issues/654
+# [ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
+# autoload -Uz compinit && compinit -u
+
+# zinit cdreplay -q
 
 ##
 ## PATH without duplicates
 ##
 _dedup_path
-#################################
 
 time_ms
