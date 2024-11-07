@@ -107,12 +107,6 @@ if [[ "$_OS_NAME" == "Darwin" ]]; then
     [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] &&
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] &&
-    eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 #### PATH without duplicates
 _dedup_path
 #################################
