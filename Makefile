@@ -121,7 +121,7 @@ tool-powerline-go: dev-go bin-folder
 
 #: Install oh-my-posh (see: https://ohmyposh.dev/) #tools
 tool-oh-my-posh: bin-folder
-	curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+	curl -s https://ohmyposh.dev/install.sh | bash -s -- -d $HOME/bin
 
 #: Install bat (see: https://github.com/sharkdp/bat) #tools
 tool-bat: tool-brew
@@ -238,7 +238,7 @@ endif
 dotfiles: @dotfiles-group
 
 #: Installs micro and VimVundle
-editors: editor-micro editor-micro-plugins editor-neovim
+editors: editor-micro editor-micro-plugins
 
 #: Installs powerline-go. On MacOS: Homebrew #group
 tools: @tools-group
