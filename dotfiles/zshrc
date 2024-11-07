@@ -117,9 +117,9 @@ eval "$(starship init zsh)"
 ##
 
 if [ -n "$HOMEBREW_PREFIX" ]; then
-  fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
-  fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
-  fpath=("$HOMEBREW_PREFIX/completions" $fpath)
+    fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
+    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+    fpath=("$HOMEBREW_PREFIX/completions" $fpath)
 fi
 
 ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
@@ -128,9 +128,9 @@ fpath=("$ZSH_COMPLETION_DIR" $fpath)
 
 ## TODO: there is an issue https://github.com/zdharma-continuum/zinit/issues/654
 # [ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
-# autoload -Uz compinit && compinit -u
 
-# zinit cdreplay -q
+autoload -Uz compinit && compinit -u
+zinit cdreplay -q
 
 ##
 ## PATH without duplicates
