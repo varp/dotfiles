@@ -24,8 +24,8 @@ FORCE_INSTALL?=false
 $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
-editor-vim-vundle editor-micro editor-micro-plugins editor-neovim \
-tool-brew tool-powerline-go tool-bat \
+editor-micro editor-micro-plugins editor-neovim \
+tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
 all \
@@ -67,16 +67,9 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
 		ln -vsf "$$src" "$$dst"; \
 	done
-	
-#: Install VimVundle package mamanger (see: https://github.com/VundleVim/Vundle.vim) #editors
-editor-vim-vundle: 
-	-@[ -L $(VIM_VUNDLE_DIR) ] && unlink $(VIM_VUNDLE_DIR)
-	-@[ -d $(VIM_VUNDLE_DIR) ] && rm -rf $(VIM_VUNDLE_DIR)
-	-@mkdir -p $(VIM_VUNDLE_DIR)
-	git clone $(VIM_VUNDLE_REPO) $(VIM_VUNDLE_DIR)/Vundle.vim
 
 #: Install Neovim (see: https://github.com/neovim/neovim) #editors
-editor-neovim:
+editor-neovim: tool-brew
 	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v nvim >/dev/null; then \
 		if [[ "$$(uname -s)" == "Darwin" ]]; then \
 			brew install neovim; \
@@ -89,7 +82,7 @@ editor-neovim:
 	fi
 
 #: Install micro (see: https://micro-editor.github.io/) #editors
-editor-micro:
+editor-micro: tool-brew
 	@if ! command -v micro >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install micro; \
@@ -110,6 +103,14 @@ editor-micro-plugins: editor-micro
 		echo -e "$(@):\n micro editor is not installed"; \
 	fi
 
+#: Install Homebrew (see: https://brew.sh) #tools
+tool-brew:
+	@if [[ "$$(uname -s)" == "Darwin" ]]; then \
+		if [[ "$(FORCE_INSTALL)" != "false" ]] || ! brew --version >/dev/null; then \
+			/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+		fi \
+	fi
+
 #: Install powerline-go (see: https://github.com/justjanne/powerline-go) #tools
 tool-powerline-go: dev-go bin-folder
 	@platAsset="powerline-go-$$(go env GOOS)-$$(go env GOARCH)"; \
@@ -117,17 +118,14 @@ tool-powerline-go: dev-go bin-folder
 	curl -L $$url -o $(DST_BIN_DIR)/powerline-go; \
 	chmod a+x $(DST_BIN_DIR)/powerline-go
 
-#: Install Homebrew (see: https://brew.sh) #tools
-tool-brew:
-	@if [[ "$$(uname -s)" == "Darwin" ]]; then \
-		if ! brew --version >/dev/null; then \
-			/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
-		fi \
-	fi
+
+#: Install oh-my-posh (see: https://ohmyposh.dev/) #tools
+tool-oh-my-posh: bin-folder
+	curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 
 #: Install bat (see: https://github.com/sharkdp/bat) #tools
-tool-bat: brew
-	@if ! command -v bat >/dev/null; then \
+tool-bat: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v bat >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install bat; \
 		else \
@@ -137,8 +135,46 @@ tool-bat: brew
 		echo -e "$(@):\n $$(bat --version)"; \
 	fi	
 
+#: Install zoxide (see: https://github.com/ajeetdsouza/zoxide) #tools
+tool-zoxide: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v zoxide >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install zoxide; \
+		else \
+			sudo apt install -y zoxide; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(zoxide --version)"; \
+	fi	
+
+
+#: Install fzf (see: https://github.com/junegunn/fzf) #tools
+tool-fzf: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v fzf >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install fzf; \
+		else \
+			sudo apt install -y fzf; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(fzf --version)"; \
+	fi	
+
+#: Install ripgrep (see: https://github.com/BurntSushi/ripgrep) #tools
+tool-ripgrep: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v ripgrep >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install ripgrep; \
+		else \
+			sudo apt install -y ripgrep; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(rg --version)"; \
+	fi	
+
+
 #: Install NodeJs (see: https://nodejs.org) #dev
-dev-node: brew
+dev-node: tool-brew
 	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v node >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install node; \
@@ -159,7 +195,7 @@ dev-node-nvm:
 	fi	
 
 #: Install Go (see: https://go.dev) #dev
-dev-go: brew
+dev-go: tool-brew
 	@if ! command -v go >/dev/null; then \
 		if [ "$$(uname -s)" = "Darwin" ]; then \
 			brew install go; \
@@ -171,7 +207,7 @@ dev-go: brew
 	fi
 
 #: Install PHP (see: https://php.net) #dev
-dev-php: brew
+dev-php: tool-brew
 	@if ! command -v php >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install php; \
@@ -188,7 +224,7 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go tool-bat
+@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode
@@ -202,7 +238,7 @@ endif
 dotfiles: @dotfiles-group
 
 #: Installs micro and VimVundle
-editors: editor-micro editor-micro-plugins editor-vim-vundle
+editors: editor-micro editor-micro-plugins editor-neovim
 
 #: Installs powerline-go. On MacOS: Homebrew #group
 tools: @tools-group
