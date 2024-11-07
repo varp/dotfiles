@@ -74,8 +74,7 @@ editor-neovim: tool-brew
 		if [[ "$$(uname -s)" == "Darwin" ]]; then \
 			brew install neovim; \
 		else \
-			curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim-linux64.deb && \
-			apt install -y /tmp/nvim-linux64.deb && apt install -fy; \
+			sudo snap install --beta nvim --classic; \
 		fi \
 	else \
 		echo -e "$(@):\n $$(nvim --version)"; \
@@ -121,7 +120,7 @@ tool-powerline-go: dev-go bin-folder
 
 #: Install oh-my-posh (see: https://ohmyposh.dev/) #tools
 tool-oh-my-posh: bin-folder
-	curl -s https://ohmyposh.dev/install.sh | bash -s -- -d $HOME/bin
+	curl -s https://ohmyposh.dev/install.sh | bash -s -- -d $(DST_BIN_DIR)
 
 #: Install bat (see: https://github.com/sharkdp/bat) #tools
 tool-bat: tool-brew
@@ -238,7 +237,7 @@ endif
 dotfiles: @dotfiles-group
 
 #: Installs micro and VimVundle
-editors: editor-micro editor-micro-plugins
+editors: editor-micro editor-micro-plugins editor-neovim
 
 #: Installs powerline-go. On MacOS: Homebrew #group
 tools: @tools-group
