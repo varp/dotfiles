@@ -17,10 +17,10 @@
         "source.organizeImports": "explicit"
     },
     "editor.colorDecorators": false,
-    "editor.fontFamily": "JetBrains Mono",
     "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
@@ -104,7 +104,7 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-frappe",
+    "workbench.iconTheme": "catppuccin-latte",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",
