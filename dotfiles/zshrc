@@ -108,11 +108,11 @@ setopt correct
 ## prompt
 ##
 
-[ -f "/usr/local/bin/starship" ] || curl -sS https://starship.rs/install.sh | sh
-eval "$(starship init zsh)"
+# [ -f "/usr/local/bin/starship" ] || curl -sS https://starship.rs/install.sh | sh
+# eval "$(starship init zsh)"
 
-# [ -f "$HOME/bin/oh-my-posh" ] || curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
-# eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh.json)"
+[ -f "$HOME/bin/oh-my-posh" ] || curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh.json)"
 
 ### custom config which should not be synced with git
 [ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
