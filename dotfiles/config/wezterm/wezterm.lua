@@ -116,10 +116,12 @@ config.keys = {
     -- scroll
     {
         key = 'PageDown',
+        mods = 'SHIFT',
         action = action.ScrollByPage(1)
     },
     {
         key = 'PageUp',
+        mods = 'SHIFT',
         action = action.ScrollByPage(-1)
     },
     {
@@ -134,10 +136,12 @@ config.keys = {
     },
     {
         key = 'Home',
+        mods = 'SHIFT',
         action = action.ScrollToTop
     },
     {
         key = 'End',
+        mods = 'SHIFT',
         action = action.ScrollToBottom
     },
     -- links
