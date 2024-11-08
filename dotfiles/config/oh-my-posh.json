@@ -10,7 +10,7 @@
           "style": "plain",
           "foreground": "#f3ef15",
           "background": "transparent",
-          "template": "{{ if ne .Code 0 }}{{ .Code }} ⛔️{{ end }} ",
+          "template": "{{ if ne .Code 0 }}$? {{ .Code }}{{ end }} ",
           "properties": {
             "always_enabled": false
           }
@@ -40,7 +40,7 @@
         {
           "foreground": "#ff94df",
           "properties": {
-            "branch_icon": " <#ff94df><b>\ue0a0 </b></>",
+            "branch_icon": "<#ff94df>\ue0a0 </>",
             "fetch_stash_count": true,
             "fetch_status": true
           },
