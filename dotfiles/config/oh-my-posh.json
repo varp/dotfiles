@@ -10,7 +10,7 @@
           "style": "plain",
           "foreground": "#f3ef15",
           "background": "transparent",
-          "template": " {{ if ne .Code 0 }}{{ .Code }} ⛔️{{ end }} ",
+          "template": "{{ if ne .Code 0 }}{{ .Code }} ⛔️{{ end }} ",
           "properties": {
             "always_enabled": false
           }
@@ -19,14 +19,14 @@
           "type": "kubectl",
           "style": "plain",
           "foreground": "#ebcc34",
-          "template": "\udb84\udcfe {{.Context}}{{ if .Namespace}}:: {{ .Namespace }}{{ end }}"
+          "template": "\udb84\udcfe {{.Context}}{{ if .Namespace}}:: {{ .Namespace }}{{ end }} "
         },
         {
           "type": "docker",
           "style": "plain",
           "foreground": "#5a1fd9",
           "background": "transparent",
-          "template": " \uf21f {{ .Context }} "
+          "template": "\uf21f {{ .Context }} "
         },
         {
           "foreground": "cyan",
@@ -52,14 +52,13 @@
           "type": "executiontime",
           "style": "plain",
           "foreground": "#ffffff",
-          "template": " <#fefefe>\uf253</> {{ .FormattedMs }} ",
+          "template": "<#fefefe>\uf253</> {{ .FormattedMs }} ",
           "properties": {
             "threshold": 500,
             "style": "roundrock",
             "always_enabled": false
           }
         }
-
       ],
       "type": "prompt"
     },
@@ -72,7 +71,7 @@
           "foreground": "#c11e1e",
           "powerline_symbol": "\ue0b0",
           "style": "plain",
-          "template": " {{ if not .Error }}{{ if le .Percentage 10 }}{{ .Icon }}{{ .Percentage }}\uf295 \udb80\udc84{{ end }}{{ end }}{{ .Error }} ",
+          "template": "{{ if not .Error }}{{ if le .Percentage 10 }}{{ .Icon }}{{ .Percentage }}\uf295 \udb80\udc84{{ end }}{{ end }}{{ .Error }} ",
           "type": "battery"
         },
         {
