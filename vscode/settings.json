@@ -16,7 +16,6 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
-    "editor.colorDecorators": false,
     "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
@@ -326,7 +325,7 @@
     ],
     "go.toolsManagement.autoUpdate": true,
     "gopls": {
-        "ui.semanticTokens": true,
+        "ui.semanticTokens": true
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",

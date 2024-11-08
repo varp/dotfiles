@@ -1,0 +1,160 @@
+-- Pull in the wezterm API
+local wezterm = require 'wezterm'
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+local action = wezterm.action
+
+-- For example, changing the color scheme:
+config.color_scheme = 'Catppuccin Frappe'
+config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
+config.font_size = 18
+
+config.hide_tab_bar_if_only_one_tab = true
+
+config.keys = {
+    --
+    -- panes
+    --
+    {
+        key = 'd',
+        mods = 'CMD',
+        action = action.SplitHorizontal
+    },
+    {
+        key = 'd',
+        mods = 'CMD|SHIFT',
+        action = action.SplitVertical
+    },
+    {
+        key = 'w',
+        mods = 'CTRL',
+        action = action.CloseCurrentPane { confirm = false }
+    },
+    -- swtiching
+    {
+        key = 'LeftArrow',
+        mods = 'CTRL',
+        action = action.ActivatePaneDirection 'Left'
+    },
+    {
+        key = 'RightArrow',
+        mods = 'CTRL',
+        action = action.ActivatePaneDirection 'Right'
+    },
+    {
+        key = 'UpArrow',
+        mods = 'CTRL',
+        action = action.ActivatePaneDirection 'Up'
+    },
+    {
+        key = 'DownArrow',
+        mods = 'CTRL',
+        action = action.ActivatePaneDirection 'Down'
+    },
+    -- sizing
+    {
+        key = 'LeftArrow',
+        mods = 'CTRL|SHIFT',
+        action = action.AdjustPaneSize { 'Left', 5 }
+    },
+    {
+        key = 'RightArrow',
+        mods = 'CTRL|SHIFT',
+        action = action.AdjustPaneSize { 'Right', 5 }
+    },
+    {
+        key = 'UpArrow',
+        mods = 'CTRL|SHIFT',
+        action = action.AdjustPaneSize { 'Up', 5 }
+    },
+    {
+        key = 'DownArrow',
+        mods = 'CTRL|SHIFT',
+        action = action.AdjustPaneSize { 'Down', 5 }
+    },
+    --
+    -- spawn
+    --
+    {
+        key = 'd',
+        mods = 'CTRL|ALT',
+        action = action.SpawnTab 'CurrentPaneDomain'
+    },
+    --
+    -- loauncher/command pallete
+    --
+    {
+        key = 'p',
+        mods = 'CMD',
+        action = action.ActivateCommandPalette
+    },
+    {
+        key = 'p',
+        mods = 'CMD|SHIFT',
+        action = action.ShowLauncherArgs {
+            flags = 'FUZZY|TABS|LAUNCH_MENU_ITEMS|DOMAINS|KEY_ASSIGNMENTS|WORKSPACES|COMMANDS'
+        }
+    },
+
+    --
+    -- tabs
+    --
+    {
+        key = 'LeftArrow',
+        mods = 'CMD|ALT',
+        action = action.MoveTabRelative(-1)
+    },
+
+    {
+        key = 'RightArrow',
+        mods = 'CMD|ALT',
+        action = action.MoveTabRelative(1)
+    },
+
+
+    -- scroll
+    {
+        key = 'PageDown',
+        action = action.ScrollByPage(1)
+    },
+    {
+        key = 'PageUp',
+        action = action.ScrollByPage(-1)
+    },
+    {
+        key = 'PageDown',
+        mods = 'ALT',
+        action = action.ScrollByLine(1)
+    },
+    {
+        key = 'PageUp',
+        mods = 'ALT',
+        action = action.ScrollByLine(-1)
+    },
+    {
+        key = 'Home',
+        action = action.ScrollToTop
+    },
+    {
+        key = 'End',
+        action = action.ScrollToBottom
+    },
+    -- links
+
+
+
+}
+
+config.mouse_bindings = {
+    -- Ctrl-click will open the link under the mouse cursor
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'CMD',
+        action = action.OpenLinkAtMouseCursor,
+    },
+}
+
+
+-- and finally, return the configuration to wezterm
+return config
