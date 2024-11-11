@@ -1,13 +1,5 @@
 time_ms
 ##
-## zinit
-##
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
-
-##
 ## POSIX complaint shell utitly functions and envs
 ##
 source "$HOME/.shell/functions"
@@ -128,6 +120,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 if [ -n "$HOMEBREW_PREFIX" ]; then
+    fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
+    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+    fpath=("$HOMEBREW_PREFIX/completions" $fpath)
     fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
     fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
     fpath=("$HOMEBREW_PREFIX/completions" $fpath)
