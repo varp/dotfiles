@@ -10,7 +10,9 @@ config.color_scheme = 'Catppuccin Frappe'
 config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
 config.font_size = 16
 
+config.default_cursor_style = 'BlinkingBlock'
 config.hide_tab_bar_if_only_one_tab = true
+-- config.a
 
 config.keys = {
     --
@@ -28,7 +30,7 @@ config.keys = {
     },
     {
         key = 'w',
-        mods = 'CMD',
+        mods = 'CTRL|SHIFT',
         action = action.CloseCurrentPane { confirm = false }
     },
     -- swtiching
@@ -145,18 +147,50 @@ config.keys = {
         action = action.ScrollToBottom
     },
     -- fonts
+    -- remove default key combinations for font size manipulation
     {
         key = '=',
+        mods = 'CTRL',
+        action = action.DisableDefaultAssignment
+    },
+    {
+        key = '-',
+        mods = 'CTRL',
+        action = action.DisableDefaultAssignment
+    },
+    {
+        key = '0',
+        mods = 'CTRL',
+        action = action.DisableDefaultAssignment
+    },
+    {
+        key = '+',
+        mods = 'CTRL|SHIFT',
+        action = action.DisableDefaultAssignment
+    },
+    {
+        key = '_',
+        mods = 'CTRL|SHIFT',
+        action = action.DisableDefaultAssignment
+    },
+    {
+        key = ')',
+        mods = 'CTRL|SHIFT',
+        action = action.DisableDefaultAssignment
+    },
+    -- new font manipulating key combinations
+    {
+        key = '+',
         mods = 'CMD|SHIFT',
         action = action.IncreaseFontSize
     },
     {
-        key = '-',
+        key = '_',
         mods = 'CMD|SHIFT',
         action = action.DecreaseFontSize
     },
     {
-        key = '0',
+        key = ')',
         mods = 'CMD|SHIFT',
         action = action.ResetFontSize
     },
@@ -169,12 +203,12 @@ config.keys = {
     {
         key = 'LeftArrow',
         mods = 'ALT',
-        action = action.SendKey { key = 'B', mods = 'CTRL' }
+        action = action.SendKey { key = 'B', mods = 'ALT' }
     },
     {
         key = 'RightArrow',
         mods = 'ALT',
-        action = action.SendKey { key = 'F', mods = 'CTRL' }
+        action = action.SendKey { key = 'F', mods = 'ALT' }
     },
     {
         key = 'LeftArrow',
@@ -186,11 +220,6 @@ config.keys = {
         mods = 'CMD',
         action = action.SendKey { key = 'E', mods = 'CTRL' }
     },
-    -- {
-    --     key = 'z',
-    --     mods = 'CMD',
-    --     action = action.SendKey { key = 'x+u', mods = 'CTRL' }
-    -- },
 
 }
 
