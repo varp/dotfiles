@@ -53,3 +53,9 @@ fi
 
 ## add home bin folder
 export PATH="$HOME/bin:$PATH"
+
+##
+## apps
+##
+# ls colorized output
+export CLICOLOR=1

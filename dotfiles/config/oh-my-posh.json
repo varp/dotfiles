@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#f3ef15",
+          "background": "transparent",
+          "template": "{{ if ne .Code 0 }}$? {{ .Code }}{{ end }} ",
+          "properties": {
+            "always_enabled": false
+          }
+        },
+        {
+          "type": "kubectl",
+          "style": "plain",
+          "foreground": "#ebcc34",
+          "template": "\udb84\udcfe {{.Context}}{{ if .Namespace}}:: {{ .Namespace }}{{ end }} "
+        },
+        {
+          "type": "docker",
+          "style": "plain",
+          "foreground": "#5a1fd9",
+          "background": "transparent",
+          "template": "\uf21f {{ .Context }} "
+        },
+        {
+          "foreground": "cyan",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#ff94df",
+          "properties": {
+            "branch_icon": "<#ff94df>\ue0a0 </>",
+            "fetch_stash_count": true,
+            "fetch_status": true
+          },
+          "style": "plain",
+          "template": "<#ffffff>on</> {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "template": "<#fefefe>\uf253</> {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "roundrock",
+            "always_enabled": false
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "transparent",
+          "foreground": "#c11e1e",
+          "powerline_symbol": "\ue0b0",
+          "style": "plain",
+          "template": "{{ if not .Error }}{{ if le .Percentage 10 }}{{ .Icon }}{{ .Percentage }}\uf295 \udb80\udc84{{ end }}{{ end }}{{ .Error }} ",
+          "type": "battery"
+        },
+        {
+          "foreground": "lightGreen",
+          "style": "plain",
+          "template": "\u276f\u276f",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "❯ "
+  },
+  "final_space": true,
+  "version": 3
+}

@@ -6,6 +6,7 @@
     "entrypoint",
     "gitignore",
     "gitlens",
+    "gopls",
     "rainglow",
     "vardan",
     "varp",

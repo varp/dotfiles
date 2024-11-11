@@ -10,10 +10,6 @@ brew "bash"
 brew "bash-completion@2"
 brew "coreutils"
 brew "binutils"
-brew "bat"
-brew "ripgrep"
-brew "neovim"
-brew "micro"
 # dev
 brew "git"
 brew "git-lfs"
@@ -52,4 +48,5 @@ cask "notion"
 cask "obsidian"
 
 # fonts
+cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"

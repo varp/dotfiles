@@ -7,7 +7,7 @@
 if [[ $(whoami) == "root" ]]; then
     PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\A\[\e[0m\] \[\e[41m\]\u@\H\[\e[0m\] @ \w \n\[\e[41m\]#\[\e[0m\] "
 else
-    PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\[\e[47m\]\[\e[0;33;47m\]\$(parse_git_branch)\[\e[0;0m\]\[\e[1;34;47m\]$(parse_languages)\[\e[0;0m\]\$ "
+    PS1="${debian_chroot:+($debian_chroot)}\[\e[104m\]\t\[\e[0m\]\[\e[46m\] \u \[\e[0m\]\[\e[44m\] \w \[\e[0m\]\$ "
 fi
 
 # iTerm integration
@@ -27,11 +27,7 @@ __update_ps1() {
     #     rm -f "$INTERACTIVE_BASHPID_TIMER"
     # fi
 
-    _LANGS_ENV="$(parse_languages)"
-    export _LANGS_ENV
-
     local mods="cwd,perms,git,shell-var,goenv,docker,docker-context,jobs,exit,root"
-    local args="-shell-var _LANGS_ENV"
 
     if [ -n "$SSH_CONNECTION" ]; then
         mods="termtitle,time,cwd,perms,load,shell-var,dotenv,host,user,jobs,exit,ssh,root"
