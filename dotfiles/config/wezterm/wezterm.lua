@@ -8,7 +8,7 @@ local action = wezterm.action
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Frappe'
 config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
-config.font_size = 18
+config.font_size = 16
 
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -28,7 +28,7 @@ config.keys = {
     },
     {
         key = 'w',
-        mods = 'CTRL',
+        mods = 'CMD',
         action = action.CloseCurrentPane { confirm = false }
     },
     -- swtiching
@@ -144,9 +144,53 @@ config.keys = {
         mods = 'SHIFT',
         action = action.ScrollToBottom
     },
-    -- links
-
-
+    -- fonts
+    {
+        key = '=',
+        mods = 'CMD|SHIFT',
+        action = action.IncreaseFontSize
+    },
+    {
+        key = '-',
+        mods = 'CMD|SHIFT',
+        action = action.DecreaseFontSize
+    },
+    {
+        key = '0',
+        mods = 'CMD|SHIFT',
+        action = action.ResetFontSize
+    },
+    -- line editing/movement
+    {
+        key = 'Backspace',
+        mods = 'ALT',
+        action = action.SendKey { key = 'w', mods = 'CTRL' }
+    },
+    {
+        key = 'LeftArrow',
+        mods = 'ALT',
+        action = action.SendKey { key = 'B', mods = 'CTRL' }
+    },
+    {
+        key = 'RightArrow',
+        mods = 'ALT',
+        action = action.SendKey { key = 'F', mods = 'CTRL' }
+    },
+    {
+        key = 'LeftArrow',
+        mods = 'CMD',
+        action = action.SendKey { key = 'A', mods = 'CTRL' }
+    },
+    {
+        key = 'RightArrow',
+        mods = 'CMD',
+        action = action.SendKey { key = 'E', mods = 'CTRL' }
+    },
+    -- {
+    --     key = 'z',
+    --     mods = 'CMD',
+    --     action = action.SendKey { key = 'x+u', mods = 'CTRL' }
+    -- },
 
 }
 
