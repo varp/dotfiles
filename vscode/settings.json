@@ -43,6 +43,26 @@
     "editor.scrollbar.horizontal": "visible",
     "editor.parameterHints.cycle": false,
     "editor.tokenColorCustomizations": {
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        },
         "textMateRules": [
             {
                 "name": "One Dark italic",
@@ -108,7 +128,7 @@
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.colorTheme": "One Dark",
     "workbench.tree.renderIndentGuides": "onHover",
     "workbench.tree.indent": 10,
     "workbench.editor.mouseBackForwardToNavigate": false,

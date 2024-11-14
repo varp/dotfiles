@@ -201,6 +201,11 @@ config.keys = {
         action = action.SendKey { key = 'w', mods = 'CTRL' }
     },
     {
+        key = 'Backspace',
+        mods = 'CMD',
+        action = action.SendKey { key = 'u', mods = 'CTRL' }
+    },
+    {
         key = 'LeftArrow',
         mods = 'ALT',
         action = action.SendKey { key = 'B', mods = 'ALT' }

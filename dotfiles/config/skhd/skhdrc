@@ -1,0 +1,6 @@
+ctrl+alt+cmd - t : open -a /Applications/Wezterm.app
+ctrl+alt+cmd - c : open -a "/Applications/Google Chrome.app"
+ctrl+alt+cmd - o : open -a ~/Applications/GoLand.app
+ctrl+alt+cmd - d : open -a ~/Applications/DataGrip.app
+ctrl+alt+cmd - v : open -a "/Applications/Visual Studio Code.app"
+ctrl+alt+cmd - m : open -a /Applications/Telegram.app
