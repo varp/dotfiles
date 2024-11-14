@@ -19,7 +19,7 @@
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
