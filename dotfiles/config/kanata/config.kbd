@@ -1,0 +1,21 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    caps 
+)
+
+(defvar
+    tap-timeout 200
+    hold-timeout 200
+)
+
+(defalias 
+    hyper (multi lalt lctrl lmeta)
+    hyper_f18 (tap-hold $tap-timeout $hold-timeout f18 @hyper)
+)
+
+(deflayer base
+    @hyper_f18
+)
