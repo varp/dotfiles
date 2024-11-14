@@ -1,4 +1,19 @@
 {
+  "git.pullTags": true,
+  "rest-client.environmentVariables": {
+    "$shared": {},
+    "github.com": {
+      "host": "api.github.com",
+      "username": "varp"
+    }
+  },
+  "cSpell.enabled": true,
+  "shellcheck.exclude": [],
+  "shellcheck.customArgs": [
+    "--external-sources",
+    "--shell=bash"
+  ],
+  "shellcheck.useWorkspaceRootAsCwd": true,
   "cSpell.words": [
     "basecli",
     "centos",
@@ -10,6 +25,8 @@
     "rainglow",
     "vardan",
     "varp",
-    "vimrc"
+    "vimrc",
+    "Wezterm",
+    "gopls"
   ]
 }

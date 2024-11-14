@@ -13,25 +13,6 @@
 			"gitignore": "gitignore",
 			"vimrc": "vimrc",
 			"osx/*": "shellscript"
-		},
-		"git.pullTags": true,
-		"rest-client.environmentVariables": {
-			"$shared": {},
-			"github.com": {
-				"host": "api.github.com",
-				"username": "varp"
-			}
-		},
-		"cSpell.enabled": true,
-		"shellcheck.exclude": [
-		],
-		"shellcheck.customArgs": [
-			"--external-sources",
-			"--shell=bash"
-		],
-		"shellcheck.useWorkspaceRootAsCwd": true,
-		"cSpell.words": [
-			"gopls"
-		],
+		}
 	}
 }
