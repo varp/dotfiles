@@ -173,6 +173,7 @@ setopt hist_find_no_dups
 ##
 
 source <(fzf --zsh)
+export _ZO_ECHO=1
 eval "$(zoxide init --cmd cd zsh)"
 
 ##
