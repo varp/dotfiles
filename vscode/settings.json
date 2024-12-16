@@ -170,7 +170,6 @@
         "switch:command",
         "tag-create:command"
     ],
-    "gitlens.views.repositories.branches.layout": "list",
     "gitlens.views.repositories.files.layout": "tree",
     "gitlens.telemetry.enabled": false,
     "gitHistory.showEditorTitleMenuBarIcons": true,
