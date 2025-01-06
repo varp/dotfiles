@@ -33,7 +33,7 @@
   },
   {
     "key": "cmd+escape",
-    "command": "workbench.action.quickOpen"
+    "command": "workbench.action.showCommands"
   },
   {
     "key": "shift+cmd+a",
