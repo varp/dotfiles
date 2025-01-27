@@ -140,7 +140,7 @@ tool-zoxide: tool-brew
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install zoxide; \
 		else \
-			sh <(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh )--bin-dir="$$HOME/bin"; \
+			sh <(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh) --bin-dir="$$HOME/bin"; \
 		fi \
 	else \
 		echo -e "$(@):\n $$(zoxide --version)"; \
