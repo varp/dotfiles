@@ -1,4 +1,4 @@
-echo $(time_ms) "start"
+echo $($HOME/bin/time_ms) "start"
 ##
 ## zinit
 ##
@@ -6,17 +6,17 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
-echo $(time_ms) "zinit"
+echo $($HOME/bin/time_ms) "zinit"
 
 ##
-## POSIX complaint shell utitly functions and envs
+## POSIX complaint shell utility functions and envs
 ##
 source "$HOME/.shell/functions"
 source "$HOME/.shell/env"
 source "$HOME/.shell/aliases"
 source "$HOME/.shell/xvm"
 
-echo $(time_ms) "custom" 
+echo $($HOME/bin/time_ms) "custom" 
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -184,4 +184,4 @@ eval "$(zoxide init --cmd cd zsh)"
 ##
 _dedup_path
 
-echo $(time_ms) "end"
+echo $($HOME/bin/time_ms) "end"

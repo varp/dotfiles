@@ -59,3 +59,9 @@ export PATH="$HOME/bin:$PATH"
 ##
 # ls colorized output
 export CLICOLOR=1
+
+### Ghostty workaround
+### https://github.com/ghostty-org/ghostty/discussions/3161
+if [[ "$TERM_PROGRAM" == "ghostty" && ! -z "$SSH_CONNECTION" ]]; then
+    export TERM=xterm-256color
+fi
