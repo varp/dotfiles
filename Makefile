@@ -152,7 +152,9 @@ tool-fzf: tool-brew
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install fzf; \
 		else \
-			curl -sSfL https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/install > "$$HOME/fzf-install.sh"; bash "$$HOME/fzf-install.sh" --bin; rm -vf "$$HOME/fzf-install.sh"; \
+			curl -sSfL https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/install > "$$HOME/fzf-install.sh"; \
+			bash "$$HOME/fzf-install.sh" --bin; \
+			rm -vf "$$HOME/fzf-install.sh"; \
 		fi \
 	else \
 		echo -e "$(@):\n $$(fzf --version)"; \
