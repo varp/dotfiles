@@ -172,7 +172,10 @@ setopt hist_find_no_dups
 ## shell integrations
 ##
 
+# first install dependencies from using `make tool-fzf`
 source <(fzf --zsh)
+
+# first install dependencies from using `make tool-zoxide`
 export _ZO_ECHO=1
 eval "$(zoxide init --cmd cd zsh)"
 

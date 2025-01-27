@@ -22,11 +22,13 @@
     "gitignore",
     "gitlens",
     "gopls",
+    "powerline",
     "rainglow",
     "vardan",
     "varp",
     "vimrc",
+    "Vundle",
     "Wezterm",
-    "gopls"
+    "zoxide"
   ]
 }

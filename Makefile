@@ -30,7 +30,7 @@ tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep \
 dotfiles tools editors devs \
 all \
 clean-dotfiles-dotfiles clean-dotfiles-vscode \
-clen
+clean
 
 .DEFAULT_GOAL: help
 help:
@@ -140,12 +140,11 @@ tool-zoxide: tool-brew
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install zoxide; \
 		else \
-			sudo apt install -y zoxide; \
+			sh <(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh )--bin-dir="$$HOME/bin"; \
 		fi \
 	else \
 		echo -e "$(@):\n $$(zoxide --version)"; \
 	fi	
-
 
 #: Install fzf (see: https://github.com/junegunn/fzf) #tools
 tool-fzf: tool-brew
@@ -153,7 +152,7 @@ tool-fzf: tool-brew
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install fzf; \
 		else \
-			sudo apt install -y fzf; \
+			bash -c 'cd $$HOME; curl -sSfL https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/install > /tmp/fzf-install.sh; bash /tmp/fzf-install.sh --bin';  \
 		fi \
 	else \
 		echo -e "$(@):\n $$(fzf --version)"; \
@@ -233,7 +232,7 @@ else
 @tools-group: @base-tools
 endif
 
-#: Installs dotfiles, micro, VimVundle. On MacOS: VS Code settigns, Homebrew #group
+#: Installs dotfiles, micro, VimVundle. On MacOS: VS Code settings, Homebrew #group
 dotfiles: @dotfiles-group
 
 #: Installs micro and VimVundle
