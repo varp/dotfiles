@@ -1,0 +1,18 @@
+# fonts
+font-family = JetBrains Mono NL Regular
+font-family-italic = JetBrains Mono NL Italic
+font-family-bold = JetBrains Mono NL Bold
+font-family-bold-italic = JetBrains Mono NL Bold Italic
+font-size = 16
+
+# theme
+theme = catppuccin-frappe
+
+# keybindings
+## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
+
+### \x15 == Ctrl+U
+keybind = cmd+backspace=text:\x15
+
+
+# keybind = global:cmd+grave_accent=toggle_quick_terminal
