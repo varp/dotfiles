@@ -348,5 +348,6 @@
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "xml.symbols.maxItemsComputed": 15000
 }
