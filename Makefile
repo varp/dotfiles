@@ -14,10 +14,6 @@ SRC_VSCODE_SETTINGS_DIR=vscode
 SRC_VSCODE_SETTINGS=$(shell cd ./$(SRC_VSCODE_SETTINGS_DIR) && find . -type f -and -not -name '\.*')
 DEST_VSCODE_SETTINGS_DIR?="$(DST_BASE_DIR)/Library/Application Support/Code/User"
 
-VIM_VUNDLE_DIR=$(DST_DOTFILES_DIR)/.vim/bundle
-VIM_VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim.git
-
-
 FORCE_INSTALL?=false
 
 .PHONY: help bin-folder \
@@ -25,7 +21,7 @@ $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
 editor-micro editor-micro-plugins editor-neovim \
-tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep \
+tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
 all \
@@ -172,6 +168,9 @@ tool-ripgrep: tool-brew
 		echo -e "$(@):\n $$(rg --version)"; \
 	fi	
 
+#: Compile and install tools/time_ms utility #tools
+tool-time_ms: bin-folder dev-go
+	go build -o $(DST_BIN_DIR)/time_ms tools/time_ms/main.go
 
 #: Install NodeJs (see: https://nodejs.org) #dev
 dev-node: tool-brew
@@ -224,7 +223,7 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep
+@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode
@@ -234,13 +233,13 @@ else
 @tools-group: @base-tools
 endif
 
-#: Installs dotfiles, micro, VimVundle. On MacOS: VS Code settings, Homebrew #group
+#: Installs dotfiles-dotfiles, bin-folder. On MacOS: additionally installs dotfiles-vscode #group
 dotfiles: @dotfiles-group
 
-#: Installs micro and VimVundle
+#: Installs all editor-* targets #group
 editors: editor-micro editor-micro-plugins editor-neovim
 
-#: Installs powerline-go. On MacOS: Homebrew #group
+#: Installs all tool-* targets. On MacOS: additionally install tool-brew #group
 tools: @tools-group
 
 #: Installs PHP, Go, NodeJS #group
