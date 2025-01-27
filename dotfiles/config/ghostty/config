@@ -9,6 +9,10 @@ font-size = 16
 theme = catppuccin-frappe
 
 # keybindings
-## text editing 
-### most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
-keybind = cmd+backspace=text:\x15 # Ctrl+U
+## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
+
+### \x15 == Ctrl+U
+keybind = cmd+backspace=text:\x15
+
+
+# keybind = global:cmd+grave_accent=toggle_quick_terminal

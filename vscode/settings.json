@@ -123,7 +123,7 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.iconTheme": "catppuccin-frappe",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",
