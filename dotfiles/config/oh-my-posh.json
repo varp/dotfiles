@@ -16,17 +16,10 @@
           }
         },
         {
-          "type": "kubectl",
+          "foreground": "#10a8e9",
           "style": "plain",
-          "foreground": "#ebcc34",
-          "template": "\udb84\udcfe {{.Context}}{{ if .Namespace}}:: {{ .Namespace }}{{ end }} "
-        },
-        {
-          "type": "docker",
-          "style": "plain",
-          "foreground": "#5a1fd9",
-          "background": "transparent",
-          "template": "\uf21f {{ .Context }} "
+          "template": "{{ if or (gt (len .Env.SSH_CONNECTION) 0) (gt (len .Env.SSH_CLIENT) 0) }}󰱠 {{ .UserName }}@{{ .HostName }}{{ end }} ",
+          "type": "text"
         },
         {
           "foreground": "cyan",
@@ -34,7 +27,7 @@
             "style": "folder"
           },
           "style": "plain",
-          "template": "{{ .Path }} ",
+          "template": "󰝰 {{ .Path }} ",
           "type": "path"
         },
         {
@@ -63,6 +56,68 @@
       "type": "prompt"
     },
     {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "go",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "display_mode": "always",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "php",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "zig",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "rust",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#fbfbfb",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "kubectl",
+          "style": "plain",
+          "foreground": "#ebcc34",
+          "template": "\udb84\udcfe {{.Context}}{{ if .Namespace}}:: {{ .Namespace }}{{ end }} "
+        },
+        {
+          "type": "docker",
+          "style": "plain",
+          "foreground": "#5a1fd9",
+          "background": "transparent",
+          "template": "\uf21f {{ .Context }}"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
       "alignment": "left",
       "newline": true,
       "segments": [
@@ -73,6 +128,14 @@
           "style": "plain",
           "template": "{{ if not .Error }}{{ if le .Percentage 10 }}{{ .Icon }}{{ .Percentage }}\uf295 \udb80\udc84{{ end }}{{ end }}{{ .Error }} ",
           "type": "battery"
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#da0b0b",
+          "background": "transparent",
+          "template": " root "
         },
         {
           "foreground": "lightGreen",
