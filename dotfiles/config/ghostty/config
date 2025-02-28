@@ -13,7 +13,8 @@ theme = catppuccin-frappe
 # keybindings
 ## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
 
-keybind = cmd+backspace=text:\x15 # \x15 == Ctrl+U
+### \x15 == Ctrl+U
+keybind = cmd+backspace=text:\x15
 # keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # Other
