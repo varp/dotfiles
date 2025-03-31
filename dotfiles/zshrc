@@ -115,9 +115,6 @@ setopt correct
 [ -f "$HOME/bin/oh-my-posh" ] || curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh.json)"
 
-### custom config which should not be synced with git
-[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
-
 ##
 ## custom completions
 ##
@@ -142,8 +139,8 @@ ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
 fpath=("$ZSH_COMPLETION_DIR" $fpath)
 
 ## TODO: there is an issue https://github.com/zdharma-continuum/zinit/issues/654
-# [ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
 autoload -Uz compinit && compinit -u
+[ -f "$HOME/.zsh_completion" ] && source "$HOME/.zsh_completion"
 zinit cdreplay -q
 
 ##
@@ -180,8 +177,15 @@ export _ZO_ECHO=1
 eval "$(zoxide init --cmd cd zsh)"
 
 ##
+## custom config which is not synced with git
+##
+[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
+
+
+##
 ## PATH without duplicates
 ##
 _dedup_path
+
 
 echo $($HOME/bin/time_ms) "end"

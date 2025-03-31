@@ -16,10 +16,10 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
+    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-    "editor.fontSize": 13,
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
@@ -123,10 +123,9 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.iconTheme": "catppuccin-frappe",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
-    "workbench.preferredLightColorTheme": "Catppuccin Latte",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark",
     "workbench.tree.renderIndentGuides": "onHover",
@@ -348,6 +347,5 @@
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off",
-    "xml.symbols.maxItemsComputed": 15000
+    "telemetry.telemetryLevel": "off"
 }
