@@ -300,5 +300,10 @@
     "key": "alt+cmd+r",
     "command": "-workbench.action.debug.continue",
     "when": "inDebugMode"
+  },
+  {
+    "key": "ctrl+q ctrl+c",
+    "command": "workbench.action.closeFolder",
+    "when": "emptyWorkspaceSupport && workbenchState != 'empty'"
   }
 ]
