@@ -38,7 +38,7 @@
             "fetch_status": true
           },
           "style": "plain",
-          "template": "<#eff1f5>on</> {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+          "template": "<#9ca0b0>on</> {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
           "type": "git"
         }
       ],
@@ -51,21 +51,21 @@
           "type": "go",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "template": " {{ .Full }} "
         },
         {
           "type": "node",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "template": " {{ .Full }} "
         },
         {
           "type": "python",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "display_mode": "always",
           "template": " {{ .Full }} "
         },
@@ -73,21 +73,21 @@
           "type": "php",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "template": " {{ .Full }} "
         },
         {
           "type": "zig",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "template": " {{ .Full }} "
         },
         {
           "type": "rust",
           "style": "plain",
           "powerline_symbol": "",
-          "foreground": "#eff1f5",
+          "foreground": "#04a5e5",
           "template": " {{ .Full }} "
         },
         {
