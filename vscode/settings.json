@@ -16,7 +16,6 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
-    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
@@ -141,7 +140,6 @@
     "workbench.localHistory.maxFileSize": 1024,
     "workbench.editor.wrapTabs": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "workbench.editor.tabSizing": "shrink",
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.tabActionLocation": "left",
     "workbench.list.defaultFindMode": "filter",
@@ -341,11 +339,39 @@
         "Ports",
         "CreatedTime"
     ],
+    // 
+    // Go
+    //
     "go.toolsManagement.autoUpdate": true,
     "gopls": {
-        "ui.semanticTokens": true
+        "ui.diagnostic.staticcheck": true,
+        "ui.semanticTokens": true,
+        "ui.documentation.linksInHover": true,
+        "ui.diagnostic.analyses": {
+            "unusedparams": true,
+            "nilness": true,
+            "shadow": true
+        },
+    },
+    "go.coverOnSave": true,
+    "go.coverOnTestPackage": true,
+    "go.coverShowCounts": true,
+    "go.coverOnSingleTestFile": true,
+    "go.coverageDecorator": {
+        "type": "gutter",
+    },
+    "go.coverageOptions": "showBothCoveredAndUncoveredCode",
+    "go.testFlags": [
+        "-cover",
+        "-count=1"
+    ],
+    "go.testEnvVars": {
+        "GOLANG_PROTOBUF_REGISTRATION_CONFLICT": "warn"
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "gitPrefix.pattern": ".*/(.*)",
+    "github.copilot.enable": false,
+    "github.copilot.editor.enableAutoCompletions": false,
 }
