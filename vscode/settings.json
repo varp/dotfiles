@@ -371,7 +371,5 @@
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "telemetry.telemetryLevel": "off",
-    "gitPrefix.pattern": ".*/(.*)",
-    "github.copilot.enable": false,
-    "github.copilot.editor.enableAutoCompletions": false,
+    "gitPrefix.pattern": ".*/(.*)"
 }
