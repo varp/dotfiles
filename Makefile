@@ -172,6 +172,24 @@ tool-ripgrep: tool-brew
 tool-time_ms: bin-folder dev-go
 	go build -o $(DST_BIN_DIR)/time_ms tools/time_ms/main.go
 
+#: Install blueutil tool 
+tool-blueutil:
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v blueutil >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install blueutil; \
+		else \
+			echo -e "$(@):\n blueutil is not available for this OS"; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(blueutil --version)"; \
+	fi
+
+#: Install bluetooth unpair (btunpair.sh) script #tools
+tool-btunpair: bin-folder tool-blueutil
+	cp -vf tools/btunpair.sh $(DST_BIN_DIR)/btunpair.sh
+	chmod +x $(DST_BIN_DIR)/btunpair.sh
+
+
 #: Install NodeJs (see: https://nodejs.org) #dev
 dev-node: tool-brew
 	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v node >/dev/null; then \
