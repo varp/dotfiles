@@ -19,7 +19,6 @@
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-    "editor.fontSize": 13,
     "editor.largeFileOptimizations": true,
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
@@ -123,10 +122,9 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.iconTheme": "catppuccin-frappe",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
-    "workbench.preferredLightColorTheme": "Catppuccin Latte",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark",
     "workbench.tree.renderIndentGuides": "onHover",
@@ -142,7 +140,6 @@
     "workbench.localHistory.maxFileSize": 1024,
     "workbench.editor.wrapTabs": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "workbench.editor.tabSizing": "shrink",
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.tabActionLocation": "left",
     "workbench.list.defaultFindMode": "filter",
@@ -342,11 +339,38 @@
         "Ports",
         "CreatedTime"
     ],
+    // 
+    // Go
+    //
     "go.toolsManagement.autoUpdate": true,
     "gopls": {
-        "ui.semanticTokens": true
+        "ui.diagnostic.staticcheck": true,
+        "ui.semanticTokens": true,
+        "ui.documentation.linksInHover": true,
+        "ui.diagnostic.analyses": {
+            "unusedparams": true,
+            "nilness": true,
+            "shadow": true
+        },
+    },
+    "go.coverOnSave": true,
+    "go.coverOnTestPackage": true,
+    "go.coverShowCounts": true,
+    "go.coverOnSingleTestFile": true,
+    "go.coverageDecorator": {
+        "type": "gutter",
+    },
+    "go.coverageOptions": "showBothCoveredAndUncoveredCode",
+    "go.testFlags": [
+        "-cover",
+        "-count=1"
+    ],
+    "go.testEnvVars": {
+        "GOLANG_PROTOBUF_REGISTRATION_CONFLICT": "warn"
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "gitPrefix.pattern": ".*/(.*)",
+    "docker.lsp.telemetry": "off"
 }
