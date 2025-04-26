@@ -305,5 +305,9 @@
     "key": "ctrl+q ctrl+c",
     "command": "workbench.action.closeFolder",
     "when": "emptyWorkspaceSupport && workbenchState != 'empty'"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "gitweblinks.copySelection"
   }
 ]

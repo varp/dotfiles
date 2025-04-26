@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 command -v blueutil >/dev/null || {
-    echo "blueutil not found; run $(brew enstall blueutil) to install it"
+    echo "blueutil not found; run 'brew innstall blueutil' to install it"
     exit 127
 }
 
