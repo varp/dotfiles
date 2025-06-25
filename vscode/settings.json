@@ -372,5 +372,11 @@
     "security.workspace.trust.untrustedFiles": "open",
     "telemetry.telemetryLevel": "off",
     "gitPrefix.pattern": ".*/(.*)",
-    "docker.lsp.telemetry": "off"
+    "docker.lsp.telemetry": "off",
+    "containers.containers.description": [
+        "ContainerName",
+        "Status",
+        "Ports",
+        "CreatedTime"
+    ]
 }
