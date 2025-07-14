@@ -371,5 +371,13 @@
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "telemetry.telemetryLevel": "off",
-    "gitPrefix.pattern": ".*/(.*)"
+    "gitPrefix.pattern": ".*/(.*)",
+    "docker.lsp.telemetry": "off",
+    "containers.containers.description": [
+        "ContainerName",
+        "Status",
+        "Ports",
+        "CreatedTime"
+    ],
+    "bookmarks.saveBookmarksInProject": true
 }
