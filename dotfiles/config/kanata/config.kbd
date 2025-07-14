@@ -3,7 +3,7 @@
 )
 
 (defsrc
-    caps 
+    caps spc
 )
 
 (defvar
@@ -11,11 +11,14 @@
     hold-timeout 200
 )
 
-(defalias 
+(defalias
     hyper (multi lalt lctrl lmeta)
-    hyper_f18 (tap-hold $tap-timeout $hold-timeout f18 @hyper)
+    hyper_space (tap-hold $tap-timeout $hold-timeout spc @hyper)
+    caps_ctrl_f18 (tap-hold $tap-timeout $hold-timeout f18 lctrl)
 )
 
 (deflayer base
-    @hyper_f18
+    @caps_ctrl_f18
+    @hyper_space
 )
+ 

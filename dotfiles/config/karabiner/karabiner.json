@@ -3,12 +3,12 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.to_if_alone_timeout_milliseconds": 300,
-                    "basic.to_if_held_down_threshold_milliseconds": 750
+                    "basic.to_if_alone_timeout_milliseconds": 200,
+                    "basic.to_if_held_down_threshold_milliseconds": 200
                 },
                 "rules": [
                     {
-                        "description": "Remap Caps Lock to CTRL if used in combination with other keys, otherwise map it to F18.",
+                        "description": "Remap CAPS_LOCK to CTRL (ctrl + alt + cmd) if used in combination with other keys, otherwise map it to CAPS_LOCK.",
                         "manipulators": [
                             {
                                 "from": {
