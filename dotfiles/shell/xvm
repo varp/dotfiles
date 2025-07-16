@@ -15,3 +15,5 @@ command -v go >/dev/null && {
     PATH="$(go env GOPATH)/bin:$PATH"
     export PATH
 }
+
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
