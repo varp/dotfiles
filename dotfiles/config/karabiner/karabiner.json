@@ -8,37 +8,11 @@
                 },
                 "rules": [
                     {
-                        "description": "Remap CAPS_LOCK to CTRL (ctrl + alt + cmd) if used in combination with other keys, otherwise map it to CAPS_LOCK.",
+                        "description": "Remap CAPS_LOCK to HYPER (ctrl + alt + cmd) if used in combination with other keys, otherwise map it to f18.",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "f18"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Remap SPACE to Hyper (ctrl + alt + cmd) if used in combination with other keys, otherwise map it to SPACE.",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -56,7 +30,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar"
+                                        "key_code": "f18"
                                     }
                                 ],
                                 "type": "basic"
