@@ -16,6 +16,7 @@ theme = catppuccin-frappe
 ### \x15 == Ctrl+U
 keybind = cmd+backspace=text:\x15
 # keybind = global:cmd+grave_accent=toggle_quick_terminal
+macos-option-as-alt = left
 
 # Other
 copy-on-select = clipboard
