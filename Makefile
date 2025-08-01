@@ -21,7 +21,7 @@ $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
 dev-node dev-go dev-php \
 editor-micro editor-micro-plugins editor-neovim \
-tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms \
+tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd tool-lazygit \
 @base @base-tools @dotfiles-group @tools-group \
 dotfiles tools editors devs \
 all \
@@ -266,7 +266,7 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd
+@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd tool-lazygit
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode
