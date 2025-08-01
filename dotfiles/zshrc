@@ -129,9 +129,6 @@ if [ -n "$HOMEBREW_PREFIX" ]; then
     fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
     fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
     fpath=("$HOMEBREW_PREFIX/completions" $fpath)
-    fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
-    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
-    fpath=("$HOMEBREW_PREFIX/completions" $fpath)
 fi
 
 ZSH_COMPLETION_DIR="$HOME/.zsh_completion.d"
