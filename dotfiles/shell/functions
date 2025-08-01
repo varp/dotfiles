@@ -29,3 +29,8 @@ _reload() {
     source "$HOME/.bashrc"
   fi
 }
+
+### Wrapper for neovide
+nv() {
+  neovide "${@}" >/dev/null 2>&1 &!
+}

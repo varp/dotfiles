@@ -55,4 +55,8 @@ alias dk='docker'
 alias dkc='docker-compose'
 
 ## fzf
-alias -g F='| fzf'
+if [[ "$_SHELL_NAME" == "zsh" ]]; then 
+  alias -g F='| fzf'
+fi
+
+
