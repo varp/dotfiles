@@ -8,7 +8,7 @@ font-family-bold-italic = JetBrains Mono NL Bold Italic
 font-size = 16
 
 # theme
-theme = catppuccin-frappe
+theme = tokyonight_moon
 
 # keybindings
 ## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
