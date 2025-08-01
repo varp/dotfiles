@@ -105,6 +105,7 @@ zinit light Aloxaf/fzf-tab
 unsetopt correct_all # do not correct spelling of all arguments
 setopt correct
 
+echo $($HOME/bin/time_ms) "zinit plugins"
 ##
 ## prompt
 ##
@@ -114,6 +115,8 @@ setopt correct
 
 [ -f "$HOME/bin/oh-my-posh" ] || curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh.json)"
+
+echo $($HOME/bin/time_ms) "prompt"
 
 ##
 ## custom completions
