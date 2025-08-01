@@ -65,7 +65,7 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 	done
 
 #: Install Neovim (see: https://github.com/neovim/neovim) #editors
-editor-neovim: tool-brew
+editor-neovim: tool-brew tool-fzf tool-ripgrep tool-fd
 	@if [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v nvim >/dev/null; then \
 		if [[ "$$(uname -s)" == "Darwin" ]]; then \
 			brew install neovim; \
@@ -168,11 +168,23 @@ tool-ripgrep: tool-brew
 		echo -e "$(@):\n $$(rg --version)"; \
 	fi	
 
+#: Install fd (see: https://github.com/sharkdp/fd) #tools
+tool-fd: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v fd >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install fd; \
+		else \
+			sudo apt install -y fd-find; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(fd --version)"; \
+	fi
+	
 #: Compile and install tools/time_ms utility #tools
 tool-time_ms: bin-folder dev-go
 	go build -o $(DST_BIN_DIR)/time_ms tools/time_ms/main.go
 
-#: Install blueutil tool 
+#: Install blueutil tool #tools
 tool-blueutil:
 	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v blueutil >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
@@ -182,6 +194,19 @@ tool-blueutil:
 		fi \
 	else \
 		echo -e "$(@):\n $$(blueutil --version)"; \
+	fi
+
+# TODO: starting from Ubuntu >= 25.10 and Debian >= 13 use `sudo apt install lazygit
+#: Install lasygit (see: https://github.com/jesseduffield/lazygit) tool #tools
+tool-lazygit:
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v lazygit >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install lazygit; \
+		else \
+			go install github.com/jesseduffield/lazygit@latest; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(lazygit --version)"; \
 	fi
 
 #: Install bluetooth unpair (btunpair.sh) script #tools
@@ -241,7 +266,7 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms
+@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode
