@@ -1,1 +1,7 @@
-source "$HOME/.shell/env"
+### ONLY for Neovide on MacOS
+_OS_NAME=$(uname -s)
+
+if [[ "$_OS_NAME" == "Darwin" ]]; then
+    [[ -f /usr/local/bin/brew ]] && eval "$(/usr/local/bin/brew shellenv)"
+    [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+fi

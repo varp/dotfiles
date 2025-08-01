@@ -1,6 +1,4 @@
 # vim: filetype=sh
-# Default editor
-export EDITOR=nvim
 
 export _SHELL_NAME=$(basename $SHELL)
 export _OS_NAME=$(uname -s)
@@ -11,9 +9,6 @@ export DEBEMAIL="vardan.pogosyan@gmail.com"
 
 # create tmux seession or connect to existing one when is connected by SSH
 # [[ ! -a $(echo "$TMUX" | cut -f1 -d,) && $SSH_CONNECTION != "" ]] && tmux
-
-## Bash completions for aliases
-export IBUS_ENABLE_SYNC_MODE=1
 
 ## CDPATH
 export CDPATH="$HOME:$HOME/code"
@@ -35,24 +30,27 @@ _OLDPATH="$PATH"
 export PATH="$(command -p getconf PATH)"
 
 if [[ $(whoami) == "root" ]]; then
-    export PATH="/sbin:$PATH"
-    export PATH="/usr/sbin:$PATH"
+  export PATH="/sbin:$PATH"
+  export PATH="/usr/sbin:$PATH"
 fi
 
 if [[ "$_OS_NAME" == "Linux" ]] && [[ -d /snap/bin ]]; then
-    export PATH="/snap/bin:$PATH"
+  export PATH="/snap/bin:$PATH"
 fi
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 if [[ "$_OS_NAME" == "Darwin" ]]; then
-    [[ -f /usr/local/bin/brew ]] && eval "$(/usr/local/bin/brew shellenv)"
-    [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  [[ -f /usr/local/bin/brew ]] && eval "$(/usr/local/bin/brew shellenv)"
+  [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 ## add home bin folder
 export PATH="$HOME/bin:$PATH"
+
+# Default editor
+export EDITOR=nvim
 
 ##
 ## apps
