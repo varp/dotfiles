@@ -1,4 +1,4 @@
-### ONLY for Neovide on MacOS
+### ONLY for Neovide on MacOS. During startup Neovide doesn't load zshrc
 _OS_NAME=$(uname -s)
 
 if [[ "$_OS_NAME" == "Darwin" ]]; then
