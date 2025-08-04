@@ -43,7 +43,7 @@ bin-folder:
 $(SRC_DOTFILES):
 	dstDir=$(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@)); \
 	mkdir -p "$$dstDir"; \
-	[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@); \
+	[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@) || echo "Skipping file, nothing to unlink" \
 
 #: Install dotfiles #dotfiles
 dotfiles-dotfiles: $(SRC_DOTFILES)
