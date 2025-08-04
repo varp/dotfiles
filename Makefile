@@ -199,7 +199,7 @@ tool-blueutil:
 
 # TODO: starting from Ubuntu >= 25.10 and Debian >= 13 use `sudo apt install lazygit
 #: Install lasygit (see: https://github.com/jesseduffield/lazygit) tool #tools
-tool-lazygit:
+tool-lazygit: dev-go
 	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v lazygit >/dev/null; then \
 		if [ "$$(uname -s)" == "Darwin" ]; then \
 			brew install lazygit; \
