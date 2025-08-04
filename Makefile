@@ -41,8 +41,9 @@ bin-folder:
 	-@[ ! -d $(LOCAL_BIN_DIR) ] && mkdir -p $(LOCAL_BIN_DIR)
 
 $(SRC_DOTFILES):
-	-@mkdir -p $(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@))	
-	-@[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@)
+	dstDir=$(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@)); \
+	mkdir -p "$$dstDir"; \
+	[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@); \
 
 #: Install dotfiles #dotfiles
 dotfiles-dotfiles: $(SRC_DOTFILES)
