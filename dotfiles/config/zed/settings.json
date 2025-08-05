@@ -21,8 +21,8 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Tokyo Night Storm",
-    "dark": "One Dark"
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night Storm"
   },
   "auto_install_extensions": {
     "colored-zed-icons-theme": true,
