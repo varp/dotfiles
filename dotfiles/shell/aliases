@@ -26,11 +26,12 @@ alias umvbsf='umount_vbox_share'
 alias gen_md5_password='python3 -c "import hashlib; plain_pass = \"`genpassword`\".replace(\"password: \", \"\"); print(\"Plain password \t=>\t\", plain_pass, \"\nPassword MD5 \t=>\t\", hashlib.md5(plain_pass.encode()).hexdigest());"'
 
 # Aliases for apt
-alias apt-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
+alias apt-dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade -y'
+alias apt-upgrade='sudo apt-get update && sudo apt-get upgrade -y'
 alias apt-update='sudo apt-get update'
 alias apt-install='sudo apt-get install'
 alias apt-autoremove='sudo apt-get autoremove'
-alias apt-search='sudo apt-get searcTh'
+alias apt-search='sudo apt-get search'
 alias is_deb_installed='sudo dpkg --get-selections | grep -i'
 
 # netstat
@@ -55,8 +56,6 @@ alias dk='docker'
 alias dkc='docker-compose'
 
 ## fzf
-if [[ "$_SHELL_NAME" == "zsh" ]]; then 
+if [[ "$_SHELL_NAME" == "zsh" ]]; then
   alias -g F='| fzf'
 fi
-
-

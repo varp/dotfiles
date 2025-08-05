@@ -6,6 +6,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
+
 echo $($HOME/bin/time_ms) "zinit"
 
 ##
@@ -16,7 +17,7 @@ source "$HOME/.shell/env"
 source "$HOME/.shell/aliases"
 source "$HOME/.shell/xvm"
 
-echo $($HOME/bin/time_ms) "custom" 
+echo $($HOME/bin/time_ms) "custom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -176,11 +177,14 @@ source <(fzf --zsh)
 export _ZO_ECHO=1
 eval "$(zoxide init --cmd cd zsh)"
 
+echo $($HOME/bin/time_ms) "completions"
+
 ##
 ## custom config which is not synced with git
 ##
 [ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
 
+echo $($HOME/bin/time_ms) "zshrc_local"
 
 ##
 ## PATH without duplicates
