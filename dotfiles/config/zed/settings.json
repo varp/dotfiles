@@ -13,7 +13,8 @@
   },
   "vim_mode": true,
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
+    "use_system_clipboard": "on_yank"
   },
   "icon_theme": "Colored Zed Icons Theme Dark",
   "ui_font_family": "JetBrainsMono Nerd Font",
