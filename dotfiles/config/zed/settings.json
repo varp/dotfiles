@@ -11,12 +11,19 @@
     "metrics": false,
     "diagnostics": false
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
   "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_size": 14,
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 12,
+  "tabs": {
+    "close_position": "left",
+    "file_icons": true
+  },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "font_size": 15,
