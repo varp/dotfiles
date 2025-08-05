@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "vim_mode": true,
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_size": 14,
@@ -22,5 +23,18 @@
     "mode": "system",
     "light": "Tokyo Night Storm",
     "dark": "One Dark"
+  },
+  "auto_install_extensions": {
+    "colored-zed-icons-theme": true,
+    "gosum": true,
+    "html": true,
+    "ini": true,
+    "lua": true,
+    "make": true,
+    "ruby": true,
+    "sql": true,
+    "tokyo-night": true,
+    "toml": true,
+    "zig": true
   }
 }
