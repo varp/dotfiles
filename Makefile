@@ -41,20 +41,20 @@ bin-folder:
 	-@[ ! -d $(LOCAL_BIN_DIR) ] && mkdir -p $(LOCAL_BIN_DIR)
 
 $(SRC_DOTFILES):
-	dstDir=$(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@)); \
-	mkdir -p "$$dstDir"; \
-	[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@) || echo "Skipping file, nothing to unlink" \
+	[ -f $(addprefix $(DST_DOTFILES_DIR)/.,$@) ] && unlink $(addprefix $(DST_DOTFILES_DIR)/.,$@) || echo "Skipping file, nothing to unlink"
 
 #: Install dotfiles #dotfiles
 dotfiles-dotfiles: $(SRC_DOTFILES)
 	@for dotfile in $?; do \
 		src=$(addprefix $(realpath $(SRC_DOTFILES_DIR))/, $$dotfile); \
 		dst=$(addprefix $(DST_DOTFILES_DIR)/.,$$dotfile); \
+		dstDir=$(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@)); \
+		mkdir -p "$$dstDir"; \
 		ln -vsf "$$src" "$$dst"; \
 	done
 
 $(SRC_VSCODE_SETTINGS):
-	-@[ -f $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) ] && unlink $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@)
+	[ -f $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) ] && unlink $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$@) || echo "Skipping files, nothint to unlink"
 	
 #: Install VS Code settings #dotfiles
 dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
@@ -62,6 +62,8 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 	@for vscodeDotFile in $?; do \
 		src=$(addprefix $(realpath $(SRC_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
 		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
+		dstDir=$(dir $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/.,$@)); \
+		mkdir -p "$$dstDir"; \
 		ln -vsf "$$src" "$$dst"; \
 	done
 
