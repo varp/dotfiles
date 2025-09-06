@@ -1,4 +1,5 @@
 Include ~/.colima/ssh_config
+Include ~/.ssh/config_local
 
 Host *
     HostName %h
