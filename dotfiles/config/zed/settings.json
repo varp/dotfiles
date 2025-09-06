@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": true,
   "telemetry": {
     "metrics": false,
     "diagnostics": false
@@ -33,7 +34,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Tokyo Night Light",
+    "light": "One Light",
     "dark": "Tokyo Night Storm"
   },
   "auto_install_extensions": {
