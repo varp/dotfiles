@@ -1,5 +1,9 @@
 # as a reference config https://github.com/folke/dot/blob/master/config/ghostty/config
 
+# main
+## 100MB
+scrollback-limit = 100000000
+
 # fonts
 font-family = JetBrains Mono NL Regular
 font-family-italic = JetBrains Mono NL Italic

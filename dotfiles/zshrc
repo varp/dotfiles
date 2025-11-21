@@ -175,7 +175,7 @@ source <(fzf --zsh)
 
 # first install dependencies from using `make tool-zoxide`
 export _ZO_ECHO=1
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd j zsh)"
 
 echo $($HOME/bin/time_ms) "completions"
 
