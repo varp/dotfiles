@@ -2,35 +2,46 @@
 # prompt
 
 goinside() {
-  if [[ -z "${GOINSIDE_USER}" ]]; then
-    docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
-  else
-    docker-compose exec -u "${GOINSIDE_USER}" -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
-  fi
+    if [[ -z "${GOINSIDE_USER}" ]]; then
+        docker-compose exec -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+    else
+        docker-compose exec -u "${GOINSIDE_USER}" -e SHELL="${GOINSIDE_SHELL:-bash}" "$1" "${GOINSIDE_SHELL:-bash}" -c "stty cols $COLUMNS rows $LINES && ${GOINSIDE_SHELL:-bash}"
+    fi
 }
 
 ## PATH without duplicates
 #################################
 _dedup_path() {
-  PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
-  export PATH=${PATH//[$'\n']/:}
+    PATH=$(echo -e ${PATH//:/'\n'} | awk '{printf("%d|%s\n", NR, $0)}' | sort -t '|' -k 2 -u | sort -t '|' -k 1 -g | cut -f2 -d'|')
+    export PATH=${PATH//[$'\n']/:}
 }
 
 _ppath() {
-  echo "$PATH" | tr ':' '\n'
+    echo "$PATH" | tr ':' '\n'
 }
 
 ## Shell reload
 
 _reload() {
-  if [ "$_SHELL_NAME" = "zsh" ]; then
-    source "$HOME/.zshrc"
-  else
-    source "$HOME/.bashrc"
-  fi
+    if [ "$_SHELL_NAME" = "zsh" ]; then
+        source "$HOME/.zshrc"
+    else
+        source "$HOME/.bashrc"
+    fi
 }
 
 ### Wrapper for neovide
 nv() {
-  neovide "${@}" >/dev/null 2>&1 &!
+    neovide "${@}" >/dev/null 2>&1 &!
+}
+
+## ZLE Widgets
+### Copy current command buffer to clipboard (macOS)
+function copy-buffer-to-clipboard() {
+    if [[ "$_OS_NAME" == "Linux" ]]; then
+        echo -n "$BUFFER" | wl-copy
+    else
+        echo -n "$BUFFER" | pbcopy
+    fi
+    zle -M "Copied to clipboard"
 }

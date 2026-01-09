@@ -12,8 +12,8 @@ echo $($HOME/bin/time_ms) "zinit"
 ##
 ## POSIX complaint shell utility functions and envs
 ##
-source "$HOME/.shell/functions"
 source "$HOME/.shell/env"
+source "$HOME/.shell/functions"
 source "$HOME/.shell/aliases"
 source "$HOME/.shell/xvm"
 
@@ -150,6 +150,10 @@ zinit cdreplay -q
 
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+
+zle -N copy-buffer-to-clipboard # defined in dotfiles/shell/functions
+bindkey '^Xc' copy-buffer-to-clipboard
+
 
 ##
 ## history
