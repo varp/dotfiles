@@ -23,7 +23,9 @@
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
     "editor.find.autoFindInSelection": "multiline",
-    "editor.rulers": [120],
+    "editor.rulers": [
+        120
+    ],
     "editor.smoothScrolling": true,
     "editor.suggest.localityBonus": true,
     "editor.tabCompletion": "on",
@@ -142,7 +144,6 @@
     "workbench.editor.tabActionLocation": "left",
     "workbench.list.defaultFindMode": "filter",
     "workbench.editor.enablePreview": false,
-    "workbench.activityBar.location": "top",
     //
     // files
     //
@@ -240,16 +241,22 @@
     "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
     "terminal.integrated.profiles.osx": {
         "bash": {
-            "args": ["-l"],
+            "args": [
+                "-l"
+            ],
             "icon": "terminal-bash",
             "path": "bash",
         },
         "bash 5": {
-            "args": ["-l"],
+            "args": [
+                "-l"
+            ],
             "path": "/usr/local/bin/bash",
         },
         "fish": {
-            "args": ["-l"],
+            "args": [
+                "-l"
+            ],
             "path": "fish",
         },
         "pwsh": {
@@ -261,7 +268,9 @@
             "path": "tmux",
         },
         "zsh": {
-            "args": ["-l"],
+            "args": [
+                "-l"
+            ],
             "path": "zsh",
         },
     },
@@ -351,7 +360,10 @@
         "type": "gutter",
     },
     "go.coverageOptions": "showBothCoveredAndUncoveredCode",
-    "go.testFlags": ["-cover", "-count=1"],
+    "go.testFlags": [
+        "-cover",
+        "-count=1"
+    ],
     "go.testEnvVars": {
         "GOLANG_PROTOBUF_REGISTRATION_CONFLICT": "warn",
     },
@@ -367,4 +379,5 @@
         "CreatedTime",
     ],
     "bookmarks.saveBookmarksInProject": true,
+    "go.diagnostic.vulncheck": "Imports",
 }
