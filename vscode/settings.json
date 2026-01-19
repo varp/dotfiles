@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-    // 
+    //
     // debug
     //
     "debug.inlineValues": "on",
@@ -9,12 +9,12 @@
     "debug.showSubSessionsInToolBar": true,
     "debug.console.acceptSuggestionOnEnter": "on",
     "debug.toolBarLocation": "docked",
-    // 
+    //
     // editor
     //
     "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
+        "source.organizeImports": "explicit",
     },
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
@@ -23,9 +23,7 @@
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": true,
     "editor.find.autoFindInSelection": "multiline",
-    "editor.rulers": [
-        120
-    ],
+    "editor.rulers": [120],
     "editor.smoothScrolling": true,
     "editor.suggest.localityBonus": true,
     "editor.tabCompletion": "on",
@@ -47,20 +45,20 @@
                 {
                     "scope": "ref.matchtext",
                     "settings": {
-                        "foreground": "#000"
-                    }
-                }
-            ]
+                        "foreground": "#000",
+                    },
+                },
+            ],
         },
         "[*Dark*]": {
             "textMateRules": [
                 {
                     "scope": "ref.matchtext",
                     "settings": {
-                        "foreground": "#fff"
-                    }
-                }
-            ]
+                        "foreground": "#fff",
+                    },
+                },
+            ],
         },
         "textMateRules": [
             {
@@ -74,11 +72,11 @@
                     "storage.type",
                     "string.url",
                     "variable.language.super",
-                    "variable.language.this"
+                    "variable.language.this",
                 ],
                 "settings": {
-                    "fontStyle": "italic"
-                }
+                    "fontStyle": "italic",
+                },
             },
             {
                 "name": "One Dark italic reset",
@@ -91,13 +89,13 @@
                     "storage.type.function.arrow",
                     "storage.type.generic",
                     "storage.type.java",
-                    "storage.type.primitive"
+                    "storage.type.primitive",
                 ],
                 "settings": {
-                    "fontStyle": ""
-                }
-            }
-        ]
+                    "fontStyle": "",
+                },
+            },
+        ],
     },
     "editor.linkedEditing": true,
     "editor.cursorBlinking": "smooth",
@@ -112,7 +110,7 @@
     "editor.suggest.preview": true,
     "editor.accessibilitySupport": "off",
     "editor.quickSuggestions": {
-        "strings": "on"
+        "strings": "on",
     },
     "editor.inlineSuggest.syntaxHighlightingEnabled": true,
     // for catppuccin theme: we try to make semantic highlighting look good
@@ -159,13 +157,13 @@
     "git.confirmSync": false,
     "git.showPushSuccessNotification": true,
     "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
+        "suppressLineUncommittedWarning": true,
     },
     "gitlens.gitCommands.skipConfirmations": [
         "fetch:command",
         "stash-push:command",
         "switch:command",
-        "tag-create:command"
+        "tag-create:command",
     ],
     "gitlens.views.repositories.files.layout": "tree",
     "gitlens.telemetry.enabled": false,
@@ -179,45 +177,45 @@
             "clipboard": true,
             "compare": true,
             "history": false,
-            "remote": false
+            "remote": false,
         },
         "editorGroup": {
             "blame": false,
-            "compare": true
+            "compare": true,
         },
         "editorTab": {
             "clipboard": true,
             "compare": true,
             "history": true,
-            "remote": true
+            "remote": true,
         },
         "explorer": {
             "clipboard": true,
             "compare": true,
             "history": true,
-            "remote": true
+            "remote": true,
         },
         "ghpr": {
-            "worktree": true
+            "worktree": true,
         },
         "scm": {
-            "graph": true
+            "graph": true,
         },
         "scmRepositoryInline": {
-            "graph": true
+            "graph": true,
         },
         "scmRepository": {
             "authors": true,
             "generateCommitMessage": true,
-            "graph": false
+            "graph": false,
         },
         "scmGroupInline": {
-            "stash": true
+            "stash": true,
         },
         "scmGroup": {
             "compare": true,
             "openClose": true,
-            "stash": true
+            "stash": true,
         },
         "scmItemInline": {},
         "scmItem": {
@@ -225,8 +223,8 @@
             "compare": true,
             "history": true,
             "remote": false,
-            "stash": true
-        }
+            "stash": true,
+        },
     },
     "git.enableSmartCommit": true,
     "diffEditor.codeLens": true,
@@ -242,38 +240,30 @@
     "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
     "terminal.integrated.profiles.osx": {
         "bash": {
-            "args": [
-                "-l"
-            ],
+            "args": ["-l"],
             "icon": "terminal-bash",
-            "path": "bash"
+            "path": "bash",
         },
         "bash 5": {
-            "args": [
-                "-l"
-            ],
-            "path": "/usr/local/bin/bash"
+            "args": ["-l"],
+            "path": "/usr/local/bin/bash",
         },
         "fish": {
-            "args": [
-                "-l"
-            ],
-            "path": "fish"
+            "args": ["-l"],
+            "path": "fish",
         },
         "pwsh": {
             "icon": "terminal-powershell",
-            "path": "pwsh"
+            "path": "pwsh",
         },
         "tmux": {
             "icon": "terminal-tmux",
-            "path": "tmux"
+            "path": "tmux",
         },
         "zsh": {
-            "args": [
-                "-l"
-            ],
-            "path": "zsh"
-        }
+            "args": ["-l"],
+            "path": "zsh",
+        },
     },
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
@@ -297,7 +287,7 @@
     "search.decorations.badges": true,
     "search.quickOpen.includeSymbols": true,
     "search.useGlobalIgnoreFiles": true,
-    // 
+    //
     // explorer
     //
     "explorer.fileNesting.enabled": true,
@@ -319,27 +309,27 @@
         "*": true,
         "plaintext": true,
         "markdown": true,
-        "scminput": false
+        "scminput": false,
     },
     "vscode_custom_css.imports": [
-        "file://${userHome}/.config/vscode-styles.css"
+        "file://${userHome}/.config/vscode-styles.css",
     ],
     "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+        "vscode-kubernetes.minikube-path-mac": "/Users/vardan.pogosyan/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
     },
     "github.copilot.editor.enableAutoCompletions": true,
     "yaml.maxItemsComputed": 10000,
     "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
+        "editor.defaultFormatter": "foxundermoon.shell-format",
     },
     "code-runner.fileDirectoryAsCwd": true,
     "docker.containers.description": [
         "ContainerName",
         "Status",
         "Ports",
-        "CreatedTime"
+        "CreatedTime",
     ],
-    // 
+    //
     // Go
     //
     "go.toolsManagement.autoUpdate": true,
@@ -350,7 +340,7 @@
         "ui.diagnostic.analyses": {
             "unusedparams": true,
             "nilness": true,
-            "shadow": true
+            "shadow": true,
         },
     },
     "go.coverOnSave": true,
@@ -361,12 +351,9 @@
         "type": "gutter",
     },
     "go.coverageOptions": "showBothCoveredAndUncoveredCode",
-    "go.testFlags": [
-        "-cover",
-        "-count=1"
-    ],
+    "go.testFlags": ["-cover", "-count=1"],
     "go.testEnvVars": {
-        "GOLANG_PROTOBUF_REGISTRATION_CONFLICT": "warn"
+        "GOLANG_PROTOBUF_REGISTRATION_CONFLICT": "warn",
     },
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
@@ -377,7 +364,7 @@
         "ContainerName",
         "Status",
         "Ports",
-        "CreatedTime"
+        "CreatedTime",
     ],
-    "bookmarks.saveBookmarksInProject": true
+    "bookmarks.saveBookmarksInProject": true,
 }

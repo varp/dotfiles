@@ -10,6 +10,7 @@ return {
       lsp_inlay_hints = {
         enable = true, -- This is the key setting for Neovim > 0.10
       },
+      lsp_cfg = true,
     },
     config = function(lp, opts)
       require("go").setup(opts)

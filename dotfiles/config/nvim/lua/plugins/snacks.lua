@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 -- local defaultLayout = {
 --     preset = "dropdown",
 --     layout = {
