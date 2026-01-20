@@ -4,7 +4,7 @@
 if vim.g.neovide then
   -- Save
   vim.keymap.set("n", "<D-s>", ":w<CR>")
-  vim.keymap.set("i", "<C-s>", "<Cmd>write<CR>", { silent = true })
+  vim.keymap.set("i", "<D-s>", "<Cmd>write<CR>", { silent = true })
 
   -- Copy
   vim.keymap.set("v", "<D-c>", '"+y')
@@ -19,4 +19,9 @@ if vim.g.neovide then
   vim.keymap.set("v", "<D-v>", '"+p') -- Visual mode
   vim.keymap.set("c", "<D-v>", "<C-R>+") -- Command mode
   vim.keymap.set("i", "<D-v>", '<ESC>"+p') -- Insert mode
+
+  -- Edit
+  vim.keymap.set("i", "<D-BS>", "<ESC>0Dgi", { silent = true })
+  vim.keymap.set("i", "<M-Left>", "<C-Left>")
+  vim.keymap.set("i", "<M-Right>", "<C-Right>")
 end
