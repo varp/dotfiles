@@ -5,7 +5,7 @@
 local opt = vim.opt
 opt.spell = true
 opt.spelllang = { "en_us", "ru_ru" }
-opt.guifont = "JetBrainsMono Nerd Font"
+opt.guifont = "JetBrainsMono Nerd Font:h13"
 
 opt.shiftwidth = 4
 opt.tabstop = 4
