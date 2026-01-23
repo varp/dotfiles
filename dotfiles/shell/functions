@@ -31,8 +31,15 @@ _reload() {
 }
 
 ### Wrapper for neovide
+# 1. until https://github.com/neovide/neovide/pull/2872 gets merged we should open neovide by `open -a Neovide` properly having windows counted in MacOS
+# 2. --chdir only works with Nightly build
 nv() {
-    neovide "${@}" >/dev/null 2>&1 &!
+    if [[ "$_OS_NAME" != "Darwin" ]]; then
+        echo "nv: wrapper only works on MacOS"
+        exit 1
+    else
+        open -n -a Neovide --args --no-tabs --frame transparent --chdir "$(pwd)" "${@}"
+    fi
 }
 
 ## ZLE Widgets
