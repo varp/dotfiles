@@ -10,3 +10,5 @@ opt.guifont = "JetBrainsMono Nerd Font:h13"
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.expandtab = true
+
+opt.colorcolumn = "120"
