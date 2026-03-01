@@ -126,7 +126,7 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.iconTheme": "catppuccin-frappe",
     "workbench.list.openMode": "singleClick",
-    "workbench.preferredLightColorTheme": "Tokyo Night Light",
+    "workbench.preferredLightColorTheme": "Tokyo Night Storm",
     "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.renderIndentGuides": "onHover",
@@ -165,8 +165,8 @@
     "gitlens.gitCommands.skipConfirmations": [
         "fetch:command",
         "stash-push:command",
-        "switch:command",
         "tag-create:command",
+        "switch:command"
     ],
     "gitlens.views.repositories.files.layout": "tree",
     "gitlens.telemetry.enabled": false,
@@ -382,7 +382,7 @@
         "ContainerName",
         "Status",
         "Ports",
-        "CreatedTime",
+        "CreatedTime"
     ],
     "bookmarks.saveBookmarksInProject": true,
     "go.diagnostic.vulncheck": "Imports"

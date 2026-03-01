@@ -12,3 +12,6 @@ opt.tabstop = 4
 opt.expandtab = true
 
 opt.colorcolumn = "120"
+
+
+vim.g.omni_sql_no_default_maps = 1
