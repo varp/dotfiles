@@ -12,7 +12,7 @@ font-family-bold-italic = JetBrains Mono NL Bold Italic
 font-size = 14
 
 # theme
-theme = TokyoNight Moon
+theme = Catppuccin Mocha
 
 # keybindings
 ## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
