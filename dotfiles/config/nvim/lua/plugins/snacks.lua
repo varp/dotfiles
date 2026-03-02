@@ -10,8 +10,8 @@ local customVertical = {
     title = "{title} {live} {flags}",
     title_pos = "center",
     { win = "input", height = 1, border = "bottom" },
-    { win = "list", border = "none", height = 10 },
-    { win = "preview", title = "{preview}", border = "top" },
+    { win = "list",    border = "none" },
+    { win = "preview", title = "{preview}", border = "top",   height = 0.8 },
   },
 }
 
