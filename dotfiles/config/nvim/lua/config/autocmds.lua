@@ -22,12 +22,13 @@ local function set_background_from_macos()
   return false
 end
 
--- local theme = require("config.theme")
+local theme = require("config.theme")
+theme.apply()
 
--- vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
---   callback = function()
---     if set_background_from_macos() then
---       theme.apply()
---     end
---   end,
--- })
+vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
+  callback = function()
+    if set_background_from_macos() then
+      theme.apply()
+    end
+  end,
+})

@@ -1,7 +1,7 @@
 local M = {}
 
-M.dark = "tokyonight-moon"
-M.light = "tokyonight-day"
+M.dark = "tokyonight-night"
+M.light = "tokyonight-night"
 
 function M.apply()
   if vim.o.background == "dark" then
