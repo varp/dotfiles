@@ -124,10 +124,10 @@
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-frappe",
+    "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.list.openMode": "singleClick",
-    "workbench.preferredLightColorTheme": "Tokyo Night Storm",
-    "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
+    "workbench.preferredLightColorTheme": "Tokyo Night",
+    "workbench.preferredDarkColorTheme": "Tokyo Night",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.renderIndentGuides": "onHover",
     "workbench.tree.indent": 10,
