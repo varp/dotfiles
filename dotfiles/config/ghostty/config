@@ -12,7 +12,12 @@ font-family-bold-italic = JetBrains Mono NL Bold Italic
 font-size = 14
 
 # theme
-theme = Catppuccin Mocha
+# GitHub Dark Colorblind
+# GitHub Dark Default
+# Nvim Dark
+# Catppuccin Mocha
+# TokyoNight Night
+theme = GitHub Dark Default
 
 # keybindings
 ## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers

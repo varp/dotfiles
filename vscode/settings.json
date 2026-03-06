@@ -49,20 +49,20 @@
                 {
                     "scope": "ref.matchtext",
                     "settings": {
-                        "foreground": "#000",
-                    },
-                },
-            ],
+                        "foreground": "#000"
+                    }
+                }
+            ]
         },
         "[*Dark*]": {
             "textMateRules": [
                 {
                     "scope": "ref.matchtext",
                     "settings": {
-                        "foreground": "#fff",
-                    },
-                },
-            ],
+                        "foreground": "#fff"
+                    }
+                }
+            ]
         },
         "textMateRules": [
             {
@@ -76,11 +76,11 @@
                     "storage.type",
                     "string.url",
                     "variable.language.super",
-                    "variable.language.this",
+                    "variable.language.this"
                 ],
                 "settings": {
-                    "fontStyle": "italic",
-                },
+                    "fontStyle": "italic"
+                }
             },
             {
                 "name": "One Dark italic reset",
@@ -93,13 +93,13 @@
                     "storage.type.function.arrow",
                     "storage.type.generic",
                     "storage.type.java",
-                    "storage.type.primitive",
+                    "storage.type.primitive"
                 ],
                 "settings": {
-                    "fontStyle": "",
-                },
-            },
-        ],
+                    "fontStyle": ""
+                }
+            }
+        ]
     },
     "editor.linkedEditing": true,
     "editor.cursorBlinking": "smooth",
