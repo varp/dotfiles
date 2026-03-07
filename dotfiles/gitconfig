@@ -92,3 +92,6 @@
 [mergetool "diffconflicts"]
     cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
     trustExitCode = true
+
+[push]
+  autoSetupRemote = true
