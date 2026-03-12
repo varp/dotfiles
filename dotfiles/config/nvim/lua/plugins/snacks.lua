@@ -25,6 +25,11 @@ return {
             return customVertical
           end
         end,
+        -- sources = {
+        --   explorer = {
+        --     follow_file = false,
+        --   }
+        -- },
       },
     },
   },
