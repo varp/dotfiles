@@ -8,7 +8,7 @@ local action = wezterm.action
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Frappe'
 config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
-config.font_size = 16
+config.font_size = 13
 
 config.default_cursor_style = 'BlinkingBlock'
 config.hide_tab_bar_if_only_one_tab = true
