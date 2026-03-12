@@ -181,6 +181,11 @@ source <(fzf --zsh)
 export _ZO_ECHO=1
 eval "$(zoxide init --cmd j zsh)"
 
+# first install dependencies by `make tool-lsd` 
+if command -v lsd >/dev/null; then
+    alias ls='lsd'
+fi
+
 echo $($HOME/bin/time_ms) "completions"
 
 ##

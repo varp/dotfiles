@@ -183,6 +183,18 @@ tool-fd: tool-brew
 		echo -e "$(@):\n $$(fd --version)"; \
 	fi
 	
+#: Install fd (see: https://github.com/lsd-rs/lsd) #tools
+tool-lsd: tool-brew
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v fd >/dev/null; then \
+		if [ "$$(uname -s)" == "Darwin" ]; then \
+			brew install lsd; \
+		else \
+			sudo apt install -y lsd; \
+		fi \
+	else \
+		echo -e "$(@):\n $$(lsd --version)"; \
+	fi
+
 #: Compile and install tools/time_ms utility #tools
 tool-time_ms: bin-folder dev-go
 	go build -o $(DST_BIN_DIR)/time_ms tools/time_ms/main.go
