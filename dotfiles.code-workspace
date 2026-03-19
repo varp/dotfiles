@@ -13,6 +13,9 @@
 			"gitignore": "gitignore",
 			"vimrc": "vimrc",
 			"osx/*": "shellscript"
-		}
+		},
+		"cSpell.words": [
+			"neoconf"
+		]
 	}
 }

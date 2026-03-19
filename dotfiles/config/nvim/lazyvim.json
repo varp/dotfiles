@@ -1,5 +1,6 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.refactoring",
     "lazyvim.plugins.extras.lang.docker",
@@ -12,6 +13,8 @@
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.lang.zig",
+    "lazyvim.plugins.extras.lsp.neoconf",
+    "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core"
   ],
   "install_version": 8,
