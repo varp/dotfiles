@@ -25,6 +25,7 @@ return {
 
         opts.router.blame = opts.router.blame or {}
         opts.router.blame[key] = base_url
+            .. "{_A.ORG}/"
             .. "{_A.REPO}/blame/"
             .. "{_A.REV}/"
             .. "{_A.FILE}"
