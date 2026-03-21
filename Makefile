@@ -48,8 +48,7 @@ dotfiles-dotfiles: $(SRC_DOTFILES)
 	@for dotfile in $?; do \
 		src=$(addprefix $(realpath $(SRC_DOTFILES_DIR))/, $$dotfile); \
 		dst=$(addprefix $(DST_DOTFILES_DIR)/.,$$dotfile); \
-		dstDir=$(dir $(addprefix $(DST_DOTFILES_DIR)/.,$@)); \
-		mkdir -p "$$dstDir"; \
+		mkdir -p "$$(dirname $$dst)"; \
 		ln -vsf "$$src" "$$dst"; \
 	done
 
@@ -62,8 +61,7 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 	@for vscodeDotFile in $?; do \
 		src=$(addprefix $(realpath $(SRC_VSCODE_SETTINGS_DIR))/, $$vscodeDotFile); \
 		dst=$(addprefix $(DEST_VSCODE_SETTINGS_DIR)/,$$vscodeDotFile); \
-		dstDir=$(dir $(addprefix $(DEST_VSCODE_SETTINGS_DIR)/.,$@)); \
-		mkdir -p "$$dstDir"; \
+		mkdir -p "$$(dirname $$dst)"; \
 		ln -vsf "$$src" "$$dst"; \
 	done
 
