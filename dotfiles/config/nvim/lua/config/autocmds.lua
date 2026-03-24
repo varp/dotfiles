@@ -32,3 +32,17 @@
 --     end
 --   end,
 -- })
+
+-- vim.api.nvim_create_autocmd("DirChanged", {
+--     once = true,
+--     callback = function()
+--         local env_var = "NEOVIDE_CHDIR" -- имя твоей переменной
+--         local value = vim.env[env_var]
+--
+--         if value and value ~= "" then
+--             vim.cmd("tcd " .. vim.fn.fnameescape(value))
+--             vim.notify("tcd -> " .. value, vim.log.levels.INFO)
+--         end
+--         -- если переменная не установлена — молча игнорируем
+--     end,
+-- })

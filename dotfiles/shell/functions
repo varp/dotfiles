@@ -38,7 +38,16 @@ nv() {
         echo "nv: wrapper only works on MacOS"
         exit 1
     else
-        open -n -a Neovide --args --no-tabs --frame transparent --chdir "$(pwd)" "${@}"
+        local dir=""
+        if [[ ! -d $1 ]]; then 
+            dir=$(dirname "$(realpath "$1")")
+        else
+            dir=$(realpath "$1")
+        fi
+
+        echo "$dir"
+
+        open -n -a Neovide --env NEOVIDE_CHDIR="$dir" --args --no-tabs --reuse-instance --new-window --frame transparent --chdir "$dir" "${1}"
     fi
 }
 
