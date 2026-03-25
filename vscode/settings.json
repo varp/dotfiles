@@ -119,17 +119,19 @@
     "editor.inlineSuggest.syntaxHighlightingEnabled": true,
     // for catppuccin theme: we try to make semantic highlighting look good
     "editor.semanticHighlighting.enabled": false,
+    "editor.definitionLinkOpensInPeek": false,
+    "editor.gotoLocation.multipleImplementations": "peek",
     //
     // workbench
     //
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "catppuccin-macchiato",
+    "workbench.iconTheme": "catppuccin-latte",
     "workbench.list.openMode": "singleClick",
     "workbench.preferredLightColorTheme": "Experimental Dark",
     "workbench.preferredDarkColorTheme": "Experimental Dark",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.tree.renderIndentGuides": "onHover",
+    "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 10,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.limit.value": 16,
