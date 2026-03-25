@@ -142,8 +142,6 @@
     "workbench.editorLargeFileConfirmation": 250,
     "workbench.settings.useSplitJSON": true,
     "workbench.localHistory.maxFileSize": 1024,
-    "workbench.editor.wrapTabs": true,
-    "workbench.editor.titleScrollbarSizing": "large",
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.tabActionLocation": "left",
     "workbench.list.defaultFindMode": "filter",
