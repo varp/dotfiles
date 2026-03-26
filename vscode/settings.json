@@ -128,8 +128,8 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.iconTheme": "catppuccin-latte",
     "workbench.list.openMode": "singleClick",
-    "workbench.preferredLightColorTheme": "Experimental Dark",
-    "workbench.preferredDarkColorTheme": "Experimental Dark",
+    "workbench.preferredLightColorTheme": "VS Code Dark",
+    "workbench.preferredDarkColorTheme": "VS Code Dark",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 10,
@@ -385,5 +385,8 @@
         "CreatedTime"
     ],
     "bookmarks.saveBookmarksInProject": true,
-    "go.diagnostic.vulncheck": "Imports"
+    "go.diagnostic.vulncheck": "Imports",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }
