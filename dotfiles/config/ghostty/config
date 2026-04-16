@@ -9,7 +9,7 @@ font-family = JetBrains Mono NL Regular
 font-family-italic = JetBrains Mono NL Italic
 font-family-bold = JetBrains Mono NL Bold
 font-family-bold-italic = JetBrains Mono NL Bold Italic
-font-size = 14
+font-size = 13
 
 # theme
 # GitHub Dark Colorblind
@@ -22,10 +22,22 @@ theme = GitHub Dark Default
 # keybindings
 ## most of keycodes can be found at https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys after converting to hexadecimal numbers
 
-### \x15 == Ctrl+U
-keybind = cmd+backspace=text:\x15
 # keybind = global:cmd+grave_accent=toggle_quick_terminal
 macos-option-as-alt = left
+
+# Remove default macOS Alt+arrow remaps (they send ESC b/f, breaking Neovim)
+# https://github.com/ghostty-org/ghostty/discussions/9368#discussioncomment-14822302
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
+keybind = cmd+left=unbind
+keybind = cmd+right=unbind
+
+
+# ⌘↑ / ⌘↓  — beginning/end of buffer (less/man/etc)
+# keybind = cmd+up=text:\x1b[1;2A
+# keybind = cmd+down=text:\x1b[1;2B
+
+
 
 # Other
 copy-on-select = clipboard
