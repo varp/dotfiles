@@ -27,10 +27,10 @@ macos-option-as-alt = left
 
 # Remove default macOS Alt+arrow remaps (they send ESC b/f, breaking Neovim)
 # https://github.com/ghostty-org/ghostty/discussions/9368#discussioncomment-14822302
-keybind = alt+arrow_left=unbind
-keybind = alt+arrow_right=unbind
-keybind = cmd+left=unbind
-keybind = cmd+right=unbind
+# keybind = alt+arrow_left=unbind
+# keybind = alt+arrow_right=unbind
+# keybind = cmd+left=unbind
+# keybind = cmd+right=unbind
 
 
 # ⌘↑ / ⌘↓  — beginning/end of buffer (less/man/etc)
@@ -41,4 +41,4 @@ keybind = cmd+right=unbind
 
 # Other
 copy-on-select = clipboard
-shell-integration-features = sudo,cursor
+shell-integration-features = sudo,cursor,ssh-env,ssh-terminfo
