@@ -1,11 +1,12 @@
 return {
     "linrongbin16/gitlinker.nvim",
     cmd = "GitLink",
-    opts = function(_, opts)
-        local neoconf = require("neoconf")
+    config = function(_, opts) -- do by config to get all opts passed from .lazy.lua in a project dir
+        local gitlab_domain = opts.custom_gitlab_domain or nil
+        -- delete custom key after use
+        opts.custom_gitlab_domain = nil
 
-        local gitlab_domain = neoconf.get('gitlinker.gitlab_domain') or nil
-
+        --
         if not gitlab_domain then
             return
         end
@@ -49,6 +50,10 @@ return {
             .. "{_A.FILE}"
             .. "#L{_A.LSTART}"
             .. "{(_A.LEND > _A.LSTART and ('-L' .. _A.LEND) or '')}"
+        ---
+
+        -- setup the plugin
+        require("gitlinker").setup(opts)
     end,
     keys = {
         { "<leader>gy", "<cmd>GitLink<cr>",  mode = { "n", "v" }, desc = "Yank git link" },
