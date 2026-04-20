@@ -7,48 +7,58 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "autosave": "on_focus_change",
-  "disable_ai": true,
-  "telemetry": {
-    "metrics": false,
-    "diagnostics": false
-  },
-  "vim_mode": true,
-  "vim": {
-    "toggle_relative_line_numbers": true,
-    "use_system_clipboard": "on_yank"
-  },
-  "icon_theme": "Colored Zed Icons Theme Dark",
-  "ui_font_family": "JetBrainsMono Nerd Font",
-  "ui_font_size": 14,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 12,
-  "tabs": {
-    "close_position": "left",
-    "file_icons": true
-  },
-  "terminal": {
-    "font_family": "JetBrainsMono Nerd Font",
-    "font_size": 15,
-    "blinking": "on",
-    "cursor_shape": "bar"
-  },
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Tokyo Night Storm"
-  },
-  "auto_install_extensions": {
-    "colored-zed-icons-theme": true,
-    "gosum": true,
-    "html": true,
-    "ini": true,
-    "lua": true,
-    "make": true,
-    "ruby": true,
-    "sql": true,
-    "tokyo-night": true,
-    "toml": true,
-    "zig": true
-  }
+    "base_keymap": "JetBrains",
+    "diff_view_style": "split",
+    "git_panel": {
+        "tree_view": true,
+    },
+    "tab_size": 4,
+    "soft_wrap": "none",
+    "autosave": "on_focus_change",
+    "telemetry": {
+        "metrics": false,
+        "diagnostics": false,
+    },
+    "vim_mode": true,
+    "vim": {
+        "toggle_relative_line_numbers": true,
+        "use_system_clipboard": "on_yank",
+    },
+    "icon_theme": {
+        "mode": "light",
+        "light": "Colored Zed Icons Theme Dark",
+        "dark": "Colored Zed Icons Theme Dark",
+    },
+    "ui_font_family": "JetBrainsMono Nerd Font",
+    "ui_font_size": 14,
+    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "buffer_font_size": 12,
+    "tabs": {
+        "close_position": "left",
+        "file_icons": true,
+    },
+    "terminal": {
+        "font_family": "JetBrainsMono Nerd Font",
+        "font_size": 14,
+        "blinking": "on",
+        "cursor_shape": "bar",
+    },
+    "theme": {
+        "mode": "light",
+        "light": "One Light",
+        "dark": "Carbonfox - opaque",
+    },
+    "auto_install_extensions": {
+        "colored-zed-icons-theme": true,
+        "gosum": true,
+        "html": true,
+        "ini": true,
+        "lua": true,
+        "make": true,
+        "ruby": true,
+        "sql": true,
+        "tokyo-night": true,
+        "toml": true,
+        "zig": true,
+    },
 }
