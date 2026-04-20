@@ -38,11 +38,16 @@ nv() {
         echo "nv: wrapper only works on MacOS"
         exit 1
     else
+        local arg=""
+        if [[ -z $1 ]]; then 
+            arg="$(pwd)"
+        fi
+
         local dir=""
-        if [[ ! -d $1 ]]; then 
-            dir=$(dirname "$(realpath "$1")")
+        if [[ ! -d $arg ]]; then 
+            dir=$(dirname "$(realpath "$arg")")
         else
-            dir=$(realpath "$1")
+            dir=$(realpath "$arg")
         fi
 
         echo "$dir"
