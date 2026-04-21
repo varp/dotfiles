@@ -34,7 +34,7 @@
     "buffer_font_family": "JetBrainsMono Nerd Font",
     "buffer_font_size": 12,
     "tabs": {
-        "close_position": "left",
+        "close_position": "right",
         "file_icons": true,
     },
     "terminal": {
