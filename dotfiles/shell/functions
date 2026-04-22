@@ -52,7 +52,7 @@ nv() {
 
         echo "$dir"
 
-        open -n -a Neovide --env NEOVIDE_CHDIR="$dir" --args --no-tabs --reuse-instance --new-window --frame transparent --chdir "$dir" "${1}"
+        open -n -a Neovide --args --no-tabs --reuse-instance --new-window --frame transparent --chdir "$dir" "${1}"
     fi
 }
 

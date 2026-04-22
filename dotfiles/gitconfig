@@ -9,6 +9,7 @@
 
 [merge]
   branchdesc = true
+  conflictStyle = zdiff3
 
 [apply]
   whitespace = nowarn
@@ -18,6 +19,14 @@
   autocrlf = input
   eol = lf
   excludesfile = ~/.gitignore
+  pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    line-numbers = true
 
 [alias]
   c         = commit
@@ -62,36 +71,13 @@
 
 
 [diff]
-    tool = vimdiff
-    guitool = phpstorm
-
-[difftool "phpstorm"]
-    cmd = phpstorm diff "$LOCAL" "$REMOTE" 
-
-[difftool]
-    prompt = false
-
-[merge]
-    tool = diffconflicts
-    guitool = phpstorm
-    conflictstyle = diff3
-
-[mergetool]
-    prompt = false
-    keepBackup = false
-
-[mergetool "phpstorm"]
-    cmd = phpstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    colorMoved = default
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-
-[mergetool "diffconflicts"]
-    cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-    trustExitCode = true
 
 [push]
   autoSetupRemote = true

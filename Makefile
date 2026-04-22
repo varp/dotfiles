@@ -222,6 +222,14 @@ tool-lazygit: dev-go
 		echo -e "$(@):\n $$(lazygit --version)"; \
 	fi
 
+#: Install delta (see: https://github.com/dandavison/delta) tool #tools
+tool-delta: dev-rust
+	@if  [[ "$(FORCE_INSTALL)" != "false" ]] || ! command -v delta >/dev/null; then \
+		cargo install git-delta; \
+	else \
+		echo -e "$(@):\n $$(delta --version)"; \
+	fi
+
 #: Install bluetooth unpair (btunpair.sh) script #tools
 tool-btunpair: bin-folder tool-blueutil
 	cp -vf tools/btunpair.sh $(DST_BIN_DIR)/btunpair.sh
@@ -248,6 +256,14 @@ dev-node-nvm:
 	else \
 		echo -e "$(@):\n $$(nvm --version)"; \
 	fi	
+
+#: Install Rust (see: https://rust-lang.org) #dev
+dev-rust: 
+	@if ! command -v rustc >/dev/null; then \
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y; \
+	else \
+		echo -e "$(@):\n $$(rustc --version)"; \
+	fi
 
 #: Install Go (see: https://go.dev) #dev
 dev-go: tool-brew

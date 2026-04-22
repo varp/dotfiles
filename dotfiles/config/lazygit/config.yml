@@ -6,3 +6,6 @@ os:
     [ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote-tab {{filename}} && nvim --server "$NVIM" --remote ":{{line}}<CR>")
   openDirInEditor: >-
     [ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})
+git:
+  pagers:
+    - pager: ~/.cargo/bin/delta --line-numbers --paging=never
