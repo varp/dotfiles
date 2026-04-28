@@ -7,9 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "project_panel": {
+        "dock": "left",
+    },
+    "outline_panel": {
+        "dock": "left",
+    },
+    "collaboration_panel": {
+        "dock": "left",
+    },
+    "buffer_line_height": "standard",
     "base_keymap": "JetBrains",
     "diff_view_style": "split",
     "git_panel": {
+        "dock": "left",
         "tree_view": true,
     },
     "tab_size": 4,
@@ -25,14 +36,14 @@
         "use_system_clipboard": "on_yank",
     },
     "icon_theme": {
-        "mode": "light",
+        "mode": "dark",
         "light": "Colored Zed Icons Theme Dark",
         "dark": "Colored Zed Icons Theme Dark",
     },
     "ui_font_family": "JetBrainsMono Nerd Font",
     "ui_font_size": 14,
     "buffer_font_family": "JetBrainsMono Nerd Font",
-    "buffer_font_size": 12,
+    "buffer_font_size": 13,
     "tabs": {
         "close_position": "right",
         "file_icons": true,
@@ -44,7 +55,7 @@
         "cursor_shape": "bar",
     },
     "theme": {
-        "mode": "light",
+        "mode": "dark",
         "light": "One Light",
         "dark": "Carbonfox - opaque",
     },
