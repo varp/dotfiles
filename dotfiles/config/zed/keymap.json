@@ -21,4 +21,21 @@
             "alt-k": "editor::MoveLineUp",
         },
     },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "shift-escape": "workspace::ToggleAllDocks"
+        }
+    },
+    {
+        "context": "Workspace",
+        "unbind": {
+            "alt-cmd-y": "workspace::ToggleAllDocks"
+        }
+    },
+    {
+        "bindings": {
+            "cmd-5": "debug_panel::Toggle"
+        }
+    }
 ]
