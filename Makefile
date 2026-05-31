@@ -89,12 +89,10 @@ editor-micro: tool-brew
 		echo -e "$(@):\n $$(micro --version)"; \
 	fi
 
-#: Install micro plugins: joinLines, detectident, quoter #editors
+#: Install micro plugins: joinLines, detectident, quoter, wc #editors
 editor-micro-plugins: editor-micro
 	@if command -v micro >/dev/null; then \
-		for plugin in "joinLines" "detectindent" "quoter"; do \
-			micro -plugin install $$plugin; \
-		done \
+		micro -plugin install joinLines detectindent quoter wc; \
 	else \
 		echo -e "$(@):\n micro editor is not installed"; \
 	fi
@@ -295,7 +293,8 @@ release-tag:
 
 
 @base: dotfiles-dotfiles bin-folder 
-@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd tool-lazygit
+@base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep \
+ tool-time_ms tool-fd tool-lazygit tool-delta tool-lsd
 
 ifeq ($(shell uname -s), Darwin)
 @dotfiles-group: @base dotfiles-vscode
@@ -314,8 +313,8 @@ editors: editor-micro editor-micro-plugins editor-neovim
 #: Installs all tool-* targets. On MacOS: additionally install tool-brew #group
 tools: @tools-group
 
-#: Installs PHP, Go, NodeJS #group
-devs: dev-php dev-go dev-node
+#: Installs PHP, Go, NodeJS, Rust #group
+devs: dev-php dev-go dev-node dev-rust
 
 #: Installs all groups #group
 all: dotfiles editors tools devs
