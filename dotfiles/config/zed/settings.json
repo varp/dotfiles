@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     "base_keymap": "JetBrains",
-    "diff_view_style": "split",
+    "diff_view_style": "unified",
     "git_panel": {
         "tree_view": true,
     },
@@ -44,9 +44,9 @@
         "cursor_shape": "bar",
     },
     "theme": {
-        "mode": "light",
+        "mode": "system",
         "light": "One Light",
-        "dark": "Carbonfox - opaque",
+        "dark": "Carbonfox - opaque"
     },
     "auto_install_extensions": {
         "colored-zed-icons-theme": true,
