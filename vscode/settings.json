@@ -388,5 +388,7 @@
     "go.diagnostic.vulncheck": "Imports",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
-    }
+    },
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.compact": true
 }

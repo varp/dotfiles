@@ -8,4 +8,14 @@ return {
             end, opts.ensure_installed or {})
         end,
     },
+    {
+        "mfussenegger/nvim-lint",
+        opts = function(_, opts)
+            if opts.linters_by_ft and opts.linters_by_ft.go then
+                opts.linters_by_ft.go = vim.tbl_filter(function(l)
+                    return l ~= "golangcilint"
+                end, opts.linters_by_ft.go)
+            end
+        end,
+    },
 }
