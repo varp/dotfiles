@@ -37,3 +37,8 @@ vim.keymap.set('n', '<D-Left>', '^')
 vim.keymap.set('n', '<D-Right>', '$')
 vim.keymap.set('n', '<D-Up>', 'gg')
 vim.keymap.set('n', '<D-Down>', 'G')
+
+vim.keymap.set('n', '<M-Left>', 'b')
+vim.keymap.set('n', '<M-Right>', 'w')
+vim.keymap.set('n', '<D-Up>', 'gg')
+vim.keymap.set('n', '<D-Down>', 'G')
