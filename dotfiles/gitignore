@@ -141,3 +141,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+**/.claude/settings.local.json
+
+**/.claude/.cc-writes/

@@ -1,0 +1,48 @@
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+            opts.ensure_installed = opts.ensure_installed or {}
+
+            vim.list_extend(opts.ensure_installed, {
+                "bash",
+                "c",
+                "comment",
+                "diff",
+                "dockerfile",
+                "dtd",
+                "go",
+                "gomod",
+                "gosum",
+                "gotmpl",
+                "gowork",
+                "html",
+                "javascript",
+                "jsdoc",
+                "json",
+                "json5",
+                "lua",
+                "luadoc",
+                "luap",
+                "make",
+                "markdown",
+                "markdown_inline",
+                "printf",
+                "python",
+                "query",
+                "regex",
+                "ron",
+                "rust",
+                "sql",
+                "toml",
+                "tsx",
+                "typescript",
+                "vim",
+                "vimdoc",
+                "xml",
+                "yaml",
+                "zig",
+            })
+        end,
+    },
+}
