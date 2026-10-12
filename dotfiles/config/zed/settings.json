@@ -7,24 +7,35 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "languages": {
+        "Markdown": {
+            "show_edit_predictions": false
+        }
+    },
+    "code_lens": "on",
+    "preferred_line_length": 120,
+    "wrap_guides": [
+        120
+    ],
+    "cli_default_open_behavior": "new_window",
     "project_panel": {
-        "dock": "left",
+        "dock": "right",
+    },
+    "git_panel": {
+        "dock": "right",
+        "tree_view": true,
     },
     "outline_panel": {
-        "dock": "left",
+        "dock": "right",
     },
     "collaboration_panel": {
-        "dock": "left",
+        "dock": "right",
     },
     "buffer_line_height": "standard",
     "base_keymap": "JetBrains",
     "diff_view_style": "unified",
-    "git_panel": {
-        "dock": "left",
-        "tree_view": true,
-    },
     "tab_size": 4,
-    "soft_wrap": "none",
+    "soft_wrap": "prefer_line",
     "autosave": "on_focus_change",
     "telemetry": {
         "metrics": false,
@@ -56,8 +67,8 @@
     },
     "theme": {
         "mode": "system",
-        "light": "One Light",
-        "dark": "Carbonfox - opaque"
+        "light": "JetBrains Islands Light",
+        "dark": "JetBrains Islands Dark",
     },
     "auto_install_extensions": {
         "colored-zed-icons-theme": true,
