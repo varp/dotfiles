@@ -37,5 +37,113 @@
         "bindings": {
             "cmd-5": "debug_panel::Toggle"
         }
+    },
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "ctrl-1": "git_panel::ActivateChangesTab"
+        }
+    },
+    {
+        "context": "GitPanel",
+        "unbind": {
+            "cmd-1": "git_panel::ActivateChangesTab"
+        }
+    },
+    {
+        "context": "GitPicker",
+        "bindings": {
+            "ctrl-1": "git_picker::ActivateBranchesTab"
+        }
+    },
+    {
+        "context": "GitPicker",
+        "unbind": {
+            "cmd-1": "git_picker::ActivateBranchesTab"
+        }
+    },
+    {
+        "context": "RunModal",
+        "bindings": {
+            "ctrl-1": "new_process_modal::ActivateTaskTab"
+        }
+    },
+    {
+        "context": "RunModal",
+        "unbind": {
+            "cmd-1": "new_process_modal::ActivateTaskTab"
+        }
+    },
+    {
+        "context": "Welcome",
+        "bindings": {
+            "ctrl-1": [
+                "welcome::OpenRecentProject",
+                0
+            ]
+        }
+    },
+    {
+        "context": "Welcome",
+        "unbind": {
+            "cmd-1": [
+                "welcome::OpenRecentProject",
+                0
+            ]
+        }
+    },
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "ctrl-2": "git_panel::ActivateHistoryTab"
+        }
+    },
+    {
+        "context": "GitPanel",
+        "unbind": {
+            "cmd-2": "git_panel::ActivateHistoryTab"
+        }
+    },
+    {
+        "context": "GitPicker",
+        "bindings": {
+            "ctrl-2": "git_picker::ActivateStashTab"
+        }
+    },
+    {
+        "context": "GitPicker",
+        "unbind": {
+            "cmd-2": "git_picker::ActivateStashTab"
+        }
+    },
+    {
+        "context": "RunModal",
+        "bindings": {
+            "ctrl-2": "new_process_modal::ActivateDebugTab"
+        }
+    },
+    {
+        "context": "RunModal",
+        "unbind": {
+            "cmd-2": "new_process_modal::ActivateDebugTab"
+        }
+    },
+    {
+        "context": "Welcome",
+        "bindings": {
+            "ctrl-2": [
+                "welcome::OpenRecentProject",
+                1
+            ]
+        }
+    },
+    {
+        "context": "Welcome",
+        "unbind": {
+            "cmd-2": [
+                "welcome::OpenRecentProject",
+                1
+            ]
+        }
     }
 ]
