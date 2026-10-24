@@ -42,7 +42,7 @@
 		<key>batteryLimitPercent</key>
 		<integer>10</integer>
 		<key>bluetoothSleepEnabled</key>
-		<true/>
+		<false/>
 		<key>bluetoothSleepRestoreOnWake</key>
 		<true/>
 		<key>brightnessControlEnabled</key>
@@ -567,6 +567,8 @@
 		<false/>
 		<key>menuBarPeripheralBattery</key>
 		<false/>
+		<key>menuBarPower</key>
+		<false/>
 		<key>menuBarPreset</key>
 		<string>dense</string>
 		<key>menuBarSeparateMetrics</key>
@@ -602,9 +604,9 @@
 		<key>mixerHeadphonesDisconnectVolumePercent</key>
 		<integer>25</integer>
 		<key>mixerHideInactiveApps</key>
-		<false/>
+		<true/>
 		<key>mixerLowerVolumeOnHeadphonesDisconnect</key>
-		<false/>
+		<true/>
 		<key>mixerShowFinder</key>
 		<true/>
 		<key>monitorAlertBattery</key>
@@ -854,7 +856,7 @@
 		<key>notchHideInFullscreen</key>
 		<false/>
 		<key>notchHideMenuBarGap</key>
-		<true/>
+		<false/>
 		<key>notchHideTimerCountdown</key>
 		<false/>
 		<key>notchHideUntilHover</key>
@@ -1009,7 +1011,7 @@
 		<key>panelControlDockPreview</key>
 		<true/>
 		<key>panelControlFilesExpanded</key>
-		<false/>
+		<true/>
 		<key>panelControlFocusFollowsMouse</key>
 		<true/>
 		<key>panelControlInputExpanded</key>
@@ -1047,7 +1049,7 @@
 		<key>panelControlWindowMaximize</key>
 		<true/>
 		<key>panelControlWindowsExpanded</key>
-		<false/>
+		<true/>
 		<key>panelNavigationEnabled</key>
 		<true/>
 		<key>panelSectionOrder</key>
@@ -1298,7 +1300,7 @@
 		<key>screenshotLastTextSize</key>
 		<integer>19</integer>
 		<key>screenshotLastTool</key>
-		<string>rect</string>
+		<string>arrow</string>
 		<key>screenshotLoupeDefaultZoom</key>
 		<real>1</real>
 		<key>screenshotLoupeRememberZoom</key>
@@ -1332,7 +1334,7 @@
 		<key>screenshotSpotlightDim</key>
 		<real>0.5</real>
 		<key>screenshotToolOrder</key>
-		<string>select,arrow,pixelate,crop,text,sticker,rect,highlight,freehand,line,ellipse,counter,redact</string>
+		<string>select,arrow,pixelate,crop,text,sticker,rect,highlight,freehand,line,ellipse,counter,redact,spotlight,expandCanvas</string>
 		<key>screenshotToolShortcuts</key>
 		<string></string>
 		<key>screenshotToolShortcutsEnabled</key>
@@ -1346,7 +1348,7 @@
 		<key>screenshotWatermarkPresets</key>
 		<string>[]</string>
 		<key>screenshotWatermarkStyle</key>
-		<string>{"rotation":0,"kind":"none","size":0.3,"opacity":0.4,"text":"","anchor":"bottomTrailing","color":"white"}</string>
+		<string>{"color":"white","opacity":0.4,"kind":"none","text":"","size":0.3,"rotation":0,"anchor":"bottomTrailing"}</string>
 		<key>scrollHorizontalEnabled</key>
 		<false/>
 		<key>scrollHorizontalModifier</key>
