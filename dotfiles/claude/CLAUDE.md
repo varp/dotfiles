@@ -4,6 +4,16 @@
 
 Any presentation or slide deck: load the `presentations` skill first and follow it.
 
+## Roles
+
+Delegate each stage to its role in `~/.claude/agents/`; the main thread talks with the user, orchestrates and merges results.
+
+- Implementing a plan task: `developer`. Reviewing each finished task: `reviewer`, a separate run from the developer's.
+- Reviewing a spec, a plan, or a whole branch before merge: `final-reviewer`.
+- Hard questions and research before a spec: `researcher`. Plain lookups, measurements, log reading: `data-gatherer`.
+- Skills that spawn subagents (superpowers `subagent-driven-development`, `dispatching-parallel-agents`, `requesting-code-review` and the like) use these roles as `subagent_type` instead of a generic agent.
+- Do the work in the main thread only when it is a handful of tool calls.
+
 ## Specs and plans
 
 - Specs (`docs/superpowers/specs/`) are written and revised only by the `spec-writer` subagent (Fable 5.2, effort high). The hook `~/.claude/hooks/spec-guard.py` blocks every other writer and any Agent call that overrides spec-writer's model or effort.
