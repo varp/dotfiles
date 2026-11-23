@@ -13,6 +13,7 @@ To see list of available targets with descriptions run `make`. Targets are organ
 dotfiles-dotfiles        Install dotfiles                                                                          dotfiles
 dotfiles-vscode          Install VS Code settings                                                                  dotfiles
 dotfiles-claude          Merge Claude Code hooks into ~/.claude/settings.json (needs jq)                           dotfiles
+test-claude-guard        Run the scenario tests of the Claude spec/plan guard hook                                 dotfiles
 editor-neovim            Install Neovim (see: https://github.com/neovim/neovim)                                    editors
 editor-micro             Install micro (see: https://micro-editor.github.io/)                                      editors
 editor-micro-plugins     Install micro plugins: joinLines, detectident, quoter                                     editors
@@ -61,7 +62,9 @@ keeps every other setting.
 
 The hook stops Claude from editing `spec-guard.py`, `spec-writer.md` and
 `planner.md`, through `~/.claude` and in this repository alike. Change those
-files by hand.
+files by hand, then run `make test-claude-guard`: scenario tests in
+`claude/tests/` run the hook against a temporary home and never touch the
+real `~/.claude`.
 
 # Links
 - [A lot of tweaks for MacOS GUI and many more!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)

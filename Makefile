@@ -19,7 +19,7 @@ FORCE_INSTALL?=false
 .PHONY: help bin-folder \
 $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
-dotfiles-claude \
+dotfiles-claude test-claude-guard \
 dev-node dev-go dev-php \
 editor-micro editor-micro-plugins editor-neovim \
 tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd tool-lazygit \
@@ -71,6 +71,10 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 #: Merge Claude Code hooks into ~/.claude/settings.json (needs jq) #dotfiles
 dotfiles-claude: dotfiles-dotfiles
 	@DST_BASE_DIR="$(DST_BASE_DIR)" ./claude/install-settings.sh
+
+#: Run the scenario tests of the Claude spec/plan guard hook #dotfiles
+test-claude-guard:
+	@python3 claude/tests/test_spec_guard.py
 
 #: Install Neovim (see: https://github.com/neovim/neovim) #editors
 editor-neovim: tool-brew tool-fzf tool-ripgrep tool-fd
