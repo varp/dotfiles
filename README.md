@@ -46,6 +46,8 @@ Global Claude Code configuration, shared by all projects:
 - `dotfiles/claude/agents/` — subagent roles, each with its own model and effort:
   `spec-writer`, `planner`, `developer`, `reviewer`, `final-reviewer`,
   `researcher`, `data-gatherer`.
+- `dotfiles/claude/skills/` — skills loaded only when a task needs them, so
+  their rules do not take context in every session: `presentations`.
 - `dotfiles/claude/hooks/spec-guard.py` — a `PreToolUse` hook: specs
   (`docs/superpowers/specs/`) are written only by `spec-writer` (Fable 5.2,
   effort high), plans (`docs/superpowers/plans/`) only by `planner`
