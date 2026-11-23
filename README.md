@@ -12,6 +12,7 @@ To see list of available targets with descriptions run `make`. Targets are organ
 ```
 dotfiles-dotfiles        Install dotfiles                                                                          dotfiles
 dotfiles-vscode          Install VS Code settings                                                                  dotfiles
+dotfiles-claude          Merge Claude Code hooks into ~/.claude/settings.json (needs jq)                           dotfiles
 editor-neovim            Install Neovim (see: https://github.com/neovim/neovim)                                    editors
 editor-micro             Install micro (see: https://micro-editor.github.io/)                                      editors
 editor-micro-plugins     Install micro plugins: joinLines, detectident, quoter                                     editors
@@ -27,7 +28,7 @@ dev-node                 Install NodeJs (see: https://nodejs.org)               
 dev-node-nvm             Install nvm (NodeJs version manager)
 dev-go                   Install Go (see: https://go.dev)                                                          dev
 dev-php                  Install PHP (see: https://php.net)                                                        dev
-dotfiles                 Installs dotfiles-dotfiles, bin-folder. On MacOS: additionally installs dotfiles-vscode   group
+dotfiles                 Installs dotfiles-dotfiles, dotfiles-claude, bin-folder. On MacOS: additionally installs dotfiles-vscode   group
 editors                  Installs all editor-* targets                                                             group
 tools                    Installs all tool-* targets. On MacOS: additionally install tool-brew                     group
 devs                     Installs PHP, Go, NodeJS                                                                  group
@@ -36,6 +37,29 @@ clean-dotfiles-dotfiles  Uninstalls dotfiles
 clean-dotfiles-vscode    Uninstalls VS Code settings
 clean                    Uninstalls dotfiles and VS Code settings
 ```
+
+## Claude Code
+
+Global Claude Code configuration, shared by all projects:
+
+- `dotfiles/claude/CLAUDE.md` — personal instructions.
+- `dotfiles/claude/agents/` — subagent roles, each with its own model and effort:
+  `spec-writer`, `planner`, `developer`, `reviewer`, `final-reviewer`,
+  `researcher`, `data-gatherer`.
+- `dotfiles/claude/hooks/spec-guard.py` — a `PreToolUse` hook: specs
+  (`docs/superpowers/specs/`) are written only by `spec-writer` (Fable 5.2,
+  effort high), plans (`docs/superpowers/plans/`) only by `planner`
+  (Opus 5.5, effort high).
+
+`make dotfiles-dotfiles` symlinks these into `~/.claude/` like every other
+dotfile. `~/.claude/settings.json` is not symlinked, because Claude Code and
+plugins rewrite it. `make dotfiles-claude` merges the hook from
+`claude/settings.hooks.json` into it instead. The merge is idempotent and
+keeps every other setting.
+
+The hook stops Claude from editing `spec-guard.py`, `spec-writer.md` and
+`planner.md`, through `~/.claude` and in this repository alike. Change those
+files by hand.
 
 # Links
 - [A lot of tweaks for MacOS GUI and many more!](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)

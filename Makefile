@@ -19,6 +19,7 @@ FORCE_INSTALL?=false
 .PHONY: help bin-folder \
 $(SRC_DOTFILES) dotfiles-dotfiles \
 $(SRC_VSCODE_SETTINGS) dotfiles-vscode \
+dotfiles-claude \
 dev-node dev-go dev-php \
 editor-micro editor-micro-plugins editor-neovim \
 tool-brew tool-powerline-go tool-bat tool-zoxide tool-fzf tool-ripgrep tool-time_ms tool-fd tool-lazygit \
@@ -64,6 +65,12 @@ dotfiles-vscode: $(SRC_VSCODE_SETTINGS)
 		mkdir -p "$$(dirname $$dst)"; \
 		ln -vsf "$$src" "$$dst"; \
 	done
+
+# dotfiles-dotfiles links dotfiles/claude/* into ~/.claude; this target merges
+# the hook fragment, since settings.json itself cannot be a symlink.
+#: Merge Claude Code hooks into ~/.claude/settings.json (needs jq) #dotfiles
+dotfiles-claude: dotfiles-dotfiles
+	@DST_BASE_DIR="$(DST_BASE_DIR)" ./claude/install-settings.sh
 
 #: Install Neovim (see: https://github.com/neovim/neovim) #editors
 editor-neovim: tool-brew tool-fzf tool-ripgrep tool-fd
@@ -292,7 +299,7 @@ release-tag:
 	git tag -f v$$(date +%Y%m%d); git push -u origin HEAD; git push --tags --force origin HEAD
 
 
-@base: dotfiles-dotfiles bin-folder 
+@base: dotfiles-dotfiles dotfiles-claude bin-folder
 @base-tools: tool-powerline-go tool-oh-my-posh tool-bat tool-zoxide tool-fzf tool-ripgrep \
  tool-time_ms tool-fd tool-lazygit tool-delta tool-lsd
 
@@ -304,7 +311,7 @@ else
 @tools-group: @base-tools
 endif
 
-#: Installs dotfiles-dotfiles, bin-folder. On MacOS: additionally installs dotfiles-vscode #group
+#: Installs dotfiles-dotfiles, dotfiles-claude, bin-folder. On MacOS: additionally installs dotfiles-vscode #group
 dotfiles: @dotfiles-group
 
 #: Installs all editor-* targets #group
